@@ -5,7 +5,7 @@ import { Points, PointMaterial } from "@react-three/drei";
 import { useState, useRef, Suspense } from "react";
 
 function Starfield(props: any) {
-  const ref = useRef<any>();
+  const ref = useRef<any>(null);
   
   // Generate random points in a sphere
   const [sphere] = useState(() => {

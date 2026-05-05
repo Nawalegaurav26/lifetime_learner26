@@ -12,9 +12,31 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ");
 
+  const description = `Detailed technical insight and architectural vision for ${title.toLowerCase()}.`;
+
   return {
     title: `${title} | Gaurav Raju Nawale`,
-    description: `Detailed technical insight and architectural vision for ${title.toLowerCase()}.`,
+    description: description,
+    openGraph: {
+      title: `${title} | Gaurav Raju Nawale`,
+      description: description,
+      url: `https://gauravnawale.com/posts/${params.slug}`,
+      type: "article",
+      images: [
+        {
+          url: "/portfolio_v3.png",
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${title} | Gaurav Raju Nawale`,
+      description: description,
+      images: ["/portfolio_v3.png"],
+    },
   };
 }
 

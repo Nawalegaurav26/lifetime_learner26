@@ -3,7 +3,27 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "About | Gaurav Raju Nawale",
-  description: "Learn more about Gaurav Raju Nawale, his background in Computer Engineering, and his work as the founder of CertiOwn.",
+  description: "Dossier on Gaurav Raju Nawale: System Architect, SaaS Founder, and explorer of intelligent automation.",
+  openGraph: {
+    title: "About | Gaurav Raju Nawale",
+    description: "Deep dive into the background, philosophy, and technical focus of Gaurav Raju Nawale.",
+    url: "https://gauravnawale.com/about",
+    type: "website",
+    images: [
+      {
+        url: "/portfolio_v3.png",
+        width: 1200,
+        height: 630,
+        alt: "About Gaurav Raju Nawale",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About | Gaurav Raju Nawale",
+    description: "System Architect & SaaS Founder. Building the future of automated intelligence.",
+    images: ["/portfolio_v3.png"],
+  },
 };
 
 export default function AboutPage() {

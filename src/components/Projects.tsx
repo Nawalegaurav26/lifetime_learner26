@@ -64,7 +64,7 @@ const projects = [
     ],
     status: "Private",
     accessNote: "Private project — demo and preview available on request.",
-    image: null, // Removed AI images per user request
+    image: "/certiown.png",
     links: [
       { label: "View Preview", href: "#", icon: <Layout size={14} /> },
       { label: "Watch Demo", href: "#", icon: <Play size={14} /> },
@@ -85,7 +85,7 @@ const projects = [
     ],
     status: "Private",
     accessNote: "Private project — demo available.",
-    image: null,
+    image: "/mailing.png",
     links: [
       { label: "Watch Demo", href: "#", icon: <Play size={14} /> },
       { label: "View Preview", href: "#", icon: <Layout size={14} />, primary: true }
@@ -105,7 +105,7 @@ const projects = [
     ],
     status: "Public",
     liveUrl: "https://sdetm-icem.vercel.app/",
-    image: null,
+    image: "/conference.png",
     links: [
       { label: "Visit Website", href: "https://sdetm-icem.vercel.app/", icon: <Globe size={14} />, primary: true },
       { label: "Walkthrough", href: "#", icon: <Play size={14} /> }
@@ -124,7 +124,7 @@ const projects = [
     ],
     status: "Public",
     liveUrl: "https://uba-icem.vercel.app/",
-    image: null,
+    image: "/uba.png",
     links: [
       { label: "Visit Website", href: "https://uba-icem.vercel.app/", icon: <Globe size={14} />, primary: true },
       { label: "Walkthrough", href: "#", icon: <Play size={14} /> }
@@ -144,7 +144,7 @@ const projects = [
     status: "Public",
     liveUrl: "https://lifetime-learner26.netlify.app/",
     githubUrl: "https://github.com/Nawalegaurav26/lifetime_learner26",
-    image: null,
+    image: "/portfolio_v3.png",
     links: [
       { label: "View Website", href: "https://lifetime-learner26.netlify.app/", icon: <Globe size={14} />, primary: true },
       { label: "View Code", href: "https://github.com/Nawalegaurav26/lifetime_learner26", icon: <Github size={14} /> }

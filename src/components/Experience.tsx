@@ -1,106 +1,199 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Briefcase, GraduationCap, Trophy } from "lucide-react";
+import { 
+  Briefcase, 
+  GraduationCap, 
+  Trophy, 
+  ChevronRight,
+  Target,
+  Zap,
+  Activity,
+  Code
+} from "lucide-react";
+import Link from "next/link";
 
 const experience = [
   {
-    title: "Founder",
+    title: "Founder & Lead Architect",
     company: "CertiOwn SaaS",
-    period: "2024 - Present",
-    desc: "Architecting a secure certificate issuance platform, leading full-stack development and strategic growth.",
-    icon: <Briefcase size={20} />,
+    period: "2024 - PRESENT",
+    desc: "Architecting a secure certificate issuance platform, leading full-stack development and strategic growth. Focused on scalable automation and institutional data security.",
+    tech: ["Next.js", "Supabase", "Flask"],
+    icon: <Briefcase size={18} />,
   },
   {
-    title: "Computer Engineering",
+    title: "Computer Science Engineering",
     company: "Engineering University",
     period: "2022 - 2026",
-    desc: "Deep-diving into systems programming, AI research, and scalable backend architectures.",
-    icon: <GraduationCap size={20} />,
+    desc: "Deep-diving into systems programming, AI research, and scalable backend architectures. Active in technical leadership and academic initiatives.",
+    tech: ["Systems", "AI", "Leadership"],
+    icon: <GraduationCap size={18} />,
   },
 ];
 
 const achievements = [
   {
     title: "CertiOwn Launch",
-    desc: "Successfully launched the SaaS MVP and secured first 100+ users.",
+    desc: "Successfully launched the SaaS MVP and secured first 100+ active institutional users.",
+    metric: "100+ Users",
+    icon: <Target size={18} />
   },
   {
-    title: "Hackathon Finalist",
-    desc: "Ranked Top 5 in a National AI Hackathon for a predictive maintenance engine.",
+    title: "National AI Hackathon",
+    desc: "Ranked Top 5 for building an LLM-powered predictive maintenance engine for industrial systems.",
+    metric: "Finalist",
+    icon: <Zap size={18} />
   },
+  {
+    title: "Full-Stack Specialist",
+    desc: "Certified proficiency in modern web ecosystems and automated workflow design.",
+    metric: "Certified",
+    icon: <Code size={18} />
+  }
 ];
 
 export default function Experience() {
   return (
-    <section id="experience" className="section-gap relative">
+    <section id="experience" className="py-24 relative overflow-hidden bg-slate-950/20">
       <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 max-w-6xl mx-auto">
-          {/* Experience Timeline */}
-          <div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
+          
+          {/* Left Column: Timeline */}
+          <div className="lg:col-span-7">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="flex items-center gap-3 text-[10px] font-black text-primary uppercase tracking-[0.3em] mb-4 font-mono"
+            >
+              <Activity size={14} />
+              Professional Log
+            </motion.div>
+            
             <h2 className="text-3xl md:text-5xl font-bold text-slate-100 tracking-tight mb-16 font-mono uppercase">
-              The <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent filter drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]">Journey</span>
+              The <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Journey.</span>
             </h2>
             
-            <div className="relative border-l-[1px] border-slate-700 ml-4 space-y-16">
+            <div className="relative space-y-12 before:absolute before:inset-y-0 before:left-[18px] before:w-[1px] before:bg-slate-800">
               {experience.map((item, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="relative pl-12 group"
+                  className="relative pl-16 group"
                 >
-                  {/* Timeline Dot */}
-                  <div className="absolute left-0 top-0 -translate-x-1/2 w-3 h-3 bg-slate-900 border-2 border-primary rounded-full group-hover:scale-150 group-hover:bg-primary transition-all duration-300 shadow-[0_0_15px_rgba(79,70,229,0.5)]" />
-                  
-                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
-                    <div>
-                      <span className="text-[10px] font-black text-primary uppercase tracking-[0.2em] bg-primary/10 border border-primary/20 px-3 py-1 rounded-sm">
-                        {item.period}
-                      </span>
-                      <h3 className="mt-4 text-xl font-bold text-slate-100 group-hover:text-primary-light transition-colors font-mono">
-                        {item.title}
-                      </h3>
-                      <p className="text-sm font-bold text-slate-400 font-mono tracking-widest uppercase mt-1">{item.company}</p>
-                    </div>
+                  {/* Icon Node */}
+                  <div className="absolute left-0 top-0 w-10 h-10 rounded-md bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-500 group-hover:border-primary group-hover:text-primary transition-all duration-300 z-10 group-hover:shadow-[0_0_15px_rgba(59,130,246,0.3)]">
+                    {item.icon}
                   </div>
                   
-                  <p className="mt-4 text-sm text-slate-400 max-w-2xl leading-relaxed font-mono">
-                    {item.desc}
-                  </p>
+                  <div className="flex flex-col gap-2">
+                    <div className="flex items-center gap-4">
+                      <span className="text-[10px] font-black text-primary/60 font-mono tracking-widest uppercase">
+                        {item.period}
+                      </span>
+                      <div className="h-[1px] flex-grow bg-slate-800 group-hover:bg-primary/20 transition-colors" />
+                    </div>
+                    
+                    <h3 className="text-2xl font-bold text-slate-100 group-hover:text-white transition-colors font-mono">
+                      {item.title}
+                    </h3>
+                    <p className="text-[10px] font-black text-slate-500 font-mono tracking-widest uppercase">
+                      {item.company}
+                    </p>
+                    
+                    <p className="mt-4 text-sm text-slate-400 leading-relaxed font-mono max-w-xl">
+                      {item.desc}
+                    </p>
+
+                    <div className="mt-6 flex flex-wrap gap-2">
+                      {item.tech.map(t => (
+                        <span key={t} className="text-[8px] font-black text-slate-600 border border-slate-800 px-2 py-1 rounded-sm uppercase tracking-widest font-mono group-hover:border-primary/20 group-hover:text-primary/60 transition-colors">
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 </motion.div>
               ))}
             </div>
           </div>
 
-          {/* Achievements */}
-          <div>
+          {/* Right Column: Milestones */}
+          <div className="lg:col-span-5">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="flex items-center gap-3 text-[10px] font-black text-accent uppercase tracking-[0.3em] mb-4 font-mono"
+            >
+              <Trophy size={14} />
+              Strategic Wins
+            </motion.div>
+            
             <h2 className="text-3xl md:text-5xl font-bold text-slate-100 tracking-tight mb-16 font-mono uppercase">
-              Recent <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent filter drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]">Milestones</span>
+              Recent <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-secondary">Milestones.</span>
             </h2>
             
-            <div className="space-y-8">
+            <div className="space-y-6">
               {achievements.map((item, idx) => (
                 <motion.div
                   key={item.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1 }}
-                  className="p-8 glass rounded-md border border-primary/10 shadow-[0_0_20px_rgba(59,130,246,0.05)] flex gap-6 group hover:border-primary/40 hover:shadow-[0_0_20px_rgba(59,130,246,0.2)] transition-all"
+                  className="p-6 glass border border-white/5 group hover:border-accent/40 transition-all duration-500 rounded-lg relative overflow-hidden"
                 >
-                  <div className="w-12 h-12 bg-secondary/10 border border-secondary/20 rounded-sm flex items-center justify-center text-secondary shrink-0 group-hover:bg-secondary/20 transition-colors">
-                    <Trophy size={20} />
+                  <div className="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-30 group-hover:scale-110 transition-all text-accent">
+                    {item.icon}
                   </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-slate-100 font-mono">{item.title}</h3>
-                    <p className="mt-2 text-sm text-slate-400 font-mono leading-relaxed">{item.desc}</p>
+                  
+                  <div className="flex flex-col gap-4">
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 rounded bg-accent/10 border border-accent/20 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-slate-900 transition-all duration-300">
+                        {item.icon}
+                      </div>
+                      <span className="text-[10px] font-black text-accent uppercase tracking-[0.2em] font-mono">
+                        {item.metric}
+                      </span>
+                    </div>
+                    
+                    <div>
+                      <h3 className="text-lg font-bold text-slate-100 font-mono group-hover:text-accent transition-colors">
+                        {item.title}
+                      </h3>
+                      <p className="mt-2 text-xs text-slate-400 font-mono leading-relaxed">
+                        {item.desc}
+                      </p>
+                    </div>
                   </div>
                 </motion.div>
               ))}
             </div>
+            
+            {/* CTA for full CV/Resume */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5 }}
+              className="mt-12 p-8 border border-dashed border-slate-800 rounded-lg text-center group hover:border-primary/40 transition-colors"
+            >
+              <p className="text-[10px] text-slate-500 font-mono uppercase tracking-[0.2em] mb-4">
+                In-depth technical background available
+              </p>
+              <Link 
+                href="/Mr_Gaurav_Raju_Nawale.pdf"
+                target="_blank"
+                className="text-[10px] font-black text-primary uppercase tracking-[0.3em] font-mono flex items-center gap-2 mx-auto hover:text-primary-light transition-colors"
+              >
+                DOWNLOAD FULL DOSSIER <ChevronRight size={14} />
+              </Link>
+            </motion.div>
           </div>
         </div>
       </div>

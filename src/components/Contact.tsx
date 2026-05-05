@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Send, Mail } from "lucide-react";
-import { GithubIcon as Github, LinkedinIcon as Linkedin, WhatsAppIcon as WhatsApp } from "./Icons";
+import { GithubIcon as Github, LinkedinIcon as Linkedin, WhatsAppIcon as WhatsApp, InstagramIcon } from "./Icons";
 import Link from "next/link";
 
 export default function Contact() {
@@ -17,7 +17,7 @@ export default function Contact() {
                 the <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent filter drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]">Uplink.</span>
               </h2>
               <p className="mt-8 text-sm md:text-base text-slate-400 font-mono leading-relaxed max-w-md tracking-widest uppercase">
-                I'm always open to discussing system architecture, AI research, or potential collaborations.
+                I&apos;m always open to discussing system architecture, AI research, or potential collaborations.
               </p>
 
               <div className="mt-16 space-y-10">
@@ -89,6 +89,18 @@ export default function Contact() {
                     <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest font-mono">WhatsApp</p>
                     <Link href="https://wa.me/919860543634?text=Hello%20Gaurav!" className="text-lg font-bold text-slate-100 hover:text-primary-light transition-colors font-mono">
                       +91 98605 43634
+                    </Link>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-6">
+                  <div className="w-12 h-12 glass border border-secondary/20 rounded-sm flex items-center justify-center text-secondary shadow-[0_0_15px_rgba(244,63,94,0.2)]">
+                    <InstagramIcon size={20} />
+                  </div>
+                  <div>
+                    <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest font-mono">Instagram</p>
+                    <Link href="https://www.instagram.com/lifetime_learner26/" className="text-lg font-bold text-slate-100 hover:text-secondary transition-colors font-mono">
+                      @lifetime_learner26
                     </Link>
                   </div>
                 </div>

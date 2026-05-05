@@ -49,7 +49,7 @@ export default function Preloader() {
           className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-slate-900 overflow-hidden"
         >
           {/* Subtle grid background for preloader */}
-          <div className="absolute inset-0 opacity-20" style={{ backgroundImage: "radial-gradient(#4f46e5 1px, transparent 1px)", backgroundSize: "30px 30px" }} />
+          <div className="absolute inset-0 opacity-20 preloader-grid" />
           
           <div className="relative z-10 w-full max-w-lg px-8 flex flex-col items-start font-mono">
             <div className="mb-8 w-full">
@@ -65,8 +65,7 @@ export default function Preloader() {
                   <motion.div
                     initial={{ width: "0%" }}
                     animate={{ width: `${progress}%` }}
-                    className="absolute top-0 left-0 h-full bg-primary"
-                    style={{ boxShadow: "0 0 10px #4f46e5" }}
+                    className="absolute top-0 left-0 h-full bg-primary preloader-progress-glow"
                   />
                </div>
             </div>

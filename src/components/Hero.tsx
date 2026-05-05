@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { GithubIcon as Github, LinkedinIcon as Linkedin, MailIcon as Mail, WhatsAppIcon as WhatsApp } from "./Icons";
+import { GithubIcon as Github, LinkedinIcon as Linkedin, MailIcon as Mail, WhatsAppIcon as WhatsApp, InstagramIcon } from "./Icons";
 import Link from "next/link";
 
 export default function Hero() {
@@ -54,7 +54,7 @@ export default function Hero() {
             transition={{ delay: 0.6, duration: 1 }}
             className="text-lg md:text-xl text-slate-400 mb-2 max-w-2xl font-light font-mono uppercase tracking-widest"
           >
-            "Building Systems. Exploring Intelligence."
+            &quot;Building Systems. Exploring Intelligence.&quot;
           </motion.p>
           
           <motion.p 
@@ -79,10 +79,11 @@ export default function Hero() {
               Access Modules <ArrowRight size={16} />
             </Link>
             <Link
-              href="/contact"
+              href="/Mr_Gaurav_Raju_Nawale.pdf"
+              target="_blank"
               className="w-full sm:w-auto px-8 py-4 glass text-foreground border border-slate-700 hover:border-primary/50 font-mono uppercase tracking-widest text-sm font-bold flex justify-center items-center rounded-md transition-all hover:bg-surface hover:scale-[1.02] active:scale-[0.98]"
             >
-              Establish Uplink
+              System Bio (PDF)
             </Link>
           </motion.div>
 
@@ -93,16 +94,18 @@ export default function Hero() {
             className="mt-16 flex gap-6"
           >
             {[
-              { icon: <Github />, href: "https://github.com/Nawalegaurav26" },
-              { icon: <Linkedin />, href: "https://www.linkedin.com/in/nawalegaurav26/" },
-              { icon: <WhatsApp />, href: "https://wa.me/919860543634?text=Hello%20Gaurav!" },
-              { icon: <Mail />, href: "mailto:nawalegaurav26@gmail.com" },
+              { icon: <Github />, href: "https://github.com/Nawalegaurav26", label: "GitHub Profile" },
+              { icon: <Linkedin />, href: "https://www.linkedin.com/in/nawalegaurav26/", label: "LinkedIn Profile" },
+              { icon: <InstagramIcon />, href: "https://www.instagram.com/lifetime_learner26/", label: "Instagram Profile" },
+              { icon: <WhatsApp />, href: "https://wa.me/919860543634?text=Hello%20Gaurav!", label: "WhatsApp Message" },
+              { icon: <Mail />, href: "mailto:nawalegaurav26@gmail.com", label: "Send Email" },
             ].map((social, index) => (
               <a
                 key={index}
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={social.label}
                 className="w-12 h-12 flex items-center justify-center rounded-full glass text-slate-400 hover:text-primary hover:border-primary/50 transition-all duration-300 hover:shadow-[0_0_15px_rgba(59,130,246,0.3)] hover:-translate-y-1"
               >
                 {social.icon}

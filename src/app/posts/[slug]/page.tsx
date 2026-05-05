@@ -1,74 +1,86 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { ArrowLeft, Calendar, Clock, Tag } from "lucide-react";
 import Link from "next/link";
-import { useParams } from "next/navigation";
+import { Metadata } from "next";
 
-export default function PostDetail() {
-  const params = useParams();
-  const slug = params.slug as string;
+type Props = {
+  params: { slug: string };
+};
 
-  // This would normally come from a CMS or local markdown files
-  const title = slug.split("-").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const title = params.slug
+    .split("-")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+
+  return {
+    title: `${title} | Gaurav Raju Nawale`,
+    description: `Detailed technical insight and architectural vision for ${title.toLowerCase()}.`,
+  };
+}
+
+export default async function PostDetail({ params }: Props) {
+  const { slug } = params;
+  const title = slug
+    .split("-")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
 
   return (
-    <main className="pt-32 pb-24 min-h-screen">
+    <main className="pt-32 pb-24 min-h-screen bg-slate-950 text-slate-400">
       <div className="container mx-auto px-6">
         <div className="max-w-3xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-          >
+          <div className="animate-in fade-in slide-in-from-bottom-4 duration-700">
             <Link
               href="/posts"
-              className="inline-flex items-center gap-2 text-[10px] font-black text-slate-400 uppercase tracking-widest hover:text-primary transition-colors mb-12"
+              className="inline-flex items-center gap-2 text-[10px] font-black text-slate-500 uppercase tracking-widest hover:text-primary transition-colors mb-12 font-mono"
             >
               <ArrowLeft size={14} /> Back to Insights
             </Link>
 
             <div className="flex flex-wrap items-center gap-6 mb-8">
-              <div className="flex items-center gap-2 text-[10px] font-black text-primary uppercase tracking-widest bg-primary/5 px-4 py-2 rounded-full">
+              <div className="flex items-center gap-2 text-[10px] font-black text-primary uppercase tracking-widest bg-primary/5 border border-primary/20 px-4 py-2 rounded-sm font-mono">
                 <Tag size={12} /> Technology
               </div>
-              <div className="flex items-center gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+              <div className="flex items-center gap-2 text-[10px] font-bold text-slate-500 uppercase tracking-widest font-mono">
                 <Calendar size={12} /> May 2024
               </div>
-              <div className="flex items-center gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+              <div className="flex items-center gap-2 text-[10px] font-bold text-slate-500 uppercase tracking-widest font-mono">
                 <Clock size={12} /> 10 min read
               </div>
             </div>
 
-            <h1 className="text-4xl md:text-6xl font-black text-slate-900 leading-[1.1] tracking-tight">
+            <h1 className="text-4xl md:text-6xl font-bold text-slate-100 leading-[1.1] tracking-tight font-mono uppercase mb-16">
               {title}
             </h1>
 
-            <div className="mt-16 prose prose-slate prose-lg max-w-none">
-              <p className="text-xl text-slate-600 leading-relaxed font-medium">
+            <div className="prose prose-invert prose-slate prose-lg max-w-none font-mono">
+              <p className="text-xl text-slate-300 leading-relaxed font-medium">
                 This is a detailed insight into {title.toLowerCase()}. As a Computer Engineering student and founder, 
                 bridging the gap between scalable systems and intelligent automation is at the core of my research.
               </p>
               
-              <div className="my-12 h-[400px] bg-slate-50 rounded-[2.5rem] border border-slate-100 flex items-center justify-center text-slate-300 font-bold italic">
-                [ Dynamic Content Visualization / Technical Diagram ]
+              <div className="my-16 aspect-video glass rounded-md border border-white/5 flex flex-col items-center justify-center text-slate-600 font-bold italic relative overflow-hidden group">
+                 <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:30px_30px]" />
+                 <span className="relative z-10 uppercase tracking-[0.3em] text-[10px]">[ Architectural Schema // Uplink Data ]</span>
+                 <div className="absolute top-0 left-0 w-1 h-12 bg-primary/40" />
+                 <div className="absolute top-0 left-0 w-12 h-1 bg-primary/40" />
               </div>
 
-              <h2 className="text-2xl font-black text-slate-900 mt-16 mb-6 uppercase tracking-tight">Architectural Vision</h2>
-              <p className="text-slate-500 leading-relaxed">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+              <h2 className="text-2xl font-bold text-slate-100 mt-20 mb-8 uppercase tracking-tight">Architectural Vision</h2>
+              <p className="text-slate-400 leading-relaxed mb-10">
+                The integration of complex software systems with autonomous intelligence requires a fundamental shift in how we approach scalability. 
+                Our research indicates that the future of distributed systems lies in self-stabilizing networks that prioritize consistency and user-centric design.
               </p>
 
-              <blockquote className="my-12 pl-8 border-l-4 border-primary text-2xl font-bold text-slate-800 italic">
+              <blockquote className="my-16 pl-8 border-l-2 border-primary text-2xl font-bold text-slate-200 italic bg-primary/5 py-8 pr-8 rounded-r-md">
                 "Intelligence is not just about complexity, but about the seamless integration of systems that solve real-world problems."
               </blockquote>
 
-              <p className="text-slate-500 leading-relaxed">
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              <p className="text-slate-400 leading-relaxed">
+                By leveraging modern architectural patterns and robust automation frameworks, we can eliminate manual bottlenecks and enable systems to operate at enterprise scale without compromising security or performance.
               </p>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </main>

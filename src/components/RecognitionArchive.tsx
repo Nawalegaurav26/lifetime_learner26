@@ -18,6 +18,8 @@ interface Recognition {
   category: string;
   documentUrl?: string;
   letterUrl?: string;
+  linkedInPostUrl?: string;
+  linkedInAwardUrl?: string;
   tags: string[];
 }
 
@@ -25,19 +27,21 @@ const recognitions: Recognition[] = [
   {
     id: "rec-001",
     archiveId: "REC-001",
-    title: "Letter of Appreciation — CertiOwn Platform",
+    title: "Letter of Appreciation — CertiOwn",
     issuedBy: "Dr. Nilesh Uke",
-    authority: "SPPU Academic Council",
+    authority: "Member – Academic Council & Chairman, Board of Studies (Computer Engineering), Savitribai Phule Pune University (SPPU)",
     description:
-      "Formal institutional appreciation for designing and deploying the CertiOwn automated certificate issuance and verification platform, recognized for its contribution to academic credential infrastructure.",
-    date: "NOV 2025",
+      "Received a formal Letter of Appreciation for the successful design, development, and implementation of CertiOwn – Certificate Management System. The appreciation recognizes the system's contribution to streamlining certificate issuance, ensuring efficiency, professionalism, security, and high-quality certificate design aligned with academic and institutional standards.",
+    date: "14 NOV 2025",
     status: "VERIFIED",
     statusColor: "text-emerald-400",
     accentColor: "#10b981",
     category: "INSTITUTIONAL-REC",
-    documentUrl: undefined,
+    documentUrl: "/Recognitions/Letter of Appreciation — CertiOwn Platform.pdf",
     letterUrl: undefined,
-    tags: ["CertiOwn", "SPPU", "Automation", "Certificate Systems"],
+    linkedInPostUrl: "https://www.linkedin.com/posts/nawalegaurav26_certiown-certiown-lifetimeabrlearner-activity-7411789703307513856-2V-y/",
+    linkedInAwardUrl: "https://www.linkedin.com/in/nawalegaurav26/overlay/Honor/1877047431/treasury?profileId=ACoAAFKay4MBXSZX3hwJjIAPHTCop7RAuNnmuls",
+    tags: ["CertiOwn", "SPPU", "Certificate Systems", "14 Nov 2025"],
   },
   {
     id: "rec-002",
@@ -113,9 +117,47 @@ function HudCorners({ color = "rgba(59,130,246,0.6)" }: { color?: string }) {
   );
 }
 
-function DocumentPreview({ accentColor, archiveId }: { accentColor: string; archiveId: string }) {
+function DocumentPreview({
+  accentColor,
+  archiveId,
+  documentUrl,
+  fullHeight = false,
+}: {
+  accentColor: string;
+  archiveId: string;
+  documentUrl?: string;
+  fullHeight?: boolean;
+}) {
+  const heightClass = fullHeight ? "h-[420px]" : "aspect-[16/9]";
+
+  if (documentUrl) {
+    return (
+      <div className={`relative w-full ${heightClass} overflow-hidden bg-[#010f1f] border border-white/5`}>
+        <HudCorners color={`${accentColor}60`} />
+        <iframe
+          src={`${documentUrl}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`}
+          className="w-full h-full"
+          title={`${archiveId} document`}
+          loading="lazy"
+        />
+        {/* Overlay label */}
+        <div className="absolute top-2 left-2 pointer-events-none">
+          <span
+            className="font-mono text-[9px] tracking-[0.2em] px-1.5 py-0.5"
+            style={{ background: `${accentColor}22`, color: accentColor, border: `1px solid ${accentColor}40` }}
+          >
+            LIVE PREVIEW
+          </span>
+        </div>
+        <div className="absolute bottom-2 right-2 pointer-events-none">
+          <span className="font-mono text-[9px] text-slate-600 tracking-widest">[{archiveId}]</span>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="relative w-full aspect-[16/9] overflow-hidden bg-[#010f1f] border border-white/5">
+    <div className={`relative w-full ${heightClass} overflow-hidden bg-[#010f1f] border border-white/5`}>
       <HudCorners color={`${accentColor}60`} />
       {/* Grid pattern */}
       <div
@@ -198,7 +240,11 @@ function ArchiveCard({
 
       {/* Document preview */}
       <div className="px-4 py-3">
-        <DocumentPreview accentColor={rec.accentColor} archiveId={rec.archiveId} />
+        <DocumentPreview
+          accentColor={rec.accentColor}
+          archiveId={rec.archiveId}
+          documentUrl={rec.documentUrl}
+        />
       </div>
 
       {/* Card body */}
@@ -230,33 +276,54 @@ function ArchiveCard({
         </div>
 
         {/* Action buttons */}
-        <div className="flex gap-2 mt-3">
-          <button
-            className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 text-[10px] font-mono tracking-[0.15em] uppercase font-semibold text-white transition-all"
-            style={{ background: rec.accentColor }}
-            onClick={(e) => {
-              e.stopPropagation();
-              if (rec.documentUrl) window.open(rec.documentUrl, "_blank");
-            }}
-          >
-            <ExternalLink size={10} />
-            View Document
-          </button>
-          <button
-            className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 text-[10px] font-mono tracking-[0.15em] uppercase font-semibold transition-all"
-            style={{
-              border: `1px solid ${rec.accentColor}50`,
-              color: rec.accentColor,
-              background: "transparent",
-            }}
-            onClick={(e) => {
-              e.stopPropagation();
-              if (rec.letterUrl) window.open(rec.letterUrl, "_blank");
-            }}
-          >
-            <FileText size={10} />
-            View Letter
-          </button>
+        <div className="flex flex-col gap-2 mt-3">
+          <div className="flex gap-2">
+            <button
+              className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 text-[10px] font-mono tracking-[0.15em] uppercase font-semibold text-white transition-all hover:opacity-90"
+              style={{ background: rec.accentColor }}
+              onClick={(e) => {
+                e.stopPropagation();
+                if (rec.documentUrl) window.open(rec.documentUrl, "_blank");
+              }}
+            >
+              <ExternalLink size={10} />
+              View Document
+            </button>
+            {rec.letterUrl && (
+              <button
+                className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 text-[10px] font-mono tracking-[0.15em] uppercase font-semibold transition-all hover:opacity-80"
+                style={{ border: `1px solid ${rec.accentColor}50`, color: rec.accentColor, background: "transparent" }}
+                onClick={(e) => { e.stopPropagation(); window.open(rec.letterUrl, "_blank"); }}
+              >
+                <FileText size={10} />
+                View Letter
+              </button>
+            )}
+          </div>
+          {(rec.linkedInPostUrl || rec.linkedInAwardUrl) && (
+            <div className="flex gap-2">
+              {rec.linkedInPostUrl && (
+                <button
+                  className="flex-1 flex items-center justify-center gap-1.5 px-3 py-1.5 text-[9px] font-mono tracking-[0.12em] uppercase font-semibold transition-all hover:opacity-80"
+                  style={{ border: `1px solid #0a66c233`, color: "#0a66c2", background: "#0a66c210" }}
+                  onClick={(e) => { e.stopPropagation(); window.open(rec.linkedInPostUrl, "_blank"); }}
+                >
+                  <ExternalLink size={9} />
+                  LinkedIn Post
+                </button>
+              )}
+              {rec.linkedInAwardUrl && (
+                <button
+                  className="flex-1 flex items-center justify-center gap-1.5 px-3 py-1.5 text-[9px] font-mono tracking-[0.12em] uppercase font-semibold transition-all hover:opacity-80"
+                  style={{ border: `1px solid #0a66c233`, color: "#0a66c2", background: "#0a66c210" }}
+                  onClick={(e) => { e.stopPropagation(); window.open(rec.linkedInAwardUrl, "_blank"); }}
+                >
+                  <Award size={9} />
+                  LinkedIn Award
+                </button>
+              )}
+            </div>
+          )}
         </div>
       </div>
 
@@ -353,7 +420,12 @@ function DetailModal({ rec, onClose }: { rec: Recognition; onClose: () => void }
             </div>
 
             {/* Document preview full */}
-            <DocumentPreview accentColor={rec.accentColor} archiveId={rec.archiveId} />
+            <DocumentPreview
+              accentColor={rec.accentColor}
+              archiveId={rec.archiveId}
+              documentUrl={rec.documentUrl}
+              fullHeight
+            />
 
             {/* Authority */}
             <div
@@ -393,23 +465,51 @@ function DetailModal({ rec, onClose }: { rec: Recognition; onClose: () => void }
             </div>
 
             {/* Action buttons */}
-            <div className="flex gap-3">
-              <button
-                className="flex-1 flex items-center justify-center gap-2 px-4 py-3 text-xs font-mono tracking-[0.15em] uppercase font-bold text-white transition-all hover:opacity-90"
-                style={{ background: rec.accentColor }}
-                onClick={() => rec.documentUrl && window.open(rec.documentUrl, "_blank")}
-              >
-                <ExternalLink size={12} />
-                View Document
-              </button>
-              <button
-                className="flex-1 flex items-center justify-center gap-2 px-4 py-3 text-xs font-mono tracking-[0.15em] uppercase font-semibold transition-all hover:opacity-80"
-                style={{ border: `1px solid ${rec.accentColor}60`, color: rec.accentColor }}
-                onClick={() => rec.letterUrl && window.open(rec.letterUrl, "_blank")}
-              >
-                <FileText size={12} />
-                View Letter
-              </button>
+            <div className="flex flex-col gap-3">
+              <div className="flex gap-3">
+                <button
+                  className="flex-1 flex items-center justify-center gap-2 px-4 py-3 text-xs font-mono tracking-[0.15em] uppercase font-bold text-white transition-all hover:opacity-90"
+                  style={{ background: rec.accentColor }}
+                  onClick={() => rec.documentUrl && window.open(rec.documentUrl, "_blank")}
+                >
+                  <ExternalLink size={12} />
+                  View Document
+                </button>
+                {rec.letterUrl && (
+                  <button
+                    className="flex-1 flex items-center justify-center gap-2 px-4 py-3 text-xs font-mono tracking-[0.15em] uppercase font-semibold transition-all hover:opacity-80"
+                    style={{ border: `1px solid ${rec.accentColor}60`, color: rec.accentColor }}
+                    onClick={() => rec.letterUrl && window.open(rec.letterUrl, "_blank")}
+                  >
+                    <FileText size={12} />
+                    View Letter
+                  </button>
+                )}
+              </div>
+              {(rec.linkedInPostUrl || rec.linkedInAwardUrl) && (
+                <div className="flex gap-3">
+                  {rec.linkedInPostUrl && (
+                    <button
+                      className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-mono tracking-[0.12em] uppercase font-semibold transition-all hover:opacity-80"
+                      style={{ border: "1px solid #0a66c250", color: "#0a66c2", background: "#0a66c210" }}
+                      onClick={() => rec.linkedInPostUrl && window.open(rec.linkedInPostUrl, "_blank")}
+                    >
+                      <ExternalLink size={11} />
+                      LinkedIn Post
+                    </button>
+                  )}
+                  {rec.linkedInAwardUrl && (
+                    <button
+                      className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-mono tracking-[0.12em] uppercase font-semibold transition-all hover:opacity-80"
+                      style={{ border: "1px solid #0a66c250", color: "#0a66c2", background: "#0a66c210" }}
+                      onClick={() => rec.linkedInAwardUrl && window.open(rec.linkedInAwardUrl, "_blank")}
+                    >
+                      <Award size={11} />
+                      LinkedIn Award
+                    </button>
+                  )}
+                </div>
+              )}
             </div>
           </div>
 
@@ -454,7 +554,7 @@ export default function RecognitionArchive() {
         }
       `}</style>
 
-      <section className="min-h-screen section-gap relative overflow-hidden" aria-label="Recognition Archive">
+      <section className="min-h-screen section-gap relative overflow-hidden" aria-label="Recognitions">
         {/* Background scanning line */}
         <div className="scanline" />
 
@@ -491,7 +591,7 @@ export default function RecognitionArchive() {
                 backgroundClip: "text",
               }}
             >
-              Recognition Archive
+              Recognitions
             </h1>
 
             {/* Subtitle */}

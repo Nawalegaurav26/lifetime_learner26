@@ -1,0 +1,57 @@
+/*
+  Parent elements must set these CSS custom properties:
+  --accent        : base accent color
+  --accent-hud    : accent + 60 alpha  (HUD corners)
+  --accent-card   : accent + 40 alpha  (card/modal border, hover)
+  --accent-bg     : accent + 22 alpha  (badge bg, gallery overlay)
+  --accent-subtle : accent + 08 alpha  (authority block bg)
+  --accent-glow   : accent + 15 alpha  (modal shadow)
+  --accent-btn    : accent + 50 alpha  (outline button border)
+  --accent-tag    : accent + 25 alpha  (tag border)
+*/
+
+/* ── HUD Corners ────────────────────────────────────────────────────────── */
+.hudTL { position: absolute; top: 0; left: 0; width: 1rem; height: 1rem; pointer-events: none; border-top: 1px solid var(--accent-hud); border-left: 1px solid var(--accent-hud); }
+.hudTR { position: absolute; top: 0; right: 0; width: 1rem; height: 1rem; pointer-events: none; border-top: 1px solid var(--accent-hud); border-right: 1px solid var(--accent-hud); }
+.hudBL { position: absolute; bottom: 0; left: 0; width: 1rem; height: 1rem; pointer-events: none; border-bottom: 1px solid var(--accent-hud); border-left: 1px solid var(--accent-hud); }
+.hudBR { position: absolute; bottom: 0; right: 0; width: 1rem; height: 1rem; pointer-events: none; border-bottom: 1px solid var(--accent-hud); border-right: 1px solid var(--accent-hud); }
+
+/* ── Preview Box ────────────────────────────────────────────────────────── */
+.previewBox { position: relative; width: 100%; overflow: hidden; background: #010f1f; border: 1px solid rgba(255,255,255,0.05); aspect-ratio: 210 / 297; }
+.previewBadge { font-family: ui-monospace, monospace; font-size: 9px; letter-spacing: 0.2em; padding: 2px 6px; background: var(--accent-bg); color: var(--accent); border: 1px solid var(--accent-card); }
+.previewGrid { position: absolute; inset: 0; opacity: 0.2; background-image: linear-gradient(var(--accent-bg) 1px, transparent 1px), linear-gradient(90deg, var(--accent-bg) 1px, transparent 1px); background-size: 24px 24px; }
+.scanLine { position: absolute; left: 0; right: 0; height: 1px; opacity: 0.6; background: linear-gradient(90deg, transparent, var(--accent), transparent); animation: archiveScan 3s linear infinite; }
+.accentTextFaded { color: var(--accent); opacity: 0.4; }
+.accentText { color: var(--accent); }
+
+/* ── Modal Preview Tabs ─────────────────────────────────────────────────── */
+.tabActive { background: var(--accent) !important; color: #fff !important; border: none !important; }
+.tabInactive { border: 1px solid var(--accent-btn) !important; color: var(--accent) !important; background: transparent !important; }
+.downloadLink { border: 1px solid rgba(255,255,255,0.15); color: #94a3b8; }
+
+/* ── Archive Card ───────────────────────────────────────────────────────── */
+.card { background: rgba(18,33,49,0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.06); transition: border-color 0.4s ease, box-shadow 0.4s ease; }
+.card:hover { border-color: var(--accent-card); box-shadow: 0 0 30px var(--accent-glow); }
+.cardTag { border: 1px solid var(--accent-tag); color: var(--accent); opacity: 0.7; }
+.cardFooter { border-color: rgba(255,255,255,0.04) !important; background: rgba(0,0,0,0.2); }
+
+/* ── Buttons ────────────────────────────────────────────────────────────── */
+.btnPrimary { background: var(--accent); }
+.btnOutline { border: 1px solid var(--accent-btn); color: var(--accent); background: transparent; }
+.btnLinkedIn { border: 1px solid rgba(10,102,194,0.2); color: #0a66c2; background: rgba(10,102,194,0.063); }
+
+/* ── Modal ──────────────────────────────────────────────────────────────── */
+.modalOverlay { background: rgba(5,20,36,0.92); backdrop-filter: blur(12px); }
+.modalPanel { background: rgba(12,24,38,0.98); border: 1px solid var(--accent-card); box-shadow: 0 0 60px var(--accent-glow); }
+.authorityBlock { border-left: 2px solid var(--accent); background: var(--accent-subtle); }
+.modalTag { border: 1px solid var(--accent-card); color: var(--accent); }
+
+/* ── Gallery ────────────────────────────────────────────────────────────── */
+.galleryOverlay { background: var(--accent-bg); }
+.galleryLabel { color: var(--accent); }
+
+/* ── Section Statics ────────────────────────────────────────────────────── */
+.accessBadge { box-shadow: 0 0 8px rgba(16,185,129,0.15); }
+.gradientTitle { background: linear-gradient(135deg, #3b82f6, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.statBadge { border: 1px solid rgba(59,130,246,0.2); background: rgba(59,130,246,0.05); }
+.sectionDivider { background: linear-gradient(90deg, rgba(59,130,246,0.5), rgba(6,182,212,0.2), transparent); height: 1px; }

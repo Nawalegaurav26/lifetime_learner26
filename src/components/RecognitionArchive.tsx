@@ -3,6 +3,20 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ExternalLink, FileText, Shield, Calendar, Building2, Award } from "lucide-react";
+import styles from "./RecognitionArchive.module.css";
+
+function accentVars(color: string): React.CSSProperties {
+  return {
+    "--accent": color,
+    "--accent-hud": `${color}60`,
+    "--accent-card": `${color}40`,
+    "--accent-bg": `${color}22`,
+    "--accent-subtle": `${color}08`,
+    "--accent-glow": `${color}15`,
+    "--accent-btn": `${color}50`,
+    "--accent-tag": `${color}25`,
+  } as React.CSSProperties;
+}
 
 interface Recognition {
   id: string;
@@ -118,17 +132,13 @@ const statusConfig = {
   ARCHIVED: { dot: "bg-violet-400", glow: "shadow-[0_0_8px_#8b5cf6]", border: "border-violet-400/30" },
 };
 
-function HudCorners({ color = "rgba(59,130,246,0.6)" }: { color?: string }) {
+function HudCorners() {
   return (
     <>
-      {/* Top-left */}
-      <span className="absolute top-0 left-0 w-4 h-4 pointer-events-none" style={{ borderTop: `1px solid ${color}`, borderLeft: `1px solid ${color}` }} />
-      {/* Top-right */}
-      <span className="absolute top-0 right-0 w-4 h-4 pointer-events-none" style={{ borderTop: `1px solid ${color}`, borderRight: `1px solid ${color}` }} />
-      {/* Bottom-left */}
-      <span className="absolute bottom-0 left-0 w-4 h-4 pointer-events-none" style={{ borderBottom: `1px solid ${color}`, borderLeft: `1px solid ${color}` }} />
-      {/* Bottom-right */}
-      <span className="absolute bottom-0 right-0 w-4 h-4 pointer-events-none" style={{ borderBottom: `1px solid ${color}`, borderRight: `1px solid ${color}` }} />
+      <span className={styles.hudTL} />
+      <span className={styles.hudTR} />
+      <span className={styles.hudBL} />
+      <span className={styles.hudBR} />
     </>
   );
 }
@@ -138,22 +148,22 @@ function DocumentPreview({ accentColor, archiveId, imageUrl }: {
   accentColor: string; archiveId: string; imageUrl?: string;
 }) {
   return (
-    <div className="relative w-full overflow-hidden bg-[#010f1f] border border-white/5" style={{ aspectRatio: "210/297" }}>
-      <HudCorners color={`${accentColor}60`} />
+    <div className={styles.previewBox} style={accentVars(accentColor)}>
+      <HudCorners />
       {imageUrl ? (
         <>
           <img src={imageUrl} alt={archiveId} className="w-full h-full object-contain" />
           <div className="absolute top-2 left-2 pointer-events-none">
-            <span className="font-mono text-[9px] tracking-[0.2em] px-1.5 py-0.5" style={{ background: `${accentColor}22`, color: accentColor, border: `1px solid ${accentColor}40` }}>PREVIEW</span>
+            <span className={styles.previewBadge}>PREVIEW</span>
           </div>
         </>
       ) : (
         <>
-          <div className="absolute inset-0 opacity-20" style={{ backgroundImage: `linear-gradient(${accentColor}22 1px, transparent 1px), linear-gradient(90deg, ${accentColor}22 1px, transparent 1px)`, backgroundSize: "24px 24px" }} />
-          <div className="absolute left-0 right-0 h-[1px] opacity-60 animate-[archiveScan_3s_linear_infinite]" style={{ background: `linear-gradient(90deg, transparent, ${accentColor}, transparent)` }} />
+          <div className={styles.previewGrid} />
+          <div className={styles.scanLine} />
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
-            <FileText size={24} style={{ color: accentColor }} className="opacity-40" />
-            <p className="font-mono text-[10px] tracking-[0.2em] opacity-40" style={{ color: accentColor }}>DOCUMENT PREVIEW</p>
+            <FileText size={24} className={styles.accentTextFaded} />
+            <p className={`font-mono text-[10px] tracking-[0.2em] ${styles.accentTextFaded}`}>DOCUMENT PREVIEW</p>
             <p className="font-mono text-[9px] tracking-widest text-slate-600">{archiveId} // AWAITING UPLOAD</p>
           </div>
         </>
@@ -173,52 +183,50 @@ function ModalDocumentPreview({ accentColor, archiveId, imageUrl, documentUrl }:
   const hasBoth = !!(imageUrl && documentUrl);
 
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-2" style={accentVars(accentColor)}>
       {hasBoth && (
         <div className="flex gap-1">
           {(["IMAGE", "PDF"] as const).map((tab) => {
             const active = (tab === "PDF") === showPdf;
             return (
               <button key={tab} onClick={() => setShowPdf(tab === "PDF")}
-                className="px-3 py-1 font-mono text-[9px] tracking-[0.18em] uppercase font-semibold transition-all"
-                style={active ? { background: accentColor, color: "#fff" } : { border: `1px solid ${accentColor}50`, color: accentColor }}>
+                className={`px-3 py-1 font-mono text-[9px] tracking-[0.18em] uppercase font-semibold transition-all ${active ? styles.tabActive : styles.tabInactive}`}>
                 {tab}
               </button>
             );
           })}
           {documentUrl && (
-            <a href={documentUrl} download className="ml-auto px-3 py-1 font-mono text-[9px] tracking-[0.18em] uppercase font-semibold transition-all hover:opacity-80 flex items-center gap-1"
-              style={{ border: "1px solid rgba(255,255,255,0.15)", color: "#94a3b8" }}>
+            <a href={documentUrl} download className={`ml-auto px-3 py-1 font-mono text-[9px] tracking-[0.18em] uppercase font-semibold transition-all hover:opacity-80 flex items-center gap-1 ${styles.downloadLink}`}>
               ↓ Download
             </a>
           )}
         </div>
       )}
-      <div className="relative w-full overflow-hidden bg-[#010f1f] border border-white/5" style={{ aspectRatio: "210/297" }}>
-        <HudCorners color={`${accentColor}60`} />
+      <div className={styles.previewBox}>
+        <HudCorners />
         {showPdf && documentUrl ? (
           <>
             <iframe src={`${documentUrl}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`} className="w-full h-full" title={archiveId} loading="lazy" />
             <div className="absolute top-2 left-2 pointer-events-none">
-              <span className="font-mono text-[9px] tracking-[0.2em] px-1.5 py-0.5" style={{ background: `${accentColor}22`, color: accentColor, border: `1px solid ${accentColor}40` }}>PDF VIEW</span>
+              <span className={styles.previewBadge}>PDF VIEW</span>
             </div>
           </>
         ) : imageUrl ? (
           <>
             <img src={imageUrl} alt={archiveId} className="w-full h-full object-contain" />
             <div className="absolute top-2 left-2 pointer-events-none">
-              <span className="font-mono text-[9px] tracking-[0.2em] px-1.5 py-0.5" style={{ background: `${accentColor}22`, color: accentColor, border: `1px solid ${accentColor}40` }}>IMAGE PREVIEW</span>
+              <span className={styles.previewBadge}>IMAGE PREVIEW</span>
             </div>
           </>
         ) : documentUrl ? (
           <iframe src={`${documentUrl}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`} className="w-full h-full" title={archiveId} loading="lazy" />
         ) : (
           <>
-            <div className="absolute inset-0 opacity-20" style={{ backgroundImage: `linear-gradient(${accentColor}22 1px, transparent 1px), linear-gradient(90deg, ${accentColor}22 1px, transparent 1px)`, backgroundSize: "24px 24px" }} />
-            <div className="absolute left-0 right-0 h-[1px] opacity-60 animate-[archiveScan_3s_linear_infinite]" style={{ background: `linear-gradient(90deg, transparent, ${accentColor}, transparent)` }} />
+            <div className={styles.previewGrid} />
+            <div className={styles.scanLine} />
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
-              <FileText size={24} style={{ color: accentColor }} className="opacity-40" />
-              <p className="font-mono text-[10px] tracking-[0.2em] opacity-40" style={{ color: accentColor }}>AWAITING UPLOAD</p>
+              <FileText size={24} className={styles.accentTextFaded} />
+              <p className={`font-mono text-[10px] tracking-[0.2em] ${styles.accentTextFaded}`}>AWAITING UPLOAD</p>
             </div>
           </>
         )}
@@ -227,8 +235,7 @@ function ModalDocumentPreview({ accentColor, archiveId, imageUrl, documentUrl }:
         </div>
       </div>
       {!hasBoth && documentUrl && (
-        <a href={documentUrl} download className="self-start px-3 py-1 font-mono text-[9px] tracking-[0.18em] uppercase font-semibold transition-all hover:opacity-80 flex items-center gap-1"
-          style={{ border: "1px solid rgba(255,255,255,0.15)", color: "#94a3b8" }}>
+        <a href={documentUrl} download className={`self-start px-3 py-1 font-mono text-[9px] tracking-[0.18em] uppercase font-semibold transition-all hover:opacity-80 flex items-center gap-1 ${styles.downloadLink}`}>
           ↓ Download PDF
         </a>
       )}
@@ -255,25 +262,11 @@ function ArchiveCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="group relative flex flex-col overflow-hidden cursor-pointer"
-      style={{
-        background: "rgba(18, 33, 49, 0.85)",
-        backdropFilter: "blur(16px)",
-        WebkitBackdropFilter: "blur(16px)",
-        border: "1px solid rgba(255,255,255,0.06)",
-        transition: "border-color 0.4s ease, box-shadow 0.4s ease",
-      }}
-      onMouseEnter={(e) => {
-        (e.currentTarget as HTMLDivElement).style.borderColor = `${rec.accentColor}40`;
-        (e.currentTarget as HTMLDivElement).style.boxShadow = `0 0 30px ${rec.accentColor}10`;
-      }}
-      onMouseLeave={(e) => {
-        (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(255,255,255,0.06)";
-        (e.currentTarget as HTMLDivElement).style.boxShadow = "none";
-      }}
+      className={`group relative flex flex-col overflow-hidden cursor-pointer ${styles.card}`}
+      style={accentVars(rec.accentColor)}
       onClick={() => onOpen(rec)}
     >
-      <HudCorners color={`${rec.accentColor}40`} />
+      <HudCorners />
 
       {/* Card header */}
       <div className="flex items-start justify-between px-4 pt-4 pb-3 border-b border-white/[0.04]">
@@ -305,7 +298,7 @@ function ArchiveCard({
 
         <div className="flex flex-col gap-1">
           <p className="font-mono text-[9px] tracking-[0.18em] text-slate-500 uppercase">Issued by:</p>
-          <p className="text-xs font-medium" style={{ color: rec.accentColor }}>
+          <p className={`text-xs font-medium ${styles.accentText}`}>
             {rec.issuedBy}
           </p>
           <p className="font-mono text-[10px] text-slate-500 tracking-wide">{rec.authority}</p>
@@ -317,8 +310,7 @@ function ArchiveCard({
           {rec.tags.map((tag) => (
             <span
               key={tag}
-              className="font-mono text-[9px] px-2 py-0.5 tracking-wider text-slate-500"
-              style={{ border: `1px solid ${rec.accentColor}25`, color: rec.accentColor, opacity: 0.7 }}
+              className={`font-mono text-[9px] px-2 py-0.5 tracking-wider ${styles.cardTag}`}
             >
               {tag}
             </span>
@@ -329,8 +321,7 @@ function ArchiveCard({
         <div className="flex flex-col gap-2 mt-3">
           <div className="flex gap-2">
             <button
-              className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 text-[10px] font-mono tracking-[0.15em] uppercase font-semibold text-white transition-all hover:opacity-90"
-              style={{ background: rec.accentColor }}
+              className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-2 text-[10px] font-mono tracking-[0.15em] uppercase font-semibold text-white transition-all hover:opacity-90 ${styles.btnPrimary}`}
               onClick={(e) => { e.stopPropagation(); onOpen(rec); }}
             >
               <ExternalLink size={10} />
@@ -338,8 +329,7 @@ function ArchiveCard({
             </button>
             {rec.letterUrl && (
               <button
-                className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 text-[10px] font-mono tracking-[0.15em] uppercase font-semibold transition-all hover:opacity-80"
-                style={{ border: `1px solid ${rec.accentColor}50`, color: rec.accentColor, background: "transparent" }}
+                className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-2 text-[10px] font-mono tracking-[0.15em] uppercase font-semibold transition-all hover:opacity-80 ${styles.btnOutline}`}
                 onClick={(e) => { e.stopPropagation(); window.open(rec.letterUrl, "_blank"); }}
               >
                 <FileText size={10} />
@@ -351,8 +341,7 @@ function ArchiveCard({
             <div className="flex gap-2">
               {rec.linkedInPostUrl && (
                 <button
-                  className="flex-1 flex items-center justify-center gap-1.5 px-3 py-1.5 text-[9px] font-mono tracking-[0.12em] uppercase font-semibold transition-all hover:opacity-80"
-                  style={{ border: `1px solid #0a66c233`, color: "#0a66c2", background: "#0a66c210" }}
+                  className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-1.5 text-[9px] font-mono tracking-[0.12em] uppercase font-semibold transition-all hover:opacity-80 ${styles.btnLinkedIn}`}
                   onClick={(e) => { e.stopPropagation(); window.open(rec.linkedInPostUrl, "_blank"); }}
                 >
                   <ExternalLink size={9} />
@@ -361,8 +350,7 @@ function ArchiveCard({
               )}
               {rec.linkedInAwardUrl && (
                 <button
-                  className="flex-1 flex items-center justify-center gap-1.5 px-3 py-1.5 text-[9px] font-mono tracking-[0.12em] uppercase font-semibold transition-all hover:opacity-80"
-                  style={{ border: `1px solid #0a66c233`, color: "#0a66c2", background: "#0a66c210" }}
+                  className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-1.5 text-[9px] font-mono tracking-[0.12em] uppercase font-semibold transition-all hover:opacity-80 ${styles.btnLinkedIn}`}
                   onClick={(e) => { e.stopPropagation(); window.open(rec.linkedInAwardUrl, "_blank"); }}
                 >
                   <Award size={9} />
@@ -375,10 +363,7 @@ function ArchiveCard({
       </div>
 
       {/* Footer strip */}
-      <div
-        className="px-4 py-2 flex items-center justify-between border-t"
-        style={{ borderColor: "rgba(255,255,255,0.04)", background: "rgba(0,0,0,0.2)" }}
-      >
+      <div className={`px-4 py-2 flex items-center justify-between border-t ${styles.cardFooter}`}>
         <span className="font-mono text-[8px] tracking-[0.2em] text-slate-600 uppercase">
           SYSTEM VERIFIED // {rec.archiveId} // {rec.date}
         </span>
@@ -411,8 +396,7 @@ function DetailModal({ rec, onClose }: { rec: Recognition; onClose: () => void }
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="fixed inset-0 z-[200] flex items-center justify-center p-4"
-        style={{ background: "rgba(5, 20, 36, 0.92)", backdropFilter: "blur(12px)" }}
+        className={`fixed inset-0 z-[200] flex items-center justify-center p-4 ${styles.modalOverlay}`}
         onClick={(e) => { if (e.target === overlayRef.current) onClose(); }}
       >
         <motion.div
@@ -420,19 +404,15 @@ function DetailModal({ rec, onClose }: { rec: Recognition; onClose: () => void }
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
           transition={{ type: "spring", stiffness: 300, damping: 30 }}
-          className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto"
-          style={{
-            background: "rgba(12, 24, 38, 0.98)",
-            border: `1px solid ${rec.accentColor}40`,
-            boxShadow: `0 0 60px ${rec.accentColor}15`,
-          }}
+          className={`relative w-full max-w-2xl max-h-[90vh] overflow-y-auto ${styles.modalPanel}`}
+          style={accentVars(rec.accentColor)}
         >
-          <HudCorners color={rec.accentColor} />
+          <HudCorners />
 
           {/* Modal header */}
           <div className="flex items-start justify-between p-6 border-b border-white/[0.05]">
             <div>
-              <p className="font-mono text-[11px] tracking-[0.2em] mb-1" style={{ color: rec.accentColor }}>
+              <p className={`font-mono text-[11px] tracking-[0.2em] mb-1 ${styles.accentText}`}>
                 SYS.NAV // ARCHIVE-03 // {rec.archiveId}
               </p>
               <h2 className="text-lg font-bold text-slate-100 leading-tight max-w-md">{rec.title}</h2>
@@ -475,15 +455,12 @@ function DetailModal({ rec, onClose }: { rec: Recognition; onClose: () => void }
             />
 
             {/* Authority */}
-            <div
-              className="p-4 border-l-2"
-              style={{ borderColor: rec.accentColor, background: `${rec.accentColor}08` }}
-            >
+            <div className={`p-4 ${styles.authorityBlock}`}>
               <p className="font-mono text-[9px] tracking-[0.2em] text-slate-500 uppercase mb-2">
                 <Building2 size={9} className="inline mr-1" />
                 Issuing Authority
               </p>
-              <p className="text-sm font-semibold" style={{ color: rec.accentColor }}>
+              <p className={`text-sm font-semibold ${styles.accentText}`}>
                 {rec.issuedBy}
               </p>
               <p className="font-mono text-[11px] text-slate-400 mt-0.5 tracking-wide">{rec.authority}</p>
@@ -503,8 +480,7 @@ function DetailModal({ rec, onClose }: { rec: Recognition; onClose: () => void }
               {rec.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="font-mono text-[10px] px-2 py-1 tracking-wider"
-                  style={{ border: `1px solid ${rec.accentColor}30`, color: rec.accentColor }}
+                  className={`font-mono text-[10px] px-2 py-1 tracking-wider ${styles.modalTag}`}
                 >
                   {tag}
                 </span>
@@ -522,10 +498,10 @@ function DetailModal({ rec, onClose }: { rec: Recognition; onClose: () => void }
                     <div key={i} className="relative overflow-hidden border border-white/5 aspect-square group cursor-pointer"
                       onClick={() => window.open(src, "_blank")}>
                       <img src={src} alt={`Gallery ${i + 1}`} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
-                      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center" style={{ background: `${rec.accentColor}22` }}>
-                        <ExternalLink size={14} style={{ color: rec.accentColor }} />
+                      <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center ${styles.galleryOverlay}`}>
+                        <ExternalLink size={14} className={styles.galleryLabel} />
                       </div>
-                      <span className="absolute bottom-1 left-1 font-mono text-[8px] tracking-widest" style={{ color: rec.accentColor }}>IMG-{String(i + 1).padStart(2, "0")}</span>
+                      <span className={`absolute bottom-1 left-1 font-mono text-[8px] tracking-widest ${styles.galleryLabel}`}>IMG-{String(i + 1).padStart(2, "0")}</span>
                     </div>
                   ))}
                 </div>
@@ -536,8 +512,7 @@ function DetailModal({ rec, onClose }: { rec: Recognition; onClose: () => void }
                 <div className="flex gap-3">
                   {rec.linkedInPostUrl && (
                     <button
-                      className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-mono tracking-[0.12em] uppercase font-semibold transition-all hover:opacity-80"
-                      style={{ border: "1px solid #0a66c250", color: "#0a66c2", background: "#0a66c210" }}
+                      className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-mono tracking-[0.12em] uppercase font-semibold transition-all hover:opacity-80 ${styles.btnLinkedIn}`}
                       onClick={() => rec.linkedInPostUrl && window.open(rec.linkedInPostUrl, "_blank")}
                     >
                       <ExternalLink size={11} />
@@ -546,8 +521,7 @@ function DetailModal({ rec, onClose }: { rec: Recognition; onClose: () => void }
                   )}
                   {rec.linkedInAwardUrl && (
                     <button
-                      className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-mono tracking-[0.12em] uppercase font-semibold transition-all hover:opacity-80"
-                      style={{ border: "1px solid #0a66c250", color: "#0a66c2", background: "#0a66c210" }}
+                      className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-mono tracking-[0.12em] uppercase font-semibold transition-all hover:opacity-80 ${styles.btnLinkedIn}`}
                       onClick={() => rec.linkedInAwardUrl && window.open(rec.linkedInAwardUrl, "_blank")}
                     >
                       <Award size={11} />
@@ -560,10 +534,7 @@ function DetailModal({ rec, onClose }: { rec: Recognition; onClose: () => void }
           </div>
 
           {/* Modal footer */}
-          <div
-            className="px-6 py-3 border-t flex items-center justify-between"
-            style={{ borderColor: "rgba(255,255,255,0.04)" }}
-          >
+          <div className="px-6 py-3 border-t border-white/[0.04] flex items-center justify-between">
             <span className="font-mono text-[9px] tracking-[0.2em] text-slate-600 uppercase">
               SYSTEM VERIFIED // {rec.archiveId} // {rec.date}
             </span>
@@ -620,23 +591,14 @@ export default function RecognitionArchive() {
               </span>
               <span className="w-8 h-px bg-sky-400/40" />
               <span
-                className="font-mono text-[10px] tracking-[0.2em] px-2 py-0.5 border border-emerald-400/30 text-emerald-400"
-                style={{ boxShadow: "0 0 8px rgba(16,185,129,0.15)" }}
+                className={`font-mono text-[10px] tracking-[0.2em] px-2 py-0.5 border border-emerald-400/30 text-emerald-400 ${styles.accessBadge}`}
               >
                 ACCESS LEVEL: PUBLIC
               </span>
             </div>
 
             {/* Title */}
-            <h1
-              className="text-5xl md:text-6xl font-bold mb-4 leading-tight"
-              style={{
-                background: "linear-gradient(135deg, #3b82f6, #06b6d4)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
+            <h1 className={`text-5xl md:text-6xl font-bold mb-4 leading-tight ${styles.gradientTitle}`}>
               Recognitions
             </h1>
 
@@ -655,8 +617,7 @@ export default function RecognitionArchive() {
               ].map((stat) => (
                 <div
                   key={stat.label}
-                  className="flex items-center gap-2 px-3 py-1.5"
-                  style={{ border: "1px solid rgba(59,130,246,0.2)", background: "rgba(59,130,246,0.05)" }}
+                  className={`flex items-center gap-2 px-3 py-1.5 ${styles.statBadge}`}
                 >
                   <span className="text-primary text-xs">{stat.icon}</span>
                   <span className="font-mono text-[10px] tracking-[0.18em] text-slate-400">{stat.label}</span>
@@ -685,12 +646,7 @@ export default function RecognitionArchive() {
               </span>
             </div>
             <h2 className="text-2xl font-semibold text-slate-100">Institutional Recognition</h2>
-            <div
-              className="mt-3 h-px w-full"
-              style={{
-                background: "linear-gradient(90deg, rgba(59,130,246,0.5), rgba(6,182,212,0.2), transparent)",
-              }}
-            />
+            <div className={`mt-3 w-full ${styles.sectionDivider}`} />
           </motion.div>
 
           {/* ── CARDS GRID ── */}

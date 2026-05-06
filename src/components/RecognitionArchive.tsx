@@ -16,6 +16,7 @@ interface Recognition {
   statusColor: string;
   accentColor: string;
   category: string;
+  imageUrl?: string;
   documentUrl?: string;
   letterUrl?: string;
   linkedInPostUrl?: string;
@@ -37,6 +38,7 @@ const recognitions: Recognition[] = [
     statusColor: "text-emerald-400",
     accentColor: "#10b981",
     category: "INSTITUTIONAL-REC",
+    imageUrl: "/Recognitions/Letter of Appreciation — CertiOwn Platform.jpg",
     documentUrl: "/Recognitions/Letter of Appreciation — CertiOwn Platform.pdf",
     letterUrl: undefined,
     linkedInPostUrl: "https://www.linkedin.com/posts/nawalegaurav26_certiown-certiown-lifetimeabrlearner-activity-7411789703307513856-2V-y/",
@@ -46,36 +48,41 @@ const recognitions: Recognition[] = [
   {
     id: "rec-002",
     archiveId: "REC-002",
-    title: "Letter of Appreciation — SPPU Workshop",
+    title: "Letter of Appreciation — E-Certificate Generation for SPPU-Sponsored Workshop",
     issuedBy: "Dr. Manjusha Tomar & Dr. Nilesh Uke",
-    authority: "SPPU Academic Division",
+    authority: "ICC Coordinator & Principal, Indira College of Engineering and Management",
     description:
-      "Dual-signed appreciation letter for active technical contribution and session facilitation during the SPPU-organized workshop on emerging engineering technologies and systems development.",
+      "Received a formal Letter of Appreciation from Indira College of Engineering and Management for designing and preparing e-certificates for a Savitribai Phule Pune University (SPPU)-sponsored workshop on ‘महिला सबलीकरण व सक्षमीकरण’ (Women Empowerment and Strengthening). The project required meticulous attention to detail and timely execution, ensuring smooth delivery of participation certificates to all attendees.",
     date: "JUL 2025",
     status: "OFFICIAL",
     statusColor: "text-sky-400",
     accentColor: "#38bdf8",
     category: "WORKSHOP-CONTRIB",
-    documentUrl: undefined,
+    imageUrl: "/Recognitions/Letter of Appreciation — SPPU Workshop.jpg",
+    documentUrl: "/Recognitions/Letter of Appreciation — SPPU Workshop.pdf",
     letterUrl: undefined,
-    tags: ["SPPU", "Workshop", "Technical Contribution"],
+    linkedInPostUrl: "https://www.linkedin.com/posts/nawalegaurav26_letterofappreciation-certiown-recognition-activity-7362129907407077376-U5DJ",
+    tags: ["SPPU", "ICEM", "E-Certificate", "Women Empowerment", "Jul 2025"],
   },
   {
     id: "rec-003",
     archiveId: "REC-003",
     title: "Certificate of Appreciation — CertiOwn System",
     issuedBy: "Dr. Poorna Shankar",
-    authority: "ICEM — Indira College of Engineering & Management",
+    authority: "Head of Department, Basic Engineering Science, ICEM",
     description:
-      "Institutional certificate of appreciation from ICEM recognizing the end-to-end engineering and deployment of the CertiOwn system, including its integration with college-level certificate workflows.",
+      "As a first-year B.Tech Computer Engineering student at ICEM, identified a critical inefficiency in certificate management and built CertiOwn — an in-house platform for secure certificate generation, verification, and bulk distribution. Developed under the guidance of Dr. Poorna Shankar, CertiOwn features role-based access control, automated email delivery, and secure public verification. This initiative significantly reduced administrative workload and advanced ICEM's digital transformation.",
     date: "APR 2025",
     status: "ARCHIVED",
     statusColor: "text-violet-400",
     accentColor: "#8b5cf6",
     category: "INSTITUTIONAL-REC",
-    documentUrl: undefined,
+    imageUrl: "/Recognitions/Certificate of Appreciation — CertiOwn System.jpg",
+    documentUrl: "/Recognitions/Certificate of Appreciation — CertiOwn System.pdf",
     letterUrl: undefined,
-    tags: ["ICEM", "CertiOwn", "Deployment", "Engineering"],
+    linkedInPostUrl: "https://www.linkedin.com/posts/nawalegaurav26_certificateofappreciation-webdevelopment-activity-7362128837503078401-6C4d",
+    linkedInAwardUrl: "https://media.licdn.com/dms/image/v2/D562DAQGFRNQTOcbD6A/profile-treasury-image-shrink_160_160/B56ZiudiFIH0Ak-/0/1755273638696?e=1778702400&v=beta&t=YynlNX--JJdAu3-hpoZW5h7hEOHfqA6FJ4HdKZ8q0X4",
+    tags: ["ICEM", "CertiOwn", "Dr. Poorna Shankar", "Apr 2025"],
   },
   {
     id: "rec-004",
@@ -117,76 +124,110 @@ function HudCorners({ color = "rgba(59,130,246,0.6)" }: { color?: string }) {
   );
 }
 
-function DocumentPreview({
-  accentColor,
-  archiveId,
-  documentUrl,
-  fullHeight = false,
-}: {
-  accentColor: string;
-  archiveId: string;
-  documentUrl?: string;
-  fullHeight?: boolean;
+/* Card preview — shows image at A4 ratio */
+function DocumentPreview({ accentColor, archiveId, imageUrl }: {
+  accentColor: string; archiveId: string; imageUrl?: string;
 }) {
-  const heightClass = fullHeight ? "h-[420px]" : "aspect-[16/9]";
-
-  if (documentUrl) {
-    return (
-      <div className={`relative w-full ${heightClass} overflow-hidden bg-[#010f1f] border border-white/5`}>
-        <HudCorners color={`${accentColor}60`} />
-        <iframe
-          src={`${documentUrl}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`}
-          className="w-full h-full"
-          title={`${archiveId} document`}
-          loading="lazy"
-        />
-        {/* Overlay label */}
-        <div className="absolute top-2 left-2 pointer-events-none">
-          <span
-            className="font-mono text-[9px] tracking-[0.2em] px-1.5 py-0.5"
-            style={{ background: `${accentColor}22`, color: accentColor, border: `1px solid ${accentColor}40` }}
-          >
-            LIVE PREVIEW
-          </span>
-        </div>
-        <div className="absolute bottom-2 right-2 pointer-events-none">
-          <span className="font-mono text-[9px] text-slate-600 tracking-widest">[{archiveId}]</span>
-        </div>
-      </div>
-    );
-  }
-
   return (
-    <div className={`relative w-full ${heightClass} overflow-hidden bg-[#010f1f] border border-white/5`}>
+    <div className="relative w-full overflow-hidden bg-[#010f1f] border border-white/5" style={{ aspectRatio: "210/297" }}>
       <HudCorners color={`${accentColor}60`} />
-      {/* Grid pattern */}
-      <div
-        className="absolute inset-0 opacity-20"
-        style={{
-          backgroundImage: `linear-gradient(${accentColor}22 1px, transparent 1px), linear-gradient(90deg, ${accentColor}22 1px, transparent 1px)`,
-          backgroundSize: "24px 24px",
-        }}
-      />
-      {/* Scanning line animation */}
-      <div
-        className="absolute left-0 right-0 h-[1px] opacity-60 animate-[archiveScan_3s_linear_infinite]"
-        style={{ background: `linear-gradient(90deg, transparent, ${accentColor}, transparent)` }}
-      />
-      {/* Center content */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
-        <FileText size={24} style={{ color: accentColor }} className="opacity-40" />
-        <p className="font-mono text-[10px] tracking-[0.2em] opacity-40" style={{ color: accentColor }}>
-          DOCUMENT PREVIEW
-        </p>
-        <p className="font-mono text-[9px] tracking-widest text-slate-600">{archiveId} // AWAITING UPLOAD</p>
-      </div>
-      {/* Corner ID */}
-      <div className="absolute bottom-2 right-2">
+      {imageUrl ? (
+        <>
+          <img src={imageUrl} alt={archiveId} className="w-full h-full object-contain" />
+          <div className="absolute top-2 left-2 pointer-events-none">
+            <span className="font-mono text-[9px] tracking-[0.2em] px-1.5 py-0.5" style={{ background: `${accentColor}22`, color: accentColor, border: `1px solid ${accentColor}40` }}>PREVIEW</span>
+          </div>
+        </>
+      ) : (
+        <>
+          <div className="absolute inset-0 opacity-20" style={{ backgroundImage: `linear-gradient(${accentColor}22 1px, transparent 1px), linear-gradient(90deg, ${accentColor}22 1px, transparent 1px)`, backgroundSize: "24px 24px" }} />
+          <div className="absolute left-0 right-0 h-[1px] opacity-60 animate-[archiveScan_3s_linear_infinite]" style={{ background: `linear-gradient(90deg, transparent, ${accentColor}, transparent)` }} />
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
+            <FileText size={24} style={{ color: accentColor }} className="opacity-40" />
+            <p className="font-mono text-[10px] tracking-[0.2em] opacity-40" style={{ color: accentColor }}>DOCUMENT PREVIEW</p>
+            <p className="font-mono text-[9px] tracking-widest text-slate-600">{archiveId} // AWAITING UPLOAD</p>
+          </div>
+        </>
+      )}
+      <div className="absolute bottom-2 right-2 pointer-events-none">
         <span className="font-mono text-[9px] text-slate-600 tracking-widest">[{archiveId}]</span>
       </div>
     </div>
   );
 }
+
+/* Modal preview — A4 ratio, toggles between image and PDF */
+function ModalDocumentPreview({ accentColor, archiveId, imageUrl, documentUrl }: {
+  accentColor: string; archiveId: string; imageUrl?: string; documentUrl?: string;
+}) {
+  const [showPdf, setShowPdf] = useState(false);
+  const hasBoth = !!(imageUrl && documentUrl);
+
+  return (
+    <div className="flex flex-col gap-2">
+      {hasBoth && (
+        <div className="flex gap-1">
+          {(["IMAGE", "PDF"] as const).map((tab) => {
+            const active = (tab === "PDF") === showPdf;
+            return (
+              <button key={tab} onClick={() => setShowPdf(tab === "PDF")}
+                className="px-3 py-1 font-mono text-[9px] tracking-[0.18em] uppercase font-semibold transition-all"
+                style={active ? { background: accentColor, color: "#fff" } : { border: `1px solid ${accentColor}50`, color: accentColor }}>
+                {tab}
+              </button>
+            );
+          })}
+          {documentUrl && (
+            <a href={documentUrl} download className="ml-auto px-3 py-1 font-mono text-[9px] tracking-[0.18em] uppercase font-semibold transition-all hover:opacity-80 flex items-center gap-1"
+              style={{ border: "1px solid rgba(255,255,255,0.15)", color: "#94a3b8" }}>
+              ↓ Download
+            </a>
+          )}
+        </div>
+      )}
+      <div className="relative w-full overflow-hidden bg-[#010f1f] border border-white/5" style={{ aspectRatio: "210/297" }}>
+        <HudCorners color={`${accentColor}60`} />
+        {showPdf && documentUrl ? (
+          <>
+            <iframe src={`${documentUrl}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`} className="w-full h-full" title={archiveId} loading="lazy" />
+            <div className="absolute top-2 left-2 pointer-events-none">
+              <span className="font-mono text-[9px] tracking-[0.2em] px-1.5 py-0.5" style={{ background: `${accentColor}22`, color: accentColor, border: `1px solid ${accentColor}40` }}>PDF VIEW</span>
+            </div>
+          </>
+        ) : imageUrl ? (
+          <>
+            <img src={imageUrl} alt={archiveId} className="w-full h-full object-contain" />
+            <div className="absolute top-2 left-2 pointer-events-none">
+              <span className="font-mono text-[9px] tracking-[0.2em] px-1.5 py-0.5" style={{ background: `${accentColor}22`, color: accentColor, border: `1px solid ${accentColor}40` }}>IMAGE PREVIEW</span>
+            </div>
+          </>
+        ) : documentUrl ? (
+          <iframe src={`${documentUrl}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`} className="w-full h-full" title={archiveId} loading="lazy" />
+        ) : (
+          <>
+            <div className="absolute inset-0 opacity-20" style={{ backgroundImage: `linear-gradient(${accentColor}22 1px, transparent 1px), linear-gradient(90deg, ${accentColor}22 1px, transparent 1px)`, backgroundSize: "24px 24px" }} />
+            <div className="absolute left-0 right-0 h-[1px] opacity-60 animate-[archiveScan_3s_linear_infinite]" style={{ background: `linear-gradient(90deg, transparent, ${accentColor}, transparent)` }} />
+            <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
+              <FileText size={24} style={{ color: accentColor }} className="opacity-40" />
+              <p className="font-mono text-[10px] tracking-[0.2em] opacity-40" style={{ color: accentColor }}>AWAITING UPLOAD</p>
+            </div>
+          </>
+        )}
+        <div className="absolute bottom-2 right-2 pointer-events-none">
+          <span className="font-mono text-[9px] text-slate-600 tracking-widest">[{archiveId}]</span>
+        </div>
+      </div>
+      {!hasBoth && documentUrl && (
+        <a href={documentUrl} download className="self-start px-3 py-1 font-mono text-[9px] tracking-[0.18em] uppercase font-semibold transition-all hover:opacity-80 flex items-center gap-1"
+          style={{ border: "1px solid rgba(255,255,255,0.15)", color: "#94a3b8" }}>
+          ↓ Download PDF
+        </a>
+      )}
+    </div>
+  );
+}
+
+
 
 function ArchiveCard({
   rec,
@@ -243,7 +284,7 @@ function ArchiveCard({
         <DocumentPreview
           accentColor={rec.accentColor}
           archiveId={rec.archiveId}
-          documentUrl={rec.documentUrl}
+          imageUrl={rec.imageUrl}
         />
       </div>
 
@@ -281,13 +322,10 @@ function ArchiveCard({
             <button
               className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 text-[10px] font-mono tracking-[0.15em] uppercase font-semibold text-white transition-all hover:opacity-90"
               style={{ background: rec.accentColor }}
-              onClick={(e) => {
-                e.stopPropagation();
-                if (rec.documentUrl) window.open(rec.documentUrl, "_blank");
-              }}
+              onClick={(e) => { e.stopPropagation(); onOpen(rec); }}
             >
               <ExternalLink size={10} />
-              View Document
+              View Record
             </button>
             {rec.letterUrl && (
               <button
@@ -419,12 +457,12 @@ function DetailModal({ rec, onClose }: { rec: Recognition; onClose: () => void }
               </div>
             </div>
 
-            {/* Document preview full */}
-            <DocumentPreview
+            {/* Document preview - modal */}
+            <ModalDocumentPreview
               accentColor={rec.accentColor}
               archiveId={rec.archiveId}
+              imageUrl={rec.imageUrl}
               documentUrl={rec.documentUrl}
-              fullHeight
             />
 
             {/* Authority */}
@@ -464,28 +502,8 @@ function DetailModal({ rec, onClose }: { rec: Recognition; onClose: () => void }
               ))}
             </div>
 
-            {/* Action buttons */}
+            {/* Action buttons - LinkedIn only (PDF download is inside ModalDocumentPreview) */}
             <div className="flex flex-col gap-3">
-              <div className="flex gap-3">
-                <button
-                  className="flex-1 flex items-center justify-center gap-2 px-4 py-3 text-xs font-mono tracking-[0.15em] uppercase font-bold text-white transition-all hover:opacity-90"
-                  style={{ background: rec.accentColor }}
-                  onClick={() => rec.documentUrl && window.open(rec.documentUrl, "_blank")}
-                >
-                  <ExternalLink size={12} />
-                  View Document
-                </button>
-                {rec.letterUrl && (
-                  <button
-                    className="flex-1 flex items-center justify-center gap-2 px-4 py-3 text-xs font-mono tracking-[0.15em] uppercase font-semibold transition-all hover:opacity-80"
-                    style={{ border: `1px solid ${rec.accentColor}60`, color: rec.accentColor }}
-                    onClick={() => rec.letterUrl && window.open(rec.letterUrl, "_blank")}
-                  >
-                    <FileText size={12} />
-                    View Letter
-                  </button>
-                )}
-              </div>
               {(rec.linkedInPostUrl || rec.linkedInAwardUrl) && (
                 <div className="flex gap-3">
                   {rec.linkedInPostUrl && (

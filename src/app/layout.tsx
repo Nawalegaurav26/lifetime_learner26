@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import Preloader from "@/components/Preloader";
 import Cursor from "@/components/Cursor";
 import CanvasBg from "@/components/CanvasBg";
+import Analytics from "@/components/Analytics";
 import Script from "next/script";
 
 const jakarta = Plus_Jakarta_Sans({
@@ -13,6 +14,10 @@ const jakarta = Plus_Jakarta_Sans({
   variable: "--font-jakarta",
   display: "swap",
 });
+
+export const viewport = {
+  themeColor: "#0f172a",
+};
 
 export const metadata: Metadata = {
   title: "Gaurav Raju Nawale | System Architect & SaaS Founder",
@@ -65,18 +70,21 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
-    // Adding instructions for other major bots
-    other: {
-      bingbot: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1',
-      yandex: 'index, follow',
-      baiduspider: 'index, follow',
-      slurp: 'index, follow', // Yahoo
-    },
   },
+  other: {
+    bingbot: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1',
+    yandex: 'index, follow',
+    baiduspider: 'index, follow',
+    slurp: 'index, follow',
+  },
+  manifest: "/manifest.json",
   verification: {
-    google: "google3cb44203118b2807", // Matching the verification file in public/
-    // yandex: 'yandex-verification-code',
-    // me: 'my-email@example.com',
+    google: "google3cb44203118b2807",
+    other: {
+      "msvalidate.01": "BING_VERIFICATION_CODE_HERE",
+      "yandex-verification": "YANDEX_VERIFICATION_CODE_HERE",
+      "baidu-site-verification": "BAIDU_VERIFICATION_CODE_HERE",
+    },
   },
 };
 
@@ -85,7 +93,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const jsonLd = {
+  const personJsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Gaurav Raju Nawale",
@@ -100,29 +108,44 @@ export default function RootLayout({
     "jobTitle": "System Architect & SaaS Founder",
     "worksFor": {
       "@type": "Organization",
-      "name": "CertiOwn"
+      "name": "CertiOwn",
+      "url": "https://certiown.com"
     },
     "description": "Founder of CertiOwn and Computer Engineering student at ICEM, Pune. Specialized in building automated systems and AI-driven solutions."
+  };
+
+  const websiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Gaurav Raju Nawale Portfolio",
+    "url": "https://gauravnawale.com",
+    "author": {
+      "@type": "Person",
+      "name": "Gaurav Raju Nawale"
+    }
   };
 
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        {/* Preconnect to external domains for performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <meta name="referrer" content="origin-when-cross-origin" />
         
-        {/* Security and Bot accessibility */}
         <meta name="format-detection" content="telephone=no, address=no, email=no" />
-        <meta name="theme-color" content="#0f172a" />
       </head>
       <body className={`${jakarta.variable} font-sans antialiased`}>
+        <Analytics />
         <Script
-          id="json-ld"
+          id="person-json-ld"
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
+        <Script
+          id="website-json-ld"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
         <CanvasBg />
         <Preloader />

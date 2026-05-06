@@ -53,14 +53,14 @@ const projects = [
   {
     id: "certiown",
     title: "CertiOwn",
-    subtitle: "Certificate Automation Platform",
-    description: "An automated system for certificate generation, verification, and distribution, designed to eliminate manual processes and enable scalable operations.",
+    subtitle: "Institutional Certificate Automation",
+    description: "Certificate automation and verification platform developed for institutional workflows, workshops, conferences, and academic activities.",
     tech: ["Flask", "Automation", "SaaS", "SMTP"],
     highlights: [
-      "Bulk certificate generation",
-      "Email automation with tracking",
-      "Admin dashboard (Flask-based)",
-      "SaaS-ready architecture"
+      "Bulk certificate generation & verification",
+      "Automated distribution with real-time tracking",
+      "Customizable institutional templates",
+      "Secure administrative control panel"
     ],
     status: "Private",
     accessNote: "Private project — demo and preview available on request.",
@@ -115,12 +115,13 @@ const projects = [
     id: "uba",
     title: "UBA ICEM Portal",
     subtitle: "Institutional Program Platform",
-    description: "A platform built to support institutional initiatives and streamline program-related workflows.",
-    tech: ["Data Management", "Workflow Automation", "React"],
+    description: "A centralized platform built for Unnat Bharat Abhiyan (UBA) to manage institutional initiatives and streamline program-related workflows.",
+    tech: ["Hosting", "Deployment", "SEO", "Testing"],
     highlights: [
-      "Structured data management",
-      "User-friendly interface",
-      "Institutional-level usage"
+      "End-to-end hosting and deployment orchestration",
+      "Institutional-grade documentation and testing",
+      "IIT Bombay initiative support",
+      "Performance optimization and SEO implementation"
     ],
     status: "Public",
     liveUrl: "https://uba-icem.vercel.app/",
@@ -133,13 +134,13 @@ const projects = [
   {
     id: "portfolio",
     title: "Next-Gen Portfolio",
-    subtitle: "SaaS-Style Personal Branding",
-    description: "A modern SaaS-style personal portfolio showcasing systems, projects, and product thinking.",
+    subtitle: "Systems-Inspired Portfolio",
+    description: "Systems-inspired portfolio interface focused on technical storytelling and developer identity, built for high performance and clarity.",
     tech: ["Next.js", "Tailwind CSS", "Framer Motion", "TypeScript"],
     highlights: [
-      "Modern UI/UX (Glassmorphism)",
-      "Mission Control Dashboard Aesthetic",
-      "Responsive & Animated Components"
+      "Technical storytelling-driven architecture",
+      "Mission Control systems aesthetic",
+      "Optimized performance and SEO metadata"
     ],
     status: "Public",
     liveUrl: "https://lifetime-learner26.netlify.app/",

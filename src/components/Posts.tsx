@@ -6,28 +6,28 @@ import Link from "next/link";
 
 const posts = [
   {
-    title: "Scaling CertiOwn: The Journey of 100 Users",
-    excerpt: "Insights into building a secure certificate issuance platform and overcoming initial scaling hurdles.",
+    title: "Building CertiOwn Automation Workflows",
+    excerpt: "Developing scalable certificate issuance systems for institutional workshops and conferences using Flask and Python.",
     date: "MAY 2024",
     readTime: "5 MIN READ",
-    category: "STARTUP",
-    slug: "scaling-certiown",
+    category: "ENGINEERING",
+    slug: "certiown-automation-workflows",
   },
   {
-    title: "The Future of AI in Automation",
-    excerpt: "Exploring how LLMs and agentic workflows are redefining industrial automation and efficiency.",
+    title: "Deployment Learnings from UBA ICEM",
+    excerpt: "Insights into hosting, SEO, and institutional infrastructure deployment for a large-scale university portal.",
     date: "APRIL 2024",
-    readTime: "8 MIN READ",
-    category: "AI RESEARCH",
-    slug: "ai-automation-future",
+    readTime: "6 MIN READ",
+    category: "DEPLOYMENT",
+    slug: "uba-icem-deployment",
   },
   {
-    title: "Building a High-Performance Portfolio",
-    excerpt: "A deep dive into the tech stack and design principles behind the Aura Portfolio system.",
+    title: "Linux Setup for Backend Developers",
+    excerpt: "Optimizing the development environment: Tools, configurations, and workflows for systems engineering.",
     date: "MARCH 2024",
     readTime: "4 MIN READ",
-    category: "DEVELOPMENT",
-    slug: "building-aura-portfolio",
+    category: "SYSTEMS",
+    slug: "linux-setup-backend",
   },
 ];
 
@@ -102,7 +102,23 @@ export default function Posts() {
                   READ INTEL <ArrowRight size={14} />
                 </Link>
                 <div className="flex gap-4">
-                   <button className="text-slate-600 hover:text-secondary transition-colors" aria-label="Share post">
+                   <button 
+                     onClick={() => {
+                       if (navigator.share) {
+                         navigator.share({
+                           title: post.title,
+                           text: post.excerpt,
+                           url: `https://gauravnawale.com/posts/${post.slug}`,
+                         });
+                       } else {
+                         // Fallback: Copy to clipboard
+                         navigator.clipboard.writeText(`https://gauravnawale.com/posts/${post.slug}`);
+                         alert("Link copied to clipboard!");
+                       }
+                     }}
+                     className="text-slate-600 hover:text-secondary transition-colors" 
+                     aria-label="Share post"
+                   >
                      <Share2 size={14} />
                    </button>
                    <button className="text-slate-600 hover:text-secondary transition-colors" aria-label="Search posts">

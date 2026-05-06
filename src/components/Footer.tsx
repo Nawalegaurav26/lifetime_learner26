@@ -32,7 +32,7 @@ export default function Footer() {
               SYS.<span className="text-primary">GNR</span>
             </Link>
             <p className="text-xs text-slate-500 font-mono leading-relaxed max-w-xs uppercase tracking-widest">
-              System Architect & SaaS Founder. Building autonomous solutions for a digital-first world.
+              System Architect & SaaS Founder. Building scalable platforms and automation infrastructure.
             </p>
           </div>
 

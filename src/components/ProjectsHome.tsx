@@ -15,7 +15,7 @@ const projects = [
   {
     id: "certiown",
     title: "CertiOwn",
-    subtitle: "Certificate Automation Platform",
+    subtitle: "Institutional Certificate Automation",
     tech: ["Flask", "SaaS", "Automation"],
     status: "Private",
     href: "/projects#certiown"
@@ -40,14 +40,14 @@ const projects = [
     id: "uba",
     title: "UBA ICEM Portal",
     subtitle: "Institutional Program Platform",
-    tech: ["React", "Data Mgmt"],
+    tech: ["React", "Hosting", "Deployment"],
     status: "Public",
     href: "/projects#uba"
   },
   {
     id: "portfolio",
-    title: "Next-Gen Portfolio",
-    subtitle: "SaaS-Style Personal Branding",
+    title: "Technical Portfolio",
+    subtitle: "Systems-inspired developer identity",
     tech: ["Next.js", "Framer Motion"],
     status: "Public",
     href: "/projects#portfolio"

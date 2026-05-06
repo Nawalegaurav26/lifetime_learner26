@@ -1,7 +1,9 @@
 import Hero from "@/components/Hero";
 import About from "@/components/AboutHome";
 import Projects from "@/components/ProjectsHome";
+import SocialProof from "@/components/SocialProof";
 import Posts from "@/components/Posts";
+import Newsletter from "@/components/Newsletter";
 import Contact from "@/components/Contact";
 import type { Metadata } from "next";
 
@@ -41,7 +43,13 @@ export default function Home() {
         <Projects />
       </div>
       <div className="relative z-10">
+        <SocialProof />
+      </div>
+      <div className="relative z-10">
         <Posts />
+      </div>
+      <div className="relative z-10">
+        <Newsletter />
       </div>
       <div className="relative z-10">
         <Contact />

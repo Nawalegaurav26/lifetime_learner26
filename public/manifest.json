@@ -1,16 +1,21 @@
 {
-  "name": "Gaurav Raju Nawale Portfolio",
-  "short_name": "Gaurav Portfolio",
-  "description": "System Architect & SaaS Founder Portfolio",
+  "name": "Gaurav Raju Nawale | System Architect & SaaS Founder",
+  "short_name": "Gaurav Nawale",
+  "description": "Personal portfolio of Gaurav Raju Nawale, specialized in building automated systems, AI research, and scalable SaaS architectures.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0f172a",
-  "theme_color": "#3b82f6",
+  "theme_color": "#0f172a",
   "icons": [
     {
-      "src": "/file.svg",
-      "sizes": "any",
-      "type": "image/svg+xml"
+      "src": "/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/portfolio_v3.png",
+      "sizes": "1200x630",
+      "type": "image/png"
     }
   ]
 }

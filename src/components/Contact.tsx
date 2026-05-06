@@ -17,7 +17,7 @@ export default function Contact() {
                 the <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent filter drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]">Uplink.</span>
               </h2>
               <p className="mt-8 text-sm md:text-base text-slate-400 font-mono leading-relaxed max-w-md tracking-widest uppercase">
-                I&apos;m always open to discussing system architecture, AI research, or potential collaborations.
+                I&apos;m always open to discussing technical architecture, infrastructure systems, or potential collaborations.
               </p>
 
               <div className="mt-16 space-y-10">

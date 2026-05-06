@@ -63,7 +63,7 @@ export default function Hero() {
             transition={{ delay: 0.8, duration: 1 }}
             className="text-md text-slate-500 max-w-xl mx-auto font-mono mb-12"
           >
-            Founder @ CertiOwn | Computer Engineering Student
+            Founder @ CertiOwn • Systems & Backend Developer
           </motion.p>
 
           <motion.div 

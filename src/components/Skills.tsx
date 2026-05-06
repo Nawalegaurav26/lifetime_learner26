@@ -15,9 +15,9 @@ const skills = [
     items: ["Flask", "Node.js", "Next.js", "Docker", "Postgres", "Redis"],
   },
   {
-    category: "AI & Tools",
+    category: "Systems & Infrastructure",
     icon: <Cpu size={24} className="text-accent" />,
-    items: ["Git", "AWS", "TensorFlow", "Pandas", "Figma", "OpenAI API"],
+    items: ["Git", "AWS", "Linux", "Nginx", "Docker", "GitLab CI"],
   },
 ];
 
@@ -30,7 +30,7 @@ export default function Skills() {
             Technical <span className="gradient-text">Arsenal</span>
           </h2>
           <p className="mt-6 text-lg text-slate-500 font-medium max-w-xl mx-auto">
-            A curated list of technologies I use to architect and build intelligent systems.
+            A curated list of technologies I use to architect and build production-ready systems.
           </p>
         </div>
 

@@ -25,11 +25,11 @@ export default function AboutHome() {
 
             <div className="space-y-6 text-slate-400 font-mono text-sm md:text-base leading-relaxed">
               <p>
-                I am a <span className="text-slate-100 font-bold">Computer Science Engineering student</span> and system builder. My work focuses on developing scalable digital solutions, from secure SaaS platforms like <span className="text-primary-light font-bold">CertiOwn</span> to exploring the frontier of <span className="text-secondary-light font-bold">Brain-Computer Interfaces (BCI)</span>.
+                I’m a <span className="text-slate-100 font-bold">Computer Engineering student</span> and systems-focused developer building scalable digital platforms, automation workflows, and institutional infrastructure.
               </p>
               
               <p className="hidden md:block">
-                I prioritize <span className="text-accent-light font-bold underline decoration-accent/30 underline-offset-4">execution over theory</span>, building usable systems that solve complex problems through intelligent automation and research-driven design.
+                I prioritize <span className="text-accent-light font-bold underline decoration-accent/30 underline-offset-4">practical systems engineering</span>, focusing on backend architecture, automation, and reliable deployment of institutional platforms through Linux-based environments and secure workflows.
               </p>
             </div>
 

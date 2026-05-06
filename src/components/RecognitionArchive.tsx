@@ -21,6 +21,7 @@ interface Recognition {
   letterUrl?: string;
   linkedInPostUrl?: string;
   linkedInAwardUrl?: string;
+  galleryImages?: string[];
   tags: string[];
 }
 
@@ -88,18 +89,26 @@ const recognitions: Recognition[] = [
     id: "rec-004",
     archiveId: "REC-004",
     title: "Best Library User Award 2025",
-    issuedBy: "Library Department & Principal",
-    authority: "ICEM — Indira College of Engineering & Management",
+    issuedBy: "Library Head & Dr. Nilesh Uke",
+    authority: "Principal, Indira College of Engineering and Management (ICEM)",
     description:
-      "Awarded for consistent academic engagement and exemplary use of institutional research resources throughout the 2024–2025 academic year, recognized by the college principal.",
+      "Honored to be recognized as the Best Student of Library by the Library Department of ICEM. This award is not just a certificate — it's a reminder that consistent learning, dedication, and the habit of seeking knowledge always pay off.",
     date: "MAY 2025",
     status: "VERIFIED",
     statusColor: "text-amber-400",
     accentColor: "#f59e0b",
     category: "ACADEMIC-AWARD",
-    documentUrl: undefined,
+    imageUrl: "/Recognitions/Best Library User Award 2025.png",
+    documentUrl: "/Recognitions/Best Library User Award 2025.pdf",
     letterUrl: undefined,
-    tags: ["ICEM", "Academic Excellence", "Award"],
+    linkedInPostUrl: "https://www.linkedin.com/posts/nawalegaurav26_bestuser-beststudent-libraryaward-activity-7375802475032883200-0H5E",
+    linkedInAwardUrl: "https://www.linkedin.com/in/nawalegaurav26/overlay/Honor/779076056/treasury/?profileId=ACoAAFKay4MBXSZX3hwJjIAPHTCop7RAuNnmuls",
+    galleryImages: [
+      "/Recognitions/Best Library User Award 2025 image2.jpg",
+      "/Recognitions/Best Library User Award 2025 image3.jpg",
+      "/Recognitions/Best Library User Award 2025 image4.jpg",
+    ],
+    tags: ["ICEM", "Library Award", "Academic Excellence", "May 2025"],
   },
 ];
 
@@ -502,7 +511,26 @@ function DetailModal({ rec, onClose }: { rec: Recognition; onClose: () => void }
               ))}
             </div>
 
-            {/* Action buttons - LinkedIn only (PDF download is inside ModalDocumentPreview) */}
+            {/* Photo gallery — ceremony images */}
+            {rec.galleryImages && rec.galleryImages.length > 0 && (
+              <div>
+                <p className="font-mono text-[9px] tracking-[0.2em] text-slate-500 uppercase mb-2">
+                  ◈ Ceremony Gallery
+                </p>
+                <div className="grid grid-cols-3 gap-2">
+                  {rec.galleryImages.map((src, i) => (
+                    <div key={i} className="relative overflow-hidden border border-white/5 aspect-square group cursor-pointer"
+                      onClick={() => window.open(src, "_blank")}>
+                      <img src={src} alt={`Gallery ${i + 1}`} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+                      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center" style={{ background: `${rec.accentColor}22` }}>
+                        <ExternalLink size={14} style={{ color: rec.accentColor }} />
+                      </div>
+                      <span className="absolute bottom-1 left-1 font-mono text-[8px] tracking-widest" style={{ color: rec.accentColor }}>IMG-{String(i + 1).padStart(2, "0")}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
             <div className="flex flex-col gap-3">
               {(rec.linkedInPostUrl || rec.linkedInAwardUrl) && (
                 <div className="flex gap-3">

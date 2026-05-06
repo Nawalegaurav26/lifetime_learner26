@@ -8,11 +8,11 @@ import Contact from "@/components/Contact";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Gaurav Raju Nawale | System Architect & SaaS Founder",
-  description: "Official portfolio of Gaurav Raju Nawale. Explorer of Intelligence. Builder of Systems. Founder of CertiOwn.",
+  title: "Gaurav Raju Nawale | Lifetime Learner, System Architect & SaaS Founder",
+  description: "Official portfolio of Gaurav Raju Nawale (Lifetime Learner). Explorer of Intelligence. Builder of Systems. Founder of CertiOwn.",
   openGraph: {
-    title: "Gaurav Raju Nawale | System Architect & SaaS Founder",
-    description: "Explorer of Intelligence. Builder of Systems. Founder of CertiOwn.",
+    title: "Gaurav Raju Nawale | Lifetime Learner, System Architect & SaaS Founder",
+    description: "Explorer of Intelligence. Builder of Systems. Founder of CertiOwn. Lifetime Learner.",
     url: "https://gauravnawale.com",
     type: "website",
     images: [
@@ -26,8 +26,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Gaurav Raju Nawale | System Architect & SaaS Founder",
-    description: "System Architect & SaaS Founder. Building autonomous solutions.",
+    title: "Gaurav Raju Nawale | Lifetime Learner, System Architect & SaaS Founder",
+    description: "System Architect & SaaS Founder. Building autonomous solutions. Lifetime Learner.",
     images: ["/portfolio_v3.png"],
   },
 };

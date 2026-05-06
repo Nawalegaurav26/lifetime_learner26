@@ -30,7 +30,7 @@
 .downloadLink { border: 1px solid rgba(255,255,255,0.15); color: #94a3b8; }
 
 /* ── Archive Card ───────────────────────────────────────────────────────── */
-.card { background: rgba(18,33,49,0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.06); transition: border-color 0.4s ease, box-shadow 0.4s ease; }
+.card { background: rgba(18,33,49,0.85); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.06); transition: border-color 0.4s ease, box-shadow 0.4s ease; }
 .card:hover { border-color: var(--accent-card); box-shadow: 0 0 30px var(--accent-glow); }
 .cardTag { border: 1px solid var(--accent-tag); color: var(--accent); opacity: 0.7; }
 .cardFooter { border-color: rgba(255,255,255,0.04) !important; background: rgba(0,0,0,0.2); }
@@ -41,7 +41,7 @@
 .btnLinkedIn { border: 1px solid rgba(10,102,194,0.2); color: #0a66c2; background: rgba(10,102,194,0.063); }
 
 /* ── Modal ──────────────────────────────────────────────────────────────── */
-.modalOverlay { background: rgba(5,20,36,0.92); backdrop-filter: blur(12px); }
+.modalOverlay { background: rgba(5,20,36,0.92); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
 .modalPanel { background: rgba(12,24,38,0.98); border: 1px solid var(--accent-card); box-shadow: 0 0 60px var(--accent-glow); }
 .authorityBlock { border-left: 2px solid var(--accent); background: var(--accent-subtle); }
 .modalTag { border: 1px solid var(--accent-card); color: var(--accent); }
@@ -55,3 +55,15 @@
 .gradientTitle { background: linear-gradient(135deg, #3b82f6, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 .statBadge { border: 1px solid rgba(59,130,246,0.2); background: rgba(59,130,246,0.05); }
 .sectionDivider { background: linear-gradient(90deg, rgba(59,130,246,0.5), rgba(6,182,212,0.2), transparent); height: 1px; }
+ 
+.terminalCursor { transition: opacity 0.1s; opacity: var(--cursor-opacity, 1); }
+ 
+@keyframes archiveScan {
+  0% { top: -2px; }
+  100% { top: 100%; }
+}
+ 
+@keyframes archivePulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}

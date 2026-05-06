@@ -3,10 +3,10 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "About | Gaurav Raju Nawale",
-  description: "Dossier on Gaurav Raju Nawale: System Architect, SaaS Founder, and explorer of intelligent automation.",
+  description: "Dossier on Gaurav Raju Nawale (Lifetime Learner): System Architect, SaaS Founder, and explorer of intelligent automation at ICEM, Pune.",
   openGraph: {
     title: "About | Gaurav Raju Nawale",
-    description: "Deep dive into the background, philosophy, and technical focus of Gaurav Raju Nawale.",
+    description: "Deep dive into the background, philosophy, and technical focus of Gaurav Raju Nawale — Lifetime Learner & CertiOwn Founder.",
     url: "https://gauravnawale.com/about",
     type: "website",
     images: [
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "About | Gaurav Raju Nawale",
-    description: "System Architect & SaaS Founder. Building the future of automated intelligence.",
+    description: "System Architect & SaaS Founder. Building the future of automated intelligence. Lifetime Learner.",
     images: ["/portfolio_v3.png"],
   },
 };

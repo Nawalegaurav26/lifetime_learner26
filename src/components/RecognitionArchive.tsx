@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ExternalLink, FileText, Shield, Calendar, Building2, Award } from "lucide-react";
 import styles from "./RecognitionArchive.module.css";
@@ -152,7 +153,15 @@ function DocumentPreview({ accentColor, archiveId, imageUrl }: {
       <HudCorners />
       {imageUrl ? (
         <>
-          <img src={imageUrl} alt={archiveId} className="w-full h-full object-contain" />
+          <div className="relative w-full h-full">
+            <Image 
+              src={imageUrl} 
+              alt={archiveId} 
+              fill
+              className="object-contain"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </div>
           <div className="absolute top-2 left-2 pointer-events-none">
             <span className={styles.previewBadge}>PREVIEW</span>
           </div>
@@ -164,7 +173,7 @@ function DocumentPreview({ accentColor, archiveId, imageUrl }: {
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
             <FileText size={24} className={styles.accentTextFaded} />
             <p className={`font-mono text-[10px] tracking-[0.2em] ${styles.accentTextFaded}`}>DOCUMENT PREVIEW</p>
-            <p className="font-mono text-[9px] tracking-widest text-slate-600">{archiveId} // AWAITING UPLOAD</p>
+            <p className="font-mono text-[9px] tracking-widest text-slate-600">{`${archiveId} // AWAITING UPLOAD`}</p>
           </div>
         </>
       )}
@@ -213,7 +222,15 @@ function ModalDocumentPreview({ accentColor, archiveId, imageUrl, documentUrl }:
           </>
         ) : imageUrl ? (
           <>
-            <img src={imageUrl} alt={archiveId} className="w-full h-full object-contain" />
+            <div className="relative w-full h-full">
+              <Image 
+                src={imageUrl} 
+                alt={archiveId} 
+                fill
+                className="object-contain"
+                sizes="(max-width: 1200px) 100vw, 800px"
+              />
+            </div>
             <div className="absolute top-2 left-2 pointer-events-none">
               <span className={styles.previewBadge}>IMAGE PREVIEW</span>
             </div>
@@ -270,7 +287,7 @@ function ArchiveCard({
 
       {/* Card header */}
       <div className="flex items-start justify-between px-4 pt-4 pb-3 border-b border-white/[0.04]">
-        <span className="font-mono text-[11px] tracking-[0.15em]" style={{ color: rec.accentColor }}>
+        <span className={`font-mono text-[11px] tracking-[0.15em] ${styles.accentText}`}>
           {rec.archiveId}
         </span>
         <div className={`flex items-center gap-1.5 px-2 py-1 border ${status.border} rounded-none`}>
@@ -365,7 +382,7 @@ function ArchiveCard({
       {/* Footer strip */}
       <div className={`px-4 py-2 flex items-center justify-between border-t ${styles.cardFooter}`}>
         <span className="font-mono text-[8px] tracking-[0.2em] text-slate-600 uppercase">
-          SYSTEM VERIFIED // {rec.archiveId} // {rec.date}
+          {`SYSTEM VERIFIED // ${rec.archiveId} // ${rec.date}`}
         </span>
         <span className="font-mono text-[8px] text-slate-700 tracking-widest opacity-40">
           ICEM // GRN // PORTFOLIO
@@ -497,7 +514,12 @@ function DetailModal({ rec, onClose }: { rec: Recognition; onClose: () => void }
                   {rec.galleryImages.map((src, i) => (
                     <div key={i} className="relative overflow-hidden border border-white/5 aspect-square group cursor-pointer"
                       onClick={() => window.open(src, "_blank")}>
-                      <img src={src} alt={`Gallery ${i + 1}`} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+                      <Image 
+                        src={src} 
+                        alt={`Gallery ${i + 1}`} 
+                        fill
+                        className="object-cover transition-transform duration-300 group-hover:scale-105" 
+                      />
                       <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center ${styles.galleryOverlay}`}>
                         <ExternalLink size={14} className={styles.galleryLabel} />
                       </div>
@@ -536,7 +558,7 @@ function DetailModal({ rec, onClose }: { rec: Recognition; onClose: () => void }
           {/* Modal footer */}
           <div className="px-6 py-3 border-t border-white/[0.04] flex items-center justify-between">
             <span className="font-mono text-[9px] tracking-[0.2em] text-slate-600 uppercase">
-              SYSTEM VERIFIED // {rec.archiveId} // {rec.date}
+              {`SYSTEM VERIFIED // ${rec.archiveId} // ${rec.date}`}
             </span>
             <span className="font-mono text-[8px] text-slate-700 tracking-widest opacity-50">
               ICEM // GRN // PORTFOLIO
@@ -560,16 +582,7 @@ export default function RecognitionArchive() {
 
   return (
     <>
-      <style>{`
-        @keyframes archiveScan {
-          0% { top: -2px; }
-          100% { top: 100%; }
-        }
-        @keyframes archivePulse {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0.4; }
-        }
-      `}</style>
+
 
       <section className="min-h-screen section-gap relative overflow-hidden" aria-label="Recognitions">
         {/* Background scanning line */}
@@ -638,9 +651,9 @@ export default function RecognitionArchive() {
               <span className="font-mono text-[10px] tracking-[0.25em] text-primary/70 uppercase">
                 SECTION :: INSTITUTIONAL-REC
               </span>
-              <span
-                className="font-mono text-primary text-sm"
-                style={{ opacity: cursorVisible ? 1 : 0, transition: "opacity 0.1s" }}
+              <span 
+                className={`${styles.terminalCursor} ml-1`} 
+                style={{ '--cursor-opacity': cursorVisible ? 1 : 0 } as React.CSSProperties}
               >
                 █
               </span>

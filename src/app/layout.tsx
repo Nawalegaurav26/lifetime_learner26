@@ -20,26 +20,31 @@ export const viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Gaurav Raju Nawale | System Architect & SaaS Founder",
-  description: "Personal portfolio of Gaurav Raju Nawale, a Computer Engineering student and founder of CertiOwn. Specialized in building automated systems, AI research, and scalable SaaS architectures.",
+  title: {
+    template: "%s | Gaurav Raju Nawale",
+    default: "Gaurav Raju Nawale | Lifetime Learner, System Architect & CertiOwn Founder",
+  },
+  description: "Official portfolio of Gaurav Raju Nawale (Lifetime Learner) — Founder of CertiOwn, System Architect, and Computer Engineering student at ICEM, Pune. Specialized in building automated systems, AI research, and scalable SaaS architectures.",
   keywords: [
-    "Gaurav Raju Nawale", 
-    "Computer Engineering Portfolio", 
-    "CertiOwn Founder", 
-    "SaaS Architecture", 
-    "Next.js Developer", 
-    "System Architect", 
-    "AI Research",
-    "Automation Systems"
+    "Gaurav Raju Nawale", "Nawale Gaurav Raju", "Mr Gaurav Raju Nawale", "Gaurav Nawale", "Gaurav Navale", "Gaurav Navle", "Garuav Nawale", "Garuav Navale", "Garuav Navle", "Gaurav R Nawale", "Nawale Gaurav", "Gaurav Raju", "Gaurav Nawle", "Gaurav Nawal", "Mr Gaurav Nawale", "Engineer Gaurav Nawale", "Developer Gaurav Nawale",
+    "nawalegaurav26", "nawalegaurav2006", "gaurav.nawale", "gauravnawale", "gaurav_nawale", "nawale_gaurav", "gauravrajunawale", "gauravraju26", "lifetimelearner26", "lifetime_learner26", "lifetime-learner26", "lifetime learner 26", "Lifetime Learner", "Lifetime Learner 26",
+    "CertiOwn", "CertiOwn Founder", "Founder of CertiOwn", "CertiOwn Developer", "Certificate Management System", "Certificate Portal Developer", "Certificate Automation System", "Academic Certificate Platform", "Digital Certificate Verification", "Certificate Verification Portal",
+    "ICEM", "ICEM Pune", "Indira College of Engineering and Management", "Indira College Pune", "Indira College of Engineering and Management Pune", "ICEM Student", "ICEM Developer", "ICEM Technical Secretary", "Technical Secretary ICEM", "Computer Engineering ICEM", "ICEM Innovation", "ICEM Projects",
+    "UBA ICEM", "Unnat Bharat Abhiyan", "Unnat Bharat Abhiyan ICEM", "UBA ICEM Pune", "UBA Pune", "ICEM UBA Team", "Unnat Bharat Abhiyan Pune",
+    "SDETM", "SDETM ICEM", "SDETM 2026", "Sustainable Developments in Engineering Technology and Management", "Sustainable Developments in Engineering, Technology & Management", "International Conference SDETM", "ICEM Conference", "ICEM Pune Conference", "Engineering Conference Pune", "Research Conference ICEM", "SDETM Pune", "SDETM Website", "SDETM ICEM Official", "Research Paper Conference ICEM",
+    "Student Developer India", "Student Entrepreneur", "Startup Founder", "Startup Builder", "Research Student", "AI Developer", "Python Developer", "Flask Developer", "Web Developer India", "Full Stack Developer", "Modern Web Developer", "Software Developer India", "Developer Portfolio", "Portfolio Website", "Engineering Student Maharashtra", "Computer Engineering Student", "Researcher India", "Tech Entrepreneur India", "Innovation Student", "Open Source Developer", "Future Researcher",
+    "Pune Developer", "Maharashtra Developer", "Nashik Developer", "India Developer", "SPPU Student", "Savitribai Phule Pune University", "SPPU Developer", "College Startup Founder", "Student Founder Maharashtra",
+    "Admin Portal Developer", "Event Management System", "Conference Website Developer", "Research Portal Developer", "Academic Portal Developer", "Certificate System Developer",
+    "Lifetime Learner Developer", "Lifetime Learner Portfolio", "Lifetime Learner India", "Lifetime Learner Student", "Tech Community Leader", "Young Researcher India", "Engineering Innovator", "Student Innovator", "Digital Innovation Developer"
   ],
   authors: [{ name: "Gaurav Raju Nawale" }],
   creator: "Gaurav Raju Nawale",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://gauravnawale.com", // Replace with actual domain if known
-    title: "Gaurav Raju Nawale | System Architect & SaaS Founder",
-    description: "Explorer of Intelligence. Builder of Systems. Founder of CertiOwn.",
+    url: "https://gauravnawale.com",
+    title: "Gaurav Raju Nawale | Lifetime Learner, System Architect & CertiOwn Founder",
+    description: "Explorer of Intelligence. Builder of Systems. Founder of CertiOwn. Lifetime Learner.",
     siteName: "Gaurav Raju Nawale Portfolio",
     images: [
       {
@@ -52,8 +57,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Gaurav Raju Nawale | System Architect & SaaS Founder",
-    description: "Explorer of Intelligence. Builder of Systems. Founder of CertiOwn.",
+    title: "Gaurav Raju Nawale | Lifetime Learner, System Architect & CertiOwn Founder",
+    description: "Explorer of Intelligence. Builder of Systems. Founder of CertiOwn. Lifetime Learner.",
     images: ["/portfolio_v3.png"],
   },
   alternates: {
@@ -97,13 +102,20 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Gaurav Raju Nawale",
-    "alternateName": "Gaurav Nawale",
+    "alternateName": [
+      "Gaurav Nawale",
+      "Nawale Gaurav Raju",
+      "Lifetime Learner",
+      "lifetime_learner26",
+      "nawalegaurav26"
+    ],
     "url": "https://gauravnawale.com",
     "image": "https://gauravnawale.com/profile.jpg",
     "sameAs": [
       "https://github.com/Nawalegaurav26",
       "https://linkedin.com/in/nawalegaurav26",
-      "https://www.instagram.com/lifetime_learner26/"
+      "https://www.instagram.com/lifetime_learner26/",
+      "https://twitter.com/nawalegaurav26"
     ],
     "jobTitle": "System Architect & SaaS Founder",
     "worksFor": {
@@ -111,6 +123,21 @@ export default function RootLayout({
       "name": "CertiOwn",
       "url": "https://certiown.com"
     },
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "Indira College of Engineering and Management (ICEM), Pune",
+      "sameAs": "https://indiraicem.ac.in"
+    },
+    "knowsAbout": [
+      "Computer Engineering",
+      "SaaS Architecture",
+      "AI Development",
+      "Python",
+      "Flask",
+      "Next.js",
+      "Automation Systems",
+      "Startup Leadership"
+    ],
     "description": "Founder of CertiOwn and Computer Engineering student at ICEM, Pune. Specialized in building automated systems and AI-driven solutions."
   };
 
@@ -122,7 +149,8 @@ export default function RootLayout({
     "author": {
       "@type": "Person",
       "name": "Gaurav Raju Nawale"
-    }
+    },
+    "description": "Lifetime Learner, System Architect, and Founder of CertiOwn."
   };
 
   return (

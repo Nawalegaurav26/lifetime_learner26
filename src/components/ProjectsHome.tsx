@@ -42,7 +42,7 @@ const projects = [
     subtitle: "Institutional Program Platform",
     tech: ["React", "Hosting", "Deployment"],
     status: "Public",
-    href: "/projects/uba-icem"
+    href: "/projects#uba"
   },
   {
     id: "portfolio",

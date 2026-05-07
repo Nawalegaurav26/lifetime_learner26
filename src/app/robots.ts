@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/private/',
     },
-    sitemap: 'https://gauravnawale.com/sitemap.xml',
+    sitemap: 'https://lifetime-learner26.netlify.app/sitemap.xml',
   }
 }

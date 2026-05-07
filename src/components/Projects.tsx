@@ -127,7 +127,8 @@ const projects = [
     liveUrl: "https://uba-icem.vercel.app/",
     image: "/uba.png",
     links: [
-      { label: "Visit Website", href: "https://uba-icem.vercel.app/", icon: <Globe size={14} />, primary: true },
+      { label: "Case Study", href: "/projects/uba-icem", icon: <Layers size={14} />, primary: true },
+      { label: "Visit Website", href: "https://uba-icem.vercel.app/", icon: <Globe size={14} /> },
       { label: "Walkthrough", href: "#", icon: <Play size={14} /> }
     ]
   },

@@ -4,8 +4,22 @@ import { motion } from "framer-motion";
 import { Send, Mail } from "lucide-react";
 import { GithubIcon as Github, LinkedinIcon as Linkedin, WhatsAppIcon as WhatsApp, InstagramIcon } from "./Icons";
 import Link from "next/link";
+import { trackEvent } from "./Analytics";
+import { useState } from "react";
 
 export default function Contact() {
+  const [designation, setDesignation] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    trackEvent("contact_form_submit", "true");
+    if (designation) {
+      trackEvent("visitor_designation", designation);
+    }
+    // Add your actual form submission logic here
+    alert("Transmission received. Checking uplink...");
+  };
+
   return (
     <section id="contact" className="section-gap relative overflow-hidden">
       <div className="container mx-auto px-6">
@@ -114,11 +128,13 @@ export default function Contact() {
               className="p-10 glass rounded-md border border-primary/20 shadow-[0_0_30px_rgba(59,130,246,0.1)] relative"
             >
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-accent" />
-              <form className="space-y-8 mt-2">
+              <form onSubmit={handleSubmit} className="space-y-8 mt-2">
                 <div className="space-y-3">
                   <label className="text-[10px] font-black text-primary uppercase tracking-[0.2em] ml-1 font-mono">Your Designation</label>
                   <input
                     type="text"
+                    value={designation}
+                    onChange={(e) => setDesignation(e.target.value)}
                     className="w-full px-8 py-4 bg-slate-900/50 border border-slate-700 rounded-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all duration-300 font-mono text-sm text-slate-200"
                     placeholder="ENTER DESIGNATION"
                   />

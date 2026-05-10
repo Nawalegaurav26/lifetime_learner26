@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Connect | Gaurav Raju Nawale",
     description: "Open communication channels for technical inquiries and professional partnerships.",
-    url: "https://gauravnawale.com/contact",
+    url: "https://lifetime-learner26.netlify.app/contact",
     type: "website",
     images: [
       {

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { GithubIcon as Github, LinkedinIcon as Linkedin, MailIcon as Mail, WhatsAppIcon as WhatsApp, InstagramIcon } from "./Icons";
 import Link from "next/link";
+import { trackEvent } from "./Analytics";
 
 export default function Hero() {
   return (
@@ -81,6 +82,7 @@ export default function Hero() {
             <Link
               href="/Mr_Gaurav_Raju_Nawale.pdf"
               target="_blank"
+              onClick={() => trackEvent("resume_download", "true")}
               className="w-full sm:w-auto px-8 py-4 glass text-foreground border border-slate-700 hover:border-primary/50 font-mono uppercase tracking-widest text-sm font-bold flex justify-center items-center rounded-md transition-all hover:bg-surface hover:scale-[1.02] active:scale-[0.98]"
             >
               System Bio (PDF)

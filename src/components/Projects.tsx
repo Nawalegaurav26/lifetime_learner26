@@ -32,6 +32,7 @@ interface Project {
   status: "Public" | "Private";
   accessNote?: string;
   image: string;
+  href?: string;
   liveUrl?: string;
   githubUrl?: string;
   links: ProjectLink[];
@@ -84,6 +85,7 @@ const projects: Project[] = [
     status: "Private",
     accessNote: "Private project — demo and preview available on request.",
     image: "/certiown.png",
+    href: "/projects#certiown",
     links: [
       { label: "View Preview", href: "#", icon: <Layout size={14} /> },
       { label: "Watch Demo", href: "#", icon: <Play size={14} /> },
@@ -105,6 +107,7 @@ const projects: Project[] = [
     status: "Private",
     accessNote: "Private project — demo available.",
     image: "/mailing.png",
+    href: "/projects#mailing",
     links: [
       { label: "Watch Demo", href: "#", icon: <Play size={14} /> },
       { label: "View Preview", href: "#", icon: <Layout size={14} />, primary: true }
@@ -125,6 +128,7 @@ const projects: Project[] = [
     status: "Public",
     liveUrl: "https://sdetm-icem.vercel.app/",
     image: "/conference.png",
+    href: "https://sdetm-icem.vercel.app/",
     links: [
       { label: "Visit Website", href: "https://sdetm-icem.vercel.app/", icon: <Globe size={14} />, primary: true },
       { label: "Walkthrough", href: "#", icon: <Play size={14} /> }
@@ -145,6 +149,7 @@ const projects: Project[] = [
     status: "Public",
     liveUrl: "https://uba-icem.vercel.app/",
     image: "/uba.png",
+    href: "/projects/uba",
     links: [
       { label: "Visit Website", href: "https://uba-icem.vercel.app/", icon: <Globe size={14} />, primary: true },
       { label: "View Case Study", href: "/projects/uba", icon: <Layout size={14} />, special: true }
@@ -166,6 +171,7 @@ const projects: Project[] = [
     liveUrl: "https://lifetime-learner26.netlify.app/",
     githubUrl: "https://github.com/Nawalegaurav26/lifetime_learner26",
     image: "/portfolio_v4.png",
+    href: "/",
     links: [
       { label: "View Website", href: "https://lifetime-learner26.netlify.app/", icon: <Globe size={14} />, primary: true },
       { label: "View Code", href: "https://github.com/Nawalegaurav26/lifetime_learner26", icon: <Github size={14} /> }
@@ -228,29 +234,38 @@ export default function Projects() {
             >
               {/* Media Column */}
               <div className={`lg:col-span-7 relative ${index % 2 === 1 ? "lg:order-2" : ""}`}>
-                <div className="relative aspect-video rounded-xl overflow-hidden glass border border-white/5 shadow-2xl group-hover:shadow-primary/20 transition-all duration-700">
-                  {project.image ? (
-                    <Image 
-                      src={project.image} 
-                      alt={project.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-1000 grayscale-[0.2] group-hover:grayscale-0"
-                    />
-                  ) : (
-                    <ComingSoonMedia title={project.title} />
-                  )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60 pointer-events-none" />
-                  
-                  {/* Status Badge */}
-                  <div className={`absolute top-6 left-6 flex items-center gap-2 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest border backdrop-blur-md z-20 ${
-                    project.status === "Private" 
-                    ? "bg-amber-500/10 border-amber-500/30 text-amber-500" 
-                    : "bg-emerald-500/10 border-emerald-500/30 text-emerald-500"
-                  }`}>
-                    {project.status === "Private" ? <Lock size={10} /> : <Globe size={10} />}
-                    {project.status} Access
+                <Link href={project.href || "#"} className="block group/img-link">
+                  <div className="relative aspect-video rounded-xl overflow-hidden glass border border-white/5 shadow-2xl group-hover/img-link:shadow-primary/30 transition-all duration-700">
+                    {project.image ? (
+                      <Image 
+                        src={project.image} 
+                        alt={project.title}
+                        fill
+                        className="object-cover group-hover/img-link:scale-105 transition-transform duration-1000 grayscale-[0.2] group-hover/img-link:grayscale-0"
+                      />
+                    ) : (
+                      <ComingSoonMedia title={project.title} />
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60 pointer-events-none" />
+                    
+                    {/* Hover Overlay */}
+                    <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover/img-link:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
+                      <div className="bg-slate-950/80 px-4 py-2 rounded-full border border-primary/30 text-[10px] font-black text-primary uppercase tracking-[0.2em] shadow-2xl">
+                        View Project Experience
+                      </div>
+                    </div>
+
+                    {/* Status Badge */}
+                    <div className={`absolute top-6 left-6 flex items-center gap-2 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest border backdrop-blur-md z-20 ${
+                      project.status === "Private" 
+                      ? "bg-amber-500/10 border-amber-500/30 text-amber-500" 
+                      : "bg-emerald-500/10 border-emerald-500/30 text-emerald-500"
+                    }`}>
+                      {project.status === "Private" ? <Lock size={10} /> : <Globe size={10} />}
+                      {project.status} Access
+                    </div>
                   </div>
-                </div>
+                </Link>
 
                 {/* Decorative Elements */}
                 <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-primary/10 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />

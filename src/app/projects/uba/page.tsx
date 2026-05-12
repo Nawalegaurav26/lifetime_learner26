@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useScroll, useTransform, useInView, AnimatePresence } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { 
   ExternalLink, 
   Play, 
@@ -345,6 +345,12 @@ const DevelopmentJourney = () => {
     </Section>
   );
 };
+
+interface TimelineData {
+  image: string;
+  title: string;
+  description: string;
+}
 
 const TimelineItem = ({ item, index }: { item: TimelineData; index: number }) => {
   const isEven = index % 2 === 0;

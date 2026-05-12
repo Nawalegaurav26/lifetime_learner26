@@ -16,10 +16,11 @@ export const useClaritySkills = () => {
 
     const safeSetTag = (key: string, value: string) => {
       try {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         if (typeof (window as any).clarity === "function") {
           Clarity.setTag(key, value);
         }
-      } catch (e) {
+      } catch {
         // ignore
       }
     };

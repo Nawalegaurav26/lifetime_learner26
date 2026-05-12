@@ -36,13 +36,14 @@ const Section = ({ children, className = "", id = "" }: { children: React.ReactN
   );
 };
 
-const FadeIn = ({ children, delay = 0, y = 20, x = 0 }: { children: React.ReactNode; delay?: number; y?: number; x?: number }) => {
+const FadeIn = ({ children, delay = 0, y = 20, x = 0, className = "" }: { children: React.ReactNode; delay?: number; y?: number; x?: number; className?: string }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y, x }}
       whileInView={{ opacity: 1, y: 0, x: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8, delay, ease: [0.16, 1, 0.3, 1] }}
+      className={className}
     >
       {children}
     </motion.div>

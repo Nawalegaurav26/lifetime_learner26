@@ -123,7 +123,7 @@ const projects = [
     image: "/uba.png",
     links: [
       { label: "Visit Website", href: "https://uba-icem.vercel.app/", icon: <Globe size={14} />, primary: true },
-      { label: "Walkthrough", href: "#", icon: <Play size={14} /> }
+      { label: "View Case Study", href: "/projects/uba", icon: <Layout size={14} /> }
     ]
   },
   {

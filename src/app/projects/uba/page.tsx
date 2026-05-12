@@ -5,10 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, useScroll, useTransform, useInView, AnimatePresence } from "framer-motion";
 import { 
-  Github, 
   ExternalLink, 
   Play, 
-  Monitor, 
   Shield, 
   Search, 
   Cpu, 
@@ -16,9 +14,6 @@ import {
   ArrowRight,
   Code,
   Globe,
-  Database,
-  Layers,
-  CheckCircle2,
   Calendar,
   User,
   Activity,
@@ -27,10 +22,9 @@ import {
   Zap,
   Globe2,
   Server,
-  Cloud,
-  FileCode2,
-  TestTube2
+  Cloud
 } from "lucide-react";
+import { GithubIcon as Github } from "@/components/Icons";
 
 // --- Components ---
 

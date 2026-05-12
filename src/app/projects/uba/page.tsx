@@ -554,7 +554,7 @@ const ArchitectureSection = () => {
   );
 };
 
-const ArchStep = ({ icon: Icon, title, desc }: { icon: React.ElementType; title: string; desc: string }) => (
+const ArchStep = ({ icon: Icon, title, desc }: { icon: React.ComponentType<{ size?: number }>; title: string; desc: string }) => (
   <motion.div 
     whileHover={{ x: 10 }}
     className="flex items-start gap-4 p-4 rounded-xl hover:bg-white/5 border border-transparent hover:border-white/10 transition-all"

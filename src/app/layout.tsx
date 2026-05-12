@@ -20,6 +20,7 @@ export const viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://gauravnawale.com"),
   title: {
     template: "%s | Gaurav Raju Nawale",
     default: "Gaurav Raju Nawale | Lifetime Learner, System Architect & CertiOwn Founder",

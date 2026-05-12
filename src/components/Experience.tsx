@@ -15,21 +15,45 @@ import Link from "next/link";
 
 const experience = [
   {
-    title: "Founder & Lead Architect",
-    company: "CertiOwn SaaS",
-    period: "2024 - PRESENT",
-    desc: "Architecting a secure certificate issuance platform, leading full-stack development and strategic growth. Focused on scalable automation and institutional data security.",
-    tech: ["Next.js", "Supabase", "Flask"],
+    title: "Founder & System Developer",
+    company: "CertiOwn",
+    period: "Nov 2024 - Present",
+    desc: "Built and deployed scalable SaaS-based certificate automation and verification platform. Developed backend systems for bulk processing, email automation, workflow management. Integrated asynchronous task execution and automation pipelines using Celery.",
+    tech: ["Python", "Flask", "Docker", "Celery"],
     icon: <Briefcase size={18} />,
   },
   {
-    title: "Computer Science Engineering",
-    company: "Engineering University",
-    period: "2022 - 2026",
-    desc: "Deep-diving into systems programming, AI research, and scalable backend architectures. Active in technical leadership and academic initiatives.",
-    tech: ["Systems", "AI", "Leadership"],
-    icon: <GraduationCap size={18} />,
+    title: "Full Stack Developer, SEO & Testing",
+    company: "Unnat Bharat Abhiyan (ICEM)",
+    period: "Jan 2026 - Present",
+    desc: "Working on development, hosting, testing, deployment, and SEO optimization for institutional portal under UBA initiative associated with IIT Bombay and Government of India. Improved deployment workflows and website structure.",
+    tech: ["Next.js", "SEO", "GitHub"],
+    icon: <Code size={18} />,
   },
+  {
+    title: "Full Stack Developer, SEO & Testing",
+    company: "SDETM 2026 Int. Conference",
+    period: "Feb 2026 - Present",
+    desc: "Working on full-stack development, testing, deployment, and workflow automation. Developed conference workflows, responsive interfaces, and support-oriented systems. Contributed to deployment management and documentation.",
+    tech: ["React", "Automation", "Deployment"],
+    icon: <Code size={18} />,
+  },
+  {
+    title: "Technical Secretary",
+    company: "ICEM Pune",
+    period: "Jul 2025 - Present",
+    desc: "Managed technical operations, digital infrastructure, and coordination for institutional technical events. Handled multi-team execution, technical troubleshooting, and system management activities.",
+    tech: ["Leadership", "Management"],
+    icon: <Target size={18} />,
+  },
+  {
+    title: "Campus Ambassador",
+    company: "Techfest IIT Bombay",
+    period: "Jul 2025 - Dec 2025",
+    desc: "Selected as College Ambassador for Asia’s Largest Science and Technology Festival. Led student outreach initiatives, promoted participation, and worked as the connecting person for ICEM, Pune and IIT Bombay.",
+    tech: ["Outreach", "Coordination"],
+    icon: <GraduationCap size={18} />,
+  }
 ];
 
 const achievements = [

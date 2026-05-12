@@ -12,6 +12,30 @@ import {
 import { GithubIcon as Github } from "./Icons";
 import Link from "next/link";
 import Image from "next/image";
+import React from "react";
+
+interface ProjectLink {
+  label: string;
+  href: string;
+  icon: React.ReactNode;
+  primary?: boolean;
+  special?: boolean;
+}
+
+interface Project {
+  id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  tech: string[];
+  highlights: string[];
+  status: "Public" | "Private";
+  accessNote?: string;
+  image: string;
+  liveUrl?: string;
+  githubUrl?: string;
+  links: ProjectLink[];
+}
 
 // Placeholder component for "Coming Soon" media
 const ComingSoonMedia = ({ title }: { title: string }) => (
@@ -44,7 +68,7 @@ const ComingSoonMedia = ({ title }: { title: string }) => (
   </div>
 );
 
-const projects = [
+const projects: Project[] = [
   {
     id: "certiown",
     title: "CertiOwn",

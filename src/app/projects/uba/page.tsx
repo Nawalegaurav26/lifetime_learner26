@@ -666,7 +666,11 @@ const FinalOutro = () => {
 
 export default function UBACaseStudy() {
   const { scrollYProgress } = useScroll();
-  const scaleX = useTransform(scrollYProgress, [0, 1], [0, 1]);
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
 
   return (
     <main className="bg-slate-950 selection:bg-blue-500/30">

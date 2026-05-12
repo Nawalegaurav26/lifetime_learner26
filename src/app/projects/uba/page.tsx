@@ -306,17 +306,14 @@ const timelineData = [
 ];
 
 const DevelopmentJourney = () => {
-  const containerRef = useRef(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-
   return (
-    <Section id="journey" className="bg-slate-950 pb-0">
-      <div className="text-center mb-20">
+    <Section id="journey" className="bg-slate-950">
+      <div className="text-center mb-32">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-4xl md:text-5xl font-bold text-white mb-6"
+          className="text-4xl md:text-6xl font-bold text-white mb-6"
         >
           Development <span className="text-blue-500">Journey</span>
         </motion.h2>
@@ -325,43 +322,22 @@ const DevelopmentJourney = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="text-slate-400 max-w-2xl mx-auto"
+          className="text-slate-400 max-w-2xl mx-auto text-lg"
         >
           A deep dive into the architectural evolution of the UBA ICEM Portal, from initial conceptualization to institutional deployment.
         </motion.p>
       </div>
 
-      <div ref={containerRef} className="relative flex flex-col lg:flex-row gap-12">
-        {/* Left: Sticky Image Preview */}
-        <div className="lg:w-1/2 lg:sticky lg:top-32 lg:h-[70vh] rounded-3xl overflow-hidden border border-white/10 bg-slate-900/50 shadow-2xl">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeIndex}
-              initial={{ opacity: 0, scale: 1.1, filter: "blur(10px)" }}
-              animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-              exit={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
-              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute inset-0"
-            >
-              <Image 
-                src={timelineData[activeIndex].image} 
-                alt={timelineData[activeIndex].title}
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
-            </motion.div>
-          </AnimatePresence>
-        </div>
+      <div className="relative max-w-7xl mx-auto">
+        {/* Vertical Connecting Line */}
+        <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-blue-500/50 via-blue-500/20 to-transparent hidden lg:block"></div>
 
-        {/* Right: Scrolling Content */}
-        <div className="lg:w-1/2 space-y-48 py-20">
+        <div className="space-y-32">
           {timelineData.map((item, index) => (
             <TimelineItem 
               key={index} 
               item={item} 
               index={index} 
-              onInView={() => setActiveIndex(index)}
             />
           ))}
         </div>
@@ -370,43 +346,54 @@ const DevelopmentJourney = () => {
   );
 };
 
-interface TimelineData {
-  image: string;
-  title: string;
-  description: string;
-}
-
-const TimelineItem = ({ item, index, onInView }: { item: TimelineData; index: number; onInView: () => void }) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { margin: "-45% 0px -45% 0px" });
-
-  useEffect(() => {
-    if (isInView) {
-      onInView();
-    }
-  }, [isInView, onInView]);
+const TimelineItem = ({ item, index }: { item: TimelineData; index: number }) => {
+  const isEven = index % 2 === 0;
 
   return (
     <motion.div
-      ref={ref}
-      initial={{ opacity: 0, x: 50 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: false }}
-      transition={{ duration: 0.8 }}
-      className={`p-10 rounded-3xl border transition-all duration-500 ${
-        isInView 
-          ? "bg-blue-600/10 border-blue-500/30 shadow-lg shadow-blue-500/5" 
-          : "bg-white/5 border-white/10 opacity-40 grayscale"
-      }`}
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      className={`relative grid lg:grid-cols-2 gap-12 lg:gap-24 items-center ${isEven ? "" : "lg:flex-row-reverse"}`}
     >
-      <div className="text-5xl font-bold text-blue-500/20 mb-4">0{index + 1}</div>
-      <h3 className="text-3xl font-bold text-white mb-4">{item.title}</h3>
-      <p className="text-lg text-slate-400 leading-relaxed mb-6">
-        {item.description}
-      </p>
-      <div className="flex items-center gap-2 text-blue-400 font-medium group cursor-pointer">
-        <span>View Details</span>
-        <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+      {/* Image Side */}
+      <div className={`relative group ${isEven ? "lg:order-1" : "lg:order-2"}`}>
+        <div className="relative aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-2xl group-hover:border-blue-500/30 transition-all duration-500">
+          <Image 
+            src={item.image} 
+            alt={item.title}
+            fill
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent"></div>
+        </div>
+        
+        {/* Glow behind image */}
+        <div className="absolute -inset-4 bg-blue-500/5 blur-3xl -z-10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+      </div>
+
+      {/* Text Side */}
+      <div className={`relative ${isEven ? "lg:order-2" : "lg:order-1 lg:text-right"}`}>
+        {/* Connector Dot */}
+        <div className={`absolute top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-blue-500 border-4 border-slate-950 z-10 hidden lg:block ${
+          isEven ? "-left-[66px]" : "-right-[66px]"
+        }`}></div>
+
+        <div className="inline-block px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-widest mb-6">
+          Phase 0{index + 1}
+        </div>
+        <h3 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
+          {item.title}
+        </h3>
+        <p className="text-lg text-slate-400 leading-relaxed mb-8 max-w-xl ml-auto mr-auto lg:ml-0 lg:mr-0">
+          {item.description}
+        </p>
+        
+        <div className={`flex items-center gap-2 text-blue-400 font-medium group cursor-pointer ${!isEven ? "lg:justify-end" : ""}`}>
+          <span className="text-sm tracking-wide">Explore Component</span>
+          <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+        </div>
       </div>
     </motion.div>
   );

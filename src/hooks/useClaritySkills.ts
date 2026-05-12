@@ -14,8 +14,18 @@ export const useClaritySkills = () => {
   useEffect(() => {
     if (typeof window === "undefined") return;
 
+    const safeSetTag = (key: string, value: string) => {
+      try {
+        if (typeof (window as any).clarity === "function") {
+          Clarity.setTag(key, value);
+        }
+      } catch (e) {
+        // ignore
+      }
+    };
+
     // 1. Track Page Entry
-    Clarity.setTag("page_path", pathname);
+    safeSetTag("page_path", pathname);
     
     // 2. Track Scroll Depth
     let maxScroll = 0;
@@ -26,7 +36,7 @@ export const useClaritySkills = () => {
       if (scrollPercent > maxScroll) {
         maxScroll = scrollPercent;
         if (maxScroll % 25 === 0) { // Track every 25%
-           Clarity.setTag("max_scroll_depth", `${maxScroll}%`);
+           safeSetTag("max_scroll_depth", `${maxScroll}%`);
         }
       }
     };
@@ -36,13 +46,13 @@ export const useClaritySkills = () => {
       const target = e.target as HTMLElement;
       const anchor = target.closest("a");
       if (anchor && anchor.href && !anchor.href.includes(window.location.host)) {
-        Clarity.setTag("outbound_click", anchor.href);
+        safeSetTag("outbound_click", anchor.href);
       }
     };
 
     // 4. Track JS Errors
     const handleError = (error: ErrorEvent) => {
-      Clarity.setTag("js_error", error.message);
+      safeSetTag("js_error", error.message);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -54,7 +64,7 @@ export const useClaritySkills = () => {
       window.removeEventListener("click", handleOutboundClick);
       window.removeEventListener("error", handleError);
       // Track total stay time on unmount (approximate)
-      Clarity.setTag("last_page_viewed", pathname);
+      safeSetTag("last_page_viewed", pathname);
     };
   }, [pathname]);
 };

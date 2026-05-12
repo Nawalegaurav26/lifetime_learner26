@@ -123,7 +123,7 @@ const projects = [
     image: "/uba.png",
     links: [
       { label: "Visit Website", href: "https://uba-icem.vercel.app/", icon: <Globe size={14} />, primary: true },
-      { label: "View Case Study", href: "/projects/uba", icon: <Layout size={14} /> }
+      { label: "View Case Study", href: "/projects/uba", icon: <Layout size={14} />, special: true }
     ]
   },
   {
@@ -275,15 +275,30 @@ export default function Projects() {
                     <Link
                       key={i}
                       href={link.href}
-                      target="_blank"
-                      className={`flex items-center gap-2 px-5 py-2.5 rounded-md text-[10px] font-black uppercase tracking-widest transition-all duration-300 font-mono ${
-                        link.primary 
+                      target={link.href.startsWith("/") ? "_self" : "_blank"}
+                      className={`relative flex items-center gap-2 px-5 py-2.5 rounded-md text-[10px] font-black uppercase tracking-widest transition-all duration-500 font-mono overflow-hidden group/btn ${
+                        link.special
+                        ? "bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] hover:scale-105"
+                        : link.primary 
                         ? "bg-primary text-slate-900 hover:bg-primary-light hover:shadow-[0_0_20px_rgba(59,130,246,0.5)]" 
                         : "bg-white/5 text-slate-300 hover:bg-white/10 hover:text-white border border-white/10"
                       }`}
                     >
+                      {link.special && (
+                        <motion.div 
+                          animate={{ x: ["-100%", "200%"] }}
+                          transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 pointer-events-none"
+                        />
+                      )}
                       {link.icon}
                       {link.label}
+                      {link.special && (
+                        <span className="absolute -top-1 -right-1 flex h-2 w-2">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                          <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
+                        </span>
+                      )}
                     </Link>
                   ))}
                 </div>

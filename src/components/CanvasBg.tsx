@@ -4,7 +4,9 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial } from "@react-three/drei";
 import { useState, useRef, Suspense } from "react";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function Starfield(props: any) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const ref = useRef<any>(null);
   
   // Generate random points in a sphere

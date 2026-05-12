@@ -2,16 +2,11 @@
 
 import { motion } from "framer-motion";
 import { 
-  ExternalLink, 
   Play, 
   Lock, 
   Globe, 
-  ArrowRight,
-  ShieldCheck,
-  Zap,
   Layout,
   Layers,
-  Search,
   AlertCircle
 } from "lucide-react";
 import { GithubIcon as Github } from "./Icons";
@@ -37,7 +32,7 @@ const ComingSoonMedia = ({ title }: { title: string }) => (
         Visual Asset Pending
       </h4>
       <p className="text-[10px] text-slate-600 font-mono uppercase tracking-widest">
-        {title} // Data Link coming soon
+        {title} {/* Data Link coming soon */}
       </p>
     </div>
 

@@ -5,8 +5,7 @@ import {
   ArrowRight,
   Layers,
   Lock,
-  Globe,
-  Play
+  Globe
 } from "lucide-react";
 import Link from "next/link";
 import { AlertCircle } from "lucide-react";
@@ -54,7 +53,7 @@ const projects = [
   }
 ];
 
-const MiniComingSoon = ({ title }: { title: string }) => (
+const MiniComingSoon = () => (
   <div className="relative aspect-video w-full bg-slate-900/40 border border-white/5 rounded-lg overflow-hidden flex items-center justify-center group-hover:border-primary/30 transition-colors">
     <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.01)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.01)_1px,transparent_1px)] bg-[size:15px_15px]" />
     <AlertCircle className="text-slate-800 group-hover:text-primary/20 transition-colors" size={24} />
@@ -104,7 +103,7 @@ export default function ProjectsHome() {
             >
               <Link href={project.href} className="block">
                 <div className="mb-6">
-                  <MiniComingSoon title={project.title} />
+                  <MiniComingSoon />
                 </div>
                 
                 <div className="flex items-center justify-between mb-2">

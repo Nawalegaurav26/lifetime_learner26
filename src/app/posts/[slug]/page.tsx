@@ -3,11 +3,12 @@ import Link from "next/link";
 import { Metadata } from "next";
 
 type Props = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const title = params.slug
+  const { slug } = await params;
+  const title = slug
     .split("-")
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ");
@@ -20,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: `${title} | Gaurav Raju Nawale`,
       description: description,
-      url: `https://gauravnawale.com/posts/${params.slug}`,
+      url: `https://gauravnawale.com/posts/${slug}`,
       type: "article",
       images: [
         {
@@ -41,7 +42,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function PostDetail({ params }: Props) {
-  const { slug } = params;
+  const { slug } = await params;
   const title = slug
     .split("-")
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
@@ -95,7 +96,7 @@ export default async function PostDetail({ params }: Props) {
               </p>
 
               <blockquote className="my-16 pl-8 border-l-2 border-primary text-2xl font-bold text-slate-200 italic bg-primary/5 py-8 pr-8 rounded-r-md">
-                "Intelligence is not just about complexity, but about the seamless integration of systems that solve real-world problems."
+                &quot;Intelligence is not just about complexity, but about the seamless integration of systems that solve real-world problems.&quot;
               </blockquote>
 
               <p className="text-slate-400 leading-relaxed">

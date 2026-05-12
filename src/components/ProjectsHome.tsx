@@ -39,15 +39,15 @@ const projects = [
     id: "uba",
     title: "UBA ICEM Portal",
     subtitle: "Institutional Program Platform",
-    tech: ["React", "Hosting", "Deployment"],
+    tech: ["Hosting", "Deployment", "SEO", "Testing"],
     status: "Public",
     href: "/projects/uba"
   },
   {
     id: "portfolio",
-    title: "Technical Portfolio",
+    title: "Next-Gen Portfolio",
     subtitle: "Systems-inspired developer identity",
-    tech: ["Next.js", "Framer Motion"],
+    tech: ["Next.js", "Tailwind", "Framer", "TS"],
     status: "Public",
     href: "/projects#portfolio"
   }

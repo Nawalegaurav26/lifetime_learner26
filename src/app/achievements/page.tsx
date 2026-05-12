@@ -14,12 +14,16 @@ export const metadata: Metadata = {
     "Best Library User Award",
     "Systems Engineer Awards",
     "Dr. Nilesh Uke Appreciation",
+    "lifetime-learner26 recognitions",
+    "Gaurav Raju Nawale Awards",
+    "ICEM Technical Secretary Recognition",
+    "Academic Milestones Gaurav Nawale"
   ],
   openGraph: {
     title: "Recognitions | Gaurav Raju Nawale",
     description:
       "Institutional recognitions and engineering milestones from SPPU and ICEM — verified archive.",
-    url: "https://gauravnawale.com/achievements",
+    url: "https://lifetime-learner26.netlify.app/achievements",
     images: [
       {
         url: "/portfolio_v3.png",
@@ -37,7 +41,7 @@ export const metadata: Metadata = {
     images: ["/portfolio_v3.png"],
   },
   alternates: {
-    canonical: "https://gauravnawale.com/achievements",
+    canonical: "https://lifetime-learner26.netlify.app/achievements",
   },
 };
 

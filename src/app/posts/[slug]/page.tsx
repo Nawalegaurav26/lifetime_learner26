@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: `${title} | Gaurav Raju Nawale`,
       description: description,
-      url: `https://gauravnawale.com/posts/${slug}`,
+      url: `https://lifetime-learner26.netlify.app/posts/${slug}`,
       type: "article",
       images: [
         {

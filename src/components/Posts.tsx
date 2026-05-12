@@ -108,11 +108,11 @@ export default function Posts() {
                          navigator.share({
                            title: post.title,
                            text: post.excerpt,
-                           url: `https://gauravnawale.com/posts/${post.slug}`,
+                           url: `https://lifetime-learner26.netlify.app/posts/${post.slug}`,
                          });
                        } else {
                          // Fallback: Copy to clipboard
-                         navigator.clipboard.writeText(`https://gauravnawale.com/posts/${post.slug}`);
+                         navigator.clipboard.writeText(`https://lifetime-learner26.netlify.app/posts/${post.slug}`);
                          alert("Link copied to clipboard!");
                        }
                      }}

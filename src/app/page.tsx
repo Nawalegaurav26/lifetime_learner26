@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Gaurav Raju Nawale | Lifetime Learner, System Architect & SaaS Founder",
     description: "Explorer of Intelligence. Builder of Systems. Founder of CertiOwn. Lifetime Learner.",
-    url: "https://gauravnawale.com",
+    url: "https://lifetime-learner26.netlify.app",
     type: "website",
     images: [
       {

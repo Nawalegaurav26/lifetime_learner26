@@ -20,30 +20,40 @@ export const viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://gauravnawale.com"),
+  metadataBase: new URL("https://lifetime-learner26.netlify.app"),
   title: {
     template: "%s | Gaurav Raju Nawale",
     default: "Gaurav Raju Nawale | Lifetime Learner, System Architect & CertiOwn Founder",
   },
   description: "Official portfolio of Gaurav Raju Nawale (Lifetime Learner) — Founder of CertiOwn, System Architect, and Computer Engineering student at ICEM, Pune. Specialized in building automated systems, AI research, and scalable SaaS architectures.",
   keywords: [
-    "Gaurav Raju Nawale", "Nawale Gaurav Raju", "Mr Gaurav Raju Nawale", "Gaurav Nawale", "Gaurav Navale", "Gaurav Navle", "Garuav Nawale", "Garuav Navale", "Garuav Navle", "Gaurav R Nawale", "Nawale Gaurav", "Gaurav Raju", "Gaurav Nawle", "Gaurav Nawal", "Mr Gaurav Nawale", "Engineer Gaurav Nawale", "Developer Gaurav Nawale",
-    "nawalegaurav26", "nawalegaurav2006", "gaurav.nawale", "gauravnawale", "gaurav_nawale", "nawale_gaurav", "gauravrajunawale", "gauravraju26", "lifetimelearner26", "lifetime_learner26", "lifetime-learner26", "lifetime learner 26", "Lifetime Learner", "Lifetime Learner 26",
-    "CertiOwn", "CertiOwn Founder", "Founder of CertiOwn", "CertiOwn Developer", "Certificate Management System", "Certificate Portal Developer", "Certificate Automation System", "Academic Certificate Platform", "Digital Certificate Verification", "Certificate Verification Portal",
-    "ICEM", "ICEM Pune", "Indira College of Engineering and Management", "Indira College Pune", "Indira College of Engineering and Management Pune", "ICEM Student", "ICEM Developer", "ICEM Technical Secretary", "Technical Secretary ICEM", "Computer Engineering ICEM", "ICEM Innovation", "ICEM Projects",
-    "UBA ICEM", "Unnat Bharat Abhiyan", "Unnat Bharat Abhiyan ICEM", "UBA ICEM Pune", "UBA Pune", "ICEM UBA Team", "Unnat Bharat Abhiyan Pune",
-    "SDETM", "SDETM ICEM", "SDETM 2026", "Sustainable Developments in Engineering Technology and Management", "Sustainable Developments in Engineering, Technology & Management", "International Conference SDETM", "ICEM Conference", "ICEM Pune Conference", "Engineering Conference Pune", "Research Conference ICEM", "SDETM Pune", "SDETM Website", "SDETM ICEM Official", "Research Paper Conference ICEM",
-    "Student Developer India", "Student Entrepreneur", "Startup Founder", "Startup Builder", "Research Student", "AI Developer", "Python Developer", "Flask Developer", "Web Developer India", "Full Stack Developer", "Modern Web Developer", "Software Developer India", "Developer Portfolio", "Portfolio Website", "Engineering Student Maharashtra", "Computer Engineering Student", "Researcher India", "Tech Entrepreneur India", "Innovation Student", "Open Source Developer", "Future Researcher",
-    "Pune Developer", "Maharashtra Developer", "Nashik Developer", "India Developer", "SPPU Student", "Savitribai Phule Pune University", "SPPU Developer", "College Startup Founder", "Student Founder Maharashtra",
-    "Admin Portal Developer", "Event Management System", "Conference Website Developer", "Research Portal Developer", "Academic Portal Developer", "Certificate System Developer",
-    "Lifetime Learner Developer", "Lifetime Learner Portfolio", "Lifetime Learner India", "Lifetime Learner Student", "Tech Community Leader", "Young Researcher India", "Engineering Innovator", "Student Innovator", "Digital Innovation Developer"
+    "Gaurav Raju Nawale", "Nawale Gaurav Raju", "Mr Gaurav Raju Nawale", "Gaurav Nawale", "Gaurav Navale", "Gaurav Navle", "Garuav Nawale", "Garuav Navale", "Garuav Navle", "Gaurav R Nawale", "Nawale Gaurav", "Gaurav Raju", "Gaurav Nawle", "Gaurav Nawal", "Mr Gaurav Nawale", "Engineer Gaurav Nawale", "Developer Gaurav Nawale", "Gaurav Raju Nawale Portfolio", "Gaurav Nawale Projects", "Gaurav Nawale ICEM", "Gaurav Nawale CertiOwn", "Gaurav Nawale Pune",
+    "nawalegaurav26", "nawalegaurav2006", "gaurav.nawale", "gauravnawale", "gaurav_nawale", "nawale_gaurav", "gauravrajunawale", "gauravraju26", "lifetimelearner26", "lifetime_learner26", "lifetime-learner26", "lifetime learner 26", "Lifetime Learner", "Lifetime Learner 26", "lifetime-learner26.netlify.app",
+    "CertiOwn", "CertiOwn Founder", "Founder of CertiOwn", "CertiOwn Developer", "Certificate Management System", "Certificate Portal Developer", "Certificate Automation System", "Academic Certificate Platform", "Digital Certificate Verification", "Certificate Verification Portal", "Blockchain Certificates", "Smart Certificate System", "SaaS Founder", "SaaS Developer", "Product Architect",
+    "ICEM", "ICEM Pune", "Indira College of Engineering and Management", "Indira College Pune", "Indira College of Engineering and Management Pune", "ICEM Student", "ICEM Developer", "ICEM Technical Secretary", "Technical Secretary ICEM", "Computer Engineering ICEM", "ICEM Innovation", "ICEM Projects", "ICEM Pune Student", "ICEM Technical Event", "ICEM Council",
+    "UBA ICEM", "Unnat Bharat Abhiyan", "Unnat Bharat Abhiyan ICEM", "UBA ICEM Pune", "UBA Pune", "ICEM UBA Team", "Unnat Bharat Abhiyan Pune", "Social Tech India", "Tech for Good India",
+    "SDETM", "SDETM ICEM", "SDETM 2026", "Sustainable Developments in Engineering Technology and Management", "Sustainable Developments in Engineering, Technology & Management", "International Conference SDETM", "ICEM Conference", "ICEM Pune Conference", "Engineering Conference Pune", "Research Conference ICEM", "SDETM Pune", "SDETM Website", "SDETM ICEM Official", "Research Paper Conference ICEM", "International Academic Conference 2026",
+    "Student Developer India", "Student Entrepreneur", "Startup Founder", "Startup Builder", "Research Student", "AI Developer", "Python Developer", "Flask Developer", "Web Developer India", "Full Stack Developer", "Modern Web Developer", "Software Developer India", "Developer Portfolio", "Portfolio Website", "Engineering Student Maharashtra", "Computer Engineering Student", "Researcher India", "Tech Entrepreneur India", "Innovation Student", "Open Source Developer", "Future Researcher", "Next.js Developer India", "React Developer Pune", "TypeScript Developer", "Backend Developer India", "System Architect", "SaaS Architect",
+    "Pune Developer", "Maharashtra Developer", "Nashik Developer", "India Developer", "SPPU Student", "Savitribai Phule Pune University", "SPPU Developer", "College Startup Founder", "Student Founder Maharashtra", "Engineering Student Pune", "Tech Community Pune", "Developer Community Pune",
+    "Admin Portal Developer", "Event Management System", "Conference Website Developer", "Research Portal Developer", "Academic Portal Developer", "Certificate System Developer", "Workflow Automation", "API Integration Expert",
+    "Lifetime Learner Developer", "Lifetime Learner Portfolio", "Lifetime Learner India", "Lifetime Learner Student", "Tech Community Leader", "Young Researcher India", "Engineering Innovator", "Student Innovator", "Digital Innovation Developer", "Creative Developer", "Frontend Engineer", "UI/UX Developer", "Technical Architect Student", "Aspiring Researcher",
+    "Gaurav Nawale LinkedIn", "Gaurav Nawale GitHub", "Gaurav Nawale Twitter", "Gaurav Nawale Instagram", "Gaurav Nawale Profile", "Gaurav Nawale Contact", "Hire Gaurav Nawale", "Gaurav Nawale Software Engineer",
+    "Next.js Portfolio", "Framer Motion Portfolio", "Three.js Portfolio", "React Three Fiber", "Modern UI/UX Design", "Glassmorphism Portfolio", "Dark Mode Portfolio", "Premium Web Design", "Responsive Web Design", "SEO Optimized Portfolio",
+    "Nawale Gaurav Raju ICEM", "Gaurav Nawale Computer Engineering", "Gaurav Nawale Pune University", "Gaurav Nawale SPPU", "Gaurav Nawale CertiOwn Startup", "Gaurav Nawale AI Researcher", "Gaurav Nawale SaaS Founder",
+    "lifetime-learner26 netlify", "lifetime-learner26 portfolio", "lifetime-learner26 projects", "lifetime-learner26 github", "lifetime-learner26 linkedin",
+    "Gaurav Raju Nawale ICEM Pune", "Gaurav Raju Nawale Computer Engineer", "Gaurav Raju Nawale Software Developer", "Gaurav Raju Nawale Tech Secretary",
+    "Best Computer Engineering Student Pune", "Top Student Developer Maharashtra", "Young Tech Entrepreneur India", "Innovative Startup Founder Pune",
+    "Flask Backend Developer India", "Python Automation Expert Pune", "Next.js Frontend Architect", "Cloud Deployment Netlify Vercel",
+    "Indira College Pune Placement", "ICEM Pune Notable Alumni", "ICEM Pune Student Projects", "ICEM Pune Innovation Lab",
+    "Digital Certificate Solutions India", "Automated Mailing Systems SaaS", "Conference Management Portals", "Research Paper Publication ICEM",
+    "Gaurav Nawale Tech Blog", "Lifetime Learner Engineering Insights", "System Architecture Case Studies", "AI Automation Research"
   ],
   authors: [{ name: "Gaurav Raju Nawale" }],
   creator: "Gaurav Raju Nawale",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://gauravnawale.com",
+    url: "https://lifetime-learner26.netlify.app",
     title: "Gaurav Raju Nawale | Lifetime Learner, System Architect & CertiOwn Founder",
     description: "Explorer of Intelligence. Builder of Systems. Founder of CertiOwn. Lifetime Learner.",
     siteName: "Gaurav Raju Nawale Portfolio",
@@ -63,7 +73,7 @@ export const metadata: Metadata = {
     images: ["/portfolio_v3.png"],
   },
   alternates: {
-    canonical: "https://gauravnawale.com",
+    canonical: "https://lifetime-learner26.netlify.app",
   },
   robots: {
     index: true,
@@ -86,10 +96,17 @@ export const metadata: Metadata = {
   manifest: "/manifest.json",
   verification: {
     google: "google3cb44203118b2807",
+    yandex: "YANDEX_VERIFICATION_CODE_HERE",
     other: {
       "msvalidate.01": "BING_VERIFICATION_CODE_HERE",
-      "yandex-verification": "YANDEX_VERIFICATION_CODE_HERE",
       "baidu-site-verification": "BAIDU_VERIFICATION_CODE_HERE",
+      "ahrefs-site-verification": "AHREFS_VERIFICATION_CODE_HERE",
+      "p:domain_verify": "PINTEREST_VERIFICATION_CODE_HERE",
+      "facebook-domain-verification": "FACEBOOK_VERIFICATION_CODE_HERE",
+      "apple-mobile-web-app-title": "Gaurav Nawale",
+      "application-name": "Gaurav Nawale Portfolio",
+      "msapplication-TileColor": "#0f172a",
+      "theme-color": "#0f172a"
     },
   },
 };
@@ -110,8 +127,8 @@ export default function RootLayout({
       "lifetime_learner26",
       "nawalegaurav26"
     ],
-    "url": "https://gauravnawale.com",
-    "image": "https://gauravnawale.com/profile.jpg",
+    "url": "https://lifetime-learner26.netlify.app",
+    "image": "https://lifetime-learner26.netlify.app/profile.jpg",
     "sameAs": [
       "https://github.com/Nawalegaurav26",
       "https://linkedin.com/in/nawalegaurav26",
@@ -146,7 +163,7 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Gaurav Raju Nawale Portfolio",
-    "url": "https://gauravnawale.com",
+    "url": "https://lifetime-learner26.netlify.app",
     "author": {
       "@type": "Person",
       "name": "Gaurav Raju Nawale"

@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import { useState, useRef, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   Briefcase,
   GraduationCap,
@@ -15,323 +15,411 @@ import {
   Rocket,
   Bot,
   Globe,
-  Star,
   Zap,
+  Star,
 } from "lucide-react";
 import Link from "next/link";
 
-/* ─── Data ─────────────────────────────────────────────────────── */
-
+/* ─── Experience Data ───────────────────────────────────────────── */
 const experience = [
   {
     index: "01",
     title: "Founder & System Developer",
+    shortTitle: "Founder & System Dev",
     company: "CertiOwn",
     period: "Nov 2024 – Present",
+    status: "active",
     bullets: [
       "Built and deployed SaaS-based certificate automation and verification platform.",
       "Developed backend workflows for bulk processing, email automation, and admin operations.",
       "Implemented Celery-based async task execution, REST APIs, and deployment workflows.",
     ],
     tech: ["PYTHON", "FLASK", "DOCKER", "CELERY", "LINUX", "GIT"],
-    icon: <Briefcase size={16} />,
-    accentColor: "from-primary to-secondary",
+    icon: <Briefcase size={14} />,
+    accentFrom: "#3b82f6",
+    accentTo: "#8b5cf6",
     links: [],
   },
   {
     index: "02",
     title: "Full Stack Developer, SEO & Deployment",
+    shortTitle: "FS Dev – SDETM 2026",
     company: "SDETM 2026 Int. Conference",
     period: "Feb 2026 – Present",
+    status: "active",
     bullets: [
       "Developed and deployed official website for SDETM 2026 International Conference.",
       "Handled full-stack development, hosting, deployment automation, SEO optimization, and testing.",
       "Built responsive conference management interfaces and optimized deployment workflows.",
     ],
     tech: ["REACT", "SEO", "DEPLOYMENT", "AUTOMATION", "TESTING"],
-    icon: <Code size={16} />,
-    accentColor: "from-accent to-primary",
+    icon: <Code size={14} />,
+    accentFrom: "#06b6d4",
+    accentTo: "#3b82f6",
     links: [
-      { label: "sdetm.indiraicem.ac.in", href: "https://sdetm.indiraicem.ac.in" },
-      { label: "github.com/Nawalegaurav26/sdetm.icem", href: "https://github.com/Nawalegaurav26/sdetm.icem" },
+      { label: "sdetm.indiraicem.ac.in", href: "https://sdetm.indiraicem.ac.in", type: "web" },
+      { label: "sdetm.icem", href: "https://github.com/Nawalegaurav26/sdetm.icem", type: "github" },
     ],
   },
   {
     index: "03",
     title: "Full Stack Developer, SEO & Testing",
+    shortTitle: "FS Dev – UBA ICEM",
     company: "Unnat Bharat Abhiyan (ICEM)",
     period: "Jan 2026 – Present",
+    status: "active",
     bullets: [
       "Worked on institutional portal development, hosting, deployment, testing, and SEO optimization.",
       "Improved frontend/backend integration, workflow optimization, and deployment structure.",
       "Contributed to digital infrastructure initiative associated with IIT Bombay and Government of India.",
     ],
     tech: ["NEXT.JS", "SEO", "GITHUB", "VERCEL", "TESTING"],
-    icon: <Code size={16} />,
-    accentColor: "from-secondary to-accent",
+    icon: <Code size={14} />,
+    accentFrom: "#8b5cf6",
+    accentTo: "#06b6d4",
     links: [
-      { label: "uba-icem.vercel.app", href: "https://uba-icem.vercel.app" },
-      { label: "github.com/Nawalegaurav26/uba.icem", href: "https://github.com/Nawalegaurav26/uba.icem" },
+      { label: "uba-icem.vercel.app", href: "https://uba-icem.vercel.app", type: "web" },
+      { label: "uba.icem", href: "https://github.com/Nawalegaurav26/uba.icem", type: "github" },
     ],
   },
   {
     index: "04",
     title: "Google Student Ambassador",
-    company: "Google Student Ambassador Program 2026–27",
+    shortTitle: "Google Ambassador",
+    company: "Google Program 2026–27",
     period: "May 2026 – Present",
+    status: "active",
     bullets: [
       "Selected after clearing screening and video interview rounds for the program.",
       "Promoting adoption of Gemini and Google AI tools through student engagement and campus initiatives.",
       "Organizing AI-focused community interactions, awareness activities, and technical outreach.",
     ],
     tech: ["GOOGLE AI", "GEMINI", "COMMUNITY", "OUTREACH", "AI"],
-    icon: <GraduationCap size={16} />,
-    accentColor: "from-primary to-accent",
+    icon: <GraduationCap size={14} />,
+    accentFrom: "#3b82f6",
+    accentTo: "#06b6d4",
     links: [],
   },
   {
     index: "05",
     title: "Technical Secretary",
+    shortTitle: "Technical Secretary",
     company: "Student Council – ICEM Pune",
     period: "Jul 2025 – Present",
+    status: "active",
     bullets: [
       "Serving as Technical Secretary AY 2025–26 & Student Coordinator for the Student Development Cell.",
       "Assisted Internal Audit activities under SPPU SDC and managed Technofest 2026 execution.",
-      "Actively involved in UBA, Student Activity Center, and SDC initiatives.",
+      "Actively involved in UBA, Student Activity Center, and SDC activities.",
     ],
     tech: ["LEADERSHIP", "MANAGEMENT", "COORDINATION", "TECHNOFEST"],
-    icon: <Target size={16} />,
-    accentColor: "from-secondary to-primary",
+    icon: <Target size={14} />,
+    accentFrom: "#8b5cf6",
+    accentTo: "#3b82f6",
     links: [],
   },
   {
     index: "06",
     title: "Campus Ambassador",
+    shortTitle: "Campus Ambassador",
     company: "Techfest IIT Bombay",
     period: "Jul 2025 – Dec 2025",
+    status: "ended",
     bullets: [
       "Selected as Campus Ambassador for Asia's Largest Science and Technology Festival.",
       "Led student outreach and promoted technical and innovation activities.",
       "Served as the connecting person between ICEM Pune and IIT Bombay.",
     ],
     tech: ["OUTREACH", "COORDINATION", "IIT BOMBAY"],
-    icon: <Star size={16} />,
-    accentColor: "from-accent to-secondary",
+    icon: <Star size={14} />,
+    accentFrom: "#06b6d4",
+    accentTo: "#8b5cf6",
     links: [],
   },
 ];
 
+/* ─── Milestones Data (CORRECTED) ─────────────────────────────── */
 const milestones = [
   {
     title: "SaaS Platform Development",
     subtitle: "CertiOwn",
-    desc: "Built and deployed a SaaS-based certificate automation and verification platform with backend workflow management, bulk processing systems, and deployment workflows.",
+    desc: "Built and deployed a SaaS-based certificate automation and verification platform with backend workflow management, bulk processing systems, deployment workflows, and institutional usage.",
     metric: "Live Platform",
-    metricColor: "text-primary border-primary/50 bg-primary/10 shadow-[0_0_12px_rgba(59,130,246,0.2)]",
+    metricClass: "text-primary border-primary/50 bg-primary/10 shadow-[0_0_14px_rgba(59,130,246,0.25)]",
     icon: <Rocket size={18} />,
-    iconBg: "bg-primary/10 border-primary/30 text-primary",
+    iconClass: "bg-primary/10 border-primary/30 text-primary",
     wide: true,
   },
   {
-    title: "Google Student Ambassador",
+    title: "Google Student Ambassador Program",
     subtitle: "Google 2026–27",
-    desc: "Selected for the Google Student Ambassador Program promoting AI awareness, Gemini adoption, and technical outreach initiatives.",
+    desc: "Selected for the Google Student Ambassador Program after screening and interview rounds. Contributing toward AI awareness, Gemini adoption, and technical outreach initiatives.",
     metric: "Program 2026",
-    metricColor: "text-secondary border-secondary/50 bg-secondary/10 shadow-[0_0_12px_rgba(139,92,246,0.2)]",
+    metricClass: "text-secondary border-secondary/50 bg-secondary/10 shadow-[0_0_14px_rgba(139,92,246,0.25)]",
     icon: <Bot size={18} />,
-    iconBg: "bg-secondary/10 border-secondary/30 text-secondary",
+    iconClass: "bg-secondary/10 border-secondary/30 text-secondary",
     wide: false,
   },
   {
-    title: "Institutional Tech Systems",
+    title: "Institutional Technology Systems",
     subtitle: "ICEM & Conference Platforms",
-    desc: "Development, deployment, testing, and SEO for SDETM 2026 and UBA institutional platforms.",
+    desc: "Worked on development, deployment, testing, SEO optimization, and workflow management for institutional and conference platforms including SDETM 2026 and UBA initiatives.",
     metric: "2 Platforms",
-    metricColor: "text-accent border-accent/50 bg-accent/10 shadow-[0_0_12px_rgba(6,182,212,0.2)]",
+    metricClass: "text-accent border-accent/50 bg-accent/10 shadow-[0_0_14px_rgba(6,182,212,0.25)]",
     icon: <Globe size={18} />,
-    iconBg: "bg-accent/10 border-accent/30 text-accent",
+    iconClass: "bg-accent/10 border-accent/30 text-accent",
     wide: false,
   },
   {
     title: "Technical Leadership",
     subtitle: "Technical Secretary – ICEM Pune",
-    desc: "Managing technical operations, coordination, troubleshooting, documentation, and infrastructure support for Technofest 2026 and student development initiatives.",
+    desc: "Managing technical operations, coordination, troubleshooting, documentation, and infrastructure support for institutional events, Technofest 2026, and student development initiatives.",
     metric: "Student Council",
-    metricColor: "text-primary border-primary/50 bg-primary/10 shadow-[0_0_12px_rgba(59,130,246,0.2)]",
+    metricClass: "text-primary border-primary/50 bg-primary/10 shadow-[0_0_14px_rgba(59,130,246,0.25)]",
     icon: <Zap size={18} />,
-    iconBg: "bg-primary/10 border-primary/30 text-primary",
+    iconClass: "bg-primary/10 border-primary/30 text-primary",
     wide: true,
   },
   {
     title: "AI & Automation Workflows",
-    subtitle: "Automation Systems",
-    desc: "Developed automation-oriented systems and AI-assisted workflows using Python, APIs, prompt engineering, and backend automation architectures.",
+    subtitle: "Workflow Automation Systems",
+    desc: "Developed automation-oriented systems and AI-assisted workflows using Python, APIs, prompt engineering, backend automation, and deployment-focused architectures.",
     metric: "Systems Built",
-    metricColor: "text-secondary border-secondary/50 bg-secondary/10 shadow-[0_0_12px_rgba(139,92,246,0.2)]",
+    metricClass: "text-secondary border-secondary/50 bg-secondary/10 shadow-[0_0_14px_rgba(139,92,246,0.25)]",
     icon: <Trophy size={18} />,
-    iconBg: "bg-secondary/10 border-secondary/30 text-secondary",
-    wide: true,
+    iconClass: "bg-secondary/10 border-secondary/30 text-secondary",
+    wide: false,
   },
 ];
 
-/* ─── Glass Card with mouse-follow glow ─────────────────────────── */
-
-function GlassCard({
+/* ─── Mouse-glow card wrapper ───────────────────────────────────── */
+function GlowCard({
   children,
   className = "",
-  delay = 0,
+  glowColor = "rgba(59,130,246,0.12)",
 }: {
   children: React.ReactNode;
   className?: string;
-  delay?: number;
+  glowColor?: string;
 }) {
-  const cardRef = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
   const glowRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const card = cardRef.current;
+    const el = ref.current;
     const glow = glowRef.current;
-    if (!card || !glow) return;
-
-    const handleMouseMove = (e: MouseEvent) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      glow.style.background = `radial-gradient(circle 220px at ${x}px ${y}px, rgba(59,130,246,0.12), transparent 80%)`;
+    if (!el || !glow) return;
+    const onMove = (e: MouseEvent) => {
+      const r = el.getBoundingClientRect();
+      glow.style.background = `radial-gradient(circle 200px at ${e.clientX - r.left}px ${e.clientY - r.top}px, ${glowColor}, transparent 80%)`;
       glow.style.opacity = "1";
     };
-    const handleMouseLeave = () => {
-      glow.style.opacity = "0";
-    };
-
-    card.addEventListener("mousemove", handleMouseMove);
-    card.addEventListener("mouseleave", handleMouseLeave);
-    return () => {
-      card.removeEventListener("mousemove", handleMouseMove);
-      card.removeEventListener("mouseleave", handleMouseLeave);
-    };
-  }, []);
+    const onLeave = () => { glow.style.opacity = "0"; };
+    el.addEventListener("mousemove", onMove);
+    el.addEventListener("mouseleave", onLeave);
+    return () => { el.removeEventListener("mousemove", onMove); el.removeEventListener("mouseleave", onLeave); };
+  }, [glowColor]);
 
   return (
-    <motion.div
-      ref={cardRef}
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay, duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
-      className={`relative overflow-hidden rounded-lg border border-slate-800 bg-slate-900/40 backdrop-blur-md
-        group transition-all duration-300
-        hover:-translate-y-1 hover:border-primary/60 hover:shadow-[0_0_24px_rgba(59,130,246,0.18)]
-        ${className}`}
-    >
-      {/* Left accent bar */}
-      <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-gradient-to-b from-primary to-secondary scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-center z-10" />
-      {/* Mouse glow */}
-      <div
-        ref={glowRef}
-        className="pointer-events-none absolute inset-0 z-0 opacity-0 transition-opacity duration-300"
-      />
-      <div className="relative z-10">{children}</div>
-    </motion.div>
+    <div ref={ref} className={`relative overflow-hidden ${className}`}>
+      <div ref={glowRef} className="pointer-events-none absolute inset-0 z-0 opacity-0 transition-opacity duration-300" />
+      <div className="relative z-10 h-full">{children}</div>
+    </div>
   );
 }
 
-/* ─── Component ─────────────────────────────────────────────────── */
-
+/* ─── Main Component ────────────────────────────────────────────── */
 export default function Experience() {
+  const [activeIdx, setActiveIdx] = useState(0);
+  const active = experience[activeIdx];
+
   return (
-    <section
-      id="experience"
-      className="py-24 relative overflow-hidden"
-      style={{
-        background: `
-          linear-gradient(to right, rgba(148,163,184,0.04) 1px, transparent 1px),
-          linear-gradient(to bottom, rgba(148,163,184,0.04) 1px, transparent 1px)
-        `,
-        backgroundSize: "40px 40px",
-        backgroundColor: "rgba(15,23,42,0.6)",
-      }}
-    >
+    <section id="experience" className="py-24 relative overflow-hidden">
       <div className="container mx-auto px-6 max-w-7xl">
 
-        {/* Section Header */}
+        {/* ── Section Label ── */}
         <motion.div
-          initial={{ opacity: 0, y: -16 }}
+          initial={{ opacity: 0, y: -12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="flex items-center gap-3 mb-4"
+          className="flex items-center gap-3 mb-3"
         >
-          <Activity size={20} className="text-primary" />
-          <span className="text-[10px] font-black text-primary uppercase tracking-[0.3em] font-mono">
+          <Activity size={16} className="text-primary" />
+          <span className="text-[10px] font-black text-primary uppercase tracking-[0.35em] font-mono">
             Professional Log
           </span>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <motion.h2
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-3xl md:text-5xl font-bold text-slate-100 font-mono uppercase tracking-tight mb-14"
+        >
+          The{" "}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
+            Journey.
+          </span>
+        </motion.h2>
 
-          {/* ── LEFT: Experience Bento Grid ── */}
-          <div className="lg:col-span-7">
-            <motion.h2
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="text-3xl md:text-5xl font-bold text-slate-100 tracking-tight mb-10 font-mono uppercase"
-            >
-              The{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
-                Journey.
-              </span>
-            </motion.h2>
+        {/* ══════════════════════════════════════════════════
+            TWO-PANEL: Sidebar nav + Detail view
+        ══════════════════════════════════════════════════ */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-20 items-start">
 
-            <div className="flex flex-col gap-5">
+          {/* ── LEFT: Sidebar nav ── */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="lg:col-span-4 lg:sticky lg:top-28"
+          >
+            {/* Terminal header */}
+            <div className="flex items-center gap-2 px-4 py-3 bg-slate-900/80 border border-slate-800 rounded-t-lg border-b-0">
+              <span className="w-3 h-3 rounded-full bg-red-500/70" />
+              <span className="w-3 h-3 rounded-full bg-yellow-500/70" />
+              <span className="w-3 h-3 rounded-full bg-green-500/70" />
+              <span className="ml-2 text-[10px] font-mono text-slate-500 tracking-widest">career.log</span>
+            </div>
+
+            <div className="border border-slate-800 rounded-b-lg overflow-hidden bg-slate-900/60 backdrop-blur-md divide-y divide-slate-800/60">
               {experience.map((item, idx) => (
-                <GlassCard key={item.index} delay={idx * 0.07}>
-                  <div className="p-6 md:p-7">
-                    {/* Top row: index + period badge */}
-                    <div className="flex items-start justify-between mb-3">
-                      <span
-                        className={`text-4xl font-black font-mono bg-gradient-to-r ${item.accentColor} bg-clip-text text-transparent opacity-60 leading-none select-none`}
-                      >
-                        {item.index}
-                      </span>
-                      <span className="text-[10px] font-mono text-slate-400 border border-slate-700 bg-slate-900/60 px-3 py-1 rounded-full tracking-widest">
-                        {item.period}
-                      </span>
-                    </div>
+                <button
+                  key={item.index}
+                  onClick={() => setActiveIdx(idx)}
+                  className={`w-full text-left px-4 py-4 flex items-center gap-3 transition-all duration-200 group relative
+                    ${activeIdx === idx
+                      ? "bg-primary/8 border-l-2 border-primary"
+                      : "hover:bg-slate-800/40 border-l-2 border-transparent hover:border-slate-700"
+                    }`}
+                >
+                  {/* Active glow on left */}
+                  {activeIdx === idx && (
+                    <span className="absolute left-0 top-0 bottom-0 w-[2px] bg-gradient-to-b from-primary to-accent" />
+                  )}
 
-                    {/* Title + Company */}
-                    <h3 className="text-lg font-bold text-slate-100 font-mono mb-1 leading-snug">
-                      {item.title}
-                    </h3>
-                    <p className="text-[10px] font-black text-accent uppercase tracking-[0.22em] font-mono mb-4">
+                  {/* Index */}
+                  <span
+                    className={`font-mono text-[11px] font-black shrink-0 tabular-nums w-6
+                      ${activeIdx === idx ? "text-primary" : "text-slate-600 group-hover:text-slate-400"}`}
+                  >
+                    {item.index}
+                  </span>
+
+                  {/* Icon */}
+                  <span className={`shrink-0 transition-colors ${activeIdx === idx ? "text-primary" : "text-slate-600 group-hover:text-slate-400"}`}>
+                    {item.icon}
+                  </span>
+
+                  {/* Text */}
+                  <div className="min-w-0">
+                    <p className={`font-mono text-[11px] font-bold truncate leading-tight transition-colors
+                      ${activeIdx === idx ? "text-slate-100" : "text-slate-400 group-hover:text-slate-200"}`}>
+                      {item.shortTitle}
+                    </p>
+                    <p className={`font-mono text-[9px] uppercase tracking-widest truncate mt-0.5 transition-colors
+                      ${activeIdx === idx ? "text-accent" : "text-slate-600 group-hover:text-slate-500"}`}>
                       {item.company}
                     </p>
+                  </div>
+
+                  {/* Active arrow */}
+                  <ChevronRight
+                    size={12}
+                    className={`ml-auto shrink-0 transition-all duration-200
+                      ${activeIdx === idx ? "text-primary opacity-100" : "text-slate-700 opacity-0 group-hover:opacity-100"}`}
+                  />
+                </button>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* ── RIGHT: Detail Panel ── */}
+          <div className="lg:col-span-8">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeIdx}
+                initial={{ opacity: 0, y: 16, filter: "blur(4px)" }}
+                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                exit={{ opacity: 0, y: -16, filter: "blur(4px)" }}
+                transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
+              >
+                <GlowCard
+                  className="rounded-lg border border-slate-800 bg-slate-900/50 backdrop-blur-md
+                    hover:border-primary/40 hover:shadow-[0_0_30px_rgba(59,130,246,0.12)] transition-all duration-300"
+                  glowColor="rgba(59,130,246,0.1)"
+                >
+                  {/* Left accent bar */}
+                  <div
+                    className="absolute left-0 top-0 bottom-0 w-[3px] rounded-l-lg"
+                    style={{ background: `linear-gradient(to bottom, ${active.accentFrom}, ${active.accentTo})` }}
+                  />
+
+                  <div className="p-8 pl-10">
+                    {/* Index + Period */}
+                    <div className="flex items-start justify-between mb-6">
+                      <span
+                        className="text-6xl font-black font-mono leading-none select-none opacity-50"
+                        style={{
+                          background: `linear-gradient(to right, ${active.accentFrom}, ${active.accentTo})`,
+                          WebkitBackgroundClip: "text",
+                          WebkitTextFillColor: "transparent",
+                        }}
+                      >
+                        {active.index}
+                      </span>
+                      <div className="flex items-center gap-2">
+                        {active.status === "active" && (
+                          <span className="flex items-center gap-1.5 text-[9px] font-mono text-green-400 uppercase tracking-widest">
+                            <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+                            Current
+                          </span>
+                        )}
+                        <span className="text-[10px] font-mono text-slate-400 border border-slate-700 bg-slate-900/60 px-3 py-1 rounded-full tracking-widest">
+                          {active.period}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Role + Company */}
+                    <h3 className="text-2xl md:text-3xl font-bold text-slate-100 font-mono leading-tight mb-2">
+                      {active.title}
+                    </h3>
+                    <p className="text-[11px] font-black text-accent uppercase tracking-[0.25em] font-mono mb-8">
+                      {active.company}
+                    </p>
+
+                    {/* Divider */}
+                    <div className="h-[1px] bg-gradient-to-r from-primary/30 via-slate-700 to-transparent mb-8" />
 
                     {/* Bullet Points */}
-                    <ul className="space-y-1.5 mb-5">
-                      {item.bullets.map((b, i) => (
-                        <li
+                    <ul className="space-y-3 mb-8">
+                      {active.bullets.map((b, i) => (
+                        <motion.li
                           key={i}
-                          className="text-xs text-slate-400 font-mono flex gap-2"
+                          initial={{ opacity: 0, x: -8 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: i * 0.08 }}
+                          className="flex gap-3 text-sm text-slate-300 font-mono leading-relaxed"
                         >
-                          <span className="text-primary mt-0.5 shrink-0">▸</span>
+                          <span className="text-primary mt-0.5 shrink-0 font-bold">▸</span>
                           <span>{b}</span>
-                        </li>
+                        </motion.li>
                       ))}
                     </ul>
 
                     {/* Links */}
-                    {item.links.length > 0 && (
-                      <div className="flex flex-wrap gap-3 mb-4">
-                        {item.links.map((l) => (
+                    {active.links.length > 0 && (
+                      <div className="flex flex-wrap gap-4 mb-8">
+                        {active.links.map((l) => (
                           <a
                             key={l.href}
                             href={l.href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-1 text-[10px] font-mono text-primary hover:text-accent transition-colors"
+                            className="flex items-center gap-1.5 text-[10px] font-mono text-primary/80 hover:text-accent border border-primary/20 hover:border-accent/40 bg-primary/5 hover:bg-accent/5 px-3 py-1.5 rounded transition-all"
                           >
-                            <ExternalLink size={10} />
+                            {l.type === "github" ? <ExternalLink size={11} /> : <ExternalLink size={11} />}
                             {l.label}
                           </a>
                         ))}
@@ -339,119 +427,219 @@ export default function Experience() {
                     )}
 
                     {/* Tech Chips */}
-                    <div className="flex flex-wrap gap-1.5">
-                      {item.tech.map((t) => (
+                    <div className="flex flex-wrap gap-2">
+                      {active.tech.map((t) => (
                         <span
                           key={t}
-                          className="text-[8px] font-black text-slate-500 border border-slate-800 bg-slate-950/60 px-2 py-1 rounded-sm font-mono tracking-widest
-                            group-hover:border-primary/25 group-hover:text-primary/60 transition-colors"
+                          className="text-[9px] font-black text-slate-500 border border-slate-700/80 bg-slate-950/60 px-2.5 py-1 rounded font-mono tracking-widest hover:border-primary/30 hover:text-primary/60 transition-colors"
                         >
                           {t}
                         </span>
                       ))}
                     </div>
                   </div>
-                </GlassCard>
+                </GlowCard>
+              </motion.div>
+            </AnimatePresence>
+
+            {/* Progress dots */}
+            <div className="flex items-center gap-2 mt-5 justify-center">
+              {experience.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setActiveIdx(i)}
+                  className={`transition-all duration-300 rounded-full font-mono
+                    ${activeIdx === i
+                      ? "w-6 h-1.5 bg-primary"
+                      : "w-1.5 h-1.5 bg-slate-700 hover:bg-slate-500"
+                    }`}
+                />
               ))}
             </div>
-          </div>
-
-          {/* ── RIGHT: Milestones Mosaic + CTA ── */}
-          <div className="lg:col-span-5">
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="flex items-center gap-3 text-[10px] font-black text-accent uppercase tracking-[0.3em] mb-4 font-mono"
-            >
-              <Trophy size={14} />
-              Key Contributions
-            </motion.div>
-
-            <motion.h2
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.05 }}
-              className="text-3xl md:text-5xl font-bold text-slate-100 tracking-tight mb-10 font-mono uppercase"
-            >
-              Recent{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-secondary">
-                Milestones.
-              </span>
-            </motion.h2>
-
-            {/* Mosaic grid */}
-            <div className="grid grid-cols-2 gap-4">
-              {milestones.map((m, idx) => (
-                <GlassCard
-                  key={m.title}
-                  delay={idx * 0.08}
-                  className={m.wide ? "col-span-2" : "col-span-1"}
-                >
-                  <div className="p-5 flex flex-col gap-3 h-full">
-                    {/* Icon circle */}
-                    <div
-                      className={`w-9 h-9 rounded-full border flex items-center justify-center shrink-0 ${m.iconBg}`}
-                    >
-                      {m.icon}
-                    </div>
-
-                    {/* Content */}
-                    <div className="flex-1">
-                      <h4 className="text-sm font-bold text-slate-100 font-mono leading-snug mb-0.5">
-                        {m.title}
-                      </h4>
-                      <p className="text-[9px] text-slate-500 font-mono uppercase tracking-widest mb-2">
-                        {m.subtitle}
-                      </p>
-                      <p className="text-xs text-slate-400 font-mono leading-relaxed">
-                        {m.desc}
-                      </p>
-                    </div>
-
-                    {/* Metric badge */}
-                    <div>
-                      <span
-                        className={`inline-block px-3 py-1 rounded-full border text-[10px] font-black font-mono tracking-widest ${m.metricColor}`}
-                      >
-                        {m.metric}
-                      </span>
-                    </div>
-                  </div>
-                </GlassCard>
-              ))}
-            </div>
-
-            {/* CTA – Download Resume */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.5 }}
-              className="mt-8"
-            >
-              <Link
-                href="/Mr_Gaurav_Raju_Nawale.pdf"
-                target="_blank"
-                className="group flex flex-col items-center justify-center gap-3 p-8 rounded-lg border-2 border-dashed border-slate-700
-                  hover:border-primary/60 transition-all duration-300 bg-slate-900/20 hover:bg-slate-900/40"
-              >
-                <div className="w-11 h-11 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-400 group-hover:bg-primary/10 group-hover:border-primary/40 group-hover:text-primary transition-all duration-300">
-                  <Download size={18} />
-                </div>
-                <div className="text-center">
-                  <p className="text-[10px] text-slate-500 font-mono uppercase tracking-[0.2em] mb-1">
-                    In-depth technical background available
-                  </p>
-                  <span className="text-[10px] font-black text-primary uppercase tracking-[0.3em] font-mono flex items-center gap-2 justify-center group-hover:text-accent transition-colors">
-                    DOWNLOAD FULL DOSSIER <ChevronRight size={12} />
-                  </span>
-                </div>
-              </Link>
-            </motion.div>
           </div>
         </div>
+
+        {/* ══════════════════════════════════════════════════
+            KEY CONTRIBUTIONS: Asymmetric Bento Grid
+        ══════════════════════════════════════════════════ */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-12"
+        >
+          <div className="flex items-center gap-3 mb-3">
+            <Trophy size={16} className="text-accent" />
+            <span className="text-[10px] font-black text-accent uppercase tracking-[0.35em] font-mono">
+              Key Contributions
+            </span>
+          </div>
+          <h2 className="text-3xl md:text-5xl font-bold text-slate-100 font-mono uppercase tracking-tight mb-10">
+            Recent{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-secondary">
+              Milestones.
+            </span>
+          </h2>
+
+          {/* Row 1: wide + normal + normal */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+            {/* Wide card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.05 }}
+              className="md:col-span-2"
+            >
+              <GlowCard
+                className="h-full rounded-lg border border-slate-800 bg-slate-900/50 backdrop-blur-md hover:border-primary/40 hover:shadow-[0_0_24px_rgba(59,130,246,0.14)] transition-all duration-300 group"
+                glowColor="rgba(59,130,246,0.1)"
+              >
+                <div className="p-6 flex flex-col gap-4 h-full">
+                  <div className={`w-10 h-10 rounded-full border flex items-center justify-center shrink-0 ${milestones[0].iconClass}`}>
+                    {milestones[0].icon}
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="text-base font-bold text-slate-100 font-mono mb-0.5">{milestones[0].title}</h4>
+                    <p className="text-[9px] font-mono text-slate-500 uppercase tracking-widest mb-3">{milestones[0].subtitle}</p>
+                    <p className="text-xs text-slate-400 font-mono leading-relaxed">{milestones[0].desc}</p>
+                  </div>
+                  <span className={`inline-block self-start px-3 py-1 rounded-full border text-[10px] font-black font-mono tracking-widest ${milestones[0].metricClass}`}>
+                    {milestones[0].metric}
+                  </span>
+                </div>
+              </GlowCard>
+            </motion.div>
+
+            {/* Normal card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
+            >
+              <GlowCard
+                className="h-full rounded-lg border border-slate-800 bg-slate-900/50 backdrop-blur-md hover:border-secondary/40 hover:shadow-[0_0_24px_rgba(139,92,246,0.14)] transition-all duration-300"
+                glowColor="rgba(139,92,246,0.1)"
+              >
+                <div className="p-6 flex flex-col gap-4 h-full">
+                  <div className={`w-10 h-10 rounded-full border flex items-center justify-center shrink-0 ${milestones[1].iconClass}`}>
+                    {milestones[1].icon}
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="text-base font-bold text-slate-100 font-mono mb-0.5">{milestones[1].title}</h4>
+                    <p className="text-[9px] font-mono text-slate-500 uppercase tracking-widest mb-3">{milestones[1].subtitle}</p>
+                    <p className="text-xs text-slate-400 font-mono leading-relaxed">{milestones[1].desc}</p>
+                  </div>
+                  <span className={`inline-block self-start px-3 py-1 rounded-full border text-[10px] font-black font-mono tracking-widest ${milestones[1].metricClass}`}>
+                    {milestones[1].metric}
+                  </span>
+                </div>
+              </GlowCard>
+            </motion.div>
+          </div>
+
+          {/* Row 2: normal + normal + wide */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {/* Normal card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.15 }}
+            >
+              <GlowCard
+                className="h-full rounded-lg border border-slate-800 bg-slate-900/50 backdrop-blur-md hover:border-accent/40 hover:shadow-[0_0_24px_rgba(6,182,212,0.14)] transition-all duration-300"
+                glowColor="rgba(6,182,212,0.1)"
+              >
+                <div className="p-6 flex flex-col gap-4 h-full">
+                  <div className={`w-10 h-10 rounded-full border flex items-center justify-center shrink-0 ${milestones[2].iconClass}`}>
+                    {milestones[2].icon}
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="text-base font-bold text-slate-100 font-mono mb-0.5">{milestones[2].title}</h4>
+                    <p className="text-[9px] font-mono text-slate-500 uppercase tracking-widest mb-3">{milestones[2].subtitle}</p>
+                    <p className="text-xs text-slate-400 font-mono leading-relaxed">{milestones[2].desc}</p>
+                  </div>
+                  <span className={`inline-block self-start px-3 py-1 rounded-full border text-[10px] font-black font-mono tracking-widest ${milestones[2].metricClass}`}>
+                    {milestones[2].metric}
+                  </span>
+                </div>
+              </GlowCard>
+            </motion.div>
+
+            {/* Wide card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
+              className="md:col-span-2"
+            >
+              <GlowCard
+                className="h-full rounded-lg border border-slate-800 bg-slate-900/50 backdrop-blur-md hover:border-primary/40 hover:shadow-[0_0_24px_rgba(59,130,246,0.14)] transition-all duration-300"
+                glowColor="rgba(59,130,246,0.1)"
+              >
+                <div className="p-6 flex flex-col gap-4 h-full">
+                  <div className={`w-10 h-10 rounded-full border flex items-center justify-center shrink-0 ${milestones[3].iconClass}`}>
+                    {milestones[3].icon}
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="text-base font-bold text-slate-100 font-mono mb-0.5">{milestones[3].title}</h4>
+                    <p className="text-[9px] font-mono text-slate-500 uppercase tracking-widest mb-3">{milestones[3].subtitle}</p>
+                    <p className="text-xs text-slate-400 font-mono leading-relaxed">{milestones[3].desc}</p>
+                  </div>
+                  <span className={`inline-block self-start px-3 py-1 rounded-full border text-[10px] font-black font-mono tracking-widest ${milestones[3].metricClass}`}>
+                    {milestones[3].metric}
+                  </span>
+                </div>
+              </GlowCard>
+            </motion.div>
+          </div>
+
+          {/* Row 3: last milestone full width */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.25 }}
+            className="mt-4"
+          >
+            <GlowCard
+              className="rounded-lg border border-slate-800 bg-slate-900/50 backdrop-blur-md hover:border-secondary/40 hover:shadow-[0_0_24px_rgba(139,92,246,0.14)] transition-all duration-300"
+              glowColor="rgba(139,92,246,0.1)"
+            >
+              <div className="p-6 flex flex-col md:flex-row md:items-center gap-6">
+                <div className={`w-10 h-10 rounded-full border flex items-center justify-center shrink-0 ${milestones[4].iconClass}`}>
+                  {milestones[4].icon}
+                </div>
+                <div className="flex-1">
+                  <h4 className="text-base font-bold text-slate-100 font-mono mb-0.5">{milestones[4].title}</h4>
+                  <p className="text-[9px] font-mono text-slate-500 uppercase tracking-widest mb-2">{milestones[4].subtitle}</p>
+                  <p className="text-xs text-slate-400 font-mono leading-relaxed">{milestones[4].desc}</p>
+                </div>
+                <span className={`inline-block self-start md:self-center shrink-0 px-3 py-1 rounded-full border text-[10px] font-black font-mono tracking-widest ${milestones[4].metricClass}`}>
+                  {milestones[4].metric}
+                </span>
+              </div>
+            </GlowCard>
+          </motion.div>
+        </motion.div>
+
+        {/* ── Download Resume CTA ── */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+        >
+          <Link
+            href="/Mr_Gaurav_Raju_Nawale.pdf"
+            target="_blank"
+            className="group flex flex-col sm:flex-row items-center justify-center gap-4 p-8 rounded-lg
+              border-2 border-dashed border-slate-700 hover:border-primary/50 transition-all duration-300
+              bg-slate-900/20 hover:bg-slate-900/40 backdrop-blur-sm"
+          >
+            <div className="w-11 h-11 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center
+              text-slate-400 group-hover:bg-primary/10 group-hover:border-primary/40 group-hover:text-primary transition-all duration-300">
+              <Download size={18} />
+            </div>
+            <div className="text-center sm:text-left">
+              <p className="text-[10px] text-slate-500 font-mono uppercase tracking-[0.2em] mb-1">
+                In-depth technical background available
+              </p>
+              <span className="text-[11px] font-black text-primary uppercase tracking-[0.3em] font-mono flex items-center gap-2 justify-center sm:justify-start group-hover:text-accent transition-colors">
+                DOWNLOAD FULL DOSSIER <ChevronRight size={12} />
+              </span>
+            </div>
+          </Link>
+        </motion.div>
+
       </div>
     </section>
   );

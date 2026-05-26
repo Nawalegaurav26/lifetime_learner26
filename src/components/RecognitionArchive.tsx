@@ -51,7 +51,7 @@ const recognitions: Recognition[] = [
       "Received a formal Letter of Appreciation for the successful design, development, and implementation of CertiOwn – Certificate Management System. The appreciation recognizes the system's contribution to streamlining certificate issuance, ensuring efficiency, professionalism, security, and high-quality certificate design aligned with academic and institutional standards.",
     date: "14 NOV 2025",
     status: "VERIFIED",
-    statusColor: "text-emerald-400",
+    statusColor: "text-emerald-600 dark:text-emerald-400",
     accentColor: "#10b981",
     category: "INSTITUTIONAL-REC",
     imageUrl: "/Recognitions/Letter of Appreciation — CertiOwn Platform.jpg",
@@ -71,7 +71,7 @@ const recognitions: Recognition[] = [
       "Received a formal Letter of Appreciation from Indira College of Engineering and Management for designing and preparing e-certificates for a Savitribai Phule Pune University (SPPU)-sponsored workshop on ‘महिला सबलीकरण व सक्षमीकरण’ (Women Empowerment and Strengthening). The project required meticulous attention to detail and timely execution, ensuring smooth delivery of participation certificates to all attendees.",
     date: "JUL 2025",
     status: "OFFICIAL",
-    statusColor: "text-sky-400",
+    statusColor: "text-sky-600 dark:text-sky-400",
     accentColor: "#38bdf8",
     category: "WORKSHOP-CONTRIB",
     imageUrl: "/Recognitions/Letter of Appreciation — SPPU Workshop.jpg",
@@ -90,7 +90,7 @@ const recognitions: Recognition[] = [
       "As a first-year B.Tech Computer Engineering student at ICEM, identified a critical inefficiency in certificate management and built CertiOwn — an in-house platform for secure certificate generation, verification, and bulk distribution. Developed under the guidance of Dr. Poorna Shankar, CertiOwn features role-based access control, automated email delivery, and secure public verification. This initiative significantly reduced administrative workload and advanced ICEM's digital transformation.",
     date: "APR 2025",
     status: "ARCHIVED",
-    statusColor: "text-violet-400",
+    statusColor: "text-violet-600 dark:text-violet-400",
     accentColor: "#8b5cf6",
     category: "INSTITUTIONAL-REC",
     imageUrl: "/Recognitions/Certificate of Appreciation — CertiOwn System.jpg",
@@ -110,7 +110,7 @@ const recognitions: Recognition[] = [
       "Honored to be recognized as the Best Student of Library by the Library Department of ICEM. This award is not just a certificate — it's a reminder that consistent learning, dedication, and the habit of seeking knowledge always pay off.",
     date: "MAY 2025",
     status: "VERIFIED",
-    statusColor: "text-amber-400",
+    statusColor: "text-amber-600 dark:text-amber-400",
     accentColor: "#f59e0b",
     category: "ACADEMIC-AWARD",
     imageUrl: "/Recognitions/Best Library User Award 2025.png",
@@ -128,9 +128,9 @@ const recognitions: Recognition[] = [
 ];
 
 const statusConfig = {
-  VERIFIED: { dot: "bg-emerald-400", glow: "shadow-[0_0_8px_#10b981]", border: "border-emerald-400/30" },
-  OFFICIAL: { dot: "bg-sky-400", glow: "shadow-[0_0_8px_#38bdf8]", border: "border-sky-400/30" },
-  ARCHIVED: { dot: "bg-violet-400", glow: "shadow-[0_0_8px_#8b5cf6]", border: "border-violet-400/30" },
+  VERIFIED: { dot: "bg-emerald-500", glow: "shadow-[0_0_8px_rgba(16,185,129,0.4)]", border: "border-emerald-500/30" },
+  OFFICIAL: { dot: "bg-sky-500", glow: "shadow-[0_0_8px_rgba(56,189,248,0.4)]", border: "border-sky-500/30" },
+  ARCHIVED: { dot: "bg-violet-500", glow: "shadow-[0_0_8px_rgba(139,92,246,0.4)]", border: "border-violet-500/30" },
 };
 
 function HudCorners() {
@@ -173,12 +173,12 @@ function DocumentPreview({ accentColor, archiveId, imageUrl }: {
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
             <FileText size={24} className={styles.accentTextFaded} />
             <p className={`font-mono text-[10px] tracking-[0.2em] ${styles.accentTextFaded}`}>DOCUMENT PREVIEW</p>
-            <p className="font-mono text-[9px] tracking-widest text-slate-600">{`${archiveId} // AWAITING UPLOAD`}</p>
+            <p className="font-mono text-[9px] tracking-widest text-muted-2">{`${archiveId} // AWAITING UPLOAD`}</p>
           </div>
         </>
       )}
       <div className="absolute bottom-2 right-2 pointer-events-none">
-        <span className="font-mono text-[9px] text-slate-600 tracking-widest">[{archiveId}]</span>
+        <span className="font-mono text-[9px] text-muted-2 tracking-widest">[{archiveId}]</span>
       </div>
     </div>
   );
@@ -205,7 +205,7 @@ function ModalDocumentPreview({ accentColor, archiveId, imageUrl, documentUrl }:
             );
           })}
           {documentUrl && (
-            <a href={documentUrl} download className={`ml-auto px-3 py-1 font-mono text-[9px] tracking-[0.18em] uppercase font-semibold transition-all hover:opacity-80 flex items-center gap-1 ${styles.downloadLink}`}>
+            <a href={documentUrl} download className={`ml-auto px-3 py-1 font-mono text-[9px] tracking-[0.18em] uppercase font-semibold transition-all hover:opacity-85 flex items-center gap-1 ${styles.downloadLink}`}>
               ↓ Download
             </a>
           )}
@@ -248,19 +248,17 @@ function ModalDocumentPreview({ accentColor, archiveId, imageUrl, documentUrl }:
           </>
         )}
         <div className="absolute bottom-2 right-2 pointer-events-none">
-          <span className="font-mono text-[9px] text-slate-600 tracking-widest">[{archiveId}]</span>
+          <span className="font-mono text-[9px] text-muted-2 tracking-widest">[{archiveId}]</span>
         </div>
       </div>
       {!hasBoth && documentUrl && (
-        <a href={documentUrl} download className={`self-start px-3 py-1 font-mono text-[9px] tracking-[0.18em] uppercase font-semibold transition-all hover:opacity-80 flex items-center gap-1 ${styles.downloadLink}`}>
+        <a href={documentUrl} download className={`self-start px-3 py-1 font-mono text-[9px] tracking-[0.18em] uppercase font-semibold transition-all hover:opacity-85 flex items-center gap-1 ${styles.downloadLink}`}>
           ↓ Download PDF
         </a>
       )}
     </div>
   );
 }
-
-
 
 function ArchiveCard({
   rec,
@@ -286,7 +284,7 @@ function ArchiveCard({
       <HudCorners />
 
       {/* Card header */}
-      <div className="flex items-start justify-between px-4 pt-4 pb-3 border-b border-white/[0.04]">
+      <div className="flex items-start justify-between px-4 pt-4 pb-3 border-b border-theme">
         <span className={`font-mono text-[11px] tracking-[0.15em] ${styles.accentText}`}>
           {rec.archiveId}
         </span>
@@ -309,19 +307,19 @@ function ArchiveCard({
 
       {/* Card body */}
       <div className="px-4 pb-4 flex flex-col gap-3 flex-1">
-        <h3 className="text-sm font-semibold text-slate-100 leading-snug group-hover:text-white transition-colors">
+        <h3 className="text-sm font-semibold text-foreground leading-snug group-hover:text-primary transition-colors">
           {rec.title}
         </h3>
 
         <div className="flex flex-col gap-1">
-          <p className="font-mono text-[9px] tracking-[0.18em] text-slate-500 uppercase">Issued by:</p>
+          <p className="font-mono text-[9px] tracking-[0.18em] text-muted-2 uppercase">Issued by:</p>
           <p className={`text-xs font-medium ${styles.accentText}`}>
             {rec.issuedBy}
           </p>
-          <p className="font-mono text-[10px] text-slate-500 tracking-wide">{rec.authority}</p>
+          <p className="font-mono text-[10px] text-muted-2 tracking-wide">{rec.authority}</p>
         </div>
 
-        <p className="text-xs text-slate-400 leading-relaxed line-clamp-3">{rec.description}</p>
+        <p className="text-xs text-muted leading-relaxed line-clamp-3">{rec.description}</p>
 
         <div className="flex flex-wrap gap-1.5 mt-auto pt-2">
           {rec.tags.map((tag) => (
@@ -346,7 +344,7 @@ function ArchiveCard({
             </button>
             {rec.letterUrl && (
               <button
-                className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-2 text-[10px] font-mono tracking-[0.15em] uppercase font-semibold transition-all hover:opacity-80 ${styles.btnOutline}`}
+                className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-2 text-[10px] font-mono tracking-[0.15em] uppercase font-semibold transition-all hover:opacity-85 ${styles.btnOutline}`}
                 onClick={(e) => { e.stopPropagation(); window.open(rec.letterUrl, "_blank"); }}
               >
                 <FileText size={10} />
@@ -358,7 +356,7 @@ function ArchiveCard({
             <div className="flex gap-2">
               {rec.linkedInPostUrl && (
                 <button
-                  className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-1.5 text-[9px] font-mono tracking-[0.12em] uppercase font-semibold transition-all hover:opacity-80 ${styles.btnLinkedIn}`}
+                  className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-1.5 text-[9px] font-mono tracking-[0.12em] uppercase font-semibold transition-all hover:opacity-85 ${styles.btnLinkedIn}`}
                   onClick={(e) => { e.stopPropagation(); window.open(rec.linkedInPostUrl, "_blank"); }}
                 >
                   <ExternalLink size={9} />
@@ -367,7 +365,7 @@ function ArchiveCard({
               )}
               {rec.linkedInAwardUrl && (
                 <button
-                  className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-1.5 text-[9px] font-mono tracking-[0.12em] uppercase font-semibold transition-all hover:opacity-80 ${styles.btnLinkedIn}`}
+                  className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-1.5 text-[9px] font-mono tracking-[0.12em] uppercase font-semibold transition-all hover:opacity-85 ${styles.btnLinkedIn}`}
                   onClick={(e) => { e.stopPropagation(); window.open(rec.linkedInAwardUrl, "_blank"); }}
                 >
                   <Award size={9} />
@@ -381,10 +379,10 @@ function ArchiveCard({
 
       {/* Footer strip */}
       <div className={`px-4 py-2 flex items-center justify-between border-t ${styles.cardFooter}`}>
-        <span className="font-mono text-[8px] tracking-[0.2em] text-slate-600 uppercase">
+        <span className="font-mono text-[8px] tracking-[0.2em] text-muted-2 uppercase">
           {`SYSTEM VERIFIED // ${rec.archiveId} // ${rec.date}`}
         </span>
-        <span className="font-mono text-[8px] text-slate-700 tracking-widest opacity-40">
+        <span className="font-mono text-[8px] text-muted-2 tracking-widest opacity-40">
           ICEM // GRN // PORTFOLIO
         </span>
       </div>
@@ -427,16 +425,16 @@ function DetailModal({ rec, onClose }: { rec: Recognition; onClose: () => void }
           <HudCorners />
 
           {/* Modal header */}
-          <div className="flex items-start justify-between p-6 border-b border-white/[0.05]">
+          <div className="flex items-start justify-between p-6 border-b border-theme">
             <div>
               <p className={`font-mono text-[11px] tracking-[0.2em] mb-1 ${styles.accentText}`}>
                 SYS.NAV // ARCHIVE-03 // {rec.archiveId}
               </p>
-              <h2 className="text-lg font-bold text-slate-100 leading-tight max-w-md">{rec.title}</h2>
+              <h2 className="text-lg font-bold text-foreground leading-tight max-w-md">{rec.title}</h2>
             </div>
             <button
               onClick={onClose}
-              className="ml-4 mt-0.5 text-slate-500 hover:text-slate-200 transition-colors flex-shrink-0"
+              className="ml-4 mt-0.5 text-muted hover:text-foreground transition-colors flex-shrink-0"
               aria-label="Close modal"
             >
               <X size={18} />
@@ -453,11 +451,11 @@ function DetailModal({ rec, onClose }: { rec: Recognition; onClose: () => void }
                   {rec.status}
                 </span>
               </div>
-              <div className="flex items-center gap-2 text-slate-500">
+              <div className="flex items-center gap-2 text-muted">
                 <Calendar size={12} />
                 <span className="font-mono text-[11px] tracking-wider">{rec.date}</span>
               </div>
-              <div className="flex items-center gap-2 text-slate-500">
+              <div className="flex items-center gap-2 text-muted">
                 <Award size={12} />
                 <span className="font-mono text-[11px] tracking-wider">{rec.category}</span>
               </div>
@@ -473,23 +471,23 @@ function DetailModal({ rec, onClose }: { rec: Recognition; onClose: () => void }
 
             {/* Authority */}
             <div className={`p-4 ${styles.authorityBlock}`}>
-              <p className="font-mono text-[9px] tracking-[0.2em] text-slate-500 uppercase mb-2">
+              <p className="font-mono text-[9px] tracking-[0.2em] text-muted uppercase mb-2">
                 <Building2 size={9} className="inline mr-1" />
                 Issuing Authority
               </p>
               <p className={`text-sm font-semibold ${styles.accentText}`}>
                 {rec.issuedBy}
               </p>
-              <p className="font-mono text-[11px] text-slate-400 mt-0.5 tracking-wide">{rec.authority}</p>
+              <p className="font-mono text-[11px] text-muted mt-0.5 tracking-wide">{rec.authority}</p>
             </div>
 
             {/* Description */}
             <div>
-              <p className="font-mono text-[9px] tracking-[0.2em] text-slate-500 uppercase mb-2">
+              <p className="font-mono text-[9px] tracking-[0.2em] text-muted uppercase mb-2">
                 <Shield size={9} className="inline mr-1" />
                 Record Summary
               </p>
-              <p className="text-sm text-slate-300 leading-relaxed">{rec.description}</p>
+              <p className="text-sm text-muted leading-relaxed">{rec.description}</p>
             </div>
 
             {/* Tags */}
@@ -507,12 +505,12 @@ function DetailModal({ rec, onClose }: { rec: Recognition; onClose: () => void }
             {/* Photo gallery — ceremony images */}
             {rec.galleryImages && rec.galleryImages.length > 0 && (
               <div>
-                <p className="font-mono text-[9px] tracking-[0.2em] text-slate-500 uppercase mb-2">
+                <p className="font-mono text-[9px] tracking-[0.2em] text-muted-2 uppercase mb-2">
                   ◈ Ceremony Gallery
                 </p>
                 <div className="grid grid-cols-3 gap-2">
                   {rec.galleryImages.map((src, i) => (
-                    <div key={i} className="relative overflow-hidden border border-white/5 aspect-square group cursor-pointer"
+                    <div key={i} className="relative overflow-hidden border border-theme aspect-square group cursor-pointer"
                       onClick={() => window.open(src, "_blank")}>
                       <Image 
                         src={src} 
@@ -534,7 +532,7 @@ function DetailModal({ rec, onClose }: { rec: Recognition; onClose: () => void }
                 <div className="flex gap-3">
                   {rec.linkedInPostUrl && (
                     <button
-                      className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-mono tracking-[0.12em] uppercase font-semibold transition-all hover:opacity-80 ${styles.btnLinkedIn}`}
+                      className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-mono tracking-[0.12em] uppercase font-semibold transition-all hover:opacity-85 ${styles.btnLinkedIn}`}
                       onClick={() => rec.linkedInPostUrl && window.open(rec.linkedInPostUrl, "_blank")}
                     >
                       <ExternalLink size={11} />
@@ -543,7 +541,7 @@ function DetailModal({ rec, onClose }: { rec: Recognition; onClose: () => void }
                   )}
                   {rec.linkedInAwardUrl && (
                     <button
-                      className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-mono tracking-[0.12em] uppercase font-semibold transition-all hover:opacity-80 ${styles.btnLinkedIn}`}
+                      className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-mono tracking-[0.12em] uppercase font-semibold transition-all hover:opacity-85 ${styles.btnLinkedIn}`}
                       onClick={() => rec.linkedInAwardUrl && window.open(rec.linkedInAwardUrl, "_blank")}
                     >
                       <Award size={11} />
@@ -556,11 +554,11 @@ function DetailModal({ rec, onClose }: { rec: Recognition; onClose: () => void }
           </div>
 
           {/* Modal footer */}
-          <div className="px-6 py-3 border-t border-white/[0.04] flex items-center justify-between">
-            <span className="font-mono text-[9px] tracking-[0.2em] text-slate-600 uppercase">
+          <div className="px-6 py-3 border-t border-theme flex items-center justify-between">
+            <span className="font-mono text-[9px] tracking-[0.2em] text-muted-2 uppercase">
               {`SYSTEM VERIFIED // ${rec.archiveId} // ${rec.date}`}
             </span>
-            <span className="font-mono text-[8px] text-slate-700 tracking-widest opacity-50">
+            <span className="font-mono text-[8px] text-muted-2 tracking-widest opacity-50">
               ICEM // GRN // PORTFOLIO
             </span>
           </div>
@@ -582,8 +580,6 @@ export default function RecognitionArchive() {
 
   return (
     <>
-
-
       <section className="min-h-screen section-gap relative overflow-hidden" aria-label="Recognitions">
         {/* Background scanning line */}
         <div className="scanline" />
@@ -599,12 +595,12 @@ export default function RecognitionArchive() {
           >
             {/* Breadcrumb label */}
             <div className="flex items-center gap-3 mb-6">
-              <span className="font-mono text-[11px] tracking-[0.25em] text-sky-400 uppercase">
+              <span className="font-mono text-[11px] tracking-[0.25em] text-primary uppercase">
                 SYS.NAV // ARCHIVE-03
               </span>
-              <span className="w-8 h-px bg-sky-400/40" />
+              <span className="w-8 h-px bg-primary/40" />
               <span
-                className={`font-mono text-[10px] tracking-[0.2em] px-2 py-0.5 border border-emerald-400/30 text-emerald-400 ${styles.accessBadge}`}
+                className={`font-mono text-[10px] tracking-[0.2em] px-2 py-0.5 border border-theme text-muted ${styles.accessBadge}`}
               >
                 ACCESS LEVEL: PUBLIC
               </span>
@@ -616,7 +612,7 @@ export default function RecognitionArchive() {
             </h1>
 
             {/* Subtitle */}
-            <p className="text-slate-400 max-w-2xl text-base leading-relaxed mb-8">
+            <p className="text-muted max-w-2xl text-base leading-relaxed mb-8">
               Verified institutional recognitions, technical appreciations, and documented milestones
               representing real-world engineering contributions and system development work.
             </p>
@@ -633,7 +629,7 @@ export default function RecognitionArchive() {
                   className={`flex items-center gap-2 px-3 py-1.5 ${styles.statBadge}`}
                 >
                   <span className="text-primary text-xs">{stat.icon}</span>
-                  <span className="font-mono text-[10px] tracking-[0.18em] text-slate-400">{stat.label}</span>
+                  <span className="font-mono text-[10px] tracking-[0.18em] text-muted">{stat.label}</span>
                 </div>
               ))}
             </div>
@@ -658,7 +654,7 @@ export default function RecognitionArchive() {
                 █
               </span>
             </div>
-            <h2 className="text-2xl font-semibold text-slate-100">Institutional Recognition</h2>
+            <h2 className="text-2xl font-semibold text-foreground">Institutional Recognition</h2>
             <div className={`mt-3 w-full ${styles.sectionDivider}`} />
           </motion.div>
 
@@ -675,12 +671,12 @@ export default function RecognitionArchive() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4 }}
-            className="mt-16 pt-6 border-t border-white/[0.04] flex items-center justify-between flex-wrap gap-4"
+            className="mt-16 pt-6 border-t border-theme flex items-center justify-between flex-wrap gap-4"
           >
-            <p className="font-mono text-[10px] tracking-[0.2em] text-slate-600 uppercase">
+            <p className="font-mono text-[10px] tracking-[0.2em] text-muted-2 uppercase">
               ARCHIVE-03 :: RECOGNITION RECORDS :: GAURAV RAJU NAWALE // GRN-2025
             </p>
-            <p className="font-mono text-[10px] tracking-[0.15em] text-slate-700">
+            <p className="font-mono text-[10px] tracking-[0.15em] text-muted-2">
               SYS.STATUS: ONLINE // RECORDS: 04 / 04 // INTEGRITY: 100%
             </p>
           </motion.div>

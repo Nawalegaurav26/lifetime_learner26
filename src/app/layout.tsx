@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Plus_Jakarta_Sans, Hanken_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -7,6 +7,7 @@ import Preloader from "@/components/Preloader";
 import Cursor from "@/components/Cursor";
 import CanvasBg from "@/components/CanvasBg";
 import Analytics from "@/components/Analytics";
+import { ThemeProvider } from "@/contexts/ThemeContext";
 import Script from "next/script";
 
 const jakarta = Plus_Jakarta_Sans({
@@ -15,8 +16,23 @@ const jakarta = Plus_Jakarta_Sans({
   display: "swap",
 });
 
+const hanken = Hanken_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-hanken",
+  display: "swap",
+  weight: ["400", "500", "600", "700", "800"],
+});
+
+const jetbrains = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains",
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
+});
+
 export const viewport = {
   themeColor: "#0f172a",
+  colorScheme: "dark light",
 };
 
 export const metadata: Metadata = {
@@ -171,17 +187,33 @@ export default function RootLayout({
     "description": "Lifetime Learner, System Architect, and Founder of CertiOwn."
   };
 
+  // No-FOUT script: apply saved theme before first paint to prevent flash
+  const themeInitScript = `
+    (function() {
+      try {
+        var t = localStorage.getItem('portfolio-theme');
+        if (t && ['dark','light','neon','light-neon'].includes(t)) {
+          document.documentElement.setAttribute('data-theme', t);
+        } else {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch(e) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })()
+  `;
+
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" data-theme="dark" suppressHydrationWarning>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <meta name="referrer" content="origin-when-cross-origin" />
-        
         <meta name="format-detection" content="telephone=no, address=no, email=no" />
       </head>
-      <body className={`${jakarta.variable} font-sans antialiased`}>
+      <body className={`${jakarta.variable} ${hanken.variable} ${jetbrains.variable} font-sans antialiased`}>
         <Analytics />
         <Script
           id="person-json-ld"
@@ -194,12 +226,14 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
 
-        <CanvasBg />
-        <Preloader />
-        <Cursor />
-        <Navbar />
-        {children}
-        <Footer />
+        <ThemeProvider>
+          <CanvasBg />
+          <Preloader />
+          <Cursor />
+          <Navbar />
+          {children}
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

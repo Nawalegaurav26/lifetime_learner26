@@ -1,13 +1,12 @@
 "use client";
 
-import React, { useRef } from "react";
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { motion, useScroll, useSpring } from "framer-motion";
 import { 
   ExternalLink, 
   Play, 
-  Shield, 
   Search, 
   Cpu, 
   Layout, 
@@ -17,7 +16,6 @@ import {
   Calendar,
   User,
   Activity,
-  ChevronDown,
   Terminal,
   Zap,
   Globe2,
@@ -51,16 +49,6 @@ const FadeIn = ({ children, delay = 0, y = 20, x = 0, className = "" }: { childr
 };
 
 const ProjectHero = () => {
-  const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"]
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
-
   const scrollToJourney = () => {
     const journeySection = document.getElementById("journey");
     if (journeySection) {
@@ -69,69 +57,120 @@ const ProjectHero = () => {
   };
 
   return (
-    <section ref={containerRef} className="relative h-screen flex items-center justify-center overflow-hidden bg-slate-950">
-      {/* Background Particles/Grid */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-900/20 via-slate-950 to-slate-950"></div>
-        <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
-        <motion.div 
-          style={{ y, opacity, scale }}
-          className="absolute inset-0 flex items-center justify-center pointer-events-none"
-        >
-          <div className="w-[80vw] h-[80vw] bg-blue-500/10 blur-[120px] rounded-full"></div>
-        </motion.div>
-      </div>
+    <section 
+      className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden subtle-grid"
+    >
+      <div className="scanline" />
+
+      {/* Decorative Blobs */}
+      <div
+        className="absolute top-1/4 -left-20 w-80 h-80 rounded-full blur-[100px] mix-blend-multiply animate-pulse-slow pointer-events-none"
+        style={{ background: "var(--primary-glow)" }}
+      />
+      <div
+        className="absolute bottom-1/4 -right-20 w-[400px] h-[400px] rounded-full blur-[120px] pointer-events-none"
+        style={{ background: `rgba(139, 92, 246, 0.08)` }}
+      />
 
       <div className="relative z-10 text-center max-w-5xl px-6">
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-medium backdrop-blur-sm"
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 0.2, duration: 0.5 }}
+          className="mb-8"
         >
-          <Shield size={16} />
-          <span>Institutional Digital Infrastructure</span>
+          <div
+            className="inline-flex items-center gap-3 px-5 py-2 glass rounded-full"
+            style={{
+              border: "1px solid var(--primary-glow)",
+              boxShadow: "0 0 15px var(--primary-glow)",
+            }}
+          >
+            <span className="relative flex h-3 w-3">
+              <span
+                className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"
+                style={{ background: "var(--primary)" }}
+              />
+              <span
+                className="relative inline-flex rounded-full h-3 w-3"
+                style={{ background: "var(--primary)" }}
+              />
+            </span>
+            <span
+              className="text-xs font-mono font-semibold tracking-widest uppercase"
+              style={{ color: "var(--primary-light)" }}
+            >
+              Institutional Digital Infrastructure
+            </span>
+          </div>
         </motion.div>
 
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="text-6xl md:text-8xl font-bold tracking-tight text-white mb-6"
+          className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6"
+          style={{ color: "var(--foreground)" }}
         >
-          UBA ICEM <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">Portal</span>
+          UBA ICEM <span 
+            className="text-transparent bg-clip-text"
+            style={{
+              backgroundImage: `linear-gradient(135deg, var(--gradient-text-from), var(--gradient-text-to))`,
+              filter: "drop-shadow(0 0 10px var(--primary-glow))",
+            }}
+          >Portal</span>
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="text-xl md:text-2xl text-slate-400 mb-10 max-w-3xl mx-auto font-light leading-relaxed"
+          className="text-lg md:text-xl font-bold mb-12 max-w-3xl mx-auto font-mono tracking-tight leading-relaxed"
+          style={{ color: "var(--foreground)" }}
         >
-          Building systems that combine technology, accessibility, and institutional impact under the Unnat Bharat Abhiyan initiative.
+          &quot;Building systems that combine technology, accessibility, and institutional impact under the Unnat Bharat Abhiyan initiative.&quot;
         </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-wrap items-center justify-center gap-6"
+          transition={{ duration: 1, delay: 0.6 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-6 w-full max-w-md mx-auto"
         >
           <Link 
             href="https://uba-icem.vercel.app/" 
             target="_blank"
-            className="group relative flex items-center gap-2 px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-semibold transition-all shadow-lg shadow-blue-500/25 overflow-hidden"
+            className="w-full sm:w-auto px-8 py-4 text-white font-mono uppercase tracking-widest text-sm font-bold flex justify-center items-center gap-2 rounded-md transition-all hover:scale-[1.02] active:scale-[0.98]"
+            style={{
+              background: "var(--primary)",
+              boxShadow: "0 0 24px var(--primary-glow)",
+            }}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLElement).style.background = "var(--primary-hover)";
+              (e.currentTarget as HTMLElement).style.boxShadow = "0 0 32px var(--primary-glow)";
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLElement).style.background = "var(--primary)";
+              (e.currentTarget as HTMLElement).style.boxShadow = "0 0 24px var(--primary-glow)";
+            }}
           >
-            <div className="absolute inset-0 bg-white/20 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300"></div>
-            <ExternalLink size={20} className="relative z-10" />
-            <span className="relative z-10">Live Website</span>
+            Live Website <ExternalLink size={16} />
           </Link>
           <button 
             onClick={scrollToJourney}
-            className="flex items-center gap-2 px-8 py-4 bg-white/5 hover:bg-white/10 text-white border border-white/10 rounded-xl font-semibold transition-all backdrop-blur-sm group"
+            className="w-full sm:w-auto px-8 py-4 glass font-mono uppercase tracking-widest text-sm font-bold flex justify-center items-center gap-2 rounded-md transition-all hover:scale-[1.02] active:scale-[0.98]"
+            style={{
+              color: "var(--foreground)",
+              border: "1px solid var(--border-strong)",
+            }}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLElement).style.borderColor = "var(--primary)";
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLElement).style.borderColor = "var(--border-strong)";
+            }}
           >
-            <Play size={20} className="group-hover:text-blue-400 transition-colors" />
-            <span>Watch Journey</span>
+            Watch Journey <Play size={16} />
           </button>
         </motion.div>
 
@@ -140,7 +179,7 @@ const ProjectHero = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 pt-10 border-t border-white/10"
+          className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 pt-10 border-t border-theme"
         >
           {[
             { label: "Interface Pages", value: "10+", icon: Layout },
@@ -150,10 +189,10 @@ const ProjectHero = () => {
           ].map((stat, i) => (
             <div key={i} className="text-center group">
               <div className="flex justify-center mb-3">
-                <stat.icon size={24} className="text-blue-400 group-hover:scale-110 transition-transform" />
+                <stat.icon size={24} className="text-primary group-hover:scale-110 transition-transform" />
               </div>
-              <div className="text-2xl font-bold text-white mb-1">{stat.value}</div>
-              <div className="text-sm text-slate-500 uppercase tracking-wider">{stat.label}</div>
+              <div className="text-2xl font-bold text-foreground mb-1 font-mono">{stat.value}</div>
+              <div className="text-xs text-muted uppercase tracking-widest font-mono">{stat.label}</div>
             </div>
           ))}
         </motion.div>
@@ -163,15 +202,20 @@ const ProjectHero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4"
       >
-        <span className="text-xs text-slate-500 uppercase tracking-widest font-medium">Scroll to explore</span>
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+        <span
+          className="text-[10px] font-mono uppercase tracking-[0.3em]"
+          style={{ color: "var(--primary)" }}
         >
-          <ChevronDown size={20} className="text-blue-400" />
-        </motion.div>
+          Scroll
+        </span>
+        <div
+          className="w-[1px] h-12"
+          style={{
+            background: `linear-gradient(to bottom, var(--primary), transparent)`,
+          }}
+        />
       </motion.div>
     </section>
   );
@@ -179,40 +223,40 @@ const ProjectHero = () => {
 
 const ProjectOverview = () => {
   return (
-    <Section className="bg-slate-950">
+    <Section className="bg-background">
       <div className="grid lg:grid-cols-2 gap-16 items-center">
         <FadeIn x={-50}>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
-            The Digital <span className="text-blue-500">Infrastructure</span>
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground tracking-tight font-mono uppercase mb-8">
+            The Digital <span className="text-transparent bg-clip-text" style={{ backgroundImage: "linear-gradient(135deg, var(--gradient-text-from), var(--gradient-text-to))", filter: "drop-shadow(0 0 10px var(--primary-glow))" }}>Infrastructure</span>
           </h2>
-          <p className="text-lg text-slate-400 mb-8 leading-relaxed">
+          <p className="text-lg text-muted mb-8 leading-relaxed font-mono">
             A centralized institutional platform developed for the Unnat Bharat Abhiyan initiative at ICEM to manage program-related workflows, improve accessibility of information, and strengthen digital infrastructure.
           </p>
           
-          <div className="space-y-6 mb-10">
+          <div className="space-y-6 mb-10 font-mono">
             <div className="flex items-start gap-4">
-              <div className="p-2 rounded-lg bg-blue-500/10 border border-blue-500/20 text-blue-400">
+              <div className="p-3 rounded-lg glass border border-primary/20 text-primary-light">
                 <User size={20} />
               </div>
               <div>
-                <h4 className="text-white font-semibold">Role</h4>
-                <p className="text-slate-400">Full Stack Developer, SEO & Testing</p>
+                <h4 className="text-foreground font-bold uppercase text-sm tracking-wider">Role</h4>
+                <p className="text-muted text-sm">Full Stack Developer, SEO & Testing</p>
               </div>
             </div>
             <div className="flex items-start gap-4">
-              <div className="p-2 rounded-lg bg-blue-500/10 border border-blue-500/20 text-blue-400">
+              <div className="p-3 rounded-lg glass border border-primary/20 text-primary-light">
                 <Calendar size={20} />
               </div>
               <div>
-                <h4 className="text-white font-semibold">Timeline</h4>
-                <p className="text-slate-400">Jan 2026 – Present</p>
+                <h4 className="text-foreground font-bold uppercase text-sm tracking-wider">Timeline</h4>
+                <p className="text-muted text-sm">Jan 2026 – Present</p>
               </div>
             </div>
           </div>
 
           <div className="flex flex-wrap gap-3">
             {["TypeScript", "Next.js", "SEO", "Deployment", "Testing", "Institutional Platform", "Framer Motion"].map((tag, i) => (
-              <span key={i} className="px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-slate-300 text-sm font-medium">
+              <span key={i} className="px-4 py-2 glass border border-theme text-muted text-xs font-mono font-semibold uppercase tracking-wider rounded-md">
                 {tag}
               </span>
             ))}
@@ -220,7 +264,7 @@ const ProjectOverview = () => {
         </FadeIn>
 
         <FadeIn x={50} delay={0.2} className="relative">
-          <div className="relative z-10 rounded-3xl overflow-hidden border border-white/10 shadow-2xl shadow-blue-500/10 group">
+          <div className="relative z-10 rounded-3xl overflow-hidden border border-theme shadow-2xl group">
             <Image 
               src="/projects/uba/01home.png" 
               alt="UBA ICEM Portal Preview" 
@@ -228,24 +272,24 @@ const ProjectOverview = () => {
               height={500} 
               className="w-full h-auto transition-transform duration-700 group-hover:scale-105"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60"></div>
             
             {/* Animated Dashboard Overlay Elements */}
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-10 right-10 p-4 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/20 shadow-xl"
+              className="absolute top-10 right-10 p-4 rounded-xl glass border border-primary/20 shadow-xl"
             >
               <div className="flex items-center gap-3 mb-2">
-                <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                <div className="text-xs font-bold text-white uppercase tracking-wider">System Live</div>
+                <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
+                <div className="text-[10px] font-bold text-primary font-mono uppercase tracking-wider">System Live</div>
               </div>
-              <div className="text-2xl font-bold text-white">99.9% Uptime</div>
+              <div className="text-xl font-bold text-foreground font-mono">99.9% Uptime</div>
             </motion.div>
           </div>
           
           {/* Background Glow */}
-          <div className="absolute -inset-4 bg-blue-500/20 blur-3xl -z-10 rounded-full"></div>
+          <div className="absolute -inset-4 bg-primary/10 blur-3xl -z-10 rounded-full"></div>
         </FadeIn>
       </div>
     </Section>
@@ -307,22 +351,22 @@ const timelineData = [
 
 const DevelopmentJourney = () => {
   return (
-    <Section id="journey" className="bg-slate-950">
+    <Section id="journey" className="bg-background">
       <div className="text-center mb-32">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-4xl md:text-6xl font-bold text-white mb-6"
+          className="text-3xl md:text-5xl font-bold text-foreground tracking-tight font-mono uppercase mb-6"
         >
-          Development <span className="text-blue-500">Journey</span>
+          Development <span className="text-transparent bg-clip-text" style={{ backgroundImage: "linear-gradient(135deg, var(--gradient-text-from), var(--gradient-text-to))", filter: "drop-shadow(0 0 10px var(--primary-glow))" }}>Journey</span>
         </motion.h2>
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="text-slate-400 max-w-2xl mx-auto text-lg"
+          className="text-muted max-w-2xl mx-auto text-sm font-mono uppercase tracking-wider"
         >
           A deep dive into the architectural evolution of the UBA ICEM Portal, from initial conceptualization to institutional deployment.
         </motion.p>
@@ -330,7 +374,7 @@ const DevelopmentJourney = () => {
 
       <div className="relative max-w-7xl mx-auto">
         {/* Vertical Connecting Line */}
-        <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-blue-500/50 via-blue-500/20 to-transparent hidden lg:block"></div>
+        <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-blue-500/30 via-primary/10 to-transparent hidden lg:block"></div>
 
         <div className="space-y-32">
           {timelineData.map((item, index) => (
@@ -365,39 +409,39 @@ const TimelineItem = ({ item, index }: { item: TimelineData; index: number }) =>
     >
       {/* Image Side */}
       <div className={`relative group ${isEven ? "lg:order-1" : "lg:order-2"}`}>
-        <div className="relative aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-2xl group-hover:border-blue-500/30 transition-all duration-500">
+        <div className="relative aspect-video rounded-2xl overflow-hidden border border-theme shadow-2xl group-hover:border-primary/30 transition-all duration-500">
           <Image 
             src={item.image} 
             alt={item.title}
             fill
             className="object-cover transition-transform duration-700 group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent"></div>
         </div>
         
         {/* Glow behind image */}
-        <div className="absolute -inset-4 bg-blue-500/5 blur-3xl -z-10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        <div className="absolute -inset-4 bg-primary/5 blur-3xl -z-10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
       </div>
 
       {/* Text Side */}
       <div className={`relative ${isEven ? "lg:order-2" : "lg:order-1 lg:text-right"}`}>
         {/* Connector Dot */}
-        <div className={`absolute top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-blue-500 border-4 border-slate-950 z-10 hidden lg:block ${
+        <div className={`absolute top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-primary border-4 border-[var(--background)] z-10 hidden lg:block ${
           isEven ? "-left-[66px]" : "-right-[66px]"
         }`}></div>
 
-        <div className="inline-block px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-widest mb-6">
+        <div className="inline-block px-4 py-2 glass rounded-md border border-primary/20 text-primary-light text-xs font-mono font-bold uppercase tracking-widest mb-6">
           Phase 0{index + 1}
         </div>
-        <h3 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
+        <h3 className="text-2xl md:text-3xl font-bold text-foreground font-mono uppercase mb-6 leading-tight">
           {item.title}
         </h3>
-        <p className="text-lg text-slate-400 leading-relaxed mb-8 max-w-xl ml-auto mr-auto lg:ml-0 lg:mr-0">
+        <p className="text-base text-muted leading-relaxed font-sans mb-8 max-w-xl ml-auto mr-auto lg:ml-0 lg:mr-0">
           {item.description}
         </p>
         
-        <div className={`flex items-center gap-2 text-blue-400 font-medium group cursor-pointer ${!isEven ? "lg:justify-end" : ""}`}>
-          <span className="text-sm tracking-wide">Explore Component</span>
+        <div className={`flex items-center gap-2 text-primary font-mono text-xs font-bold uppercase tracking-widest group cursor-pointer ${!isEven ? "lg:justify-end" : ""}`}>
+          <span>Explore Component</span>
           <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
         </div>
       </div>
@@ -407,19 +451,19 @@ const TimelineItem = ({ item, index }: { item: TimelineData; index: number }) =>
 
 const ImpactSection = () => {
   const metrics = [
-    { title: "Full Stack Development", desc: "End-to-end integration of institutional systems.", icon: Code, color: "blue" },
-    { title: "Deployment & Hosting", desc: "Automated CI/CD pipelines for institutional uptime.", icon: Cloud, color: "cyan" },
-    { title: "SEO Optimization", desc: "Enhanced discoverability for government initiatives.", icon: Search, color: "indigo" },
-    { title: "Institutional Workflow", desc: "Optimizing communication between college and villages.", icon: Activity, color: "sky" },
-    { title: "Performance Testing", desc: "Ensuring low latency and high accessibility.", icon: Zap, color: "yellow" },
-    { title: "GitHub Collaboration", desc: "Clean codebase and collaborative development.", icon: Github, color: "slate" }
+    { title: "Full Stack Development", desc: "End-to-end integration of institutional systems.", icon: Code },
+    { title: "Deployment & Hosting", desc: "Automated CI/CD pipelines for institutional uptime.", icon: Cloud },
+    { title: "SEO Optimization", desc: "Enhanced discoverability for government initiatives.", icon: Search },
+    { title: "Institutional Workflow", desc: "Optimizing communication between college and villages.", icon: Activity },
+    { title: "Performance Testing", desc: "Ensuring low latency and high accessibility.", icon: Zap },
+    { title: "GitHub Collaboration", desc: "Clean codebase and collaborative development.", icon: Github }
   ];
 
   return (
-    <Section className="bg-slate-950">
+    <Section className="bg-background">
       <div className="text-center mb-20">
-        <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Contribution & <span className="text-blue-500">Impact</span></h2>
-        <p className="text-slate-400 max-w-2xl mx-auto">Tangible results and engineering excellence delivered for the UBA ICEM platform.</p>
+        <h2 className="text-3xl md:text-5xl font-bold text-foreground tracking-tight font-mono uppercase mb-6">Contribution & <span className="text-transparent bg-clip-text" style={{ backgroundImage: "linear-gradient(135deg, var(--gradient-text-from), var(--gradient-text-to))", filter: "drop-shadow(0 0 10px var(--primary-glow))" }}>Impact</span></h2>
+        <p className="text-muted max-w-2xl mx-auto font-mono text-sm uppercase tracking-wider">Tangible results and engineering excellence delivered for the UBA ICEM platform.</p>
       </div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -431,12 +475,12 @@ const ImpactSection = () => {
             viewport={{ once: true }}
             transition={{ delay: i * 0.1 }}
             whileHover={{ y: -10, transition: { duration: 0.2 } }}
-            className="group p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-blue-500/50 transition-colors relative overflow-hidden"
+            className="group p-8 rounded-lg glass border border-theme hover:border-primary/30 transition-all relative overflow-hidden"
           >
-            <div className={`absolute top-0 right-0 p-10 bg-blue-500/10 blur-[60px] rounded-full group-hover:bg-blue-500/20 transition-all`}></div>
-            <metric.icon size={32} className="text-blue-400 mb-6 group-hover:scale-110 transition-transform" />
-            <h3 className="text-xl font-bold text-white mb-3 relative z-10">{metric.title}</h3>
-            <p className="text-slate-400 leading-relaxed relative z-10">{metric.desc}</p>
+            <div className="absolute top-0 right-0 p-10 bg-primary/10 blur-[60px] rounded-full group-hover:bg-primary/20 transition-all"></div>
+            <metric.icon size={32} className="text-primary mb-6 group-hover:scale-110 transition-transform" />
+            <h3 className="text-lg font-bold text-foreground font-mono uppercase tracking-wide mb-3 relative z-10">{metric.title}</h3>
+            <p className="text-muted text-sm leading-relaxed relative z-10">{metric.desc}</p>
           </motion.div>
         ))}
       </div>
@@ -446,11 +490,11 @@ const ImpactSection = () => {
 
 const ArchitectureSection = () => {
   return (
-    <Section className="bg-slate-950">
+    <Section className="bg-background">
       <div className="grid lg:grid-cols-2 gap-16 items-center">
         <FadeIn x={-50}>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
-            Technical <span className="text-blue-500">Architecture</span>
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground tracking-tight font-mono uppercase mb-8">
+            Technical <span className="text-transparent bg-clip-text" style={{ backgroundImage: "linear-gradient(135deg, var(--gradient-text-from), var(--gradient-text-to))", filter: "drop-shadow(0 0 10px var(--primary-glow))" }}>Architecture</span>
           </h2>
           <div className="space-y-8">
             <ArchStep 
@@ -540,7 +584,7 @@ const ArchitectureSection = () => {
             </svg>
           </div>
           {/* Decorative Glow */}
-          <div className="absolute inset-0 bg-blue-500/5 blur-[100px] -z-10 rounded-full"></div>
+          <div className="absolute inset-0 bg-primary/5 blur-[100px] -z-10 rounded-full"></div>
         </div>
       </div>
     </Section>
@@ -550,27 +594,25 @@ const ArchitectureSection = () => {
 const ArchStep = ({ icon: Icon, title, desc }: { icon: React.ComponentType<{ size?: number }>; title: string; desc: string }) => (
   <motion.div 
     whileHover={{ x: 10 }}
-    className="flex items-start gap-4 p-4 rounded-xl hover:bg-white/5 border border-transparent hover:border-white/10 transition-all"
+    className="flex items-start gap-4 p-4 rounded-lg hover:bg-surface border border-transparent hover:border-theme transition-all"
   >
-    <div className="p-3 rounded-lg bg-blue-500/10 border border-blue-500/20 text-blue-400">
+    <div className="p-3 rounded-lg glass border border-primary/20 text-primary-light">
       <Icon size={20} />
     </div>
     <div>
-      <h4 className="text-white font-bold mb-1">{title}</h4>
-      <p className="text-slate-400 text-sm leading-relaxed">{desc}</p>
+      <h4 className="text-foreground font-mono font-bold mb-1 uppercase text-sm tracking-wider">{title}</h4>
+      <p className="text-muted text-sm leading-relaxed font-sans">{desc}</p>
     </div>
   </motion.div>
 );
 
 const LiveExperience = () => {
   return (
-    <Section className="bg-slate-950">
-      <div className="relative rounded-[40px] overflow-hidden bg-gradient-to-br from-blue-900/40 to-slate-900 border border-white/10 p-12 md:p-24 text-center">
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
-        
+    <Section className="bg-background">
+      <div className="relative rounded-[40px] overflow-hidden glass border border-theme p-12 md:p-24 text-center">
         <FadeIn y={30}>
-          <h2 className="text-4xl md:text-6xl font-bold text-white mb-8">Ready to explore the <span className="text-blue-400">Platform?</span></h2>
-          <p className="text-xl text-slate-300 mb-12 max-w-2xl mx-auto font-light">
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground tracking-tight font-mono uppercase mb-8">Ready to explore the <span className="text-transparent bg-clip-text" style={{ backgroundImage: "linear-gradient(135deg, var(--gradient-text-from), var(--gradient-text-to))", filter: "drop-shadow(0 0 10px var(--primary-glow))" }}>Platform?</span></h2>
+          <p className="text-base text-muted mb-12 max-w-2xl mx-auto font-mono uppercase tracking-wider">
             Experience the UBA ICEM portal live or dive into the codebase to see the technical implementation.
           </p>
           
@@ -578,17 +620,39 @@ const LiveExperience = () => {
             <Link 
               href="https://uba-icem.vercel.app/" 
               target="_blank"
-              className="px-10 py-5 bg-white text-slate-950 hover:bg-blue-50 rounded-2xl font-bold transition-all shadow-xl shadow-white/10 flex items-center gap-2"
+              className="px-8 py-4 text-white font-mono uppercase tracking-widest text-sm font-bold flex justify-center items-center gap-2 rounded-md transition-all hover:scale-[1.02] active:scale-[0.98]"
+              style={{
+                background: "var(--primary)",
+                boxShadow: "0 0 24px var(--primary-glow)",
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLElement).style.background = "var(--primary-hover)";
+                (e.currentTarget as HTMLElement).style.boxShadow = "0 0 32px var(--primary-glow)";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLElement).style.background = "var(--primary)";
+                (e.currentTarget as HTMLElement).style.boxShadow = "0 0 24px var(--primary-glow)";
+              }}
             >
-              <Globe2 size={20} />
+              <Globe2 size={16} />
               Visit Live Website
             </Link>
             <Link 
               href="https://github.com/Nawalegaurav26/uba.icem" 
               target="_blank"
-              className="px-10 py-5 bg-white/5 hover:bg-white/10 text-white border border-white/10 rounded-2xl font-bold transition-all backdrop-blur-sm flex items-center gap-2"
+              className="px-8 py-4 glass font-mono uppercase tracking-widest text-sm font-bold flex justify-center items-center gap-2 rounded-md transition-all hover:scale-[1.02] active:scale-[0.98]"
+              style={{
+                color: "var(--foreground)",
+                border: "1px solid var(--border-strong)",
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLElement).style.borderColor = "var(--primary)";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLElement).style.borderColor = "var(--border-strong)";
+              }}
             >
-              <Github size={20} />
+              <Github size={16} />
               View GitHub
             </Link>
           </div>
@@ -602,8 +666,8 @@ const LiveExperience = () => {
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           className="mt-20 -mb-48 md:-mb-80 max-w-5xl mx-auto"
         >
-          <div className="relative rounded-t-3xl overflow-hidden border-x border-t border-white/20 bg-slate-900 shadow-2xl">
-             <div className="h-8 bg-slate-800 flex items-center px-4 gap-2 border-b border-white/5">
+          <div className="relative rounded-t-3xl overflow-hidden border-x border-t border-theme bg-surface shadow-2xl">
+             <div className="h-8 bg-surface flex items-center px-4 gap-2 border-b border-white/5">
                 <div className="w-3 h-3 rounded-full bg-red-500/50"></div>
                 <div className="w-3 h-3 rounded-full bg-yellow-500/50"></div>
                 <div className="w-3 h-3 rounded-full bg-green-500/50"></div>
@@ -624,20 +688,29 @@ const LiveExperience = () => {
 
 const FinalOutro = () => {
   return (
-    <section className="relative py-32 px-6 bg-slate-950 overflow-hidden text-center">
+    <section className="relative py-32 px-6 bg-background overflow-hidden text-center">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-900/10 via-transparent to-transparent"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent"></div>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/grid.png')] opacity-[0.03]"></div>
       </div>
       
       <div className="relative z-10 max-w-4xl mx-auto">
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial={{ scale: 0.8, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
           viewport={{ once: true }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-widest mb-8"
+          className="mb-8 inline-flex items-center gap-3 px-5 py-2 glass rounded-full"
+          style={{
+            border: "1px solid var(--primary-glow)",
+            boxShadow: "0 0 15px var(--primary-glow)",
+          }}
         >
-          Project Conclusion
+          <span
+            className="text-xs font-mono font-semibold tracking-widest uppercase"
+            style={{ color: "var(--primary-light)" }}
+          >
+            Project Conclusion
+          </span>
         </motion.div>
         
         <motion.p
@@ -645,9 +718,9 @@ const FinalOutro = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="text-3xl md:text-5xl font-light text-white leading-tight mb-12 italic"
+          className="text-2xl md:text-4xl font-mono text-foreground leading-relaxed mb-12 italic"
         >
-          &quot;Building systems that combine <span className="text-blue-500 font-semibold">technology</span>, <span className="text-blue-500 font-semibold">accessibility</span>, and institutional <span className="text-blue-500 font-semibold">impact</span>.&quot;
+          &quot;Building systems that combine <span className="text-transparent bg-clip-text" style={{ backgroundImage: "linear-gradient(135deg, var(--gradient-text-from), var(--gradient-text-to))", filter: "drop-shadow(0 0 10px var(--primary-glow))" }}>technology</span>, <span className="text-transparent bg-clip-text" style={{ backgroundImage: "linear-gradient(135deg, var(--gradient-text-from), var(--gradient-text-to))", filter: "drop-shadow(0 0 10px var(--primary-glow))" }}>accessibility</span>, and institutional <span className="text-transparent bg-clip-text" style={{ backgroundImage: "linear-gradient(135deg, var(--gradient-text-from), var(--gradient-text-to))", filter: "drop-shadow(0 0 10px var(--primary-glow))" }}>impact</span>.&quot;
         </motion.p>
         
         <motion.div
@@ -655,7 +728,7 @@ const FinalOutro = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="w-24 h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent mx-auto"
+          className="w-24 h-1 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto"
         ></motion.div>
       </div>
     </section>
@@ -673,10 +746,10 @@ export default function UBACaseStudy() {
   });
 
   return (
-    <main className="bg-slate-950 selection:bg-blue-500/30">
+    <main className="bg-background selection:bg-primary/30">
       {/* Scroll Progress Bar */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-blue-600 z-[100] origin-left"
+        className="fixed top-0 left-0 right-0 h-1 bg-primary z-[100] origin-left"
         style={{ scaleX }}
       />
 

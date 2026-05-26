@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <main className="bg-slate-950 pt-32 min-h-screen">
+    <main className="bg-background pt-32 min-h-screen">
       <Contact />
     </main>
   );

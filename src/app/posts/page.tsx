@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Intel & Archive | Gaurav Raju Nawale",
     description: "Insights and intelligence on high-performance system building and startup engineering.",
-    url: "https://lifetime-learner26.netlify.app/posts",
+    url: "https://gaurav-nawale.vercel.app/posts",
     type: "website",
     images: [
       {

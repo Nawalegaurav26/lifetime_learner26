@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://lifetime-learner26.netlify.app'
+  const baseUrl = 'https://gaurav-nawale.vercel.app'
 
   return [
     {

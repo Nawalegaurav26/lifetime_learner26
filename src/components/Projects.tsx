@@ -40,32 +40,32 @@ interface Project {
 
 // Placeholder component for "Coming Soon" media
 const ComingSoonMedia = ({ title }: { title: string }) => (
-  <div className="relative aspect-video w-full h-full flex flex-col items-center justify-center bg-slate-900/50 backdrop-blur-sm border border-white/5 overflow-hidden group">
+  <div className="relative aspect-video w-full h-full flex flex-col items-center justify-center bg-surface-alt/40 backdrop-blur-sm border border-theme overflow-hidden group">
     {/* Animated scanning line */}
     <motion.div 
       animate={{ top: ["0%", "100%", "0%"] }}
       transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-      className="absolute left-0 right-0 h-[1px] bg-primary/30 z-10 shadow-[0_0_10px_rgba(59,130,246,0.5)]"
+      className="absolute left-0 right-0 h-[1px] bg-primary/30 z-10 shadow-[0_0_10px_var(--primary-glow)]"
     />
     
     {/* Grid Background */}
-    <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:20px_20px]" />
+    <div className="absolute inset-0 subtle-grid opacity-30" />
     
-    <AlertCircle className="text-slate-700 mb-4 group-hover:text-primary/40 transition-colors" size={48} />
+    <AlertCircle className="text-muted-2 mb-4 group-hover:text-primary/60 transition-colors" size={48} />
     <div className="text-center px-6">
-      <h4 className="text-sm font-black text-slate-500 uppercase tracking-[0.3em] font-mono mb-2">
+      <h4 className="text-sm font-black text-muted-2 uppercase tracking-[0.3em] font-mono mb-2">
         Visual Asset Pending
       </h4>
-      <p className="text-[10px] text-slate-600 font-mono uppercase tracking-widest">
-        {title} {/* Data Link coming soon */}
+      <p className="text-[10px] text-muted-2 font-mono uppercase tracking-widest">
+        {title}
       </p>
     </div>
 
     {/* HUD corners */}
-    <div className="absolute top-4 left-4 w-4 h-4 border-t border-l border-white/10" />
-    <div className="absolute top-4 right-4 w-4 h-4 border-t border-r border-white/10" />
-    <div className="absolute bottom-4 left-4 w-4 h-4 border-b border-l border-white/10" />
-    <div className="absolute bottom-4 right-4 w-4 h-4 border-b border-r border-white/10" />
+    <div className="absolute top-4 left-4 w-4 h-4 border-t border-l border-theme-strong opacity-40" />
+    <div className="absolute top-4 right-4 w-4 h-4 border-t border-r border-theme-strong opacity-40" />
+    <div className="absolute bottom-4 left-4 w-4 h-4 border-b border-l border-theme-strong opacity-40" />
+    <div className="absolute bottom-4 right-4 w-4 h-4 border-b border-r border-theme-strong opacity-40" />
   </div>
 );
 
@@ -187,7 +187,7 @@ const demonstrations = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-24 relative overflow-hidden bg-slate-950/50">
+    <section id="projects" className="py-24 relative overflow-hidden bg-background/50 border-t border-theme">
       <div className="container mx-auto px-6">
         {/* Header */}
         <div className="max-w-3xl mb-24">
@@ -205,9 +205,9 @@ export default function Projects() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-6xl font-bold text-slate-100 tracking-tight font-mono uppercase mb-8"
+            className="text-4xl md:text-6xl font-bold text-foreground tracking-tight font-mono uppercase mb-8"
           >
-            Selected <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-secondary filter drop-shadow-[0_0_15px_rgba(59,130,246,0.3)]">Creations.</span>
+            Selected <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-secondary filter drop-shadow-[0_0_15px_var(--primary-glow)]">Creations.</span>
           </motion.h2>
           
           <motion.p 
@@ -215,9 +215,9 @@ export default function Projects() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-slate-400 text-base md:text-lg font-mono leading-relaxed max-w-2xl"
+            className="text-muted text-base md:text-lg font-mono leading-relaxed max-w-2xl"
           >
-            A collection of real-world systems and products designed to solve practical problems, with a focus on <span className="text-primary-light font-bold">scalability</span>, <span className="text-accent-light font-bold">automation</span>, and <span className="text-slate-100">user experience</span>.
+            A collection of real-world systems and products designed to solve practical problems, with a focus on <span className="text-primary font-bold">scalability</span>, <span className="text-accent font-bold">automation</span>, and <span className="text-foreground">user experience</span>.
           </motion.p>
         </div>
 
@@ -235,7 +235,7 @@ export default function Projects() {
               {/* Media Column */}
               <div className={`lg:col-span-7 relative ${index % 2 === 1 ? "lg:order-2" : ""}`}>
                 <Link href={project.href || "#"} className="block group/img-link">
-                  <div className="relative aspect-video rounded-xl overflow-hidden glass border border-white/5 shadow-2xl group-hover/img-link:shadow-primary/30 transition-all duration-700">
+                  <div className="relative aspect-video rounded-xl overflow-hidden glass border border-theme shadow-2xl group-hover/img-link:shadow-[0_0_32px_var(--primary-glow)] transition-all duration-700">
                     {project.image ? (
                       <Image 
                         src={project.image} 
@@ -246,11 +246,11 @@ export default function Projects() {
                     ) : (
                       <ComingSoonMedia title={project.title} />
                     )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60 pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60 pointer-events-none" />
                     
                     {/* Hover Overlay */}
                     <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover/img-link:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
-                      <div className="bg-slate-950/80 px-4 py-2 rounded-full border border-primary/30 text-[10px] font-black text-primary uppercase tracking-[0.2em] shadow-2xl">
+                      <div className="bg-surface/80 px-4 py-2 rounded-full border border-primary/30 text-[10px] font-black text-primary uppercase tracking-[0.2em] shadow-2xl">
                         View Project Experience
                       </div>
                     </div>
@@ -275,20 +275,20 @@ export default function Projects() {
               <div className="lg:col-span-5 flex flex-col justify-center">
                 <div className="flex items-center gap-4 mb-6">
                   {project.tech.map((t) => (
-                    <span key={t} className="text-[9px] font-black text-slate-500 uppercase tracking-widest font-mono border-b border-slate-800 pb-1">
+                    <span key={t} className="text-[9px] font-black text-muted-2 uppercase tracking-widest font-mono border-b border-theme pb-1">
                       {t}
                     </span>
                   ))}
                 </div>
 
-                <h3 className="text-3xl md:text-4xl font-bold text-slate-100 mb-2 font-mono group-hover:text-primary-light transition-colors">
+                <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-2 font-mono group-hover:text-primary transition-colors">
                   {project.title}
                 </h3>
                 <p className="text-sm font-mono text-primary/70 uppercase tracking-[0.2em] mb-6">
                   {project.subtitle}
                 </p>
 
-                <p className="text-slate-400 text-sm md:text-base font-mono leading-relaxed mb-8">
+                <p className="text-muted text-sm md:text-base font-mono leading-relaxed mb-8">
                   {project.description}
                 </p>
 
@@ -297,13 +297,13 @@ export default function Projects() {
                   {project.highlights.map((item, i) => (
                     <div key={i} className="flex items-start gap-3 group/item">
                       <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary/40 group-hover/item:bg-primary transition-colors" />
-                      <span className="text-xs font-mono text-slate-300 group-hover/item:text-slate-100 transition-colors">{item}</span>
+                      <span className="text-xs font-mono text-muted group-hover/item:text-foreground transition-colors">{item}</span>
                     </div>
                   ))}
                 </div>
 
                 {project.accessNote && (
-                  <p className="text-[10px] italic text-slate-500 mb-8 border-l-2 border-amber-500/20 pl-4 py-1">
+                  <p className="text-[10px] italic text-muted-2 mb-8 border-l-2 border-amber-500/20 pl-4 py-1">
                     {project.accessNote}
                   </p>
                 )}
@@ -319,8 +319,8 @@ export default function Projects() {
                         link.special
                         ? "bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] hover:scale-105"
                         : link.primary 
-                        ? "bg-primary text-slate-900 hover:bg-primary-light hover:shadow-[0_0_20px_rgba(59,130,246,0.5)]" 
-                        : "bg-white/5 text-slate-300 hover:bg-white/10 hover:text-white border border-white/10"
+                        ? "bg-primary text-white hover:opacity-95 hover:shadow-[0_0_20px_var(--primary-glow)]" 
+                        : "bg-surface-alt/40 text-muted hover:bg-surface-alt hover:text-foreground border border-theme"
                       }`}
                     >
                       {link.special && (
@@ -354,11 +354,11 @@ export default function Projects() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-5xl font-bold text-slate-100 tracking-tight font-mono uppercase mb-4">
+            <h2 className="text-3xl md:text-5xl font-bold text-foreground tracking-tight font-mono uppercase mb-4">
               Project <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-secondary filter drop-shadow-[0_0_10px_rgba(244,63,94,0.3)]">Demonstrations.</span>
             </h2>
-            <p className="text-slate-500 text-xs font-mono tracking-[0.3em] uppercase">
-              Visual walkthoughs of core system architectures
+            <p className="text-muted-2 text-xs font-mono tracking-[0.3em] uppercase">
+              Visual walkthroughs of core system architectures
             </p>
           </motion.div>
 

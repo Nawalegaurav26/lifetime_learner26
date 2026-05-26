@@ -36,24 +36,12 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <Hero />
-      <div className="py-20 relative z-10">
-        <About />
-      </div>
-      <div className="relative z-10">
-        <Projects />
-      </div>
-      <div className="relative z-10">
-        <SocialProof />
-      </div>
-      <div className="relative z-10">
-        <Posts />
-      </div>
-      <div className="relative z-10">
-        <Newsletter />
-      </div>
-      <div className="relative z-10">
-        <Contact />
-      </div>
+      <About />
+      <Projects />
+      <SocialProof />
+      <Posts />
+      <Newsletter />
+      <Contact />
     </main>
   );
 }

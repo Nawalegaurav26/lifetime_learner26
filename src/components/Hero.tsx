@@ -53,7 +53,7 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6, duration: 1 }}
-            className="text-lg md:text-xl text-slate-400 mb-2 max-w-2xl font-light font-mono uppercase tracking-widest"
+            className="text-2xl md:text-3xl font-bold text-slate-100 mb-3 max-w-2xl font-mono tracking-tight"
           >
             &quot;Building Systems. Exploring Intelligence.&quot;
           </motion.p>
@@ -62,9 +62,9 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8, duration: 1 }}
-            className="text-md text-slate-500 max-w-xl mx-auto font-mono mb-12"
+            className="text-sm md:text-base text-slate-400 max-w-xl mx-auto font-mono mb-12 tracking-widest uppercase"
           >
-            Founder @ CertiOwn • Systems & Backend Developer
+            Founder @ CertiOwn • Systems &amp; Backend Developer
           </motion.p>
 
           <motion.div 
@@ -75,7 +75,7 @@ export default function Hero() {
           >
             <Link
               href="/projects"
-              className="w-full sm:w-auto px-8 py-4 bg-primary text-white font-mono uppercase tracking-widest text-sm font-bold flex justify-center items-center gap-2 rounded-md shadow-[0_0_20px_rgba(59,130,246,0.5)] transition-all hover:bg-primary-dark hover:scale-[1.02] active:scale-[0.98]"
+              className="w-full sm:w-auto px-8 py-4 bg-[#6366f1] text-white font-mono uppercase tracking-widest text-sm font-bold flex justify-center items-center gap-2 rounded-md shadow-[0_0_24px_rgba(99,102,241,0.5)] transition-all hover:bg-[#4338ca] hover:shadow-[0_0_32px_rgba(99,102,241,0.7)] hover:scale-[1.02] active:scale-[0.98]"
             >
               Access Modules <ArrowRight size={16} />
             </Link>

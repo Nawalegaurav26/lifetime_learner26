@@ -46,7 +46,8 @@ export default function Preloader() {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, y: "-100%" }}
           transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
-          className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-slate-900 overflow-hidden"
+          className="fixed inset-0 z-[100] flex flex-col items-center justify-center overflow-hidden"
+          style={{ background: "var(--preloader-bg)" }}
         >
           {/* Subtle grid background for preloader */}
           <div className="absolute inset-0 opacity-20 preloader-grid" />
@@ -61,7 +62,7 @@ export default function Preloader() {
                  <span>SYS_BOOT_SEQ_V3.0</span>
                  <span>{Math.floor(progress)}%</span>
                </motion.div>
-               <div className="w-full h-[2px] bg-slate-800 relative overflow-hidden">
+               <div className="w-full h-[2px] relative overflow-hidden" style={{ background: "var(--surface)" }}>
                   <motion.div
                     initial={{ width: "0%" }}
                     animate={{ width: `${progress}%` }}
@@ -70,7 +71,7 @@ export default function Preloader() {
                </div>
             </div>
 
-            <div className="flex flex-col gap-2 text-[10px] md:text-xs text-slate-400 tracking-widest uppercase min-h-[120px] w-full">
+            <div className="flex flex-col gap-2 text-[10px] md:text-xs tracking-widest uppercase min-h-[120px] w-full" style={{ color: "var(--muted)" }}>
               {bootLogs.map((log, index) => (
                 <motion.div
                   key={index}

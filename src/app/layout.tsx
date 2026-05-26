@@ -36,7 +36,7 @@ export const viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://lifetime-learner26.netlify.app"),
+  metadataBase: new URL("https://gaurav-nawale.vercel.app"),
   title: {
     template: "%s | Gaurav Raju Nawale",
     default: "Gaurav Raju Nawale | Lifetime Learner, System Architect & CertiOwn Founder",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   description: "Official portfolio of Gaurav Raju Nawale (Lifetime Learner) — Founder of CertiOwn, System Architect, and Computer Engineering student at ICEM, Pune. Specialized in building automated systems, AI research, and scalable SaaS architectures.",
   keywords: [
     "Gaurav Raju Nawale", "Nawale Gaurav Raju", "Mr Gaurav Raju Nawale", "Gaurav Nawale", "Gaurav Navale", "Gaurav Navle", "Garuav Nawale", "Garuav Navale", "Garuav Navle", "Gaurav R Nawale", "Nawale Gaurav", "Gaurav Raju", "Gaurav Nawle", "Gaurav Nawal", "Mr Gaurav Nawale", "Engineer Gaurav Nawale", "Developer Gaurav Nawale", "Gaurav Raju Nawale Portfolio", "Gaurav Nawale Projects", "Gaurav Nawale ICEM", "Gaurav Nawale CertiOwn", "Gaurav Nawale Pune",
-    "nawalegaurav26", "nawalegaurav2006", "gaurav.nawale", "gauravnawale", "gaurav_nawale", "nawale_gaurav", "gauravrajunawale", "gauravraju26", "lifetimelearner26", "lifetime_learner26", "lifetime-learner26", "lifetime learner 26", "Lifetime Learner", "Lifetime Learner 26", "lifetime-learner26.netlify.app",
+    "nawalegaurav26", "nawalegaurav2006", "gaurav.nawale", "gauravnawale", "gaurav_nawale", "nawale_gaurav", "gauravrajunawale", "gauravraju26", "lifetimelearner26", "lifetime_learner26", "lifetime-learner26", "lifetime learner 26", "Lifetime Learner", "Lifetime Learner 26", "lifetime-learner26.netlify.app", "gaurav-nawale.vercel.app",
     "CertiOwn", "CertiOwn Founder", "Founder of CertiOwn", "CertiOwn Developer", "Certificate Management System", "Certificate Portal Developer", "Certificate Automation System", "Academic Certificate Platform", "Digital Certificate Verification", "Certificate Verification Portal", "Blockchain Certificates", "Smart Certificate System", "SaaS Founder", "SaaS Developer", "Product Architect",
     "ICEM", "ICEM Pune", "Indira College of Engineering and Management", "Indira College Pune", "Indira College of Engineering and Management Pune", "ICEM Student", "ICEM Developer", "ICEM Technical Secretary", "Technical Secretary ICEM", "Computer Engineering ICEM", "ICEM Innovation", "ICEM Projects", "ICEM Pune Student", "ICEM Technical Event", "ICEM Council",
     "UBA ICEM", "Unnat Bharat Abhiyan", "Unnat Bharat Abhiyan ICEM", "UBA ICEM Pune", "UBA Pune", "ICEM UBA Team", "Unnat Bharat Abhiyan Pune", "Social Tech India", "Tech for Good India",
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://lifetime-learner26.netlify.app",
+    url: "https://gaurav-nawale.vercel.app",
     title: "Gaurav Raju Nawale | Lifetime Learner, System Architect & CertiOwn Founder",
     description: "Explorer of Intelligence. Builder of Systems. Founder of CertiOwn. Lifetime Learner.",
     siteName: "Gaurav Raju Nawale Portfolio",
@@ -89,7 +89,7 @@ export const metadata: Metadata = {
     images: ["/portfolio_v3.png"],
   },
   alternates: {
-    canonical: "https://lifetime-learner26.netlify.app",
+    canonical: "https://gaurav-nawale.vercel.app",
   },
   robots: {
     index: true,
@@ -104,6 +104,10 @@ export const metadata: Metadata = {
     },
   },
   other: {
+    "geo.region": "IN-MH",
+    "geo.placename": "Pune",
+    "geo.position": "18.5204;73.8567",
+    "ICBM": "18.5204, 73.8567",
     bingbot: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1',
     yandex: 'index, follow',
     baiduspider: 'index, follow',
@@ -143,8 +147,19 @@ export default function RootLayout({
       "lifetime_learner26",
       "nawalegaurav26"
     ],
-    "url": "https://lifetime-learner26.netlify.app",
-    "image": "https://lifetime-learner26.netlify.app/profile.jpg",
+    "url": "https://gaurav-nawale.vercel.app",
+    "image": "https://gaurav-nawale.vercel.app/profile.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Pune",
+      "addressRegion": "Maharashtra",
+      "addressCountry": "India"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 18.5204,
+      "longitude": 73.8567
+    },
     "sameAs": [
       "https://github.com/Nawalegaurav26",
       "https://linkedin.com/in/nawalegaurav26",
@@ -179,7 +194,7 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Gaurav Raju Nawale Portfolio",
-    "url": "https://lifetime-learner26.netlify.app",
+    "url": "https://gaurav-nawale.vercel.app",
     "author": {
       "@type": "Person",
       "name": "Gaurav Raju Nawale"

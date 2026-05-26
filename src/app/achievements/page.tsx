@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     title: "Recognitions | Gaurav Raju Nawale",
     description:
       "Institutional recognitions and engineering milestones from SPPU and ICEM — verified archive.",
-    url: "https://lifetime-learner26.netlify.app/achievements",
+    url: "https://gaurav-nawale.vercel.app/achievements",
     images: [
       {
         url: "/portfolio_v3.png",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     images: ["/portfolio_v3.png"],
   },
   alternates: {
-    canonical: "https://lifetime-learner26.netlify.app/achievements",
+    canonical: "https://gaurav-nawale.vercel.app/achievements",
   },
 };
 

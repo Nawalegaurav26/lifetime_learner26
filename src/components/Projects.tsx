@@ -168,12 +168,12 @@ const projects: Project[] = [
       "TypeScript powered type-safety"
     ],
     status: "Public",
-    liveUrl: "https://lifetime-learner26.netlify.app/",
+    liveUrl: "https://gaurav-nawale.vercel.app/",
     githubUrl: "https://github.com/Nawalegaurav26/lifetime_learner26",
     image: "/portfolio_v4.png",
     href: "/",
     links: [
-      { label: "View Website", href: "https://lifetime-learner26.netlify.app/", icon: <Globe size={14} />, primary: true },
+      { label: "View Website", href: "https://gaurav-nawale.vercel.app/", icon: <Globe size={14} />, primary: true },
       { label: "View Code", href: "https://github.com/Nawalegaurav26/lifetime_learner26", icon: <Github size={14} /> }
     ]
   }

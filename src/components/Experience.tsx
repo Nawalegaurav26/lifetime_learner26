@@ -36,8 +36,8 @@ const experience = [
     ],
     tech: ["PYTHON", "FLASK", "DOCKER", "CELERY", "LINUX", "GIT"],
     icon: <Briefcase size={14} />,
-    accentFrom: "#3b82f6",
-    accentTo: "#8b5cf6",
+    accentFrom: "var(--primary)",
+    accentTo: "var(--accent)",
     links: [],
   },
   {
@@ -54,8 +54,8 @@ const experience = [
     ],
     tech: ["REACT", "SEO", "DEPLOYMENT", "AUTOMATION", "TESTING"],
     icon: <Code size={14} />,
-    accentFrom: "#06b6d4",
-    accentTo: "#3b82f6",
+    accentFrom: "var(--accent)",
+    accentTo: "var(--primary)",
     links: [
       { label: "sdetm.indiraicem.ac.in", href: "https://sdetm.indiraicem.ac.in", type: "web" },
       { label: "sdetm.icem", href: "https://github.com/Nawalegaurav26/sdetm.icem", type: "github" },
@@ -75,8 +75,8 @@ const experience = [
     ],
     tech: ["NEXT.JS", "SEO", "GITHUB", "VERCEL", "TESTING"],
     icon: <Code size={14} />,
-    accentFrom: "#8b5cf6",
-    accentTo: "#06b6d4",
+    accentFrom: "var(--secondary)",
+    accentTo: "var(--accent)",
     links: [
       { label: "uba-icem.vercel.app", href: "https://uba-icem.vercel.app", type: "web" },
       { label: "uba.icem", href: "https://github.com/Nawalegaurav26/uba.icem", type: "github" },
@@ -96,8 +96,8 @@ const experience = [
     ],
     tech: ["GOOGLE AI", "GEMINI", "COMMUNITY", "OUTREACH", "AI"],
     icon: <GraduationCap size={14} />,
-    accentFrom: "#3b82f6",
-    accentTo: "#06b6d4",
+    accentFrom: "var(--primary)",
+    accentTo: "var(--accent)",
     links: [],
   },
   {
@@ -114,8 +114,8 @@ const experience = [
     ],
     tech: ["LEADERSHIP", "MANAGEMENT", "COORDINATION", "TECHNOFEST"],
     icon: <Target size={14} />,
-    accentFrom: "#8b5cf6",
-    accentTo: "#3b82f6",
+    accentFrom: "var(--secondary)",
+    accentTo: "var(--primary)",
     links: [],
   },
   {
@@ -132,20 +132,20 @@ const experience = [
     ],
     tech: ["OUTREACH", "COORDINATION", "IIT BOMBAY"],
     icon: <Star size={14} />,
-    accentFrom: "#06b6d4",
-    accentTo: "#8b5cf6",
+    accentFrom: "var(--accent)",
+    accentTo: "var(--secondary)",
     links: [],
   },
 ];
 
-/* ─── Milestones Data (CORRECTED) ─────────────────────────────── */
+/* ─── Milestones Data ───────────────────────────────────────────── */
 const milestones = [
   {
     title: "SaaS Platform Development",
     subtitle: "CertiOwn",
     desc: "Built and deployed a SaaS-based certificate automation and verification platform with backend workflow management, bulk processing systems, deployment workflows, and institutional usage.",
     metric: "Live Platform",
-    metricClass: "text-primary border-primary/50 bg-primary/10 shadow-[0_0_14px_rgba(59,130,246,0.25)]",
+    metricClass: "text-primary border-primary/50 bg-primary-light/10 shadow-[0_0_14px_var(--primary-glow)]",
     icon: <Rocket size={18} />,
     iconClass: "bg-primary/10 border-primary/30 text-primary",
     wide: true,
@@ -155,7 +155,7 @@ const milestones = [
     subtitle: "Google 2026–27",
     desc: "Selected for the Google Student Ambassador Program after screening and interview rounds. Contributing toward AI awareness, Gemini adoption, and technical outreach initiatives.",
     metric: "Program 2026",
-    metricClass: "text-secondary border-secondary/50 bg-secondary/10 shadow-[0_0_14px_rgba(139,92,246,0.25)]",
+    metricClass: "text-secondary border-secondary/50 bg-secondary/10 shadow-[0_0_14px_var(--primary-glow)]",
     icon: <Bot size={18} />,
     iconClass: "bg-secondary/10 border-secondary/30 text-secondary",
     wide: false,
@@ -165,7 +165,7 @@ const milestones = [
     subtitle: "ICEM & Conference Platforms",
     desc: "Worked on development, deployment, testing, SEO optimization, and workflow management for institutional and conference platforms including SDETM 2026 and UBA initiatives.",
     metric: "2 Platforms",
-    metricClass: "text-accent border-accent/50 bg-accent/10 shadow-[0_0_14px_rgba(6,182,212,0.25)]",
+    metricClass: "text-accent border-accent/50 bg-accent/10 shadow-[0_0_14px_var(--primary-glow)]",
     icon: <Globe size={18} />,
     iconClass: "bg-accent/10 border-accent/30 text-accent",
     wide: false,
@@ -175,7 +175,7 @@ const milestones = [
     subtitle: "Technical Secretary – ICEM Pune",
     desc: "Managing technical operations, coordination, troubleshooting, documentation, and infrastructure support for institutional events, Technofest 2026, and student development initiatives.",
     metric: "Student Council",
-    metricClass: "text-primary border-primary/50 bg-primary/10 shadow-[0_0_14px_rgba(59,130,246,0.25)]",
+    metricClass: "text-primary border-primary/50 bg-primary-light/10 shadow-[0_0_14px_var(--primary-glow)]",
     icon: <Zap size={18} />,
     iconClass: "bg-primary/10 border-primary/30 text-primary",
     wide: true,
@@ -185,7 +185,7 @@ const milestones = [
     subtitle: "Workflow Automation Systems",
     desc: "Developed automation-oriented systems and AI-assisted workflows using Python, APIs, prompt engineering, backend automation, and deployment-focused architectures.",
     metric: "Systems Built",
-    metricClass: "text-secondary border-secondary/50 bg-secondary/10 shadow-[0_0_14px_rgba(139,92,246,0.25)]",
+    metricClass: "text-secondary border-secondary/50 bg-secondary/10 shadow-[0_0_14px_var(--primary-glow)]",
     icon: <Trophy size={18} />,
     iconClass: "bg-secondary/10 border-secondary/30 text-secondary",
     wide: false,
@@ -196,7 +196,7 @@ const milestones = [
 function GlowCard({
   children,
   className = "",
-  glowColor = "rgba(59,130,246,0.12)",
+  glowColor = "var(--primary-glow)",
 }: {
   children: React.ReactNode;
   className?: string;
@@ -234,7 +234,7 @@ export default function Experience() {
   const active = experience[activeIdx];
 
   return (
-    <section id="experience" className="py-24 relative overflow-hidden">
+    <section id="experience" className="py-24 relative overflow-hidden border-t border-theme">
       <div className="container mx-auto px-6 max-w-7xl">
 
         {/* ── Section Label ── */}
@@ -254,7 +254,7 @@ export default function Experience() {
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-3xl md:text-5xl font-bold text-slate-100 font-mono uppercase tracking-tight mb-14"
+          className="text-3xl md:text-5xl font-bold text-foreground font-mono uppercase tracking-tight mb-14"
         >
           The{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
@@ -275,14 +275,14 @@ export default function Experience() {
             className="lg:col-span-4 lg:sticky lg:top-28"
           >
             {/* Terminal header */}
-            <div className="flex items-center gap-2 px-4 py-3 bg-slate-900/80 border border-slate-800 rounded-t-lg border-b-0">
+            <div className="flex items-center gap-2 px-4 py-3 bg-surface-alt/80 border border-theme rounded-t-lg border-b-0">
               <span className="w-3 h-3 rounded-full bg-red-500/70" />
               <span className="w-3 h-3 rounded-full bg-yellow-500/70" />
               <span className="w-3 h-3 rounded-full bg-green-500/70" />
-              <span className="ml-2 text-[10px] font-mono text-slate-500 tracking-widest">career.log</span>
+              <span className="ml-2 text-[10px] font-mono text-muted-2 tracking-widest">career.log</span>
             </div>
 
-            <div className="border border-slate-800 rounded-b-lg overflow-hidden bg-slate-900/60 backdrop-blur-md divide-y divide-slate-800/60">
+            <div className="border border-theme rounded-b-lg overflow-hidden bg-surface-alt/60 backdrop-blur-md divide-y divide-theme/60">
               {experience.map((item, idx) => (
                 <button
                   key={item.index}
@@ -290,7 +290,7 @@ export default function Experience() {
                   className={`w-full text-left px-4 py-4 flex items-center gap-3 transition-all duration-200 group relative
                     ${activeIdx === idx
                       ? "bg-primary/8 border-l-2 border-primary"
-                      : "hover:bg-slate-800/40 border-l-2 border-transparent hover:border-slate-700"
+                      : "hover:bg-surface-alt/40 border-l-2 border-transparent hover:border-theme-strong"
                     }`}
                 >
                   {/* Active glow on left */}
@@ -301,24 +301,24 @@ export default function Experience() {
                   {/* Index */}
                   <span
                     className={`font-mono text-[11px] font-black shrink-0 tabular-nums w-6
-                      ${activeIdx === idx ? "text-primary" : "text-slate-600 group-hover:text-slate-400"}`}
+                      ${activeIdx === idx ? "text-primary" : "text-muted-2 group-hover:text-muted"}`}
                   >
                     {item.index}
                   </span>
 
                   {/* Icon */}
-                  <span className={`shrink-0 transition-colors ${activeIdx === idx ? "text-primary" : "text-slate-600 group-hover:text-slate-400"}`}>
+                  <span className={`shrink-0 transition-colors ${activeIdx === idx ? "text-primary" : "text-muted-2 group-hover:text-muted"}`}>
                     {item.icon}
                   </span>
 
                   {/* Text */}
                   <div className="min-w-0">
                     <p className={`font-mono text-[11px] font-bold truncate leading-tight transition-colors
-                      ${activeIdx === idx ? "text-slate-100" : "text-slate-400 group-hover:text-slate-200"}`}>
+                      ${activeIdx === idx ? "text-foreground" : "text-muted group-hover:text-foreground"}`}>
                       {item.shortTitle}
                     </p>
                     <p className={`font-mono text-[9px] uppercase tracking-widest truncate mt-0.5 transition-colors
-                      ${activeIdx === idx ? "text-accent" : "text-slate-600 group-hover:text-slate-500"}`}>
+                      ${activeIdx === idx ? "text-accent" : "text-muted-2 group-hover:text-muted"}`}>
                       {item.company}
                     </p>
                   </div>
@@ -327,7 +327,7 @@ export default function Experience() {
                   <ChevronRight
                     size={12}
                     className={`ml-auto shrink-0 transition-all duration-200
-                      ${activeIdx === idx ? "text-primary opacity-100" : "text-slate-700 opacity-0 group-hover:opacity-100"}`}
+                      ${activeIdx === idx ? "text-primary opacity-100" : "text-muted-2 opacity-0 group-hover:opacity-100"}`}
                   />
                 </button>
               ))}
@@ -345,9 +345,9 @@ export default function Experience() {
                 transition={{ duration: 0.3, ease: [0.23, 1, 0.32, 1] }}
               >
                 <GlowCard
-                  className="rounded-lg border border-slate-800 bg-slate-900/50 backdrop-blur-md
-                    hover:border-primary/40 hover:shadow-[0_0_30px_rgba(59,130,246,0.12)] transition-all duration-300"
-                  glowColor="rgba(59,130,246,0.1)"
+                  className="rounded-lg border border-theme bg-surface/50 backdrop-blur-md
+                    hover:border-primary/40 hover:shadow-[0_0_30px_var(--primary-glow)] transition-all duration-300"
+                  glowColor="var(--primary-glow)"
                 >
                   {/* Left accent bar */}
                   <div
@@ -370,19 +370,19 @@ export default function Experience() {
                       </span>
                       <div className="flex items-center gap-2">
                         {active.status === "active" && (
-                          <span className="flex items-center gap-1.5 text-[9px] font-mono text-green-400 uppercase tracking-widest">
-                            <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+                          <span className="flex items-center gap-1.5 text-[9px] font-mono text-emerald-500 uppercase tracking-widest font-bold">
+                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                             Current
                           </span>
                         )}
-                        <span className="text-[10px] font-mono text-slate-400 border border-slate-700 bg-slate-900/60 px-3 py-1 rounded-full tracking-widest">
+                        <span className="text-[10px] font-mono text-muted border border-theme bg-surface-alt/60 px-3 py-1 rounded-full tracking-widest">
                           {active.period}
                         </span>
                       </div>
                     </div>
 
                     {/* Role + Company */}
-                    <h3 className="text-2xl md:text-3xl font-bold text-slate-100 font-mono leading-tight mb-2">
+                    <h3 className="text-2xl md:text-3xl font-bold text-foreground font-mono leading-tight mb-2">
                       {active.title}
                     </h3>
                     <p className="text-[11px] font-black text-accent uppercase tracking-[0.25em] font-mono mb-8">
@@ -390,7 +390,7 @@ export default function Experience() {
                     </p>
 
                     {/* Divider */}
-                    <div className="h-[1px] bg-gradient-to-r from-primary/30 via-slate-700 to-transparent mb-8" />
+                    <div className="h-[1px] bg-gradient-to-r from-primary/30 via-theme-strong to-transparent mb-8" />
 
                     {/* Bullet Points */}
                     <ul className="space-y-3 mb-8">
@@ -400,7 +400,7 @@ export default function Experience() {
                           initial={{ opacity: 0, x: -8 }}
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ delay: i * 0.08 }}
-                          className="flex gap-3 text-sm text-slate-300 font-mono leading-relaxed"
+                          className="flex gap-3 text-sm text-muted font-mono leading-relaxed"
                         >
                           <span className="text-primary mt-0.5 shrink-0 font-bold">▸</span>
                           <span>{b}</span>
@@ -417,9 +417,9 @@ export default function Experience() {
                             href={l.href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-1.5 text-[10px] font-mono text-primary/80 hover:text-accent border border-primary/20 hover:border-accent/40 bg-primary/5 hover:bg-accent/5 px-3 py-1.5 rounded transition-all"
+                            className="flex items-center gap-1.5 text-[10px] font-mono text-primary hover:text-accent border border-primary/20 hover:border-accent/40 bg-primary/5 hover:bg-accent/5 px-3 py-1.5 rounded transition-all"
                           >
-                            {l.type === "github" ? <ExternalLink size={11} /> : <ExternalLink size={11} />}
+                            <ExternalLink size={11} />
                             {l.label}
                           </a>
                         ))}
@@ -431,7 +431,7 @@ export default function Experience() {
                       {active.tech.map((t) => (
                         <span
                           key={t}
-                          className="text-[9px] font-black text-slate-500 border border-slate-700/80 bg-slate-950/60 px-2.5 py-1 rounded font-mono tracking-widest hover:border-primary/30 hover:text-primary/60 transition-colors"
+                          className="text-[9px] font-black text-muted border border-theme bg-surface-alt/60 px-2.5 py-1 rounded font-mono tracking-widest hover:border-primary/30 hover:text-primary transition-colors"
                         >
                           {t}
                         </span>
@@ -451,7 +451,7 @@ export default function Experience() {
                   className={`transition-all duration-300 rounded-full font-mono
                     ${activeIdx === i
                       ? "w-6 h-1.5 bg-primary"
-                      : "w-1.5 h-1.5 bg-slate-700 hover:bg-slate-500"
+                      : "w-1.5 h-1.5 bg-muted hover:bg-foreground"
                     }`}
                 />
               ))}
@@ -474,7 +474,7 @@ export default function Experience() {
               Key Contributions
             </span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold text-slate-100 font-mono uppercase tracking-tight mb-10">
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground font-mono uppercase tracking-tight mb-10">
             Recent{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-secondary">
               Milestones.
@@ -489,17 +489,17 @@ export default function Experience() {
               className="md:col-span-2"
             >
               <GlowCard
-                className="h-full rounded-lg border border-slate-800 bg-slate-900/50 backdrop-blur-md hover:border-primary/40 hover:shadow-[0_0_24px_rgba(59,130,246,0.14)] transition-all duration-300 group"
-                glowColor="rgba(59,130,246,0.1)"
+                className="h-full rounded-lg border border-theme bg-surface/50 backdrop-blur-md hover:border-primary/40 hover:shadow-[0_0_24px_var(--primary-glow)] transition-all duration-300 group"
+                glowColor="var(--primary-glow)"
               >
                 <div className="p-6 flex flex-col gap-4 h-full">
                   <div className={`w-10 h-10 rounded-full border flex items-center justify-center shrink-0 ${milestones[0].iconClass}`}>
                     {milestones[0].icon}
                   </div>
                   <div className="flex-1">
-                    <h4 className="text-base font-bold text-slate-100 font-mono mb-0.5">{milestones[0].title}</h4>
-                    <p className="text-[9px] font-mono text-slate-500 uppercase tracking-widest mb-3">{milestones[0].subtitle}</p>
-                    <p className="text-xs text-slate-400 font-mono leading-relaxed">{milestones[0].desc}</p>
+                    <h4 className="text-base font-bold text-foreground font-mono mb-0.5">{milestones[0].title}</h4>
+                    <p className="text-[9px] font-mono text-muted-2 uppercase tracking-widest mb-3">{milestones[0].subtitle}</p>
+                    <p className="text-xs text-muted font-mono leading-relaxed">{milestones[0].desc}</p>
                   </div>
                   <span className={`inline-block self-start px-3 py-1 rounded-full border text-[10px] font-black font-mono tracking-widest ${milestones[0].metricClass}`}>
                     {milestones[0].metric}
@@ -513,17 +513,17 @@ export default function Experience() {
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
             >
               <GlowCard
-                className="h-full rounded-lg border border-slate-800 bg-slate-900/50 backdrop-blur-md hover:border-secondary/40 hover:shadow-[0_0_24px_rgba(139,92,246,0.14)] transition-all duration-300"
-                glowColor="rgba(139,92,246,0.1)"
+                className="h-full rounded-lg border border-theme bg-surface/50 backdrop-blur-md hover:border-secondary/40 hover:shadow-[0_0_24px_var(--primary-glow)] transition-all duration-300"
+                glowColor="var(--primary-glow)"
               >
                 <div className="p-6 flex flex-col gap-4 h-full">
                   <div className={`w-10 h-10 rounded-full border flex items-center justify-center shrink-0 ${milestones[1].iconClass}`}>
                     {milestones[1].icon}
                   </div>
                   <div className="flex-1">
-                    <h4 className="text-base font-bold text-slate-100 font-mono mb-0.5">{milestones[1].title}</h4>
-                    <p className="text-[9px] font-mono text-slate-500 uppercase tracking-widest mb-3">{milestones[1].subtitle}</p>
-                    <p className="text-xs text-slate-400 font-mono leading-relaxed">{milestones[1].desc}</p>
+                    <h4 className="text-base font-bold text-foreground font-mono mb-0.5">{milestones[1].title}</h4>
+                    <p className="text-[9px] font-mono text-muted-2 uppercase tracking-widest mb-3">{milestones[1].subtitle}</p>
+                    <p className="text-xs text-muted font-mono leading-relaxed">{milestones[1].desc}</p>
                   </div>
                   <span className={`inline-block self-start px-3 py-1 rounded-full border text-[10px] font-black font-mono tracking-widest ${milestones[1].metricClass}`}>
                     {milestones[1].metric}
@@ -540,17 +540,17 @@ export default function Experience() {
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.15 }}
             >
               <GlowCard
-                className="h-full rounded-lg border border-slate-800 bg-slate-900/50 backdrop-blur-md hover:border-accent/40 hover:shadow-[0_0_24px_rgba(6,182,212,0.14)] transition-all duration-300"
-                glowColor="rgba(6,182,212,0.1)"
+                className="h-full rounded-lg border border-theme bg-surface/50 backdrop-blur-md hover:border-accent/40 hover:shadow-[0_0_24px_var(--primary-glow)] transition-all duration-300"
+                glowColor="var(--primary-glow)"
               >
                 <div className="p-6 flex flex-col gap-4 h-full">
                   <div className={`w-10 h-10 rounded-full border flex items-center justify-center shrink-0 ${milestones[2].iconClass}`}>
                     {milestones[2].icon}
                   </div>
                   <div className="flex-1">
-                    <h4 className="text-base font-bold text-slate-100 font-mono mb-0.5">{milestones[2].title}</h4>
-                    <p className="text-[9px] font-mono text-slate-500 uppercase tracking-widest mb-3">{milestones[2].subtitle}</p>
-                    <p className="text-xs text-slate-400 font-mono leading-relaxed">{milestones[2].desc}</p>
+                    <h4 className="text-base font-bold text-foreground font-mono mb-0.5">{milestones[2].title}</h4>
+                    <p className="text-[9px] font-mono text-muted-2 uppercase tracking-widest mb-3">{milestones[2].subtitle}</p>
+                    <p className="text-xs text-muted font-mono leading-relaxed">{milestones[2].desc}</p>
                   </div>
                   <span className={`inline-block self-start px-3 py-1 rounded-full border text-[10px] font-black font-mono tracking-widest ${milestones[2].metricClass}`}>
                     {milestones[2].metric}
@@ -565,17 +565,17 @@ export default function Experience() {
               className="md:col-span-2"
             >
               <GlowCard
-                className="h-full rounded-lg border border-slate-800 bg-slate-900/50 backdrop-blur-md hover:border-primary/40 hover:shadow-[0_0_24px_rgba(59,130,246,0.14)] transition-all duration-300"
-                glowColor="rgba(59,130,246,0.1)"
+                className="h-full rounded-lg border border-theme bg-surface/50 backdrop-blur-md hover:border-primary/40 hover:shadow-[0_0_24px_var(--primary-glow)] transition-all duration-300"
+                glowColor="var(--primary-glow)"
               >
                 <div className="p-6 flex flex-col gap-4 h-full">
                   <div className={`w-10 h-10 rounded-full border flex items-center justify-center shrink-0 ${milestones[3].iconClass}`}>
                     {milestones[3].icon}
                   </div>
                   <div className="flex-1">
-                    <h4 className="text-base font-bold text-slate-100 font-mono mb-0.5">{milestones[3].title}</h4>
-                    <p className="text-[9px] font-mono text-slate-500 uppercase tracking-widest mb-3">{milestones[3].subtitle}</p>
-                    <p className="text-xs text-slate-400 font-mono leading-relaxed">{milestones[3].desc}</p>
+                    <h4 className="text-base font-bold text-foreground font-mono mb-0.5">{milestones[3].title}</h4>
+                    <p className="text-[9px] font-mono text-muted-2 uppercase tracking-widest mb-3">{milestones[3].subtitle}</p>
+                    <p className="text-xs text-muted font-mono leading-relaxed">{milestones[3].desc}</p>
                   </div>
                   <span className={`inline-block self-start px-3 py-1 rounded-full border text-[10px] font-black font-mono tracking-widest ${milestones[3].metricClass}`}>
                     {milestones[3].metric}
@@ -591,17 +591,17 @@ export default function Experience() {
             className="mt-4"
           >
             <GlowCard
-              className="rounded-lg border border-slate-800 bg-slate-900/50 backdrop-blur-md hover:border-secondary/40 hover:shadow-[0_0_24px_rgba(139,92,246,0.14)] transition-all duration-300"
-              glowColor="rgba(139,92,246,0.1)"
+              className="rounded-lg border border-theme bg-surface/50 backdrop-blur-md hover:border-secondary/40 hover:shadow-[0_0_24px_var(--primary-glow)] transition-all duration-300"
+              glowColor="var(--primary-glow)"
             >
               <div className="p-6 flex flex-col md:flex-row md:items-center gap-6">
                 <div className={`w-10 h-10 rounded-full border flex items-center justify-center shrink-0 ${milestones[4].iconClass}`}>
                   {milestones[4].icon}
                 </div>
                 <div className="flex-1">
-                  <h4 className="text-base font-bold text-slate-100 font-mono mb-0.5">{milestones[4].title}</h4>
-                  <p className="text-[9px] font-mono text-slate-500 uppercase tracking-widest mb-2">{milestones[4].subtitle}</p>
-                  <p className="text-xs text-slate-400 font-mono leading-relaxed">{milestones[4].desc}</p>
+                  <h4 className="text-base font-bold text-foreground font-mono mb-0.5">{milestones[4].title}</h4>
+                  <p className="text-[9px] font-mono text-muted-2 uppercase tracking-widest mb-2">{milestones[4].subtitle}</p>
+                  <p className="text-xs text-muted font-mono leading-relaxed">{milestones[4].desc}</p>
                 </div>
                 <span className={`inline-block self-start md:self-center shrink-0 px-3 py-1 rounded-full border text-[10px] font-black font-mono tracking-widest ${milestones[4].metricClass}`}>
                   {milestones[4].metric}
@@ -622,15 +622,15 @@ export default function Experience() {
             href="/Mr_Gaurav_Raju_Nawale.pdf"
             target="_blank"
             className="group flex flex-col sm:flex-row items-center justify-center gap-4 p-8 rounded-lg
-              border-2 border-dashed border-slate-700 hover:border-primary/50 transition-all duration-300
-              bg-slate-900/20 hover:bg-slate-900/40 backdrop-blur-sm"
+              border-2 border-dashed border-theme hover:border-primary/50 transition-all duration-300
+              bg-surface-alt/20 hover:bg-surface-alt/40 backdrop-blur-sm"
           >
-            <div className="w-11 h-11 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center
-              text-slate-400 group-hover:bg-primary/10 group-hover:border-primary/40 group-hover:text-primary transition-all duration-300">
+            <div className="w-11 h-11 rounded-full bg-surface-alt border border-theme flex items-center justify-center
+              text-muted group-hover:bg-primary/10 group-hover:border-primary/40 group-hover:text-primary transition-all duration-300">
               <Download size={18} />
             </div>
             <div className="text-center sm:text-left">
-              <p className="text-[10px] text-slate-500 font-mono uppercase tracking-[0.2em] mb-1">
+              <p className="text-[10px] text-muted-2 font-mono uppercase tracking-[0.2em] mb-1">
                 In-depth technical background available
               </p>
               <span className="text-[11px] font-black text-primary uppercase tracking-[0.3em] font-mono flex items-center gap-2 justify-center sm:justify-start group-hover:text-accent transition-colors">

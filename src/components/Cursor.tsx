@@ -132,26 +132,26 @@ export default function Cursor() {
               animate={{
                 width: 3,
                 height: 24,
-                backgroundColor: "#00f5d4",
-                boxShadow: "0 0 8px #00f5d4",
+                backgroundColor: "#f97316",
+                boxShadow: "0 0 8px #f97316",
                 borderRadius: "0px",
               }}
               className="animate-[terminal-blink_1s_infinite]"
             />
           ) : isHover ? (
-            // Solid neon green dot on hover
+            // Solid orange dot on hover
             <motion.div
               animate={{
                 width: 12,
                 height: 12,
-                backgroundColor: "#00ff88",
-                boxShadow: "0 0 12px #00ff88",
+                backgroundColor: "#fb923c",
+                boxShadow: "0 0 12px #fb923c",
                 borderRadius: "50%",
               }}
             />
           ) : (
-            // Default state: glowing electric cyan arrow
-            <CursorArrow color="#00f5d4" glowColor="rgba(0, 245, 212, 0.6)" />
+            // Default state: glowing orange arrow
+            <CursorArrow color="#f97316" glowColor="rgba(249, 115, 22, 0.6)" />
           )}
         </motion.div>
       </motion.div>

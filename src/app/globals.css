@@ -165,9 +165,9 @@
   --background: #03001C;
   --surface: #080820;
   --surface-alt: #0d0d2e;
-  --foreground: #e0e0ff;
-  --muted: #9d9dff;
-  --muted-2: #6b6bb0;
+  --foreground: #ffffff;
+  --muted: #c4c4ff;
+  --muted-2: #9494d4;
   --border: rgba(0, 255, 136, 0.15);
   --border-strong: rgba(0, 255, 136, 0.3);
   --primary: #00ff88;

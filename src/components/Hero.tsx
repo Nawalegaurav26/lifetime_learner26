@@ -102,10 +102,21 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8, duration: 1 }}
-            className="text-sm md:text-base max-w-xl mx-auto font-mono mb-12 tracking-widest uppercase"
+            className="text-sm md:text-base max-w-xl mx-auto font-mono tracking-widest uppercase"
             style={{ color: "var(--muted)" }}
           >
             Founder @ CertiOwn • Systems &amp; Backend Developer
+          </motion.p>
+
+          {/* About Summary */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.9, duration: 1 }}
+            className="text-sm md:text-base max-w-2xl mx-auto mt-4 mb-12 leading-relaxed"
+            style={{ color: "var(--muted-2)" }}
+          >
+            I am a passionate System Architect and SaaS Founder with a strong drive for building scalable, autonomous solutions. I love transforming complex ideas into intuitive, high-performance systems.
           </motion.p>
 
           {/* CTA Buttons */}

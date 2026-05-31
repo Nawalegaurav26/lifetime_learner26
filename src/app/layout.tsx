@@ -36,7 +36,7 @@ export const viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://gaurav-nawale.vercel.app"),
+  metadataBase: new URL("https://gauravnawale.in"),
   title: {
     template: "%s | Gaurav Raju Nawale",
     default: "Gaurav Raju Nawale | Lifetime Learner, System Architect & CertiOwn Founder",
@@ -56,13 +56,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://gaurav-nawale.vercel.app",
+    url: "https://gauravnawale.in",
     title: "Gaurav Raju Nawale | Lifetime Learner, System Architect & CertiOwn Founder",
     description: "Explorer of Intelligence. Builder of Systems. Founder of CertiOwn. Lifetime Learner.",
     siteName: "Gaurav Raju Nawale Portfolio",
     images: [
       {
-        url: "/portfolio_v3.png",
+        url: "/gauravnawale.png",
         width: 1200,
         height: 630,
         alt: "Gaurav Raju Nawale Portfolio Preview",
@@ -73,10 +73,10 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Gaurav Raju Nawale | Lifetime Learner, System Architect & CertiOwn Founder",
     description: "Explorer of Intelligence. Builder of Systems. Founder of CertiOwn. Lifetime Learner.",
-    images: ["/portfolio_v3.png"],
+    images: ["/gauravnawale.png"],
   },
   alternates: {
-    canonical: "https://gaurav-nawale.vercel.app",
+    canonical: "https://gauravnawale.in",
   },
   robots: {
     index: true,
@@ -172,8 +172,8 @@ export default function RootLayout({
       "GRN Systems",
       "GRN Architect"
     ],
-    "url": "https://gaurav-nawale.vercel.app",
-    "image": "https://gaurav-nawale.vercel.app/profile.jpg",
+    "url": "https://gauravnawale.in",
+    "image": "https://gauravnawale.in/profile.jpg",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Pune",
@@ -219,7 +219,7 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Gaurav Raju Nawale Portfolio",
-    "url": "https://gaurav-nawale.vercel.app",
+    "url": "https://gauravnawale.in",
     "author": {
       "@type": "Person",
       "name": "Gaurav Raju Nawale"

@@ -128,10 +128,10 @@ const projects: Project[] = [
     status: "Public",
     liveUrl: "https://sdetm-icem.vercel.app/",
     image: "/sdetm.png",
-    href: "https://sdetm-icem.vercel.app/",
+    href: "/projects/sdetm",
     links: [
       { label: "Visit Website", href: "https://sdetm-icem.vercel.app/", icon: <Globe size={14} />, primary: true },
-      { label: "Walkthrough", href: "#", icon: <Play size={14} /> }
+      { label: "View Case Study", href: "/projects/sdetm", icon: <Layout size={14} />, special: true }
     ]
   },
   {

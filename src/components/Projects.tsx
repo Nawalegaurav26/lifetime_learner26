@@ -127,7 +127,7 @@ const projects: Project[] = [
     ],
     status: "Public",
     liveUrl: "https://sdetm-icem.vercel.app/",
-    image: "/conference.png",
+    image: "/sdetm.png",
     href: "https://sdetm-icem.vercel.app/",
     links: [
       { label: "Visit Website", href: "https://sdetm-icem.vercel.app/", icon: <Globe size={14} />, primary: true },
@@ -168,12 +168,12 @@ const projects: Project[] = [
       "TypeScript powered type-safety"
     ],
     status: "Public",
-    liveUrl: "https://gaurav-nawale.vercel.app/",
+    liveUrl: "https://gauravnawale.in/",
     githubUrl: "https://github.com/Nawalegaurav26/lifetime_learner26",
-    image: "/portfolio_v4.png",
+    image: "/gauravnawale.png",
     href: "/",
     links: [
-      { label: "View Website", href: "https://gaurav-nawale.vercel.app/", icon: <Globe size={14} />, primary: true },
+      { label: "View Website", href: "https://gauravnawale.in/", icon: <Globe size={14} />, primary: true },
       { label: "View Code", href: "https://github.com/Nawalegaurav26/lifetime_learner26", icon: <Github size={14} /> }
     ]
   }

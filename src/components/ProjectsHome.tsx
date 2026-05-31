@@ -8,7 +8,7 @@ import Image from "next/image";
 const projects = [
   { id: "certiown", title: "CertiOwn", subtitle: "Institutional Certificate Automation", tech: ["Flask", "SaaS", "Automation"], status: "Private" as const, href: "/projects#certiown", image: "/certiown.png", gradientFrom: "#6366f1", gradientTo: "#8b5cf6" },
   { id: "mailing", title: "Mailing Automation System", subtitle: "Enterprise Bulk Communication", tech: ["Python", "Automation"], status: "Private" as const, href: "/projects#mailing", image: "/mailing.png", gradientFrom: "#8b5cf6", gradientTo: "#ec4899" },
-  { id: "sdetm", title: "SDETM ICEM", subtitle: "International Conference Portal", tech: ["Next.js", "SEO"], status: "Public" as const, href: "/projects#sdetm", image: "/sdetm.png", gradientFrom: "#06b6d4", gradientTo: "#6366f1" },
+  { id: "sdetm", title: "SDETM ICEM", subtitle: "International Conference Portal", tech: ["Next.js", "SEO"], status: "Public" as const, href: "/projects/sdetm", image: "/sdetm.png", gradientFrom: "#06b6d4", gradientTo: "#6366f1" },
   { id: "uba", title: "UBA ICEM Portal", subtitle: "Institutional Program Platform", tech: ["Hosting", "Deployment", "SEO"], status: "Public" as const, href: "/projects/uba", image: "/uba.png", gradientFrom: "#10b981", gradientTo: "#06b6d4" },
   { id: "portfolio", title: "Next-Gen Portfolio", subtitle: "Systems-inspired developer identity", tech: ["Next.js", "Tailwind", "Framer"], status: "Public" as const, href: "/projects#portfolio", image: "/gauravnawale.png", gradientFrom: "#f59e0b", gradientTo: "#ef4444" },
 ];

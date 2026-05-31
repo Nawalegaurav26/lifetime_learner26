@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { GithubIcon as Github, LinkedinIcon as Linkedin, MailIcon as Mail, InstagramIcon } from "./Icons";
+import { GithubIcon as Github, LinkedinIcon as Linkedin, MailIcon as Mail, InstagramIcon, BrandLogo } from "./Icons";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -41,12 +41,13 @@ export default function Footer() {
       <div className="container mx-auto px-6 pt-16 pb-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start mb-12">
           <div className="space-y-5">
-            <Link href="/" className="inline-block text-xl font-bold tracking-widest font-mono transition-colors"
+            <Link href="/" className="flex items-center gap-2.5 text-xl font-bold tracking-widest font-mono transition-all group"
               style={{ color: "var(--foreground)" }}
-              onMouseEnter={(e) => { (e.target as HTMLElement).style.color = "var(--primary-light)"; }}
-              onMouseLeave={(e) => { (e.target as HTMLElement).style.color = "var(--foreground)"; }}
             >
-              SYS.<span style={{ color: "var(--primary)" }}>GNR</span>
+              <BrandLogo size={24} className="group-hover:rotate-[60deg] transition-transform duration-700" />
+              <span>
+                SYS.<span style={{ color: "var(--primary)" }}>GNR</span>
+              </span>
             </Link>
             <p className="text-xs font-mono leading-relaxed max-w-xs uppercase tracking-widest" style={{ color: "var(--muted-2)" }}>
               System Architect &amp; SaaS Founder. Building scalable platforms and automation infrastructure.

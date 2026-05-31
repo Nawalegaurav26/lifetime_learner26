@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/private/',
     },
-    sitemap: 'https://gaurav-nawale.vercel.app/sitemap.xml',
+    sitemap: 'https://gauravnawale.in/sitemap.xml',
   }
 }

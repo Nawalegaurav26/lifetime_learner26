@@ -21,11 +21,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: `${title} | Gaurav Raju Nawale`,
       description: description,
-      url: `https://gaurav-nawale.vercel.app/posts/${slug}`,
+      url: `https://gauravnawale.in/posts/${slug}`,
       type: "article",
       images: [
         {
-          url: "/portfolio_v3.png",
+          url: "/gauravnawale.png",
           width: 1200,
           height: 630,
           alt: title,
@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: "summary_large_image",
       title: `${title} | Gaurav Raju Nawale`,
       description: description,
-      images: ["/portfolio_v3.png"],
+      images: ["/gauravnawale.png"],
     },
   };
 }

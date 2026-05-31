@@ -13,11 +13,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Gaurav Raju Nawale | Lifetime Learner, System Architect & SaaS Founder",
     description: "Explorer of Intelligence. Builder of Systems. Founder of CertiOwn. Lifetime Learner.",
-    url: "https://gaurav-nawale.vercel.app",
+    url: "https://gauravnawale.in",
     type: "website",
     images: [
       {
-        url: "/portfolio_v3.png",
+        url: "/gauravnawale.png",
         width: 1200,
         height: 630,
         alt: "Gaurav Raju Nawale Portfolio Preview",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Gaurav Raju Nawale | Lifetime Learner, System Architect & SaaS Founder",
     description: "System Architect & SaaS Founder. Building autonomous solutions. Lifetime Learner.",
-    images: ["/portfolio_v3.png"],
+    images: ["/gauravnawale.png"],
   },
 };
 

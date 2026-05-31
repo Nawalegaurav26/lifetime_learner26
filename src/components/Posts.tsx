@@ -78,9 +78,9 @@ export default function Posts() {
                   <button
                     onClick={() => {
                       if (navigator.share) {
-                        navigator.share({ title: post.title, text: post.excerpt, url: `https://gaurav-nawale.vercel.app/posts/${post.slug}` });
+                        navigator.share({ title: post.title, text: post.excerpt, url: `https://gauravnawale.in/posts/${post.slug}` });
                       } else {
-                        navigator.clipboard.writeText(`https://gaurav-nawale.vercel.app/posts/${post.slug}`);
+                        navigator.clipboard.writeText(`https://gauravnawale.in/posts/${post.slug}`);
                         alert("Link copied to clipboard!");
                       }
                     }}

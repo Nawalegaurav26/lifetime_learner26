@@ -23,10 +23,10 @@ export const metadata: Metadata = {
     title: "Recognitions | Gaurav Raju Nawale",
     description:
       "Institutional recognitions and engineering milestones from SPPU and ICEM — verified archive.",
-    url: "https://gaurav-nawale.vercel.app/achievements",
+    url: "https://gauravnawale.in/achievements",
     images: [
       {
-        url: "/portfolio_v3.png",
+        url: "/gauravnawale.png",
         width: 1200,
         height: 630,
         alt: "Gaurav Nawale Recognitions",
@@ -38,10 +38,10 @@ export const metadata: Metadata = {
     title: "Recognitions | Gaurav Raju Nawale",
     description:
       "Institutional recognitions and engineering milestones from SPPU and ICEM — verified archive.",
-    images: ["/portfolio_v3.png"],
+    images: ["/gauravnawale.png"],
   },
   alternates: {
-    canonical: "https://gaurav-nawale.vercel.app/achievements",
+    canonical: "https://gauravnawale.in/achievements",
   },
 };
 

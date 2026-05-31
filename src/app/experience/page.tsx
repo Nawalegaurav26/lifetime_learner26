@@ -8,11 +8,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Experience & Tech Stack | Gaurav Raju Nawale",
     description: "Overview of professional achievements and the core technologies used to build scalable systems.",
-    url: "https://gaurav-nawale.vercel.app/experience",
+    url: "https://gauravnawale.in/experience",
     type: "website",
     images: [
       {
-        url: "/portfolio_v3.png",
+        url: "/gauravnawale.png",
         width: 1200,
         height: 630,
         alt: "Experience of Gaurav Raju Nawale",
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Experience & Tech Stack | Gaurav Raju Nawale",
     description: "System Architect skill set and professional background.",
-    images: ["/portfolio_v3.png"],
+    images: ["/gauravnawale.png"],
   },
 };
 

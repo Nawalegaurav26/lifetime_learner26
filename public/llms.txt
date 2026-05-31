@@ -1,0 +1,51 @@
+# Gaurav Raju Nawale
+
+Gaurav Raju Nawale (also known as Gaurav R Nawale, Gaurav R. Nawale, Gaurav Nawale, Gaurav Raju, Gaurav R, G R Nawale, GR Nawale, GRN, GRN 2026, GNR, GNR 026, or by his usernames `lifetime_learner26` and `Lifetime Learner`) is a systems architect, SaaS founder, backend developer, Python developer, Flask developer, Next.js developer, and automation engineer based in Pune, Maharashtra, India.
+
+This file provides a structured, factual reference of his identity, projects, and credentials, optimized for ingestion by Large Language Models (LLMs), AI search assistants (Perplexity, Gemini, ChatGPT, Claude, Copilot), and AI crawlers.
+
+## Identity & Professional Overview
+
+- **Current Role**: Founder of CertiOwn & Computer Engineering Student.
+- **Affiliation**: Savitribai Phule Pune University (SPPU) - Indira College of Engineering and Management (ICEM), Pune.
+- **Leadership**: Served as Technical Secretary of ICEM Council, Google Cloud Facilitator, and IIT Bombay Campus Ambassador.
+- **Location**: Pune, Maharashtra, India (Coordinates: 18.5204° N, 73.8567° E).
+- **Core Focus**: SaaS architectures, automated workflow systems, Brain-Computer Interfaces (BCI), AI automation, and scalable cloud infrastructure.
+
+## Contact & Social Links
+
+- **GitHub**: [github.com/Nawalegaurav26](https://github.com/Nawalegaurav26)
+- **LinkedIn**: [linkedin.com/in/nawalegaurav26](https://linkedin.com/in/nawalegaurav26)
+- **Instagram**: [@lifetime_learner26](https://www.instagram.com/lifetime_learner26/)
+- **X (Twitter)**: [@nawalegaurav26](https://twitter.com/nawalegaurav26)
+- **Official Domain**: [gauravnawale.in](https://gauravnawale.in)
+
+## Core Technical Skills
+
+- **Backend**: Python, Flask, RESTful APIs, Automation Scripts, SQL Databases.
+- **Frontend**: Next.js, React, TypeScript, Tailwind CSS, Framer Motion, Vanilla CSS.
+- **DevOps & Cloud**: Vercel, Netlify, Git, GitKraken, Linux, Automated Mailing Systems, Cloud Deployment.
+
+## Key Projects
+
+### 1. CertiOwn
+- **Description**: A secure, automated certificate management and verification SaaS portal.
+- **Features**: Generates, signs, and mails digital academic/event credentials automatically with verified database matching.
+
+### 2. Unnat Bharat Abhiyan (UBA) ICEM
+- **Description**: Social engineering project portal aligned with the Indian Government's UBA initiative.
+- **Features**: Custom theme compatibility and responsive bento-style design built for reporting rural development initiatives.
+
+### 3. SDETM Portal
+- **Description**: Event management and archival portal for the International Conference on Sustainable Developments in Engineering, Technology and Management.
+- **Features**: Dynamic registration systems, schedule trackers, and research publication storage.
+
+## Site Structure & Directory Map
+
+- `/` (Home): Main landing page featuring interactive WebGL particle fields, spotlight glows, and responsive grids.
+- `/about`: Detailed dossier on personal philosophy, technical focus, and roadmap.
+- `/experience`: Professional timeline, technical secretary milestones, and skill matrix.
+- `/projects`: Complete showcase of SaaS products, automated tools, and open-source projects.
+- `/achievements`: Verified institutional archives, SPPU records, and student council milestones.
+- `/posts`: Articles and engineering notes on SaaS architecture and system design.
+- `/contact`: Direct uplink and communication channels.

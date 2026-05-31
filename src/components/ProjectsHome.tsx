@@ -3,35 +3,35 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Layers, Lock, Globe } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 const projects = [
-  { id: "certiown", title: "CertiOwn", subtitle: "Institutional Certificate Automation", tech: ["Flask", "SaaS", "Automation"], status: "Private" as const, href: "/projects#certiown", gradientFrom: "#6366f1", gradientTo: "#8b5cf6", initials: "CO" },
-  { id: "mailing", title: "Mailing Automation System", subtitle: "Enterprise Bulk Communication", tech: ["Python", "Automation"], status: "Private" as const, href: "/projects#mailing", gradientFrom: "#8b5cf6", gradientTo: "#ec4899", initials: "MA" },
-  { id: "sdetm", title: "SDETM ICEM", subtitle: "International Conference Portal", tech: ["Next.js", "SEO"], status: "Public" as const, href: "/projects#sdetm", gradientFrom: "#06b6d4", gradientTo: "#6366f1", initials: "SI" },
-  { id: "uba", title: "UBA ICEM Portal", subtitle: "Institutional Program Platform", tech: ["Hosting", "Deployment", "SEO"], status: "Public" as const, href: "/projects/uba", gradientFrom: "#10b981", gradientTo: "#06b6d4", initials: "UB" },
-  { id: "portfolio", title: "Next-Gen Portfolio", subtitle: "Systems-inspired developer identity", tech: ["Next.js", "Tailwind", "Framer"], status: "Public" as const, href: "/projects#portfolio", gradientFrom: "#f59e0b", gradientTo: "#ef4444", initials: "NP" },
+  { id: "certiown", title: "CertiOwn", subtitle: "Institutional Certificate Automation", tech: ["Flask", "SaaS", "Automation"], status: "Private" as const, href: "/projects#certiown", image: "/certiown.png", gradientFrom: "#6366f1", gradientTo: "#8b5cf6" },
+  { id: "mailing", title: "Mailing Automation System", subtitle: "Enterprise Bulk Communication", tech: ["Python", "Automation"], status: "Private" as const, href: "/projects#mailing", image: "/mailing.png", gradientFrom: "#8b5cf6", gradientTo: "#ec4899" },
+  { id: "sdetm", title: "SDETM ICEM", subtitle: "International Conference Portal", tech: ["Next.js", "SEO"], status: "Public" as const, href: "/projects#sdetm", image: "/sdetm.png", gradientFrom: "#06b6d4", gradientTo: "#6366f1" },
+  { id: "uba", title: "UBA ICEM Portal", subtitle: "Institutional Program Platform", tech: ["Hosting", "Deployment", "SEO"], status: "Public" as const, href: "/projects/uba", image: "/uba.png", gradientFrom: "#10b981", gradientTo: "#06b6d4" },
+  { id: "portfolio", title: "Next-Gen Portfolio", subtitle: "Systems-inspired developer identity", tech: ["Next.js", "Tailwind", "Framer"], status: "Public" as const, href: "/projects#portfolio", image: "/gauravnawale.png", gradientFrom: "#f59e0b", gradientTo: "#ef4444" },
 ];
 
-const ProjectThumbnail = ({ gradientFrom, gradientTo, initials }: { gradientFrom: string; gradientTo: string; initials: string }) => (
+const ProjectThumbnail = ({ image, title, gradientFrom, gradientTo }: { image: string; title: string; gradientFrom: string; gradientTo: string }) => (
   <div
-    className="relative aspect-video w-full rounded-xl overflow-hidden transition-colors"
+    className="relative aspect-video w-full rounded-xl overflow-hidden transition-colors bg-surface-alt/40"
     style={{
-      background: "var(--surface-alt)",
       border: "1px solid var(--card-border)",
     }}
   >
+    <Image
+      src={image}
+      alt={title}
+      fill
+      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+      className="object-cover transition-transform duration-700 scale-100 group-hover:scale-105 grayscale-[0.1] group-hover:grayscale-0"
+    />
     <div
       className="absolute inset-0 opacity-10 group-hover:opacity-25 transition-opacity duration-500"
       style={{ background: `linear-gradient(135deg, ${gradientFrom}, ${gradientTo})` }}
     />
-    <div className="absolute inset-0 flex items-center justify-center">
-      <span
-        className="text-4xl font-black font-mono text-transparent bg-clip-text opacity-30 group-hover:opacity-70 transition-opacity duration-500"
-        style={{ backgroundImage: `linear-gradient(135deg, ${gradientFrom}, ${gradientTo})` }}
-      >
-        {initials}
-      </span>
-    </div>
+    <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent pointer-events-none" />
     <motion.div
       animate={{ top: ["0%", "100%", "0%"] }}
       transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
@@ -95,9 +95,10 @@ export default function ProjectsHome() {
               <Link href={project.href} className="block p-5">
                 <div className="mb-5">
                   <ProjectThumbnail
+                    image={project.image}
+                    title={project.title}
                     gradientFrom={project.gradientFrom}
                     gradientTo={project.gradientTo}
-                    initials={project.initials}
                   />
                 </div>
                 <div className="flex items-center justify-between mb-3">

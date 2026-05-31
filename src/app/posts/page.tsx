@@ -7,11 +7,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Intel & Archive | Gaurav Raju Nawale",
     description: "Insights and intelligence on high-performance system building and startup engineering.",
-    url: "https://gaurav-nawale.vercel.app/posts",
+    url: "https://gauravnawale.in/posts",
     type: "website",
     images: [
       {
-        url: "/portfolio_v3.png",
+        url: "/gauravnawale.png",
         width: 1200,
         height: 630,
         alt: "Insights by Gaurav Raju Nawale",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Intel & Archive | Gaurav Raju Nawale",
     description: "Access technical archives and research notes on digital system innovation.",
-    images: ["/portfolio_v3.png"],
+    images: ["/gauravnawale.png"],
   },
 };
 

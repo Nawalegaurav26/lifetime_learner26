@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://gauravnawale.com/sitemap.xml
+Sitemap: https://gauravnawale.in/sitemap.xml

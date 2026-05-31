@@ -90,3 +90,58 @@ export const InstagramIcon = ({ size = 24, className = "" }: { size?: number, cl
     <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
   </svg>
 );
+
+export const BrandLogo = ({ size = 32, className = "" }: { size?: number, className?: string }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={size}
+    height={size}
+    viewBox="0 0 100 100"
+    fill="none"
+    className={className}
+  >
+    <defs>
+      <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="var(--primary)" />
+        <stop offset="50%" stopColor="var(--accent)" />
+        <stop offset="100%" stopColor="var(--secondary)" />
+      </linearGradient>
+      <filter id="logoGlow" x="-20%" y="-20%" width="140%" height="140%">
+        <feGaussianBlur stdDeviation="3" result="blur" />
+        <feComposite in="SourceGraphic" in2="blur" operator="over" />
+      </filter>
+    </defs>
+    
+    {/* Outer Hexagon */}
+    <polygon
+      points="50,6 88,28 88,72 50,94 12,72 12,28"
+      stroke="url(#logoGrad)"
+      strokeWidth="3"
+      strokeLinejoin="round"
+      fill="var(--glass-bg)"
+      fillOpacity="0.2"
+      filter="url(#logoGlow)"
+    />
+
+    {/* Letter G (Left Side) */}
+    <path
+      d="M 48 35 L 34 35 A 15 15 0 0 0 34 65 L 48 65 L 48 48 L 40 48"
+      stroke="url(#logoGrad)"
+      strokeWidth="4.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+
+    {/* Letter N (Right Side) */}
+    <path
+      d="M 56 65 L 56 35 L 68 53 L 68 35 M 68 53 L 80 35 L 80 65"
+      stroke="url(#logoGrad)"
+      strokeWidth="4.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+
+    {/* Glowing Center Node */}
+    <circle cx="50" cy="50" r="2.5" fill="var(--primary)" />
+  </svg>
+);

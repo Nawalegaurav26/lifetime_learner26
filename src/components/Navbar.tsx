@@ -5,6 +5,7 @@ import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 import Link from "next/link";
 import { Menu, X, Palette, Moon, Sun, Zap, Check } from "lucide-react";
 import { useTheme, type Theme } from "@/contexts/ThemeContext";
+import { BrandLogo } from "./Icons";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -110,11 +111,13 @@ export default function Navbar() {
           {/* Logo */}
           <Link
             href="/"
-            className="text-xl font-bold tracking-widest font-mono transition-all duration-300"
+            className="flex items-center gap-2.5 text-xl font-bold tracking-widest font-mono transition-all duration-300 group"
             style={{ color: "var(--foreground)" }}
           >
-            SYS.
-            <span style={{ color: "var(--primary)" }}>NAV</span>
+            <BrandLogo size={28} className="group-hover:rotate-[60deg] transition-transform duration-700" />
+            <span>
+              SYS.<span style={{ color: "var(--primary)" }}>NAV</span>
+            </span>
           </Link>
 
           {/* Desktop Nav */}

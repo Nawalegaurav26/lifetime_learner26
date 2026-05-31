@@ -7,11 +7,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Projects Dossier | Gaurav Raju Nawale",
     description: "A showcase of high-performance systems and SaaS solutions built with precision.",
-    url: "https://gaurav-nawale.vercel.app/projects",
+    url: "https://gauravnawale.in/projects",
     type: "website",
     images: [
       {
-        url: "/portfolio_v3.png",
+        url: "/gauravnawale.png",
         width: 1200,
         height: 630,
         alt: "Projects by Gaurav Raju Nawale",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Projects Dossier | Gaurav Raju Nawale",
     description: "Building the digital ecosystem. Check out my latest system architectures.",
-    images: ["/portfolio_v3.png"],
+    images: ["/gauravnawale.png"],
   },
 };
 

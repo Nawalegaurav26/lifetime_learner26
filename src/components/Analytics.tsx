@@ -5,7 +5,7 @@ import Script from "next/script";
 import Clarity from "@microsoft/clarity";
 import { useClaritySkills } from "@/hooks/useClaritySkills";
 
-const CLARITY_ID = "wn156ye9ws";
+const CLARITY_ID = "x0a403o69i";
 const GA_MEASUREMENT_ID = "G-XXXXXXXXXX"; 
 
 export default function Analytics() {

@@ -124,12 +124,12 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1, duration: 0.6 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-6 w-full max-w-md mx-auto"
+            className="flex flex-wrap items-center justify-center gap-4 w-full max-w-2xl mx-auto"
           >
             <Link
               href="/projects"
               id="hero-access-modules"
-              className="w-full sm:w-auto px-8 py-4 text-white font-mono uppercase tracking-widest text-sm font-bold flex justify-center items-center gap-2 rounded-md transition-all hover:scale-[1.02] active:scale-[0.98]"
+              className="w-[calc(50%-8px)] sm:w-auto px-4 sm:px-8 py-4 text-white font-mono uppercase tracking-widest text-xs sm:text-sm font-bold flex justify-center items-center gap-2 rounded-md transition-all hover:scale-[1.02] active:scale-[0.98]"
               style={{
                 background: "var(--primary)",
                 boxShadow: "0 0 24px var(--primary-glow)",
@@ -150,7 +150,7 @@ export default function Hero() {
               target="_blank"
               id="hero-system-bio"
               onClick={() => trackEvent("resume_download", "true")}
-              className="w-full sm:w-auto px-8 py-4 glass font-mono uppercase tracking-widest text-sm font-bold flex justify-center items-center rounded-md transition-all hover:scale-[1.02] active:scale-[0.98]"
+              className="w-[calc(50%-8px)] sm:w-auto px-4 sm:px-8 py-4 glass font-mono uppercase tracking-widest text-xs sm:text-sm font-bold flex justify-center items-center rounded-md transition-all hover:scale-[1.02] active:scale-[0.98]"
               style={{
                 color: "var(--foreground)",
                 border: "1px solid var(--border-strong)",
@@ -163,6 +163,40 @@ export default function Hero() {
               }}
             >
               System Bio (PDF)
+            </Link>
+            <Link
+              href="/achievements"
+              id="hero-achievements"
+              className="w-[calc(50%-8px)] sm:w-auto px-4 sm:px-8 py-4 glass font-mono uppercase tracking-widest text-xs sm:text-sm font-bold flex justify-center items-center rounded-md transition-all hover:scale-[1.02] active:scale-[0.98]"
+              style={{
+                color: "var(--foreground)",
+                border: "1px solid var(--border-strong)",
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLElement).style.borderColor = "var(--primary)";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLElement).style.borderColor = "var(--border-strong)";
+              }}
+            >
+              Achievements
+            </Link>
+            <Link
+              href="/about"
+              id="hero-about"
+              className="w-[calc(50%-8px)] sm:w-auto px-4 sm:px-8 py-4 glass font-mono uppercase tracking-widest text-xs sm:text-sm font-bold flex justify-center items-center rounded-md transition-all hover:scale-[1.02] active:scale-[0.98]"
+              style={{
+                color: "var(--foreground)",
+                border: "1px solid var(--border-strong)",
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLElement).style.borderColor = "var(--primary)";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLElement).style.borderColor = "var(--border-strong)";
+              }}
+            >
+              About
             </Link>
           </motion.div>
 

@@ -1,6 +1,8 @@
 import { ArrowLeft, Calendar, Clock, Tag } from "lucide-react";
 import Link from "next/link";
 import { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { posts } from "@/components/Posts";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -8,12 +10,13 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const title = slug
-    .split("-")
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(" ");
+  const post = posts.find((p) => p.slug === slug);
+  if (!post) {
+    return {};
+  }
 
-  const description = `Detailed technical insight and architectural vision for ${title.toLowerCase()}.`;
+  const title = post.title;
+  const description = post.excerpt;
 
   return {
     title: `${title} | Gaurav Raju Nawale`,
@@ -43,10 +46,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function PostDetail({ params }: Props) {
   const { slug } = await params;
-  const title = slug
-    .split("-")
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(" ");
+  const post = posts.find((p) => p.slug === slug);
+  
+  if (!post) {
+    notFound();
+  }
+
+  const { title, date, readTime, category } = post;
 
   return (
     <main className="pt-32 pb-24 min-h-screen bg-background text-muted">
@@ -62,13 +68,13 @@ export default async function PostDetail({ params }: Props) {
 
             <div className="flex flex-wrap items-center gap-6 mb-8">
               <div className="flex items-center gap-2 text-[10px] font-black text-primary uppercase tracking-widest bg-primary/5 border border-primary/20 px-4 py-2 rounded-sm font-mono">
-                <Tag size={12} /> Technology
+                <Tag size={12} /> {category}
               </div>
               <div className="flex items-center gap-2 text-[10px] font-bold text-muted uppercase tracking-widest font-mono">
-                <Calendar size={12} /> May 2024
+                <Calendar size={12} /> {date}
               </div>
               <div className="flex items-center gap-2 text-[10px] font-bold text-muted uppercase tracking-widest font-mono">
-                <Clock size={12} /> 10 min read
+                <Clock size={12} /> {readTime}
               </div>
             </div>
 

@@ -10,6 +10,8 @@ const CATEGORY_COLORS: Record<string, { border: string; badge: string; text: str
   SYSTEMS: { border: "border-l-secondary", badge: "bg-secondary/10 border-secondary/25 text-secondary", text: "group-hover:text-secondary" },
 };
 
+import { ReactNode } from "react";
+
 export interface Post {
   title: string;
   excerpt: string;
@@ -17,9 +19,19 @@ export interface Post {
   readTime: string;
   category: string;
   slug: string;
+  content?: ReactNode;
 }
 
-export const posts: Post[] = [];
+export const posts: Post[] = [
+  {
+    title: "Helping Engineering Students Prepare for GATE More Effectively",
+    excerpt: "Preparing for GATE is not just about studying hard—it's about studying smart, staying consistent, and following the right roadmap.",
+    date: "JUN 03, 2026",
+    readTime: "3 MIN READ",
+    category: "ENGINEERING",
+    slug: "gate-preparation-effectively",
+  }
+];
 
 export default function Posts() {
   return (

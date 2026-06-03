@@ -41,6 +41,9 @@ export const metadata: Metadata = {
     template: "%s | Gaurav Raju Nawale",
     default: "Gaurav Raju Nawale | Lifetime Learner, System Architect & CertiOwn Founder",
   },
+  icons: {
+    icon: "/favicon.png",
+  },
   description: "Official portfolio of Gaurav Raju Nawale (Lifetime Learner) — Founder of CertiOwn, System Architect, and Computer Engineering student at ICEM, Pune. Specialized in building automated systems, AI research, and scalable SaaS architectures.",
   keywords: [
     "Gaurav Raju Nawale", "Gaurav R Nawale", "Gaurav R. Nawale", "Gaurav Nawale", "Gaurav Raju", "Gaurav R", "G R Nawale", "GR Nawale", "GRN", "GRN 2026", "GNR", "GNR 026",

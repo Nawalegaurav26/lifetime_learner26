@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { posts } from "@/components/Posts";
+import { posts } from "@/data/posts";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -18,6 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const title = post.title;
   const description = post.excerpt;
+  const imageUrl = post.image || "/gauravnawale.png";
 
   return {
     title: `${title} | Gaurav Raju Nawale`,
@@ -29,7 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "article",
       images: [
         {
-          url: "/gauravnawale.png",
+          url: imageUrl,
           width: 1200,
           height: 630,
           alt: title,
@@ -40,7 +41,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: "summary_large_image",
       title: `${title} | Gaurav Raju Nawale`,
       description: description,
-      images: ["/gauravnawale.png"],
+      images: [imageUrl],
     },
   };
 }

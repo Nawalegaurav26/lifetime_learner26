@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function About() {
   return (
@@ -26,10 +27,11 @@ export default function About() {
               <div className="absolute bottom-0 left-0 w-16 h-16 border-b-2 border-l-2 border-primary/40 translate-y-2 -translate-x-2" />
               
               <div className="relative aspect-square overflow-hidden rounded-sm border border-theme">
-                <img 
+                <Image 
                   src="/profile.jpg" 
                   alt="Gaurav Raju Nawale" 
-                  className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-700"
+                  fill
+                  className="object-cover filter grayscale hover:grayscale-0 transition-all duration-700"
                 />
                 <div className="absolute inset-0 bg-primary/10 mix-blend-overlay" />
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60" />

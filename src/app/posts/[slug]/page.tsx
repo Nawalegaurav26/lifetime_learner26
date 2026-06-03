@@ -88,12 +88,15 @@ export default async function PostDetail({ params }: Props) {
             <div className="prose prose-invert prose-slate prose-lg max-w-none font-mono">
               {slug === "gate-preparation-effectively" ? (
                 <>
-                  <div className="my-12 w-full rounded-xl overflow-hidden border border-theme relative aspect-video">
+                  <div className="my-12 w-full rounded-xl overflow-hidden border border-theme">
                     <Image 
                       src="/post/gfgtask_gate_01.png" 
                       alt="GATE Preparation"
-                      fill
-                      className="object-cover" 
+                      width={0}
+                      height={0}
+                      sizes="100vw"
+                      style={{ width: '100%', height: 'auto' }}
+                      className="object-contain" 
                     />
                   </div>
                   

@@ -1,5 +1,6 @@
 import { ArrowLeft, Calendar, Clock, Tag } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { posts } from "@/components/Posts";
@@ -85,11 +86,12 @@ export default async function PostDetail({ params }: Props) {
             <div className="prose prose-invert prose-slate prose-lg max-w-none font-mono">
               {slug === "gate-preparation-effectively" ? (
                 <>
-                  <div className="my-12 w-full rounded-xl overflow-hidden border border-theme">
-                    <img 
+                  <div className="my-12 w-full rounded-xl overflow-hidden border border-theme relative aspect-video">
+                    <Image 
                       src="/post/gfgtask_gate_01.png" 
-                      alt="GATE Preparation" 
-                      className="w-full h-auto object-cover" 
+                      alt="GATE Preparation"
+                      fill
+                      className="object-cover" 
                     />
                   </div>
                   
@@ -106,7 +108,7 @@ export default async function PostDetail({ params }: Props) {
                   </p>
 
                   <blockquote className="my-12 pl-8 border-l-2 border-primary text-xl font-bold text-foreground italic bg-primary/5 py-8 pr-8 rounded-r-md">
-                    "Preparing for GATE is not just about studying hard—it's about studying smart, staying consistent, and following the right roadmap."
+                    &quot;Preparing for GATE is not just about studying hard—it&apos;s about studying smart, staying consistent, and following the right roadmap.&quot;
                   </blockquote>
 
                   <p className="text-muted leading-relaxed mb-6">
@@ -114,7 +116,7 @@ export default async function PostDetail({ params }: Props) {
                   </p>
 
                   <p className="text-muted leading-relaxed mb-8">
-                    If you're planning to appear for GATE in the future, I encourage you to explore the available resources and begin building a strong foundation today.
+                    If you&apos;re planning to appear for GATE in the future, I encourage you to explore the available resources and begin building a strong foundation today.
                   </p>
 
                   <div className="mb-12 p-6 bg-surface/50 border border-theme rounded-xl">
@@ -128,7 +130,7 @@ export default async function PostDetail({ params }: Props) {
                     <p className="text-muted leading-relaxed mb-6 italic">
                       As a Campus Mantri, I am always happy to share opportunities, resources, and learning platforms that can help students advance in their academic and professional journeys.
                     </p>
-                    <p className="text-foreground font-bold mb-4">Let's keep learning, building, and growing together.</p>
+                    <p className="text-foreground font-bold mb-4">Let&apos;s keep learning, building, and growing together.</p>
                     
                     <div className="flex flex-col gap-1 font-mono text-sm text-muted-2">
                       <span className="text-foreground font-bold">— Gaurav Raju Nawale</span>

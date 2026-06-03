@@ -16,12 +16,10 @@ export default function Hero() {
 
       {/* Decorative Blobs */}
       <div
-        className="absolute top-1/4 -left-20 w-80 h-80 rounded-full blur-[100px] mix-blend-multiply animate-pulse-slow"
-        style={{ background: "var(--primary-glow)" }}
+        className="absolute top-1/4 -left-20 w-80 h-80 rounded-full blur-[100px] mix-blend-multiply animate-pulse-slow bg-[var(--primary-glow)]"
       />
       <div
-        className="absolute bottom-1/4 -right-20 w-[400px] h-[400px] rounded-full blur-[120px]"
-        style={{ background: `rgba(139, 92, 246, 0.08)` }}
+        className="absolute bottom-1/4 -right-20 w-[400px] h-[400px] rounded-full blur-[120px] bg-[rgba(139,92,246,0.08)]"
       />
 
       <div className="container mx-auto px-6 text-center z-10 max-w-[1120px]">
@@ -39,25 +37,18 @@ export default function Hero() {
             className="mb-8"
           >
             <div
-              className="inline-flex items-center gap-3 px-5 py-2 glass rounded-full"
-              style={{
-                border: "1px solid var(--primary-glow)",
-                boxShadow: "0 0 15px var(--primary-glow)",
-              }}
+              className="inline-flex items-center gap-3 px-5 py-2 glass rounded-full border border-[var(--primary-glow)] shadow-[0_0_15px_var(--primary-glow)]"
             >
               <span className="relative flex h-3 w-3">
                 <span
-                  className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"
-                  style={{ background: "var(--primary)" }}
+                  className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 bg-[var(--primary)]"
                 />
                 <span
-                  className="relative inline-flex rounded-full h-3 w-3"
-                  style={{ background: "var(--primary)" }}
+                  className="relative inline-flex rounded-full h-3 w-3 bg-[var(--primary)]"
                 />
               </span>
               <span
-                className="text-xs font-mono font-semibold tracking-widest uppercase"
-                style={{ color: "var(--primary-light)" }}
+                className="text-xs font-mono font-semibold tracking-widest uppercase text-[var(--primary-light)]"
               >
                 System Online
               </span>
@@ -70,16 +61,11 @@ export default function Hero() {
               initial={{ y: 100 }}
               animate={{ y: 0 }}
               transition={{ delay: 0.3, duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
-              className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight"
-              style={{ color: "var(--foreground)" }}
+              className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-foreground"
             >
               Gaurav Raju <br className="hidden md:block" />
               <span
-                className="text-transparent bg-clip-text"
-                style={{
-                  backgroundImage: `linear-gradient(135deg, var(--gradient-text-from), var(--gradient-text-to))`,
-                  filter: "drop-shadow(0 0 10px var(--primary-glow))",
-                }}
+                className="text-transparent bg-clip-text bg-[linear-gradient(135deg,var(--gradient-text-from),var(--gradient-text-to))] drop-shadow-[0_0_10px_var(--primary-glow)]"
               >
                 Nawale
               </span>
@@ -91,8 +77,7 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6, duration: 1 }}
-            className="text-2xl md:text-3xl font-bold mb-3 max-w-2xl font-mono tracking-tight"
-            style={{ color: "var(--foreground)" }}
+            className="text-2xl md:text-3xl font-bold mb-3 max-w-2xl font-mono tracking-tight text-foreground"
           >
             &quot;Building Systems. Exploring Intelligence.&quot;
           </motion.p>
@@ -102,8 +87,7 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8, duration: 1 }}
-            className="text-sm md:text-base max-w-xl mx-auto font-mono tracking-widest uppercase"
-            style={{ color: "var(--muted)" }}
+            className="text-sm md:text-base max-w-xl mx-auto font-mono tracking-widest uppercase text-muted"
           >
             Founder @ CertiOwn • Systems &amp; Backend Developer
           </motion.p>
@@ -113,8 +97,7 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.9, duration: 1 }}
-            className="text-sm md:text-base max-w-2xl mx-auto mt-4 mb-12 leading-relaxed"
-            style={{ color: "var(--muted-2)" }}
+            className="text-sm md:text-base max-w-2xl mx-auto mt-4 mb-12 leading-relaxed text-muted-2"
           >
             I am a passionate System Architect and SaaS Founder with a strong drive for building scalable, autonomous solutions. I love transforming complex ideas into intuitive, high-performance systems.
           </motion.p>
@@ -129,19 +112,7 @@ export default function Hero() {
             <Link
               href="/projects"
               id="hero-access-modules"
-              className="w-[calc(50%-8px)] sm:w-auto px-4 sm:px-8 py-4 text-white font-mono uppercase tracking-widest text-xs sm:text-sm font-bold flex justify-center items-center gap-2 rounded-md transition-all hover:scale-[1.02] active:scale-[0.98]"
-              style={{
-                background: "var(--primary)",
-                boxShadow: "0 0 24px var(--primary-glow)",
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLElement).style.background = "var(--primary-hover)";
-                (e.currentTarget as HTMLElement).style.boxShadow = "0 0 32px var(--primary-glow)";
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLElement).style.background = "var(--primary)";
-                (e.currentTarget as HTMLElement).style.boxShadow = "0 0 24px var(--primary-glow)";
-              }}
+              className="w-[calc(50%-8px)] sm:w-auto px-4 sm:px-8 py-4 text-white font-mono uppercase tracking-widest text-xs sm:text-sm font-bold flex justify-center items-center gap-2 rounded-md transition-all hover:scale-[1.02] active:scale-[0.98] bg-[var(--primary)] shadow-[0_0_24px_var(--primary-glow)] hover:bg-[var(--primary-hover)] hover:shadow-[0_0_32px_var(--primary-glow)]"
             >
               Access Modules <ArrowRight size={16} />
             </Link>
@@ -150,51 +121,21 @@ export default function Hero() {
               target="_blank"
               id="hero-system-bio"
               onClick={() => trackEvent("resume_download", "true")}
-              className="w-[calc(50%-8px)] sm:w-auto px-4 sm:px-8 py-4 glass font-mono uppercase tracking-widest text-xs sm:text-sm font-bold flex justify-center items-center rounded-md transition-all hover:scale-[1.02] active:scale-[0.98]"
-              style={{
-                color: "var(--foreground)",
-                border: "1px solid var(--border-strong)",
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLElement).style.borderColor = "var(--primary)";
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLElement).style.borderColor = "var(--border-strong)";
-              }}
+              className="w-[calc(50%-8px)] sm:w-auto px-4 sm:px-8 py-4 glass font-mono uppercase tracking-widest text-xs sm:text-sm font-bold flex justify-center items-center rounded-md transition-all hover:scale-[1.02] active:scale-[0.98] text-foreground border border-border-strong hover:border-[var(--primary)]"
             >
               System Bio (PDF)
             </Link>
             <Link
               href="/achievements"
               id="hero-achievements"
-              className="w-[calc(50%-8px)] sm:w-auto px-4 sm:px-8 py-4 glass font-mono uppercase tracking-widest text-xs sm:text-sm font-bold flex justify-center items-center rounded-md transition-all hover:scale-[1.02] active:scale-[0.98]"
-              style={{
-                color: "var(--foreground)",
-                border: "1px solid var(--border-strong)",
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLElement).style.borderColor = "var(--primary)";
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLElement).style.borderColor = "var(--border-strong)";
-              }}
+              className="w-[calc(50%-8px)] sm:w-auto px-4 sm:px-8 py-4 glass font-mono uppercase tracking-widest text-xs sm:text-sm font-bold flex justify-center items-center rounded-md transition-all hover:scale-[1.02] active:scale-[0.98] text-foreground border border-border-strong hover:border-[var(--primary)]"
             >
               Achievements
             </Link>
             <Link
               href="/about"
               id="hero-about"
-              className="w-[calc(50%-8px)] sm:w-auto px-4 sm:px-8 py-4 glass font-mono uppercase tracking-widest text-xs sm:text-sm font-bold flex justify-center items-center rounded-md transition-all hover:scale-[1.02] active:scale-[0.98]"
-              style={{
-                color: "var(--foreground)",
-                border: "1px solid var(--border-strong)",
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLElement).style.borderColor = "var(--primary)";
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLElement).style.borderColor = "var(--border-strong)";
-              }}
+              className="w-[calc(50%-8px)] sm:w-auto px-4 sm:px-8 py-4 glass font-mono uppercase tracking-widest text-xs sm:text-sm font-bold flex justify-center items-center rounded-md transition-all hover:scale-[1.02] active:scale-[0.98] text-foreground border border-border-strong hover:border-[var(--primary)]"
             >
               About
             </Link>
@@ -220,20 +161,7 @@ export default function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={social.label}
-                className="w-12 h-12 flex items-center justify-center rounded-full glass transition-all duration-300 hover:-translate-y-1"
-                style={{ color: "var(--muted)" }}
-                onMouseEnter={(e) => {
-                  const el = e.currentTarget as HTMLElement;
-                  el.style.color = "var(--primary)";
-                  el.style.borderColor = "var(--primary)";
-                  el.style.boxShadow = "0 0 15px var(--primary-glow)";
-                }}
-                onMouseLeave={(e) => {
-                  const el = e.currentTarget as HTMLElement;
-                  el.style.color = "var(--muted)";
-                  el.style.borderColor = "";
-                  el.style.boxShadow = "";
-                }}
+                className="w-12 h-12 flex items-center justify-center rounded-full glass transition-all duration-300 hover:-translate-y-1 text-muted hover:text-[var(--primary)] hover:border-[var(--primary)] hover:shadow-[0_0_15px_var(--primary-glow)]"
               >
                 {social.icon}
               </a>
@@ -250,16 +178,12 @@ export default function Hero() {
         className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4"
       >
         <span
-          className="text-[10px] font-mono uppercase tracking-[0.3em]"
-          style={{ color: "var(--primary)" }}
+          className="text-[10px] font-mono uppercase tracking-[0.3em] text-[var(--primary)]"
         >
           Scroll
         </span>
         <div
-          className="w-[1px] h-12"
-          style={{
-            background: `linear-gradient(to bottom, var(--primary), transparent)`,
-          }}
+          className="w-[1px] h-12 bg-[linear-gradient(to_bottom,var(--primary),transparent)]"
         />
       </motion.div>
     </section>

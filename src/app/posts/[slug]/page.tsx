@@ -18,7 +18,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const title = post.title;
   const description = post.excerpt;
-  const imageUrl = post.image || "/gauravnawale.png";
+  const imagePath = post.image || "/gauravnawale.png";
+  const imageUrl = `https://gauravnawale.in${imagePath}`;
 
   return {
     title: `${title} | Gaurav Raju Nawale`,

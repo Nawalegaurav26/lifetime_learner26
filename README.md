@@ -13,7 +13,7 @@ The portfolio follows the **Aura Portfolio** design system:
 - **Aesthetics**: Subtle glassmorphism, soft ambient shadows, and elegant vertical pacing.
 
 ## 🛠️ Tech Stack
-- **Framework**: Next.js 16 (App Router)
+- **Framework**: Next.js 15 (App Router)
 - **Styling**: Tailwind CSS 4
 - **Animations**: Framer Motion (Minimal & Smooth)
 - **Icons**: Lucide React

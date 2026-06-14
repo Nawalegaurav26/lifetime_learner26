@@ -1,6 +1,5 @@
 import { ArrowLeft, Calendar, Clock, Tag } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { posts } from "@/data/posts";
@@ -86,67 +85,7 @@ export default async function PostDetail({ params }: Props) {
             </h1>
 
             <div className="prose prose-invert prose-slate prose-lg max-w-none font-mono">
-              {slug === "gate-preparation-effectively" ? (
-                <>
-                  <div className="my-12 w-full rounded-xl overflow-hidden border border-theme">
-                    <Image 
-                      src="/post/gfgtask_gate_01.png" 
-                      alt="GATE Preparation"
-                      width={0}
-                      height={0}
-                      sizes="100vw"
-                      style={{ width: '100%', height: 'auto' }}
-                      className="object-contain" 
-                    />
-                  </div>
-                  
-                  <p className="text-xl text-foreground/80 leading-relaxed font-medium mb-6">
-                    As a GeeksforGeeks Campus Mantri, I regularly come across learning resources that can help students grow academically and professionally.
-                  </p>
-
-                  <p className="text-muted leading-relaxed mb-6">
-                    Recently, I explored the GATE preparation courses available on GeeksforGeeks. For engineering students aspiring to pursue higher studies, research opportunities, or careers in Public Sector Undertakings (PSUs), GATE remains one of the most important examinations.
-                  </p>
-
-                  <p className="text-muted leading-relaxed mb-6">
-                    What I found valuable about these courses is their structured learning approach, comprehensive subject coverage, practice-oriented content, and flexibility that allows students to learn at their own pace.
-                  </p>
-
-                  <blockquote className="my-12 pl-8 border-l-2 border-primary text-xl font-bold text-foreground italic bg-primary/5 py-8 pr-8 rounded-r-md">
-                    &quot;Preparing for GATE is not just about studying hard—it&apos;s about studying smart, staying consistent, and following the right roadmap.&quot;
-                  </blockquote>
-
-                  <p className="text-muted leading-relaxed mb-6">
-                    Starting early can significantly improve your understanding of core concepts and boost confidence before the examination.
-                  </p>
-
-                  <p className="text-muted leading-relaxed mb-8">
-                    If you&apos;re planning to appear for GATE in the future, I encourage you to explore the available resources and begin building a strong foundation today.
-                  </p>
-
-                  <div className="mb-12 p-6 bg-surface/50 border border-theme rounded-xl">
-                    <h3 className="text-lg font-bold text-foreground mb-3 font-mono">🔗 Explore GATE Courses:</h3>
-                    <a href="https://www.geeksforgeeks.org/courses/category/gate" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-secondary transition-colors underline break-all">
-                      https://www.geeksforgeeks.org/courses/category/gate
-                    </a>
-                  </div>
-
-                  <div className="border-t border-theme pt-8 mt-12">
-                    <p className="text-muted leading-relaxed mb-6 italic">
-                      As a Campus Mantri, I am always happy to share opportunities, resources, and learning platforms that can help students advance in their academic and professional journeys.
-                    </p>
-                    <p className="text-foreground font-bold mb-4">Let&apos;s keep learning, building, and growing together.</p>
-                    
-                    <div className="flex flex-col gap-1 font-mono text-sm text-muted-2">
-                      <span className="text-foreground font-bold">— Gaurav Raju Nawale</span>
-                      <span>GeeksforGeeks Campus Mantri</span>
-                      <span>Founder, CertiOwn</span>
-                      <span>Student Developer &amp; Entrepreneur</span>
-                      <a href="http://www.gauravnawale.in" className="text-primary hover:underline mt-2">🌐 www.gauravnawale.in</a>
-                    </div>
-                  </div>
-                </>
-              ) : post.content ? (
+              {post.content ? (
                 <>{post.content}</>
               ) : (
                 <>

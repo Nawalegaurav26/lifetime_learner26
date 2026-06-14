@@ -141,8 +141,8 @@ export const posts: Post[] = [
   },
   {
     title: "Letter of Appreciation — SPPU Workshop E-Certificates",
-    excerpt: "Recognized by ICEM and SPPU coordinators for designing and preparing e-certificates for the Savitribai Phule Pune University-sponsored workshop on Women Empowerment.",
-    date: "JUL 15, 2025",
+    excerpt: "Grateful to ICEM and Savitribai Phule Pune University (SPPU) for recognizing my contribution in automating certificate generation via CertiOwn for the Women Empowerment workshop.",
+    date: "JUL 28, 2025",
     readTime: "2 MIN READ",
     category: "ENGINEERING",
     slug: "sppu-workshop-ecertificates",
@@ -162,19 +162,31 @@ export const posts: Post[] = [
         </div>
         
         <p className="text-xl text-foreground/80 leading-relaxed font-medium mb-6">
-          A proud moment: I received a formal Letter of Appreciation from Indira College of Engineering and Management (ICEM) for designing and preparing e-certificates for the Savitribai Phule Pune University (SPPU)-sponsored workshop on Women Empowerment (महिला सबलीकरण व सक्षमीकरण).
+          🌟 Honored to Receive a Letter of Appreciation! 🌟
         </p>
 
         <p className="text-muted leading-relaxed mb-6">
-          Working under the coordination of Dr. Manjusha Tomar and the guidance of Principal Dr. Nilesh Uke, this project required absolute precision and a quick turnaround. I developed a workflow to handle bulk certificate generation and customization to ensure all attendees received high-quality participation records.
+          Grateful to Indira College of Engineering and Management (ICEM) for recognizing my contribution through <strong>CertiOwn</strong> — my in-house certificate generation and automation platform — in designing and preparing e-certificates for participants of the &quot;Women Empowerment &amp; Sensitization&quot; workshop, organized by ICEM and sponsored by Savitribai Phule Pune University (SPPU).
         </p>
 
-        <blockquote className="my-12 pl-8 border-l-2 border-primary text-xl font-bold text-foreground italic bg-primary/5 py-8 pr-8 rounded-r-md">
-          &quot;Designing and automating certificates for university-level workshops demands meticulous attention to detail and zero tolerance for data errors.&quot;
-        </blockquote>
+        <p className="text-muted leading-relaxed mb-6">
+          Using CertiOwn, I was able to ensure timely, accurate, and professional delivery of participation certificates, making the process seamless and efficient.
+        </p>
+
+        <div className="my-10 p-6 bg-surface/30 border border-theme rounded-xl">
+          <h4 className="font-mono text-xs text-secondary uppercase tracking-[0.2em] mb-4">◈ Official Appreciation Record</h4>
+          <blockquote className="pl-6 border-l-2 border-secondary text-muted leading-relaxed italic my-4 font-mono text-sm">
+            &quot;On behalf of the Indira College of Engineering and Management (ICEM), we would like to extend our heartfelt appreciation to Mr. Gaurav Raju Nawale (Second Year B.Tech. Computer Engineering Student) for your dedicated efforts in designing and preparing the e-certificates for the participants of the workshop on &#x27;महिला सबलीकरण व सक्षमीकरण&#x27;, organized by ICEM and sponsored by Savitribai Phule Pune University (SPPU).<br/><br/>
+            Your prompt and meticulous work ensured the timely and professional delivery of participation certificates, significantly contributing to the successful execution of the event. The attention to detail and quality you brought to this task reflect your commitment and professionalism, and we are truly grateful for your valuable support.&quot;
+          </blockquote>
+        </div>
 
         <p className="text-muted leading-relaxed mb-6">
-          This recognition reinforces the value of building systems that automate manual tasks, allowing academic programs to run smoothly and professionally.
+          A heartfelt thanks to Dr. Manjusha Tomar (ICC Coordinator) and Dr. Nilesh Uke (Principal) for their trust and encouragement. 🙏
+        </p>
+
+        <p className="text-muted leading-relaxed mb-8">
+          Looking forward to leveraging CertiOwn for more impactful institutional initiatives in the future!
         </p>
 
         <div className="mb-12 p-6 bg-surface/50 border border-theme rounded-xl">

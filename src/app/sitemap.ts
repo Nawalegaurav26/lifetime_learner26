@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next'
+import { posts } from '@/data/posts'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://gauravnawale.in'
@@ -58,5 +59,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.7,
     },
+    ...posts.map((post) => ({
+      url: `${baseUrl}/posts/${post.slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
+    })),
   ]
 }

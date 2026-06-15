@@ -15,19 +15,26 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {};
   }
 
-  const title = post.title;
-  const description = post.excerpt;
+  const { title, excerpt: description, category, date } = post;
   const imagePath = post.image || "/gauravnawale.png";
   const imageUrl = `https://gauravnawale.in${imagePath}`;
 
   return {
     title: `${title} | Gaurav Raju Nawale`,
     description: description,
+    keywords: [title, category, "Gaurav Raju Nawale", "Techfest IIT Bombay", "SaaS Architecture", "Automation"],
+    authors: [{ name: "Gaurav Raju Nawale", url: "https://gauravnawale.in" }],
+    alternates: {
+      canonical: `https://gauravnawale.in/posts/${slug}`,
+    },
     openGraph: {
       title: `${title} | Gaurav Raju Nawale`,
       description: description,
       url: `https://gauravnawale.in/posts/${slug}`,
+      siteName: "Gaurav Raju Nawale Portfolio",
       type: "article",
+      publishedTime: date,
+      authors: ["Gaurav Raju Nawale"],
       images: [
         {
           url: imageUrl,
@@ -62,7 +69,7 @@ export default async function PostDetail({ params }: Props) {
         <div className="max-w-3xl mx-auto">
           <div className="animate-in fade-in slide-in-from-bottom-4 duration-700">
             <Link
-              href="/posts"
+              href="/#posts"
               className="inline-flex items-center gap-2 text-[10px] font-black text-muted uppercase tracking-widest hover:text-primary transition-colors mb-12 font-mono"
             >
               <ArrowLeft size={14} /> Back to Insights
@@ -85,41 +92,41 @@ export default async function PostDetail({ params }: Props) {
             </h1>
 
             <div className="prose prose-invert prose-slate prose-lg max-w-none font-mono">
-              {post.content ? (
-                <>{post.content}</>
-              ) : (
-                <>
-                  <p className="text-xl text-foreground/80 leading-relaxed font-medium">
-                    This is a detailed insight into {title.toLowerCase()}. As a Computer Engineering student and founder, 
-                    bridging the gap between scalable systems and intelligent automation is at the core of my research.
-                  </p>
-                  
-                  <div className="my-16 aspect-video glass rounded-md border border-theme flex flex-col items-center justify-center text-muted-2 font-bold italic relative overflow-hidden group">
-                     <div className="absolute inset-0 subtle-grid opacity-20" />
-                     <span className="relative z-10 uppercase tracking-[0.3em] text-[10px]">[ Architectural Schema // Uplink Data ]</span>
-                     <div className="absolute top-0 left-0 w-1 h-12 bg-primary/40" />
-                     <div className="absolute top-0 left-0 w-12 h-1 bg-primary/40" />
-                  </div>
-
-                  <h2 className="text-2xl font-bold text-foreground mt-20 mb-8 uppercase tracking-tight">Architectural Vision</h2>
-                  <p className="text-muted leading-relaxed mb-10">
-                    The integration of complex software systems with autonomous intelligence requires a fundamental shift in how we approach scalability. 
-                    Our research indicates that the future of distributed systems lies in self-stabilizing networks that prioritize consistency and user-centric design.
-                  </p>
-
-                  <blockquote className="my-16 pl-8 border-l-2 border-primary text-2xl font-bold text-foreground italic bg-primary/5 py-8 pr-8 rounded-r-md">
-                    &quot;Intelligence is not just about complexity, but about the seamless integration of systems that solve real-world problems.&quot;
-                  </blockquote>
-
-                  <p className="text-muted leading-relaxed">
-                    By leveraging modern architectural patterns and robust automation frameworks, we can eliminate manual bottlenecks and enable systems to operate at enterprise scale without compromising security or performance.
-                  </p>
-                </>
-              )}
+              {post.content}
             </div>
           </div>
         </div>
       </div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: post.title,
+            image: [
+              `https://gauravnawale.in${post.image || "/gauravnawale.png"}`,
+            ],
+            datePublished: post.date,
+            author: [
+              {
+                "@type": "Person",
+                name: "Gaurav Raju Nawale",
+                url: "https://gauravnawale.in",
+              },
+            ],
+            publisher: {
+              "@type": "Organization",
+              name: "Gaurav Raju Nawale",
+              logo: {
+                "@type": "ImageObject",
+                url: "https://gauravnawale.in/gauravnawale.png",
+              },
+            },
+            description: post.excerpt,
+          }),
+        }}
+      />
     </main>
   );
 }

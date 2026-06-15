@@ -14,6 +14,123 @@ export interface Post {
 
 export const posts: Post[] = [
   {
+    title: "College Ambassador — Techfest, IIT Bombay",
+    excerpt: "Delighted to officially continue my journey with Techfest, IIT Bombay, as a College Ambassador for the upcoming edition of Asia's largest science and technology festival.",
+    date: "JUN 15, 2026",
+    readTime: "3 MIN READ",
+    category: "ENGINEERING",
+    slug: "techfest-iit-bombay-ambassador",
+    image: "/post/techfest/techfest_ambassador_banner.jpg",
+    content: (
+      <>
+        <div className="my-12 w-full rounded-xl overflow-hidden border border-theme">
+          <Image 
+            src="/post/techfest/techfest_ambassador_banner.jpg" 
+            alt="Techfest IIT Bombay College Ambassador"
+            width={0}
+            height={0}
+            sizes="100vw"
+            style={{ width: '100%', height: 'auto' }}
+            className="object-contain" 
+          />
+        </div>
+        
+        <p className="text-xl text-foreground/80 leading-relaxed font-medium mb-6">
+          Officially Continue My Journey with Techfest, IIT Bombay!
+        </p>
+
+        <p className="text-muted leading-relaxed mb-6">
+          I am delighted to share that I have officially received my College Ambassador Offer Letter from Techfest, IIT Bombay for the upcoming edition of the festival.
+        </p>
+
+        <p className="text-muted leading-relaxed mb-6">
+          Being associated with Techfest has been an incredible learning experience. The journey has provided opportunities to interact with students from across the country, develop leadership and communication skills, participate in impactful initiatives, and contribute to one of the most prestigious student-driven technology festivals in the world.
+        </p>
+
+        <blockquote className="my-12 pl-8 border-l-2 border-primary text-xl font-bold text-foreground italic bg-primary/5 py-8 pr-8 rounded-r-md">
+          &quot;Receiving this offer letter is not just a recognition of past efforts but also a motivation to continue promoting innovation, technology, entrepreneurship, and student engagement within my campus and beyond.&quot;
+        </blockquote>
+
+        <p className="text-muted leading-relaxed mb-6">
+          I would like to express my sincere gratitude to the entire Techfest team for their trust and support. I am excited to continue this journey and make a meaningful impact as a representative of this incredible platform.
+        </p>
+
+        {/* Team Mention Section */}
+        <div className="my-10 p-6 bg-surface/30 border border-theme rounded-xl">
+          <h4 className="font-mono text-xs text-secondary uppercase tracking-[0.2em] mb-4">◈ Techfest Team Acknowledgments</h4>
+          <ul className="space-y-3 font-mono text-sm text-muted">
+            <li className="flex items-start gap-2">
+              <span className="text-primary">▪</span>
+              <span><strong>Prince Bhati</strong> – Media &amp; Publicity Manager, Techfest IIT Bombay</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-primary">▪</span>
+              <span><strong>Prakhar Gupta</strong> – Media &amp; Publicity Manager, Techfest IIT Bombay</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-primary">▪</span>
+              <span><strong>Siddhi Jain</strong> – Events Manager, Techfest IIT Bombay</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-primary">▪</span>
+              <span><strong>Avichal Rajpoot</strong> – Event Head, Techfest IIT Bombay</span>
+            </li>
+          </ul>
+          <p className="text-xs text-muted-2 mt-4 italic">
+            Their dedication and vision continue to make Techfest a platform where students can learn, lead, innovate, and grow beyond the classroom.
+          </p>
+        </div>
+
+        {/* Offer Letter & Dashboard Showcase */}
+        <div className="my-12">
+          <h3 className="text-lg font-bold text-foreground mb-6 font-mono">◈ Official Verification &amp; Dashboard</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="relative aspect-[3/4] w-full rounded-lg overflow-hidden border border-theme bg-surface/50">
+              <Image 
+                src="/post/techfest/techfest_offer_letter.png" 
+                alt="Techfest IIT Bombay Offer Letter" 
+                fill 
+                className="object-contain p-2" 
+              />
+            </div>
+            <div className="relative aspect-[3/4] w-full rounded-lg overflow-hidden border border-theme bg-surface/50">
+              <Image 
+                src="/post/techfest/techfest_dashboard.png" 
+                alt="Techfest Ambassador Dashboard" 
+                fill 
+                className="object-contain" 
+              />
+            </div>
+          </div>
+        </div>
+
+        <p className="text-muted leading-relaxed mb-6">
+          Proud to represent Indira College of Engineering and Management (ICEM), Pune as a College Ambassador for Techfest, IIT Bombay. 🚀
+        </p>
+
+        <p className="text-foreground font-bold mb-8">
+          Looking forward to another year of learning, leadership, innovation, and growth.
+        </p>
+
+        <div className="mb-12 p-6 bg-surface/50 border border-theme rounded-xl">
+          <h3 className="text-lg font-bold text-foreground mb-3 font-mono">🔗 LinkedIn Post Reference:</h3>
+          <a href="https://www.linkedin.com/feed/update/urn:li:activity:7470875695355940864/" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-secondary transition-colors underline break-all">
+            View LinkedIn Post &amp; Community Discussion
+          </a>
+        </div>
+
+        <div className="border-t border-theme pt-8 mt-12">
+          <div className="flex flex-col gap-1 font-mono text-sm text-muted-2">
+            <span className="text-foreground font-bold">— Gaurav Raju Nawale</span>
+            <span>College Ambassador, Techfest IIT Bombay</span>
+            <span>Student Developer &amp; Entrepreneur</span>
+            <a href="http://www.gauravnawale.in" className="text-primary hover:underline mt-2">🌐 www.gauravnawale.in</a>
+          </div>
+        </div>
+      </>
+    )
+  },
+  {
     title: "Helping Engineering Students Prepare for GATE More Effectively",
     excerpt: "Preparing for GATE is not just about studying hard—it's about studying smart, staying consistent, and following the right roadmap.",
     date: "JUN 03, 2026",

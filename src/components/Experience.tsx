@@ -102,6 +102,24 @@ const experience = [
   },
   {
     index: "05",
+    title: "College Ambassador",
+    shortTitle: "College Ambassador",
+    company: "Techfest IIT Bombay",
+    period: "May 2026 – Present",
+    status: "active",
+    bullets: [
+      "Appointed as College Ambassador for Asia's Largest Science and Technology Festival.",
+      "Achieved a ranking of 35th All India in the Campus Ambassador leadership program.",
+      "Leading technical engagement, workshops, and promoting entrepreneurship and innovation.",
+    ],
+    tech: ["LEADERSHIP", "NETWORKING", "IIT BOMBAY", "COMMUNITY"],
+    icon: <Star size={14} />,
+    accentFrom: "var(--accent)",
+    accentTo: "var(--secondary)",
+    links: [],
+  },
+  {
+    index: "06",
     title: "Technical Secretary",
     shortTitle: "Technical Secretary",
     company: "Student Council – ICEM Pune",
@@ -119,10 +137,10 @@ const experience = [
     links: [],
   },
   {
-    index: "06",
+    index: "07",
     title: "Campus Ambassador",
     shortTitle: "Campus Ambassador",
-    company: "Techfest IIT Bombay",
+    company: "Techfest IIT Bombay (Previous)",
     period: "Jul 2025 – Dec 2025",
     status: "ended",
     bullets: [

@@ -14,6 +14,62 @@ export interface Post {
 
 export const posts: Post[] = [
   {
+    title: "Google Student Ambassadors Welcome Kit 2026",
+    excerpt: "Excited to receive the Google Student Ambassadors (GSA) Welcome Kit for 2026! A proud moment to be part of the Team Gemini.",
+    date: "JUN 20, 2026",
+    readTime: "2 MIN READ",
+    category: "COMMUNITY",
+    slug: "google-student-ambassador-welcome-kit-2026",
+    image: "/post/gsa_welcome_kit.jpg",
+    content: (
+      <>
+        <div className="my-12 w-full rounded-xl overflow-hidden border border-theme">
+          <Image 
+            src="/post/gsa_welcome_kit.jpg" 
+            alt="Google Student Ambassadors Welcome Kit 2026"
+            width={0}
+            height={0}
+            sizes="100vw"
+            style={{ width: '100%', height: 'auto' }}
+            className="object-contain" 
+          />
+        </div>
+        
+        <p className="text-xl text-foreground/80 leading-relaxed font-medium mb-6">
+          Thrilled to receive the official Google Student Ambassadors Welcome Kit!
+        </p>
+
+        <p className="text-muted leading-relaxed mb-6">
+          Being part of the Google Student Ambassadors program for 2026 and representing Team Gemini is an incredible opportunity. It's a proud moment to contribute to this vibrant community, learn about cutting-edge AI technologies, and share them with the student developer ecosystem.
+        </p>
+
+        <blockquote className="my-12 pl-8 border-l-2 border-primary text-xl font-bold text-foreground italic bg-primary/5 py-8 pr-8 rounded-r-md">
+          &quot;Community building and continuous learning are at the heart of technological advancement.&quot;
+        </blockquote>
+
+        <p className="text-muted leading-relaxed mb-8">
+          Looking forward to the amazing journey ahead with the GSA program, collaborating with talented peers, and driving innovation!
+        </p>
+
+        <div className="mb-12 p-6 bg-surface/50 border border-theme rounded-xl">
+          <h3 className="text-lg font-bold text-foreground mb-3 font-mono">🔗 LinkedIn Post Reference:</h3>
+          <a href="https://www.linkedin.com/posts/nawalegaurav26_teamgemini-googlestudentambassador-gsa2026-share-7473988400589750272-dqxr" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-secondary transition-colors underline break-all">
+            View LinkedIn Post &amp; Community Discussion
+          </a>
+        </div>
+
+        <div className="border-t border-theme pt-8 mt-12">
+          <div className="flex flex-col gap-1 font-mono text-sm text-muted-2">
+            <span className="text-foreground font-bold">— Gaurav Raju Nawale</span>
+            <span>Google Student Ambassador 2026</span>
+            <span>Student Developer &amp; Entrepreneur</span>
+            <a href="http://www.gauravnawale.in" className="text-primary hover:underline mt-2">🌐 www.gauravnawale.in</a>
+          </div>
+        </div>
+      </>
+    )
+  },
+  {
     title: "College Ambassador — Techfest, IIT Bombay",
     excerpt: "Delighted to officially continue my journey with Techfest, IIT Bombay, as a College Ambassador for the upcoming edition of Asia's largest science and technology festival.",
     date: "JUN 15, 2026",

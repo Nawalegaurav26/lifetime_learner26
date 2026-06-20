@@ -38,8 +38,8 @@ export const viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://gauravnawale.in"),
   title: {
-    template: "%s | Gaurav Raju Nawale",
-    default: "Gaurav Raju Nawale | Lifetime Learner, System Architect & CertiOwn Founder",
+    template: "%s | Gaurav Nawale",
+    default: "Gaurav Nawale | Lifetime Learner, System Architect & CertiOwn Founder",
   },
   icons: {
     icon: "/favicon.png",
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://gauravnawale.in",
-    title: "Gaurav Raju Nawale | Lifetime Learner, System Architect & CertiOwn Founder",
+    title: "Gaurav Nawale | Lifetime Learner, System Architect & CertiOwn Founder",
     description: "Explorer of Intelligence. Builder of Systems. Founder of CertiOwn. Lifetime Learner.",
     siteName: "Gaurav Raju Nawale Portfolio",
     images: [
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Gaurav Raju Nawale | Lifetime Learner, System Architect & CertiOwn Founder",
+    title: "Gaurav Nawale | Lifetime Learner, System Architect & CertiOwn Founder",
     description: "Explorer of Intelligence. Builder of Systems. Founder of CertiOwn. Lifetime Learner.",
     images: ["/gauravnawale.png"],
   },

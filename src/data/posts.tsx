@@ -40,7 +40,7 @@ export const posts: Post[] = [
         </p>
 
         <p className="text-muted leading-relaxed mb-6">
-          Being part of the Google Student Ambassadors program for 2026 and representing Team Gemini is an incredible opportunity. It's a proud moment to contribute to this vibrant community, learn about cutting-edge AI technologies, and share them with the student developer ecosystem.
+          Being part of the Google Student Ambassadors program for 2026 and representing Team Gemini is an incredible opportunity. It&apos;s a proud moment to contribute to this vibrant community, learn about cutting-edge AI technologies, and share them with the student developer ecosystem.
         </p>
 
         <blockquote className="my-12 pl-8 border-l-2 border-primary text-xl font-bold text-foreground italic bg-primary/5 py-8 pr-8 rounded-r-md">
@@ -63,7 +63,7 @@ export const posts: Post[] = [
             <span className="text-foreground font-bold">— Gaurav Raju Nawale</span>
             <span>Google Student Ambassador 2026</span>
             <span>Student Developer &amp; Entrepreneur</span>
-            <a href="http://www.gauravnawale.in" className="text-primary hover:underline mt-2">🌐 www.gauravnawale.in</a>
+            <a href="https://www.gauravnawale.in" className="text-primary hover:underline mt-2">🌐 www.gauravnawale.in</a>
           </div>
         </div>
       </>
@@ -180,7 +180,7 @@ export const posts: Post[] = [
             <span className="text-foreground font-bold">— Gaurav Raju Nawale</span>
             <span>College Ambassador, Techfest IIT Bombay</span>
             <span>Student Developer &amp; Entrepreneur</span>
-            <a href="http://www.gauravnawale.in" className="text-primary hover:underline mt-2">🌐 www.gauravnawale.in</a>
+            <a href="https://www.gauravnawale.in" className="text-primary hover:underline mt-2">🌐 www.gauravnawale.in</a>
           </div>
         </div>
       </>
@@ -250,7 +250,7 @@ export const posts: Post[] = [
             <span>GeeksforGeeks Campus Mantri</span>
             <span>Founder, CertiOwn</span>
             <span>Student Developer &amp; Entrepreneur</span>
-            <a href="http://www.gauravnawale.in" className="text-primary hover:underline mt-2">🌐 www.gauravnawale.in</a>
+            <a href="https://www.gauravnawale.in" className="text-primary hover:underline mt-2">🌐 www.gauravnawale.in</a>
           </div>
         </div>
       </>
@@ -306,7 +306,7 @@ export const posts: Post[] = [
             <span className="text-foreground font-bold">— Gaurav Raju Nawale</span>
             <span>Founder, CertiOwn</span>
             <span>Student Developer &amp; Entrepreneur</span>
-            <a href="http://www.gauravnawale.in" className="text-primary hover:underline mt-2">🌐 www.gauravnawale.in</a>
+            <a href="https://www.gauravnawale.in" className="text-primary hover:underline mt-2">🌐 www.gauravnawale.in</a>
           </div>
         </div>
       </>
@@ -374,7 +374,7 @@ export const posts: Post[] = [
             <span className="text-foreground font-bold">— Gaurav Raju Nawale</span>
             <span>Founder, CertiOwn</span>
             <span>Student Developer &amp; Entrepreneur</span>
-            <a href="http://www.gauravnawale.in" className="text-primary hover:underline mt-2">🌐 www.gauravnawale.in</a>
+            <a href="https://www.gauravnawale.in" className="text-primary hover:underline mt-2">🌐 www.gauravnawale.in</a>
           </div>
         </div>
       </>
@@ -430,7 +430,7 @@ export const posts: Post[] = [
             <span className="text-foreground font-bold">— Gaurav Raju Nawale</span>
             <span>Founder, CertiOwn</span>
             <span>Student Developer &amp; Entrepreneur</span>
-            <a href="http://www.gauravnawale.in" className="text-primary hover:underline mt-2">🌐 www.gauravnawale.in</a>
+            <a href="https://www.gauravnawale.in" className="text-primary hover:underline mt-2">🌐 www.gauravnawale.in</a>
           </div>
         </div>
       </>
@@ -517,7 +517,7 @@ export const posts: Post[] = [
             <span className="text-foreground font-bold">— Gaurav Raju Nawale</span>
             <span>Founder, CertiOwn</span>
             <span>Student Developer &amp; Entrepreneur</span>
-            <a href="http://www.gauravnawale.in" className="text-primary hover:underline mt-2">🌐 www.gauravnawale.in</a>
+            <a href="https://www.gauravnawale.in" className="text-primary hover:underline mt-2">🌐 www.gauravnawale.in</a>
           </div>
         </div>
       </>

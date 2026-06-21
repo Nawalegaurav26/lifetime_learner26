@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "About | Gaurav Raju Nawale",
     description: "Deep dive into the background, philosophy, and technical focus of Gaurav Raju Nawale — Lifetime Learner & CertiOwn Founder.",
-    url: "https://gauravnawale.in/about",
+    url: "https://www.gauravnawale.in/about",
     type: "website",
     images: [
       {

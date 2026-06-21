@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Experience & Tech Stack | Gaurav Raju Nawale",
     description: "Overview of professional achievements and the core technologies used to build scalable systems.",
-    url: "https://gauravnawale.in/experience",
+    url: "https://www.gauravnawale.in/experience",
     type: "website",
     images: [
       {

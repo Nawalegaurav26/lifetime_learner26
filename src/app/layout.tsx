@@ -36,7 +36,7 @@ export const viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://gauravnawale.in"),
+  metadataBase: new URL("https://www.gauravnawale.in"),
   title: {
     template: "%s | Gaurav Nawale",
     default: "Gaurav Nawale | Lifetime Learner, System Architect & CertiOwn Founder",
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://gauravnawale.in",
+    url: "https://www.gauravnawale.in",
     title: "Gaurav Nawale | Lifetime Learner, System Architect & CertiOwn Founder",
     description: "Explorer of Intelligence. Builder of Systems. Founder of CertiOwn. Lifetime Learner.",
     siteName: "Gaurav Raju Nawale Portfolio",
@@ -79,7 +79,7 @@ export const metadata: Metadata = {
     images: ["/gauravnawale.png"],
   },
   alternates: {
-    canonical: "https://gauravnawale.in",
+    canonical: "https://www.gauravnawale.in",
   },
   robots: {
     index: true,
@@ -175,8 +175,8 @@ export default function RootLayout({
       "GRN Systems",
       "GRN Architect"
     ],
-    "url": "https://gauravnawale.in",
-    "image": "https://gauravnawale.in/profile.jpg",
+    "url": "https://www.gauravnawale.in",
+    "image": "https://www.gauravnawale.in/profile.jpg",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Pune",
@@ -222,7 +222,7 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Gaurav Raju Nawale Portfolio",
-    "url": "https://gauravnawale.in",
+    "url": "https://www.gauravnawale.in",
     "author": {
       "@type": "Person",
       "name": "Gaurav Raju Nawale"

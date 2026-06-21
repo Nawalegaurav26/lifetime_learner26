@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "SDETM ICEM Case Study | Gaurav Raju Nawale",
     description: "Detailed walkthrough of the digital infrastructure, SEO optimization, and responsive design for the SDETM ICEM portal.",
-    url: "https://gauravnawale.in/projects/sdetm",
+    url: "https://www.gauravnawale.in/projects/sdetm",
     type: "website",
     images: [
       {

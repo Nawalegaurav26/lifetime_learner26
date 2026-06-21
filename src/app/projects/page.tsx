@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Projects Dossier | Gaurav Raju Nawale",
     description: "A showcase of high-performance systems and SaaS solutions built with precision.",
-    url: "https://gauravnawale.in/projects",
+    url: "https://www.gauravnawale.in/projects",
     type: "website",
     images: [
       {

@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 import { posts } from '@/data/posts'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://gauravnawale.in'
+  const baseUrl = 'https://www.gauravnawale.in'
 
   return [
     {
@@ -15,7 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/about`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
-      priority: 0.8,
+      priority: 0.9,
     },
     {
       url: `${baseUrl}/projects`,
@@ -39,7 +39,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/experience`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
-      priority: 0.7,
+      priority: 1,
     },
     {
       url: `${baseUrl}/posts`,

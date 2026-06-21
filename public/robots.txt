@@ -62,4 +62,4 @@ User-Agent: *
 Allow: /
 Disallow: /private/
 
-Sitemap: https://gauravnawale.in/sitemap.xml
+Sitemap: https://www.gauravnawale.in/sitemap.xml

@@ -17,20 +17,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const { title, excerpt: description, category, date } = post;
   const imagePath = post.image || "/gauravnawale.png";
-  const imageUrl = `https://gauravnawale.in${imagePath}`;
+  const imageUrl = `https://www.gauravnawale.in${imagePath}`;
 
   return {
     title: `${title} | Gaurav Raju Nawale`,
     description: description,
     keywords: [title, category, "Gaurav Raju Nawale", "Techfest IIT Bombay", "SaaS Architecture", "Automation"],
-    authors: [{ name: "Gaurav Raju Nawale", url: "https://gauravnawale.in" }],
+    authors: [{ name: "Gaurav Raju Nawale", url: "https://www.gauravnawale.in" }],
     alternates: {
-      canonical: `https://gauravnawale.in/posts/${slug}`,
+      canonical: `https://www.gauravnawale.in/posts/${slug}`,
     },
     openGraph: {
       title: `${title} | Gaurav Raju Nawale`,
       description: description,
-      url: `https://gauravnawale.in/posts/${slug}`,
+      url: `https://www.gauravnawale.in/posts/${slug}`,
       siteName: "Gaurav Raju Nawale Portfolio",
       type: "article",
       publishedTime: date,
@@ -105,14 +105,14 @@ export default async function PostDetail({ params }: Props) {
             "@type": "Article",
             headline: post.title,
             image: [
-              `https://gauravnawale.in${post.image || "/gauravnawale.png"}`,
+              `https://www.gauravnawale.in${post.image || "/gauravnawale.png"}`,
             ],
             datePublished: post.date,
             author: [
               {
                 "@type": "Person",
                 name: "Gaurav Raju Nawale",
-                url: "https://gauravnawale.in",
+                url: "https://www.gauravnawale.in",
               },
             ],
             publisher: {
@@ -120,7 +120,7 @@ export default async function PostDetail({ params }: Props) {
               name: "Gaurav Raju Nawale",
               logo: {
                 "@type": "ImageObject",
-                url: "https://gauravnawale.in/gauravnawale.png",
+                url: "https://www.gauravnawale.in/gauravnawale.png",
               },
             },
             description: post.excerpt,

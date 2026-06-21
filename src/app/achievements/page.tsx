@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     title: "Recognitions | Gaurav Raju Nawale",
     description:
       "Institutional recognitions and engineering milestones from SPPU and ICEM — verified archive.",
-    url: "https://gauravnawale.in/achievements",
+    url: "https://www.gauravnawale.in/achievements",
     images: [
       {
         url: "/gauravnawale.png",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     images: ["/gauravnawale.png"],
   },
   alternates: {
-    canonical: "https://gauravnawale.in/achievements",
+    canonical: "https://www.gauravnawale.in/achievements",
   },
 };
 

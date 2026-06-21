@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "UBA ICEM Case Study | Gaurav Raju Nawale",
     description: "Detailed walkthrough of the institutional digital infrastructure, village management, and interactive maps for the UBA ICEM portal.",
-    url: "https://gauravnawale.in/projects/uba",
+    url: "https://www.gauravnawale.in/projects/uba",
     type: "website",
     images: [
       {

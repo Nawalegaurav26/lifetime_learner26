@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://gauravnawale.in/sitemap.xml',
+    sitemap: 'https://www.gauravnawale.in/sitemap.xml',
   }
 }

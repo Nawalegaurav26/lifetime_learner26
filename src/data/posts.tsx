@@ -14,6 +14,177 @@ export interface Post {
 
 export const posts: Post[] = [
   {
+    title: "June Highlights — Google Student Ambassador 2026",
+    excerpt: "This month has been an incredible journey of learning, creating, leading, and building communities around AI as a Google Student Ambassador representing ICEM Pune.",
+    date: "JUN 25, 2026",
+    readTime: "3 MIN READ",
+    category: "COMMUNITY",
+    slug: "june-highlights-google-student-ambassador-2026",
+    image: "/post/june_highlights/image2.jpg",
+    content: (
+      <>
+        <div className="my-12 w-full rounded-xl overflow-hidden border border-theme">
+          <Image 
+            src="/post/june_highlights/image2.jpg" 
+            alt="June Highlights — Google Student Ambassador 2026 Overview"
+            width={0}
+            height={0}
+            sizes="100vw"
+            style={{ width: '100%', height: 'auto' }}
+            className="object-contain" 
+          />
+        </div>
+        
+        <p className="text-xl text-foreground/80 leading-relaxed font-medium mb-6">
+          Proudly representing Indira College of Engineering and Management, Pune as a Google Student Ambassador and working towards building a stronger AI-driven student community on campus.
+        </p>
+
+        <p className="text-muted leading-relaxed mb-6">
+          June 2026 has been an incredible journey of learning, creating, leading, and building communities around artificial intelligence. As a Google Student Ambassador, my goal has been to bridge the gap between complex AI technologies and student developers, making tools like Gemini accessible and exciting for everyone on campus.
+        </p>
+
+        <blockquote className="my-12 pl-8 border-l-2 border-primary text-xl font-bold text-foreground italic bg-primary/5 py-8 pr-8 rounded-r-md">
+          &quot;Being a Google Student Ambassador is more than representing a program—it&apos;s about creating opportunities, empowering students, and building communities that learn and grow together.&quot;
+        </blockquote>
+
+        {/* Section 1: Welcome Kit */}
+        <h3 className="text-2xl font-bold text-foreground mb-4 font-mono flex items-center gap-2">
+          <span>📦</span> Official Welcome Onboard
+        </h3>
+        <p className="text-muted leading-relaxed mb-6">
+          To kick off this journey, I received the official Google Student Ambassador Welcome Kit! Unboxing the official GSA t-shirt, cap, stickers, and onboarding letter was a moment of pride and excitement, cementing my commitment to leading Team Gemini on campus.
+        </p>
+        
+        <div className="my-8 w-full max-w-xl mx-auto rounded-xl overflow-hidden border border-theme">
+          <Image 
+            src="/post/june_highlights/image3.jpg" 
+            alt="Google Student Ambassador 2026 Welcome Kit"
+            width={0}
+            height={0}
+            sizes="100vw"
+            style={{ width: '100%', height: 'auto' }}
+            className="object-contain" 
+          />
+        </div>
+
+        {/* Section 2: Creative Challenges & Campus Activities */}
+        <h3 className="text-2xl font-bold text-foreground mt-12 mb-4 font-mono flex items-center gap-2">
+          <span>🎨</span> Creative Challenges &amp; Campus Initiatives
+        </h3>
+        <p className="text-muted leading-relaxed mb-6">
+          Community growth comes from active participation. This month, I had the opportunity to dive deep into creative AI tools and introduce them to my peers through engaging initiatives:
+        </p>
+
+        <ul className="space-y-4 mb-8 pl-6 list-disc text-muted">
+          <li>
+            <strong>Creative Joy Challenge:</strong> Explored the creative boundaries of Google Gemini to design innovative, AI-driven solutions and storytelling models.
+          </li>
+          <li>
+            <strong>Product Trials — Pitch Yourself as a Product:</strong> Organized campus workshops to help students pitch their skillsets with the structure of a product roadmap, aligning human talent with modern technological design.
+          </li>
+          <li>
+            <strong>AI-Powered Community Activities:</strong> Ran hands-on sessions introducing students to Google Gemini, Nano Banana, Veo, and Google Docs integrations.
+          </li>
+        </ul>
+
+        {/* Section 3: Campus Anthem Battle */}
+        <div className="my-12 p-6 md:p-8 bg-surface/30 border border-theme rounded-2xl">
+          <h3 className="text-2xl font-bold text-foreground mb-4 font-mono flex items-center gap-2">
+            <span>🎤</span> Campus Anthem Battle: Music Night with Lyria
+          </h3>
+          <p className="text-muted leading-relaxed mb-6">
+            One of the most exciting highlights was organizing the <strong>Campus Anthem Battle</strong> under the theme <em>&quot;Make Your Album: Build It. Band It. Become a Legend.&quot;</em> This event challenged student teams to turn their unique campus stories, humors, and struggles into soundtracks.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+            <div className="text-muted text-sm space-y-3 font-mono">
+              <p className="text-foreground font-semibold">How It Works:</p>
+              <ol className="list-decimal pl-5 space-y-2">
+                <li>Form a band of 1-3 students.</li>
+                <li>Open Nano Banana to generate a creative band poster.</li>
+                <li>Open Google Lyria and write a short brief to generate a custom anthem.</li>
+                <li>Pitch the band and play the track in 60 seconds.</li>
+                <li>Audience votes: <em>&quot;This Slaps&quot;</em> vs. <em>&quot;This Flops&quot;</em>!</li>
+              </ol>
+              <div className="p-4 bg-primary/5 border border-primary/20 rounded-lg mt-4">
+                <span className="text-secondary font-bold">💡 AI Stack:</span> Gemini, Nano Banana, and Lyria.
+              </div>
+            </div>
+            <div className="w-full rounded-xl overflow-hidden border border-theme">
+              <Image 
+                src="/post/june_highlights/image4.jpg" 
+                alt="Campus Anthem Battle Event Flyer"
+                width={0}
+                height={0}
+                sizes="100vw"
+                style={{ width: '100%', height: 'auto' }}
+                className="object-contain" 
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Section 4: AI Explorations & Community Connections */}
+        <h3 className="text-2xl font-bold text-foreground mt-12 mb-4 font-mono flex items-center gap-2">
+          <span>🌍</span> Community Connections &amp; Workshops
+        </h3>
+        <p className="text-muted leading-relaxed mb-6">
+          Leading others requires continuous self-improvement. Throughout June, I attended several leadership, content creation, and community-building workshops to refine my skills. Moreover, connecting with fellow Google Student Ambassadors across Maharashtra and India created a collaborative learning environment where we shared event strategies and student success stories.
+        </p>
+
+        {/* Section 5: Official GSA Credentials */}
+        <div className="my-12 p-6 bg-surface/50 border border-theme rounded-xl">
+          <h3 className="text-lg font-bold text-foreground mb-4 font-mono">🆔 Google Student Ambassador ID Card</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+            <div>
+              <p className="text-muted leading-relaxed mb-4">
+                Official registration card for the program, designating placement within <strong>#TeamGemini</strong> as a student leader at ICEM Pune.
+              </p>
+              <ul className="space-y-2 font-mono text-sm text-muted">
+                <li><strong className="text-foreground">Name:</strong> Gaurav Raju Nawale</li>
+                <li><strong className="text-foreground">GID:</strong> 7979</li>
+                <li><strong className="text-foreground">Region:</strong> India (Maharashtra)</li>
+                <li><strong className="text-foreground">Core pillars:</strong> Learn, Connect, Create, Impact</li>
+              </ul>
+            </div>
+            <div className="w-full max-w-xs mx-auto rounded-xl overflow-hidden border border-theme">
+              <Image 
+                src="/post/june_highlights/image1.jpg" 
+                alt="Gaurav Nawale GSA Card GID: 7979"
+                width={0}
+                height={0}
+                sizes="100vw"
+                style={{ width: '100%', height: 'auto' }}
+                className="object-contain" 
+              />
+            </div>
+          </div>
+        </div>
+
+        <p className="text-muted leading-relaxed mb-8">
+          The journey is just beginning. With more workshops, events, and AI hackathons planned for the upcoming semesters, I am excited to collaborate with the student body, push technological boundaries, and make ICEM Pune a hub for next-generation AI innovation! ✨
+        </p>
+
+        {/* LinkedIn Reference */}
+        <div className="mb-12 p-6 bg-surface/50 border border-theme rounded-xl">
+          <h3 className="text-lg font-bold text-foreground mb-3 font-mono">🔗 LinkedIn Post Reference:</h3>
+          <a href="https://www.linkedin.com/posts/nawalegaurav26_junehighlights-googlestudentambassador-activity-7475578345540460546-uYcx" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-secondary transition-colors underline break-all">
+            View LinkedIn Post &amp; Community Discussion
+          </a>
+        </div>
+
+        <div className="border-t border-theme pt-8 mt-12">
+          <div className="flex flex-col gap-1 font-mono text-sm text-muted-2">
+            <span className="text-foreground font-bold">— Gaurav Raju Nawale</span>
+            <span>Google Student Ambassador 2026</span>
+            <span>Student Developer &amp; Entrepreneur</span>
+            <a href="https://www.gauravnawale.in" className="text-primary hover:underline mt-2">🌐 www.gauravnawale.in</a>
+          </div>
+        </div>
+      </>
+    )
+  },
+  {
     title: "Google Student Ambassadors Welcome Kit 2026",
     excerpt: "Excited to receive the Google Student Ambassadors (GSA) Welcome Kit for 2026! A proud moment to be part of the Team Gemini.",
     date: "JUN 20, 2026",

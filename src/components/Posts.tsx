@@ -70,6 +70,9 @@ export default function Posts() {
           ) : (
             posts.map((post, index) => {
               const colors = CATEGORY_COLORS[post.category] ?? CATEGORY_COLORS.ENGINEERING;
+              const postUrl = post.slug === "gsa_june_highlight"
+                ? "/gsa_june_highlight"
+                : `/posts/${post.slug}`;
               return (
                 <motion.article
                   key={post.slug}
@@ -90,7 +93,7 @@ export default function Posts() {
                     </div>
                   </div>
                   <div className="flex-grow">
-                    <Link href={`/posts/${post.slug}`} className="block">
+                    <Link href={postUrl} className="block">
                       <h3 className={`text-lg md:text-xl font-bold text-foreground leading-snug font-mono mb-3 transition-colors ${colors.text}`}>
                         {post.title}
                       </h3>
@@ -98,15 +101,16 @@ export default function Posts() {
                     <p className="text-sm text-muted font-mono leading-relaxed line-clamp-3">{post.excerpt}</p>
                   </div>
                   <div className="mt-8 pt-5 border-t border-theme flex items-center justify-between">
-                    <Link href={`/posts/${post.slug}`} className="flex items-center gap-2 text-[11px] font-black uppercase tracking-widest font-mono transition-colors text-muted hover:text-secondary">
+                    <Link href={postUrl} className="flex items-center gap-2 text-[11px] font-black uppercase tracking-widest font-mono transition-colors text-muted hover:text-secondary">
                       Read Intel <ArrowRight size={13} />
                     </Link>
                     <button
                       onClick={() => {
+                        const absoluteUrl = `https://www.gauravnawale.in${postUrl}`;
                         if (navigator.share) {
-                          navigator.share({ title: post.title, text: post.excerpt, url: `https://www.gauravnawale.in/posts/${post.slug}` });
+                          navigator.share({ title: post.title, text: post.excerpt, url: absoluteUrl });
                         } else {
-                          navigator.clipboard.writeText(`https://www.gauravnawale.in/posts/${post.slug}`);
+                          navigator.clipboard.writeText(absoluteUrl);
                           alert("Link copied to clipboard!");
                         }
                       }}

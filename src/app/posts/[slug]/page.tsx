@@ -19,18 +19,53 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const imagePath = post.image || "/gauravnawale.png";
   const imageUrl = `https://www.gauravnawale.in${imagePath}`;
 
+  const isGsaPost = slug === "gsa_june_highlight";
+  const canonicalUrl = isGsaPost
+    ? "https://www.gauravnawale.in/gsa_june_highlight"
+    : `https://www.gauravnawale.in/posts/${slug}`;
+
+  const customKeywords = isGsaPost
+    ? [
+        "Google Student Ambassador",
+        "GSA 2026",
+        "Team Gemini",
+        "Google AI",
+        "Gemini",
+        "Nano Banana",
+        "Lyria",
+        "Veo",
+        "Student Leadership",
+        "Community Building",
+        "Indira College of Engineering and Management",
+        "ICEM Pune",
+        "Gaurav Raju Nawale",
+        "Savitribai Phule Pune University",
+        "SPPU",
+        "AI Student Community"
+      ]
+    : [title, category, "Gaurav Raju Nawale", "Techfest IIT Bombay", "SaaS Architecture", "Automation"];
+
+  const geoMetadata: Record<string, string> = isGsaPost
+    ? {
+        "geo.region": "IN-MH",
+        "geo.placename": "Pune",
+        "geo.position": "18.5204;73.8567",
+        "ICBM": "18.5204, 73.8567",
+      }
+    : {};
+
   return {
     title: `${title} | Gaurav Raju Nawale`,
     description: description,
-    keywords: [title, category, "Gaurav Raju Nawale", "Techfest IIT Bombay", "SaaS Architecture", "Automation"],
+    keywords: customKeywords,
     authors: [{ name: "Gaurav Raju Nawale", url: "https://www.gauravnawale.in" }],
     alternates: {
-      canonical: `https://www.gauravnawale.in/posts/${slug}`,
+      canonical: canonicalUrl,
     },
     openGraph: {
       title: `${title} | Gaurav Raju Nawale`,
       description: description,
-      url: `https://www.gauravnawale.in/posts/${slug}`,
+      url: canonicalUrl,
       siteName: "Gaurav Raju Nawale Portfolio",
       type: "article",
       publishedTime: date,
@@ -50,6 +85,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: description,
       images: [imageUrl],
     },
+    other: geoMetadata,
   };
 }
 
@@ -104,6 +140,12 @@ export default async function PostDetail({ params }: Props) {
             "@context": "https://schema.org",
             "@type": "Article",
             headline: post.title,
+            mainEntityOfPage: {
+              "@type": "WebPage",
+              "@id": post.slug === "gsa_june_highlight"
+                ? "https://www.gauravnawale.in/gsa_june_highlight"
+                : `https://www.gauravnawale.in/posts/${post.slug}`,
+            },
             image: [
               `https://www.gauravnawale.in${post.image || "/gauravnawale.png"}`,
             ],

@@ -19,7 +19,7 @@ export const posts: Post[] = [
     date: "JUN 25, 2026",
     readTime: "3 MIN READ",
     category: "COMMUNITY",
-    slug: "june-highlights-google-student-ambassador-2026",
+    slug: "gsa_june_highlight",
     image: "/post/june_highlights/image2.jpg",
     content: (
       <>

@@ -20,9 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const imageUrl = `https://www.gauravnawale.in${imagePath}`;
 
   const isGsaPost = slug === "gsa_june_highlight";
-  const canonicalUrl = isGsaPost
-    ? "https://www.gauravnawale.in/gsa_june_highlight"
-    : `https://www.gauravnawale.in/posts/${slug}`;
+  const canonicalUrl = `https://www.gauravnawale.in/posts/${slug}`;
 
   const customKeywords = isGsaPost
     ? [
@@ -142,9 +140,7 @@ export default async function PostDetail({ params }: Props) {
             headline: post.title,
             mainEntityOfPage: {
               "@type": "WebPage",
-              "@id": post.slug === "gsa_june_highlight"
-                ? "https://www.gauravnawale.in/gsa_june_highlight"
-                : `https://www.gauravnawale.in/posts/${post.slug}`,
+              "@id": `https://www.gauravnawale.in/posts/${post.slug}`,
             },
             image: [
               `https://www.gauravnawale.in${post.image || "/gauravnawale.png"}`,

@@ -60,9 +60,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     ...posts.map((post) => ({
-      url: post.slug === "gsa_june_highlight"
-        ? `${baseUrl}/gsa_june_highlight`
-        : `${baseUrl}/posts/${post.slug}`,
+      url: `${baseUrl}/posts/${post.slug}`,
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
       priority: 0.8,

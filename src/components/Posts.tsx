@@ -70,9 +70,7 @@ export default function Posts() {
           ) : (
             posts.map((post, index) => {
               const colors = CATEGORY_COLORS[post.category] ?? CATEGORY_COLORS.ENGINEERING;
-              const postUrl = post.slug === "gsa_june_highlight"
-                ? "/gsa_june_highlight"
-                : `/posts/${post.slug}`;
+              const postUrl = `/posts/${post.slug}`;
               return (
                 <motion.article
                   key={post.slug}

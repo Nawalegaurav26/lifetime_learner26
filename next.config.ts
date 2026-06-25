@@ -1,14 +1,6 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  async rewrites() {
-    return [
-      {
-        source: "/gsa_june_highlight",
-        destination: "/posts/gsa_june_highlight",
-      },
-    ];
-  },
   async headers() {
     return [
       {

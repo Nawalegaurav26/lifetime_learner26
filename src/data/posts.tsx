@@ -14,6 +14,84 @@ export interface Post {
 
 export const posts: Post[] = [
   {
+    title: "Securing Rank 35 at Techfest, IIT Bombay — Ambassador Update",
+    excerpt: "Thrilled to achieve Rank 35 among College Ambassadors for Techfest, IIT Bombay, reaching 1200 points and 57 credits in Asia's largest science and technology festival.",
+    date: "JUN 26, 2026",
+    readTime: "2 MIN READ",
+    category: "COMMUNITY",
+    slug: "techfest-iit-bombay-rank-35",
+    image: "/post/techfest/techfest_rank_35.png",
+    content: (
+      <>
+        <div className="my-12 w-full rounded-xl overflow-hidden border border-theme">
+          <Image 
+            src="/post/techfest/techfest_rank_35.png" 
+            alt="Techfest IIT Bombay College Ambassador Rank 35"
+            width={0}
+            height={0}
+            sizes="100vw"
+            style={{ width: '100%', height: 'auto' }}
+            className="object-contain" 
+          />
+        </div>
+        
+        <p className="text-xl text-foreground/80 leading-relaxed font-medium mb-6">
+          Achieving Rank 35 in the College Ambassador Program for Techfest, IIT Bombay!
+        </p>
+
+        <p className="text-muted leading-relaxed mb-6">
+          I am excited to share a major milestone in my journey as a College Ambassador for <strong>Techfest, IIT Bombay</strong>—Asia&apos;s largest science and technology festival. Through continuous engagement, community building, and driving tech-focused initiatives, I have secured <strong>CA Rank 35</strong> across the ambassador network.
+        </p>
+
+        <p className="text-muted leading-relaxed mb-6">
+          My dashboard currently stands at:
+        </p>
+
+        <div className="my-10 p-6 bg-surface/30 border border-theme rounded-xl">
+          <h4 className="font-mono text-xs text-secondary uppercase tracking-[0.2em] mb-4">◈ Dashboard Metrics</h4>
+          <ul className="space-y-3 font-mono text-sm text-muted">
+            <li className="flex items-start gap-2">
+              <strong className="text-foreground">CA Rank:</strong> <span>35</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <strong className="text-foreground">Total Points:</strong> <span>1200</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <strong className="text-foreground">Credits Earned:</strong> <span>57</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <strong className="text-foreground">CA ID:</strong> <span>CA-052915150550</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <strong className="text-foreground">Next Milestone:</strong> <span>75 points remaining to unlock the Diamond league!</span>
+            </li>
+          </ul>
+        </div>
+
+        <blockquote className="my-12 pl-8 border-l-2 border-primary text-xl font-bold text-foreground italic bg-primary/5 py-8 pr-8 rounded-r-md">
+          &quot;Representing Techfest on campus is not just about points—it is about bridging the gap between student developers and world-class technological platforms.&quot;
+        </blockquote>
+
+        <p className="text-muted leading-relaxed mb-6">
+          As a representative of <strong>Indira College of Engineering and Management (ICEM), Pune</strong>, my objective has been to encourage students to participate in national hackathons, technical workshops, and science exhibitions. Securing a spot in the top 35 rankings is a testament to the enthusiasm and support of our student community.
+        </p>
+
+        <p className="text-muted leading-relaxed mb-8">
+          The journey doesn&apos;t stop here. With the Diamond league milestone within reach, I look forward to introducing more technical events, guest lectures, and hands-on developer workshops on campus!
+        </p>
+
+        <div className="border-t border-theme pt-8 mt-12">
+          <div className="flex flex-col gap-1 font-mono text-sm text-muted-2">
+            <span className="text-foreground font-bold">— Gaurav Raju Nawale</span>
+            <span>College Ambassador, Techfest IIT Bombay</span>
+            <span>Student Developer &amp; Entrepreneur</span>
+            <a href="https://www.gauravnawale.in" className="text-primary hover:underline mt-2">🌐 www.gauravnawale.in</a>
+          </div>
+        </div>
+      </>
+    )
+  },
+  {
     title: "June Highlights — Google Student Ambassador 2026",
     excerpt: "This month has been an incredible journey of learning, creating, leading, and building communities around AI as a Google Student Ambassador representing ICEM Pune.",
     date: "JUN 25, 2026",

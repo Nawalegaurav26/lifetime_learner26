@@ -20,6 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const imageUrl = `https://www.gauravnawale.in${imagePath}`;
 
   const isGsaPost = slug === "gsa_june_highlight";
+  const isTechfestRankPost = slug === "techfest-iit-bombay-rank-35";
   const canonicalUrl = `https://www.gauravnawale.in/posts/${slug}`;
 
   const customKeywords = isGsaPost
@@ -41,6 +42,26 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         "SPPU",
         "AI Student Community"
       ]
+    : isTechfestRankPost
+    ? [
+        "Techfest",
+        "Techfest IIT Bombay",
+        "College Ambassador",
+        "CA Rank 35",
+        "Techfest 2026",
+        "Gaurav Raju Nawale",
+        "Gaurav Nawale",
+        "Indira College of Engineering and Management",
+        "ICEM Pune",
+        "Asia's Largest Science and Technology Festival",
+        "Savitribai Phule Pune University",
+        "SPPU",
+        "Student Ambassador Leaderboard",
+        "Techfest CA ID CA-052915150550",
+        "Techfest Ambassador Ranking",
+        "Techfest Leaderboard",
+        "IIT Bombay Campus Ambassador Rank"
+      ]
     : [title, category, "Gaurav Raju Nawale", "Techfest IIT Bombay", "SaaS Architecture", "Automation"];
 
   const geoMetadata: Record<string, string> = isGsaPost
@@ -49,6 +70,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         "geo.placename": "Pune",
         "geo.position": "18.5204;73.8567",
         "ICBM": "18.5204, 73.8567",
+      }
+    : isTechfestRankPost
+    ? {
+        "geo.region": "IN-MH",
+        "geo.placename": "Mumbai",
+        "geo.position": "19.1334;72.9156",
+        "ICBM": "19.1334, 72.9156",
       }
     : {};
 

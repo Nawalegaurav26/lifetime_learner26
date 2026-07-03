@@ -14,6 +14,134 @@ export interface Post {
 
 export const posts: Post[] = [
   {
+    title: "Bronze Kit – The Explorer | Google Student Ambassador Achievement",
+    excerpt: "From organizing AI events on campus to receiving the Bronze Kit – The Explorer from the Google Student Ambassador Program. Proud to represent #TeamGemini as a Google Student Ambassador (GID: 7979).",
+    date: "JUL 3, 2026",
+    readTime: "3 MIN READ",
+    category: "ACHIEVEMENT",
+    slug: "google-student-ambassador-bronze-kit-explorer",
+    image: "/post/bronze_kit/bronze_kit_1.png",
+    content: (
+      <>
+        {/* Hero Image */}
+        <div className="my-12 w-full rounded-xl overflow-hidden border border-theme">
+          <Image
+            src="/post/bronze_kit/bronze_kit_1.png"
+            alt="Gaurav Nawale Google Student Ambassador Bronze Kit – The Explorer"
+            width={0}
+            height={0}
+            sizes="100vw"
+            style={{ width: '100%', height: 'auto' }}
+            className="object-contain"
+          />
+        </div>
+
+        <p className="text-xl text-foreground/80 leading-relaxed font-medium mb-6">
+          From organizing AI events on campus to now receiving my Bronze Kit – The Explorer from the Google Student Ambassador Program... this journey has been truly exciting. 💙✨
+        </p>
+
+        <p className="text-muted leading-relaxed mb-6">
+          Proud to be representing <strong>#TeamGemini</strong> as a <strong>Google Student Ambassador</strong> (GID: 7979). This kit is not just a notebook and a pen—it&apos;s a reminder of the responsibility to learn, build, and empower more students through AI and the Google ecosystem.
+        </p>
+
+        <blockquote className="my-12 pl-8 border-l-2 border-primary text-xl font-bold text-foreground italic bg-primary/5 py-8 pr-8 rounded-r-md">
+          &quot;This kit is not just a notebook and a pen—it&apos;s a reminder of the responsibility to learn, build, and empower more students through AI and the Google ecosystem.&quot;
+        </blockquote>
+
+        {/* What's in the Kit */}
+        <h3 className="text-2xl font-bold text-foreground mb-4 font-mono flex items-center gap-2">
+          <span>📦</span> Bronze Kit – The Explorer
+        </h3>
+        <p className="text-muted leading-relaxed mb-6">
+          The <strong>Bronze Tier – The Explorer</strong> is the first milestone in the Google Student Ambassador Program journey. Receiving this kit marks recognition of the community efforts, event organizing, and AI advocacy carried out on campus at Indira College of Engineering and Management, Pune (ICEM).
+        </p>
+
+        <div className="my-10 p-6 bg-surface/30 border border-theme rounded-xl">
+          <h4 className="font-mono text-xs text-secondary uppercase tracking-[0.2em] mb-4">◈ Achievement Details</h4>
+          <ul className="space-y-3 font-mono text-sm text-muted">
+            <li className="flex items-start gap-2">
+              <strong className="text-foreground">Milestone:</strong> <span>Bronze Tier – The Explorer</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <strong className="text-foreground">Program:</strong> <span>Google Student Ambassador Program</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <strong className="text-foreground">Team:</strong> <span>#TeamGemini</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <strong className="text-foreground">GID:</strong> <span>7979</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <strong className="text-foreground">College:</strong> <span>Indira College of Engineering and Management (ICEM), Pune</span>
+            </li>
+          </ul>
+        </div>
+
+        {/* Second Image */}
+        <div className="my-12 w-full rounded-xl overflow-hidden border border-theme">
+          <Image
+            src="/post/bronze_kit/bronze_kit_2.png"
+            alt="Gaurav Nawale Bronze Kit Google Student Ambassador – Team Gemini"
+            width={0}
+            height={0}
+            sizes="100vw"
+            style={{ width: '100%', height: 'auto' }}
+            className="object-contain"
+          />
+        </div>
+
+        {/* Gratitude Section */}
+        <h3 className="text-2xl font-bold text-foreground mt-12 mb-4 font-mono flex items-center gap-2">
+          <span>🙏</span> Gratitude &amp; What&apos;s Next
+        </h3>
+        <p className="text-muted leading-relaxed mb-6">
+          A heartfelt thank you to the entire <strong>Google Student Ambassador Program</strong> and <strong>Team Google Gemini</strong> for this recognition and for creating opportunities that inspire students to innovate and grow.
+        </p>
+        <p className="text-muted leading-relaxed mb-6">
+          I am equally grateful to <strong>Indira College of Engineering and Management, Pune (ICEM)</strong>, for continuously encouraging me to take on leadership opportunities and represent our college on national platforms.
+        </p>
+        <p className="text-muted leading-relaxed mb-8">
+          This is just the beginning. Many more AI workshops, community events, and exciting initiatives are on the way! 🚀
+        </p>
+
+        {/* Tags */}
+        <div className="my-10 flex flex-wrap gap-2">
+          {[
+            "#GoogleStudentAmbassador", "#TeamGemini", "#GoogleGemini", "#GoogleAI",
+            "#StudentLeader", "#CampusAmbassador", "#Leadership", "#AICommunity",
+            "#Innovation", "#ICEM", "#Pune", "#BuildWithAI"
+          ].map((tag) => (
+            <span key={tag} className="px-3 py-1 text-xs font-mono bg-primary/10 text-primary border border-primary/20 rounded-full">
+              {tag}
+            </span>
+          ))}
+        </div>
+
+        {/* LinkedIn Post Reference */}
+        <div className="mb-12 p-6 bg-surface/50 border border-theme rounded-xl">
+          <h3 className="text-lg font-bold text-foreground mb-3 font-mono">🔗 LinkedIn Post Reference:</h3>
+          <a
+            href="https://www.linkedin.com/posts/nawalegaurav26_teamgemini-googlestudentambassador-teamgemini-ugcPost-7478766434181939200-EJqj/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary hover:text-secondary transition-colors underline break-all"
+          >
+            View Original LinkedIn Post &amp; Community Discussion
+          </a>
+        </div>
+
+        <div className="border-t border-theme pt-8 mt-12">
+          <div className="flex flex-col gap-1 font-mono text-sm text-muted-2">
+            <span className="text-foreground font-bold">— Gaurav Raju Nawale</span>
+            <span>Google Student Ambassador 2026 | #TeamGemini</span>
+            <span>GID: 7979 | ICEM Pune</span>
+            <a href="https://www.gauravnawale.in" className="text-primary hover:underline mt-2">🌐 www.gauravnawale.in</a>
+          </div>
+        </div>
+      </>
+    )
+  },
+  {
     title: "Securing Rank 35 at Techfest, IIT Bombay — Ambassador Update",
     excerpt: "Thrilled to achieve Rank 35 among College Ambassadors for Techfest, IIT Bombay, reaching 1200 points and 57 credits in Asia's largest science and technology festival.",
     date: "JUN 26, 2026",
